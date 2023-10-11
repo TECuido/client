@@ -19,40 +19,81 @@ struct LoginView: View {
         NavigationView{
             ZStack{
                 //Diseño
-                Color.blue
+                Color(red: 0.1294,green: 0.5882,blue: 0.9529)
                     .ignoresSafeArea()
                 Circle()
                     .scale(1.8)
                     .foregroundColor(.white.opacity(0.15))
                 Circle()
-                    .scale(1.45)
+                    .scale(1.5)
                     .foregroundColor(.white)
                 // Texto general
                 VStack{
                     Text("Iniciar Sesión")
+                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                         .font(.largeTitle)
                         .bold()
-                        .padding()
+                        .padding(20)
                     //Inputs
-                    TextField("Correo", text: $email).padding()
-                        .frame(width: 300, height:50)
-                        .background(Color.black.opacity(0.05))
-                        .cornerRadius(10)
-                        .border(.red,width: CGFloat(wrongEmail))
                     
-                    SecureField("Contraseña", text: $password).padding()
+                    TextField("Correo", text: $email).padding(50)
+                        .overlay(
+                            HStack{
+                                Image(systemName: "mail.stack.fill")
+                                    .foregroundColor(.black)
+                                    .padding(.leading,10)
+                                Spacer()
+
+                            }
+                                                        
+                        )
                         .frame(width: 300, height:50)
-                        .background(Color.black.opacity(0.05))
+                        .background(Color.black.opacity(0.06))
+                        .cornerRadius(10)
+                        .padding(30)
+                        .border(.red,width: CGFloat(wrongEmail))
+                        .font(.title2)
+                       
+                    SecureField("Contraseña", text: $password).padding(40)
+                        .overlay(
+                            HStack{
+                                Image(systemName: "lock.fill")
+                                    .foregroundColor(.black)
+                                    .padding(.leading,10)
+                                Spacer()
+
+                            }
+                                                        
+                        )
+                        .frame(width: 300, height:50)
+                        .background(Color.black.opacity(0.06))
                         .cornerRadius(10)
                         .border(.red,width: CGFloat(wrongPassword))
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        
+                    
+                    HStack{
+                        
+                        Circle()
+                            .frame(width: 20)
+                            .foregroundColor(Color.black.opacity(0.06))
+                        Text("Recordar").padding(5)
+                            .foregroundColor(Color(red: 0.6824,green: 0.6824,blue: 0.6824))
+                    
+                        Text("¿Olvidaste tu contraseña?").foregroundColor(Color(red: 0.6824,green: 0.6824,blue: 0.6824))
+                        
+                    }
                     //Boton
                     Button("Iniciar Sesión"){
-                     authenticateEmail(email: email, password: password)
+                        authenticateEmail(email: email, password: password)
                     }
                     .foregroundColor(.white)
-                    .frame(width: 300, height:50)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+                    .frame(width: 300, height:55)
+                    .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                    .cornerRadius(20)
+                    .padding(30)
+                    .font(.title)
                     
                     NavigationLink(destination: Text("Iniciaste sesión @\(email)"),isActive: $showingLoginScreen){
                         EmptyView()
@@ -75,10 +116,10 @@ struct LoginView: View {
                 wrongPassword = 0
                 showingLoginScreen = true
             }else{
-                wrongPassword = 2
+                wrongPassword =    1
             }
         }else{
-            wrongEmail = 2
+            wrongEmail = 1
         }
     }
     
