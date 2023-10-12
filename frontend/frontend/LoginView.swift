@@ -39,7 +39,7 @@ struct LoginView: View {
                     TextField("Correo", text: $email).padding(50)
                         .overlay(
                             HStack{
-                                Image(systemName: "mail.stack.fill")
+                                Image(systemName: "envelope.fill")
                                     .foregroundColor(.black)
                                     .padding(.leading,10)
                                 Spacer()
