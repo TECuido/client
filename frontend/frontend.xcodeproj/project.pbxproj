@@ -12,6 +12,7 @@
 		FBDB2ED02AD7511E00E77EFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDB2ECF2AD7511E00E77EFF /* ContentView.swift */; };
 		FBDB2ED22AD7511F00E77EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDB2ED12AD7511F00E77EFF /* Assets.xcassets */; };
 		FBDB2ED52AD7511F00E77EFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDB2ED42AD7511F00E77EFF /* Preview Assets.xcassets */; };
+		FBE4D2DA2AD76F52005F515C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE4D2D92AD76F52005F515C /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		FBDB2ECF2AD7511E00E77EFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FBDB2ED12AD7511F00E77EFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBDB2ED42AD7511F00E77EFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FBE4D2D92AD76F52005F515C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				FBDB2ECD2AD7511E00E77EFF /* frontendApp.swift */,
 				FBDB2ECF2AD7511E00E77EFF /* ContentView.swift */,
 				FBB09AEC2AD75381000E1E4A /* LoginView.swift */,
+				FBE4D2D92AD76F52005F515C /* HomeView.swift */,
 				FBDB2ED12AD7511F00E77EFF /* Assets.xcassets */,
 				FBDB2ED32AD7511F00E77EFF /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBB09AED2AD75381000E1E4A /* LoginView.swift in Sources */,
+				FBE4D2DA2AD76F52005F515C /* HomeView.swift in Sources */,
 				FBDB2ED02AD7511E00E77EFF /* ContentView.swift in Sources */,
 				FBDB2ECE2AD7511E00E77EFF /* frontendApp.swift in Sources */,
 			);
