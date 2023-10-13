@@ -14,6 +14,8 @@
 		FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318B2AD9C6F500965B4B /* LoginView.swift */; };
 		FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318D2AD9C71700965B4B /* RegistroView.swift */; };
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
+		FB212FA02AD9C95700C81BDE /* UsuarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB212F9F2AD9C95700C81BDE /* UsuarioModel.swift */; };
+		FB212FA22AD9CA7F00C81BDE /* usuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB212FA12AD9CA7F00C81BDE /* usuarioViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		FB1C318B2AD9C6F500965B4B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FB1C318D2AD9C71700965B4B /* RegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroView.swift; sourceTree = "<group>"; };
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FB212F9F2AD9C95700C81BDE /* UsuarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioModel.swift; sourceTree = "<group>"; };
+		FB212FA12AD9CA7F00C81BDE /* usuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usuarioViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				FB1C318F2AD9C73E00965B4B /* HomeView.swift */,
 				FB1C31812AD9C6E400965B4B /* Assets.xcassets */,
 				FB1C31832AD9C6E400965B4B /* Preview Content */,
+				FB212F9F2AD9C95700C81BDE /* UsuarioModel.swift */,
+				FB212FA12AD9CA7F00C81BDE /* usuarioViewModel.swift */,
 			);
 			path = TECuido;
 			sourceTree = "<group>";
@@ -150,7 +156,9 @@
 				FB1C31802AD9C6E300965B4B /* ContentView.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
+				FB212FA02AD9C95700C81BDE /* UsuarioModel.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
+				FB212FA22AD9CA7F00C81BDE /* usuarioViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

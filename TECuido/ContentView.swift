@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  TECuido
 //
-//  Created by Alumno on 13/10/23.
+//  Created by Bernardo on 13/10/23.
 //
 
 import SwiftUI

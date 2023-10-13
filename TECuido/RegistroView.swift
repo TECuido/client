@@ -2,7 +2,7 @@
 //  RegistroView.swift
 //  frontend
 //
-//  Created by Alumno on 12/10/23.
+//  Created by Julio on 12/10/23.
 //
 
 import SwiftUI
