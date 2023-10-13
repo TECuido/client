@@ -15,6 +15,7 @@
 		FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318D2AD9C71700965B4B /* RegistroView.swift */; };
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
 		FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */; };
+		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FB1C318D2AD9C71700965B4B /* RegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroView.swift; sourceTree = "<group>"; };
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinEmergenciasView.swift; sourceTree = "<group>"; };
+		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				FB1C318B2AD9C6F500965B4B /* LoginView.swift */,
 				FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */,
 				FB1C318D2AD9C71700965B4B /* RegistroView.swift */,
+				FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */,
 				FB1C318F2AD9C73E00965B4B /* HomeView.swift */,
 				FB1C31812AD9C6E400965B4B /* Assets.xcassets */,
 				FB1C31832AD9C6E400965B4B /* Preview Content */,
@@ -155,6 +158,7 @@
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
+				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
