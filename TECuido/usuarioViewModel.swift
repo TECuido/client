@@ -12,7 +12,7 @@ class usuarioViewModel : ObservableObject {
     
     func authenticate(correo: String, password: String, completion: @escaping (Bool) -> Void){
         // Pedimos los datos para guardalos
-        let correo = correo.lowercased()
+      
        
         let userData = ["correo": correo, "password":password]
         // se manda la requesr
