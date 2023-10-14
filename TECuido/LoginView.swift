@@ -11,6 +11,7 @@ struct LoginView: View {
     @State private var wrongEmail = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
+    @State private var validacion = ""
     
     @ObservedObject var UsuarioViewModel = usuarioViewModel()
     
@@ -94,7 +95,12 @@ struct LoginView: View {
                         Text("¿Olvidaste tu contraseña?").foregroundColor(Color(red: 0.6824,green: 0.6824,blue: 0.6824))
                         
                     }
-                    
+                    // Aqui validamos que este incorrecto
+                    Text(validacion)
+                        .font(.title2)
+                        .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                        .frame(width: 300)
+                        .multilineTextAlignment(.center)
                     
                     //Boton
                     Button("Iniciar sesión"){
@@ -108,6 +114,7 @@ struct LoginView: View {
                                 // Inicio de sesion fallido
                                 wrongEmail = 1
                                 wrongPassword = 1
+                                validacion = "Correo o contraseña incorrecta"
                             }
                         }
                     }
@@ -123,7 +130,6 @@ struct LoginView: View {
                         EmptyView()
                     }
                 }
-                
                 
             }
         }
