@@ -16,7 +16,7 @@ class usuarioViewModel : ObservableObject {
        
         let userData = ["correo": correo, "password":password]
         // se manda la requesr
-        guard let url = URL(string: "http://localhost:3000/usuarios/login")
+        guard let url = URL(string: "https://tecuido-server.onrender.com/login")
         else{
             print("Url invalido")
             return
