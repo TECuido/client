@@ -4,16 +4,15 @@
 //
 //  Created by Bernardo on 11/10/23.
 //
-
 import SwiftUI
-
 struct LoginView: View {
-    @State private var email = ""
+    @State private var correo = ""
     @State private var password = ""
     @State private var wrongEmail = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
     
+    @ObservedObject var UsuarioViewModel = usuarioViewModel()
     
     var body: some View {
         NavigationView{
@@ -43,7 +42,7 @@ struct LoginView: View {
                             .frame(width: 30, height: 20)
                             .padding(.leading, 15)
                         TextField("",
-                                  text: $email,
+                                  text: $correo,
                                   prompt: Text("Correo electrónico")
                             .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                           )
@@ -59,7 +58,6 @@ struct LoginView: View {
                             .stroke(.red, lineWidth: CGFloat(wrongEmail)*2)
                     }
                     .padding([.top, .bottom], 10)
-
                     //Input Contraseña
                     HStack {
                         Image(systemName: "lock.fill")
@@ -100,7 +98,18 @@ struct LoginView: View {
                     
                     //Boton
                     Button("Iniciar sesión"){
-                        
+    
+                        UsuarioViewModel.authenticate(correo: correo, password: password){
+                            sucess in
+                            if sucess{
+                                // Inicio de sesion exitosa
+                                showingLoginScreen = true
+                            }else{
+                                // Inicio de sesion fallido
+                                wrongEmail = 1
+                                wrongPassword = 1
+                            }
+                        }
                     }
                     .foregroundColor(.white)
                     .bold()
@@ -110,7 +119,7 @@ struct LoginView: View {
                     .padding(30)
                     .font(.title2)
                     
-                    NavigationLink(destination: Text("Iniciaste sesión @\(email)"),isActive: $showingLoginScreen){
+                    NavigationLink(destination: Text("Iniciaste sesión @\(correo)"),isActive: $showingLoginScreen){
                         EmptyView()
                     }
                 }
@@ -122,20 +131,6 @@ struct LoginView: View {
         
         
         
-    }
-    // Funcion que valida que se pueda pasar al usuario
-    func authenticateEmail(email: String, password: String){
-        if(email.lowercased() == "bdelas@gmail.com"){
-            wrongEmail = 0
-            if(password.lowercased() == "papa"){
-                wrongPassword = 0
-                showingLoginScreen = true
-            }else{
-                wrongPassword =    1
-            }
-        }else{
-            wrongEmail = 1
-        }
     }
     
     struct LoginView_Previews: PreviewProvider {
