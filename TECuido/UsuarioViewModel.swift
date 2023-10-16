@@ -39,35 +39,25 @@ class UsuarioViewModel : ObservableObject {
             if let statCod = (response as? HTTPURLResponse)?.statusCode {
                 //decodificar la informacion de formato JSON
                 let results = try JSONDecoder().decode(ApiResponseModel.self, from:data)
-                        
                 //utilizamos el thread principal para actualizar la variable de Photos
                 DispatchQueue.main.async {
                     self.statusCode = statCod
                 }
-                
                 if(results.message != "ok"){
                     DispatchQueue.main.async {
                         self.message = results.message
                     }
                 }
             } else {
-                print("Hubo un error en la socitud")
+                print("Hubo un error en la solicitud")
                 DispatchQueue.main.async {
                     self.message = "Ocurrió un error. Vuelve a intentarlo más tarde."
                 }
                 return
             }
-            
         } catch {
             print("Error del servidor")
             return
         }
-        
-        
-       
-        
-        
     }
-    
-    
 }

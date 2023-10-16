@@ -12,18 +12,18 @@ struct EmergenciasView: View {
         ZStack{
             VStack{
                 // icono de la pantalla
-                Image("icon")
+                /*Image("icon")
                     .resizable()
                     .frame(width: 60, height: 60)
                     .position(x:60,y:20)
-                Spacer()
+                Spacer()*/
                 // Titulo
                 Text("Emergencias")
                     .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
                     .font(.system(size: 55))
                     .bold()
                 // Imagen principal
-                Image("mal")
+                Image("Mal")
                 // Texto de todo bien
                 Text("Alerta")
                     .font(.largeTitle)

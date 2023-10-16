@@ -12,11 +12,11 @@ struct SinEmergenciasView: View {
         ZStack{
             VStack{
                 // icono de la pantalla
-                Image("icon")
+                /*Image("icon")
                     .resizable()
                     .frame(width: 60, height: 60)
                     .position(x:60,y:20)
-                Spacer()
+                Spacer()*/
                 // Titulo
                 Text("Emergencias")
                     .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))

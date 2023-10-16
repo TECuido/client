@@ -120,7 +120,7 @@ struct LoginView: View {
                     .padding(30)
                     .font(.title2)
                     
-                    NavigationLink(destination: Text("Iniciaste sesión @\(correo)"),isActive: $showingLoginScreen){
+                    NavigationLink(destination: HomeView(),isActive: $showingLoginScreen){
                         EmptyView()
                     }
                 }
