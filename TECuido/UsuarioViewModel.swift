@@ -6,12 +6,13 @@
 //
 import Foundation
 import SwiftUI
-class usuarioViewModel : ObservableObject {
+class UsuarioViewModel : ObservableObject {
+    @Published var statusCode: Int = 0
+    @Published var message: String = ""
     
-    func authenticate(correo: String, password: String, completion: @escaping (Bool) -> Void){
+    func authenticate(correo: String, password: String) async {
+
         // Pedimos los datos para guardalos
-      
-       
         let userData = ["correo": correo, "password":password]
         // se manda la requesr
         guard let url = URL(string: "https://tecuido-server.onrender.com/login")
@@ -31,29 +32,39 @@ class usuarioViewModel : ObservableObject {
             return
         }
         
-        URLSession.shared.dataTask(with: request){(data,response, error) in
-            if let error = error {
-                print("Hubo un error en la solicitud: \(error.localizedDescription)")
-                completion(false)
+        //Realizar la llamada con URLSession
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            if let statCod = (response as? HTTPURLResponse)?.statusCode {
+                //decodificar la informacion de formato JSON
+                let results = try JSONDecoder().decode(ApiResponseModel.self, from:data)
+                        
+                //utilizamos el thread principal para actualizar la variable de Photos
+                DispatchQueue.main.async {
+                    self.statusCode = statCod
+                }
+                
+                if(results.message != "ok"){
+                    DispatchQueue.main.async {
+                        self.message = results.message
+                    }
+                }
+            } else {
+                print("Hubo un error en la socitud")
+                DispatchQueue.main.async {
+                    self.message = "Ocurrió un error. Vuelve a intentarlo más tarde."
+                }
                 return
             }
             
-            if let data = data {
-                if let httpResponsed = response as? HTTPURLResponse{
-                    if httpResponsed.statusCode == 200{
-                        completion(true)
-                    }else{
-                        completion(false)
-                    }
-                }else{
-                    completion(false)
-                }
-            } else{
-                completion(false)
-            }
-            
-            
-        }.resume()
+        } catch {
+            print("Error del servidor")
+            return
+        }
+        
+        
+       
         
         
     }

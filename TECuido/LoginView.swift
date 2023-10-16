@@ -13,7 +13,7 @@ struct LoginView: View {
     @State private var showingLoginScreen = false
     @State private var validacion = ""
     
-    @ObservedObject var UsuarioViewModel = usuarioViewModel()
+    @StateObject var usuarioViewModel = UsuarioViewModel()
     
     var body: some View {
         NavigationView{
@@ -96,26 +96,20 @@ struct LoginView: View {
                         
                     }
                     // Aqui validamos que este incorrecto
-                    Text(validacion)
-                        .font(.title2)
+                    Text(usuarioViewModel.message)
+                        .font(.title3)
                         .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
                         .frame(width: 300)
                         .multilineTextAlignment(.center)
                     
                     //Boton
                     Button("Iniciar sesión"){
-    
-                        UsuarioViewModel.authenticate(correo: correo, password: password){
-                            sucess in
-                            if sucess{
-                                // Inicio de sesion exitosa
+                        Task {
+                            await usuarioViewModel.authenticate(correo: correo, password: password)
+                            
+                            if(usuarioViewModel.statusCode == 200){
                                 showingLoginScreen = true
-                            }else{
-                                // Inicio de sesion fallido
-                                wrongEmail = 1
-                                wrongPassword = 1
-                                validacion = "Correo o contraseña incorrecta"
-                            }
+                            } 
                         }
                     }
                     .foregroundColor(.white)
