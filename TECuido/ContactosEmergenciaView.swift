@@ -4,7 +4,7 @@ struct ContactosEmergenciaView: View {
    
     @State private var showEstatusView = false
     var body: some View {
-        NavigationView { // Asegúrate de envolver tu vista en una NavigationView
+     
             ZStack {
                 VStack {
                     Text("Emergencias")
@@ -45,7 +45,7 @@ struct ContactosEmergenciaView: View {
 
             }
             
-        }
+        
     }
 }
 

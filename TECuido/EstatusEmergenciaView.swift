@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct EstatusEmergenciaView: View {
-    @Environment(\.presentationMode) var presentationMode
+    
+     @State private var showHomeView = false
 
     var body: some View {
         ZStack{
@@ -36,9 +37,7 @@ struct EstatusEmergenciaView: View {
                 
                 
                 Button("Finalizar") {
-                    presentationMode.wrappedValue.dismiss()
-                    presentationMode.wrappedValue.dismiss()
-                    presentationMode.wrappedValue.dismiss()
+                    showHomeView = true
 
                 }
                 .foregroundColor(.white)
@@ -51,7 +50,10 @@ struct EstatusEmergenciaView: View {
                 Rectangle()
                     .foregroundColor((Color(red: 0.8392,green: 0,blue: 0)))
                     .ignoresSafeArea()
-            } 
+            } .background(
+                NavigationLink("", destination: HomeView(), isActive: $showHomeView)
+            )
+
 
                 
             

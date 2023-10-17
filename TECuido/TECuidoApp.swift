@@ -6,11 +6,7 @@
 //
 
 import SwiftUI
-enum{
-    case homes
-    case mandarEmergencia
-    case contactosEmergencia
-}
+
 @main
 struct TECuidoApp: App {
     var body: some Scene {
