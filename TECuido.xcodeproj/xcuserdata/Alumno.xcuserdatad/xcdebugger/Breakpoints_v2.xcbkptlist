@@ -34,6 +34,158 @@
             endingLineNumber = "10"
             landmarkName = "UsuarioViewModel"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - 835ad711aed43cb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of TECuido.UsuarioViewModel.statusCode : Swift.Int"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - d66c403f3da14db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.statusCode.getter : Swift.Int"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - 93a00bc4e53d68c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.statusCode.setter : Swift.Int"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - ba565eb9d69f79d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.statusCode.modify : Swift.Int"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - e6effa95501449c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.statusCode.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - ad3ba11b306d97fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.$statusCode.getter : Combine.Published&lt;Swift.Int&gt;.Publisher"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - 385fd0973b34fea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.$statusCode.setter : Combine.Published&lt;Swift.Int&gt;.Publisher"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - 2d231d27055f2be7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.$statusCode.modify : Combine.Published&lt;Swift.Int&gt;.Publisher"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - f1e25e69ae096b94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.$statusCode.modify : Combine.Published&lt;Swift.Int&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "1169D1FE-0B28-4BF2-902E-FF29B39C3C00 - 76715b640a393e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TECuido.UsuarioViewModel.init() -&gt; TECuido.UsuarioViewModel"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/GitHub/client/TECuido/UsuarioViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EstatusEmergenciaView: View {
     
-     @State private var showHomeView = false
+ 
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         ZStack{
@@ -28,35 +29,29 @@ struct EstatusEmergenciaView: View {
                 Text("Descripción de la alerta")
                     .font(.title3)
                     .bold()
-                VStack{
+                ScrollView{
                    // Aqui iria la descripcion ya enviada
                     Text("Descripción de la alerta")
                     Spacer()
                         .font(.title2)
-                }.frame(width: 300, height: 150)
-                
-                
+                }.frame(width: 300, height: 100)
+            
                 Button("Finalizar") {
-                    showHomeView = true
-
+                    presentationMode.wrappedValue.dismiss()
                 }
                 .foregroundColor(.white)
                 .bold()
                 .frame(width: 300, height: 65)
                 .background(Color(red: 0.8392,green: 0,blue: 0))
                 .cornerRadius(30)
-                .padding(30)
+                .padding(   10)
                 .font(.title)
                 Rectangle()
                     .foregroundColor((Color(red: 0.8392,green: 0,blue: 0)))
                     .ignoresSafeArea()
-            } .background(
+            } /*.background(
                 NavigationLink("", destination: HomeView(), isActive: $showHomeView)
-            )
-
-
-                
-            
+            )*/
         }
     }
 }
