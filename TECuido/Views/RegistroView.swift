@@ -71,6 +71,7 @@ struct RegistroView: View {
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.title3)
                                 .padding(.leading, 5)
+                                .autocapitalization(.none)
                         }
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -96,6 +97,8 @@ struct RegistroView: View {
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.title3)
                                 .padding(.leading, 13)
+                                .autocapitalization(.none)
+
                         }
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -121,6 +124,7 @@ struct RegistroView: View {
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.title3)
                                 .padding(.leading, 13)
+                                .autocapitalization(.none)
                         }
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
@@ -153,7 +157,7 @@ struct RegistroView: View {
                         .cornerRadius(25)
                         .padding(10)
                         .font(.title2)
-                        
+                                                
                         NavigationLink(destination: HomeView(),
                                        isActive: $viewModel.isAuthenticated){
                             EmptyView()
