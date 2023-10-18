@@ -25,27 +25,19 @@ struct SinEmergenciasView: View {
                 // Imagen principal
                 Image("bien")
                 // Texto de todo bien
-                Text("Todo se")
-                    .font(.largeTitle)
-                    .bold()
-                Text("encuentra")
-                    .font(.largeTitle)
-                    .bold()
-                Text("bien")
-                    .font(.largeTitle)
-                    .bold()
-                //Boton
-                // Aqui falta usar la navegacion
-                Button("Enviar Emergencia"){
-                    
-                }
-                .foregroundColor(.white)
-                .bold()
-                .frame(width: 300, height:55)
-                .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                .cornerRadius(25)
-                .padding(30)
-                .font(.title2)
+                VStack{
+                    Text("Todo se")
+                        .font(.system(size:45))
+                        .bold()
+                    Text("encuentra")
+                        .font(.system(size:45))
+                        .bold()
+                    Text("bien")
+                        .font(.system(size:45))
+                        .bold()
+                }.frame(height: 200)
+                
+               
                 Rectangle()
                     .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                     .ignoresSafeArea()

@@ -23,7 +23,7 @@ struct RegistroView: View {
                         .foregroundColor(.white.opacity(0.15))
                     Circle()
                         .scale(1.75)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
                     
                     // Texto general
                     VStack{
