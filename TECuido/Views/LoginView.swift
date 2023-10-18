@@ -20,7 +20,7 @@ struct LoginView: View {
                     .foregroundColor(.white.opacity(0.15))
                 Circle()
                     .scale(1.5)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
                 
                 // Texto general
                 VStack{
@@ -41,7 +41,6 @@ struct LoginView: View {
                                   prompt: Text("Correo electrónico")
                             .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                           )
-                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                             .font(.title3)
                             .padding(.leading, 5)
                             .autocapitalization(.none)

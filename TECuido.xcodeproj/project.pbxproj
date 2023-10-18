@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */; };
-		FB1C31802AD9C6E300965B4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C317F2AD9C6E300965B4B /* ContentView.swift */; };
 		FB1C31822AD9C6E400965B4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31812AD9C6E400965B4B /* Assets.xcassets */; };
 		FB1C31852AD9C6E400965B4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31842AD9C6E400965B4B /* Preview Assets.xcassets */; };
 		FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318B2AD9C6F500965B4B /* LoginView.swift */; };
@@ -18,6 +17,10 @@
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
 		FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5002ADA17FF001E430D /* LoginViewModel.swift */; };
 		FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5022ADA1829001E430D /* UsuarioModel.swift */; };
+		FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */; };
+		FB656C542AE05F3900543B12 /* ContactosEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C532AE05F3900543B12 /* ContactosEmergenciaView.swift */; };
+		FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */; };
+		FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */; };
 		FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */; };
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 		FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */; };
@@ -27,7 +30,6 @@
 /* Begin PBXFileReference section */
 		FB1C317A2AD9C6E200965B4B /* TECuido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TECuido.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoApp.swift; sourceTree = "<group>"; };
-		FB1C317F2AD9C6E300965B4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FB1C31812AD9C6E400965B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1C31842AD9C6E400965B4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FB1C318B2AD9C6F500965B4B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -37,6 +39,10 @@
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FB60F5022ADA1829001E430D /* UsuarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioModel.swift; sourceTree = "<group>"; };
+		FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasView.swift; sourceTree = "<group>"; };
+		FB656C532AE05F3900543B12 /* ContactosEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosEmergenciaView.swift; sourceTree = "<group>"; };
+		FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstatusEmergenciaView.swift; sourceTree = "<group>"; };
+		FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarEmergenciaView.swift; sourceTree = "<group>"; };
 		FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinEmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 		FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -110,7 +116,10 @@
 				FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */,
 				FB1C318F2AD9C73E00965B4B /* HomeView.swift */,
 				FB1C318B2AD9C6F500965B4B /* LoginView.swift */,
-				FB1C317F2AD9C6E300965B4B /* ContentView.swift */,
+				FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */,
+				FB656C532AE05F3900543B12 /* ContactosEmergenciaView.swift */,
+				FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */,
+				FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,13 +220,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
+				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
-				FB1C31802AD9C6E300965B4B /* ContentView.swift in Sources */,
+				FB656C542AE05F3900543B12 /* ContactosEmergenciaView.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
+				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
+				FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */,
 				FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
