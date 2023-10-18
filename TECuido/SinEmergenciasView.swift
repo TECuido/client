@@ -35,24 +35,9 @@ struct SinEmergenciasView: View {
                     Text("bien")
                         .font(.system(size:45))
                         .bold()
-                }.frame(height: 300)
+                }.frame(height: 200)
                 
-                //Boton
-                // Aqui falta usar la navegacion
-                /*Button("Continuar") {
-                    
-                }
-                .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                .bold()
-                .frame(width: 300, height: 55)
-                .background(Color.white)
-                .cornerRadius(25)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529), lineWidth: 4)
-                )
-                .padding(30)
-                .font(.title2)*/
+               
                 Rectangle()
                     .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                     .ignoresSafeArea()

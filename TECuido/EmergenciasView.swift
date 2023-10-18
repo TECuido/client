@@ -12,13 +12,14 @@ struct EmergenciasView: View {
         
         TabView{
             MandarEmergenciaView()
-              
-                .tabItem{
-                    Image(systemName: "exclamationmark.triangle.fill")
-                }
-            MandarEmergenciaView()
                 .tabItem{
                     Image(systemName: "text.bubble.fill")
+                }
+                
+            SinEmergenciasView()
+                .tabItem{
+                    
+                    Image(systemName: "exclamationmark.triangle.fill")
                 }
         }
     }

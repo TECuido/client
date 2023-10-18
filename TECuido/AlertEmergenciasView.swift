@@ -28,12 +28,12 @@ struct AlertEmergenciasView: View {
                 Text("Alerta")
                     .font(.largeTitle)
                     .bold()
-                VStack{
+                ScrollView{
                    
                     Text("Descripción de la alerta")
                     Spacer()
                         .font(.title2)
-                }.frame(width: 300, height: 200)
+                }.frame(width: 300, height: 100)
                 Text("Enviado por:")
                     .font(.title2)
                 Text("Familiar")

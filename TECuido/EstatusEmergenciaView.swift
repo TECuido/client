@@ -29,29 +29,18 @@ struct EstatusEmergenciaView: View {
                 Text("Descripción de la alerta")
                     .font(.title3)
                     .bold()
-                ScrollView{
+                VStack{
                    // Aqui iria la descripcion ya enviada
                     Text("Descripción de la alerta")
                     Spacer()
                         .font(.title2)
-                }.frame(width: 300, height: 100)
+                }.frame(width: 300, height: 200)
             
-                Button("Finalizar") {
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .foregroundColor(.white)
-                .bold()
-                .frame(width: 300, height: 65)
-                .background(Color(red: 0.8392,green: 0,blue: 0))
-                .cornerRadius(30)
-                .padding(   10)
-                .font(.title)
+                
                 Rectangle()
                     .foregroundColor((Color(red: 0.8392,green: 0,blue: 0)))
                     .ignoresSafeArea()
-            } /*.background(
-                NavigationLink("", destination: HomeView(), isActive: $showHomeView)
-            )*/
+            }
         }
     }
 }
