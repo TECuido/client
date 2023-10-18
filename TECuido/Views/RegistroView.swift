@@ -9,12 +9,7 @@ import SwiftUI
 
 struct RegistroView: View {
     
-    @State private var name = ""
-    @State private var email = ""
-    @State private var password = ""
-    @State private var passConf = ""
-    @State private var wrongEmail = 0
-    @State private var wrongPassword = 0
+    @StateObject var viewModel = RegistroViewModel()
     
     var body: some View {
         
@@ -45,7 +40,7 @@ struct RegistroView: View {
                                 .frame(width: 24, height: 24)
                                 .padding(.leading, 16)
                             TextField("",
-                                      text: $name,
+                                      text: $viewModel.nombre,
                                       prompt: Text("Nombre")
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                               )
@@ -56,6 +51,10 @@ struct RegistroView: View {
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                         .cornerRadius(20)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(.red, lineWidth: CGFloat(viewModel.nombreError)*2)
+                        }
                         .padding([.top, .bottom], 10)
                         
                         //Input Correo
@@ -65,20 +64,21 @@ struct RegistroView: View {
                                 .frame(width: 30, height: 20)
                                 .padding(.leading, 15)
                             TextField("",
-                                      text: $email,
+                                      text: $viewModel.correo,
                                       prompt: Text("Correo electrónico")
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                               )
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.title3)
                                 .padding(.leading, 5)
+                                .autocapitalization(.none)
                         }
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                         .cornerRadius(20)
                         .overlay {
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(wrongEmail)*2)
+                                .stroke(.red, lineWidth: CGFloat(viewModel.correoError)*2)
                         }
                         .padding([.top, .bottom], 10)
                         
@@ -90,20 +90,22 @@ struct RegistroView: View {
                                 .frame(width: 17, height: 25)
                                 .padding(.leading, 20)
                             SecureField("",
-                                      text: $password,
+                                      text: $viewModel.password,
                                       prompt: Text("Contraseña")
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                               )
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.title3)
                                 .padding(.leading, 13)
+                                .autocapitalization(.none)
+
                         }
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                         .cornerRadius(20)
                         .overlay {
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(wrongPassword)*2)
+                                .stroke(.red, lineWidth: CGFloat(viewModel.passwordError)*2)
                         }
                         .padding([.top, .bottom], 10)
                         
@@ -115,35 +117,51 @@ struct RegistroView: View {
                                 .frame(width: 17, height: 25)
                                 .padding(.leading, 20)
                             SecureField("",
-                                        text: $passConf,
-                                      prompt: Text("Confirma tu contraseña")
+                                        text: $viewModel.confPassword,
+                                        prompt: Text("Confirma tu contraseña")
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                               )
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.title3)
                                 .padding(.leading, 13)
+                                .autocapitalization(.none)
                         }
                         .frame(width: 325, height: 55)
                         .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                         .cornerRadius(20)
                         .overlay {
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(wrongPassword)*2)
+                                .stroke(.red, lineWidth: CGFloat(viewModel.confPassError)*2)
                         }
                         .padding([.top, .bottom], 10)
                     
             
+                        // Aqui validamos que este incorrecto
+                        Text(viewModel.message)
+                            .font(.body)
+                            .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                            .frame(width: 300)
+                            .padding(.top, 5)
+                            .multilineTextAlignment(.center)
+                        
                         //Boton
-                        Button("Iniciar Sesión"){
-                            
+                        Button("Registrarme"){
+                            Task {
+                                await viewModel.register()
+                            }
                         }
                         .foregroundColor(.white)
                         .bold()
                         .frame(width: 300, height:55)
                         .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                         .cornerRadius(25)
-                        .padding(30)
+                        .padding(10)
                         .font(.title2)
+                                                
+                        NavigationLink(destination: HomeView(),
+                                       isActive: $viewModel.isAuthenticated){
+                            EmptyView()
+                        }
                         
                         
                     }
