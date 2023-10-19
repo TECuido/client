@@ -17,17 +17,15 @@ struct ContactosView: View {
         TabView{
             
             
-            MandarEmergenciaView()
+            ListaContactosView()
                 .tabItem{
-                    Image(systemName: "text.bubble.fill")
+                    Image(systemName: "person.crop.circle.fill")
                 }
                 .tint(.blue)
-
             
-            
-            SinEmergenciasView()
+            GruposView()
                 .tabItem{
-                    Image(systemName: "exclamationmark.triangle.fill")
+                    Image(systemName: "person.3.fill")
                 }
             
             
