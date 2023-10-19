@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistroView: View {
-    
+    @Binding var typeCuenta: Int
     @StateObject var viewModel = RegistroViewModel()
     
     var body: some View {
@@ -29,7 +29,7 @@ struct RegistroView: View {
                     VStack{
                         Text("Registro")
                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                            .font(.largeTitle)
+                            .font(.system(size: 45))
                             .bold()
                             .padding(20)
                         
@@ -178,6 +178,6 @@ struct RegistroView: View {
 
 struct RegistroView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistroView()
+        RegistroView(typeCuenta: .constant(3))
     }
 }

@@ -28,6 +28,7 @@
 		FB999B652AE1D9830018C268 /* GruposDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B642AE1D9830018C268 /* GruposDetallesView.swift */; };
 		FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
+		FBCB38892AE1DD670098D815 /* TipoCuentaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB38882AE1DD670098D815 /* TipoCuentaView.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		FB999B642AE1D9830018C268 /* GruposDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruposDetallesView.swift; sourceTree = "<group>"; };
 		FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
+		FBCB38882AE1DD670098D815 /* TipoCuentaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoCuentaView.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 				FB1C318F2AD9C73E00965B4B /* HomeView.swift */,
 				FB1C318B2AD9C6F500965B4B /* LoginView.swift */,
 				FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */,
+				FBCB38882AE1DD670098D815 /* TipoCuentaView.swift */,
 				FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */,
 				FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */,
 				FBB8EC632AE1D5E800D8766C /* ContactosView.swift */,
@@ -248,6 +251,7 @@
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
+				FBCB38892AE1DD670098D815 /* TipoCuentaView.swift in Sources */,
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
 				FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
