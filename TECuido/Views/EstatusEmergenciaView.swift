@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EstatusEmergenciaView: View {
-    
+
  
     var body: some View {
         ZStack{
@@ -20,6 +20,9 @@ struct EstatusEmergenciaView: View {
                     .bold()
                 // Imagen principal
                 Image("Mal")
+                
+                
+                    
                 // Texto de todo bien
                 Text("Alerta")
                     .font(.largeTitle)

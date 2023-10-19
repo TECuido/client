@@ -32,8 +32,6 @@ struct EmergenciasView: View {
                 }
             
             
-            
-            
         }
         .onAppear() {
             UITabBar.appearance().barTintColor = UIColor(red: 0.1294, green: 0.5882, blue: 0.9529, alpha: 0)

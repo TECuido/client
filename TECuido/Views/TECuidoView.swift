@@ -5,9 +5,11 @@
 //  Created by Erick on 12/10/23.
 //
 import SwiftUI
+
 struct TECuidoView: View {
     @State private var showLoginView = false
     @State private var showRegisterView = false
+    @State private var scale = 1.0
     
     var body: some View {
         NavigationView{
@@ -35,13 +37,27 @@ struct TECuidoView: View {
                             .font(.system(size: 20))
                             .bold()
                             .padding(3)
+                        
+                        
                         Image("icon")
+                            .resizable()
+                            .frame(width: 175, height: 175)
+                            .onTapGesture {
+                                if(scale <= 1.0){
+                                    scale += 0.15
+                                } else {
+                                    scale -= 0.15
+                                }
+                            }
+                            .scaleEffect(scale)
+                            .animation(.easeIn, value: scale)
                         
                         
                         // Boton Iniciar Sesion
                         Button("Iniciar Sesión"){
                             showLoginView = true
                         }
+                        .accessibilityLabel("Iniciar sesión")
                         .foregroundColor(Color(red: 0.9765, green: 0.9765, blue: 0.9765))
                         .frame(width: 340, height:64)
                         .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
@@ -53,11 +69,13 @@ struct TECuidoView: View {
                         NavigationLink(destination: LoginView(), isActive: $showLoginView) {
                             EmptyView()
                         }
+
                         
                         // Boton Registrarse
                         Button("Regístrate"){
                             showRegisterView = true
                         }
+                        .accessibilityLabel("Registrate")
                         .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                         .frame(width: 340, height:64)
                         .background(Color(red: 0.9765, green: 0.9765, blue: 0.9765))

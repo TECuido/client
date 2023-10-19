@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct AlertEmergenciasView: View {
+    
+    @State var angle = 0.0
+    @State var movingLeft = true
+    
+    
     var body: some View {
         ZStack{
             VStack{
@@ -18,6 +23,24 @@ struct AlertEmergenciasView: View {
                     .bold()
                 // Imagen principal
                 Image("Mal")
+                    .rotationEffect(.degrees(angle))
+                    
+                    .animation(Animation.easeInOut(duration: 0.3).repeatForever(), value: angle)
+                    .onAppear {
+                        if(movingLeft && angle < 30){
+                            angle += 30
+                        } else if(movingLeft && angle >= 30){
+                            angle -= 30
+                            movingLeft = false
+                        } else if(!movingLeft && angle > -30){
+                            angle -= 30
+                        } else {
+                            angle += 30
+                            movingLeft = true
+                        }
+                    }
+                
+                
                 // Texto de todo bien
                 Text("Alerta")
                     .font(.largeTitle)
