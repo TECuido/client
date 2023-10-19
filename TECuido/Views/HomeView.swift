@@ -20,7 +20,6 @@ struct HomeView: View {
 
     var body: some View {
         
-        NavigationView {
             
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
@@ -119,7 +118,6 @@ struct HomeView: View {
             
             
         }
-    }
 
 
     private func createSection(title: String, iconName: String, hint: String) -> some View {
