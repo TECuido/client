@@ -21,9 +21,8 @@ struct EmergenciasView: View {
             MandarEmergenciaView()
                 .tabItem{
                     Image(systemName: "text.bubble.fill")
-                        .renderingMode(.template)
-                        .foregroundColor(.white)
                 }
+                .tint(.blue)
             
             
             SinEmergenciasView()
