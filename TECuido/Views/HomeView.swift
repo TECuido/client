@@ -19,9 +19,7 @@ struct HomeView: View {
     @State private var scale = 1.0
 
     var body: some View {
-        
-        NavigationView {
-            
+                    
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
                     .ignoresSafeArea()
@@ -117,8 +115,6 @@ struct HomeView: View {
                 
             }
             
-            
-        }
     }
 
 
