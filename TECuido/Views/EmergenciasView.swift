@@ -23,6 +23,7 @@ struct EmergenciasView: View {
                     Image(systemName: "text.bubble.fill")
                 }
                 .tint(.blue)
+
             
             
             SinEmergenciasView()

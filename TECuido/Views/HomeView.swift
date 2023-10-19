@@ -19,7 +19,8 @@ struct HomeView: View {
     @State private var scale = 1.0
 
     var body: some View {
-                    
+        
+            
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
                     .ignoresSafeArea()
@@ -115,7 +116,8 @@ struct HomeView: View {
                 
             }
             
-    }
+            
+        }
 
 
     private func createSection(title: String, iconName: String, hint: String) -> some View {
