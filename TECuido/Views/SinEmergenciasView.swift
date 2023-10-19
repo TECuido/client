@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SinEmergenciasView: View {
+
     var body: some View {
         ZStack{
             VStack{
@@ -26,22 +27,12 @@ struct SinEmergenciasView: View {
                 Image("bien")
                 // Texto de todo bien
                 VStack{
-                    Text("Todo se")
+                    Text("Todo se encuentra bien")
                         .font(.system(size:45))
-                        .bold()
-                    Text("encuentra")
-                        .font(.system(size:45))
-                        .bold()
-                    Text("bien")
-                        .font(.system(size:45))
-                        .bold()
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
                 }.frame(height: 200)
                 
-               
-                Rectangle()
-                    .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                    .ignoresSafeArea()
-                   
                 
             }
             

@@ -11,12 +11,6 @@ struct AlertEmergenciasView: View {
     var body: some View {
         ZStack{
             VStack{
-                // icono de la pantalla
-                /*Image("icon")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .position(x:60,y:20)
-                Spacer()*/
                 // Titulo
                 Text("Emergencias")
                     .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
@@ -38,11 +32,6 @@ struct AlertEmergenciasView: View {
                     .font(.title2)
                 Text("Familiar")
                     .font(.title2)
-                
-               
-                Rectangle()
-                    .foregroundColor((Color(red: 0.8392,green: 0,blue: 0)))
-                    .ignoresSafeArea()
             }
                 
             

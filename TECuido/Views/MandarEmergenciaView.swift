@@ -16,6 +16,7 @@ struct MandarEmergenciaView: View {
     let optionsContacto = ["Familiares", "Mejores amigos", "Amigos", "Conocidos", "Otro"]
     @State private var otro = ""
     @State private var descripcion = ""
+    
     var body: some View {
         ZStack{
                 VStack{
@@ -81,7 +82,7 @@ struct MandarEmergenciaView: View {
                             HStack {
                                 Image(systemName: "person.fill")
                                     .resizable()
-                                    .frame(width: 30, height: 20)
+                                    .frame(width: 20, height: 20)
                                     .padding(.leading, 15)
                                 TextField("",
                                           text: $otro,
@@ -113,22 +114,24 @@ struct MandarEmergenciaView: View {
                         
                         // Inicio boton
                             Button("Continuar") {
-                                            showEstatusView = true
-                                        }
-                                        .foregroundColor(.white)
-                                        .bold()
-                                        .frame(width: 300, height: 65)
-                                        .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                        .cornerRadius(25)
-                                        .padding(30)
-                                        .font(.title)
+                                showEstatusView = true
+                            }
+                            .foregroundColor(.white)
+                            .bold()
+                            .frame(width: 300, height: 65)
+                            .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                            .cornerRadius(25)
+                            .padding(30)
+                            .font(.title2)
                        
                     }
+                    
+                    
+                    NavigationLink("", destination: EstatusEmergenciaView(), isActive: $showEstatusView)
                                     
                 }
-                .background(
-                            NavigationLink("", destination: EstatusEmergenciaView(), isActive: $showEstatusView)
-                        )
+                
+                
 
                 
             }

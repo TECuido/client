@@ -25,7 +25,7 @@ struct TECuidoView: View {
                 // Texto general
                 VStack{
                     VStack{
-                        Text("TECiudo")
+                        Text("TECuido")
                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                             .font(.system(size: 80))
                             .bold()

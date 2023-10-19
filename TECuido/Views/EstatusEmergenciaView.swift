@@ -10,8 +10,6 @@ import SwiftUI
 struct EstatusEmergenciaView: View {
     
  
-    @Environment(\.presentationMode) var presentationMode
-
     var body: some View {
         ZStack{
             VStack{
@@ -35,12 +33,20 @@ struct EstatusEmergenciaView: View {
                     Spacer()
                         .font(.title2)
                 }.frame(width: 300, height: 200)
-            
+                
+                
+                Spacer()
                 
                 Rectangle()
-                    .foregroundColor((Color(red: 0.8392,green: 0,blue: 0)))
+                    .fill(Color(red: 0.83, green: 0, blue: 0))
                     .ignoresSafeArea()
+                    .frame(width:.infinity, height: 50)
+                    .padding(.bottom, 0)
+            
             }
+            
+            
+            
         }
     }
 }
