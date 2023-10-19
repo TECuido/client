@@ -15,7 +15,8 @@ struct HomeView: View {
     @State private var showRecetasMedicasView = false
     @State private var showLlamadasView = false
     @State private var showLesionesView = false
-
+    
+    @State private var scale = 1.0
 
     var body: some View {
         
@@ -29,6 +30,15 @@ struct HomeView: View {
                     Image("icon")
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
+                        .onTapGesture {
+                            if(scale <= 1.0){
+                                scale += 0.15
+                            } else {
+                                scale -= 0.15
+                            }
+                        }
+                        .scaleEffect(scale)
+                        .animation(.easeIn, value: scale)
 
 
                     Button(action: {
@@ -49,9 +59,10 @@ struct HomeView: View {
                             .padding(5)
                             .foregroundColor(.white)
                             .font(.title)
+                            .accessibilityLabel("Emergencias")
+                            .accessibilityHint("Reporta una emergencia a tus contactos")
+                        
                     }
-
-
                     
                     
                     HStack{
@@ -59,13 +70,13 @@ struct HomeView: View {
                         Button(action: {
                             showEmocionesView = true
                         }) {
-                            createSection(title: "Emociones", iconName: "smiley.fill")
+                            createSection(title: "Emociones", iconName: "smiley.fill", hint:"Lleva un seguimiento de tus emociones")
                         }
                         // Botón para la vista de Recetas médicas
                         Button(action: {
                             showRecetasMedicasView = true
                         }) {
-                            createSection(title: "Recetas médicas", iconName: "doc.text.fill")
+                            createSection(title: "Recetas médicas", iconName: "doc.text.fill", hint:"Lee un resumen de tus recetas médicas")
                         }
 
                     }
@@ -74,14 +85,14 @@ struct HomeView: View {
                         Button(action: {
                             showLlamadasView = true
                         }) {
-                            createSection(title: "Llamadas", iconName: "phone.fill.arrow.down.left")
+                            createSection(title: "Llamadas", iconName: "phone.fill.arrow.down.left", hint: "Realiza una llamada traduciendo de señas a voz")
                         }
 
                         // Botón para la vista de Lesiones
                         Button(action: {
                             showLesionesView = true
                         }) {
-                            createSection(title: "Lesiones", iconName: "bandage.fill")
+                            createSection(title: "Lesiones", iconName: "bandage.fill", hint: "Recibe recomendaciones de qué hacer ante quemaduras, heridas y picaduras")
                         }
                     }
                     
@@ -111,7 +122,8 @@ struct HomeView: View {
     }
 
 
-    private func createSection(title: String, iconName: String) -> some View {
+    private func createSection(title: String, iconName: String, hint: String) -> some View {
+                
         ZStack {
             VStack {
                 Text(title)
@@ -129,7 +141,10 @@ struct HomeView: View {
             .padding(5)
             .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
             .font(.title)
+            .accessibilityLabel(title)
+            .accessibilityHint(hint)
         }
+        
     }
 }
 

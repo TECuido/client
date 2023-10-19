@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct AlertEmergenciasView: View {
+    
+    @State var angle = 0.0
+    @State var movingLeft = true
+    
+    
     var body: some View {
         ZStack{
             VStack{
-                // icono de la pantalla
-                /*Image("icon")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .position(x:60,y:20)
-                Spacer()*/
                 // Titulo
                 Text("Emergencias")
                     .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
@@ -24,6 +23,24 @@ struct AlertEmergenciasView: View {
                     .bold()
                 // Imagen principal
                 Image("Mal")
+                    .rotationEffect(.degrees(angle))
+                    
+                    .animation(Animation.easeInOut(duration: 0.3).repeatForever(), value: angle)
+                    .onAppear {
+                        if(movingLeft && angle < 30){
+                            angle += 30
+                        } else if(movingLeft && angle >= 30){
+                            angle -= 30
+                            movingLeft = false
+                        } else if(!movingLeft && angle > -30){
+                            angle -= 30
+                        } else {
+                            angle += 30
+                            movingLeft = true
+                        }
+                    }
+                
+                
                 // Texto de todo bien
                 Text("Alerta")
                     .font(.largeTitle)
@@ -38,11 +55,6 @@ struct AlertEmergenciasView: View {
                     .font(.title2)
                 Text("Familiar")
                     .font(.title2)
-                
-               
-                Rectangle()
-                    .foregroundColor((Color(red: 0.8392,green: 0,blue: 0)))
-                    .ignoresSafeArea()
             }
                 
             
