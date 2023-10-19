@@ -11,6 +11,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showEmergenciasView = false
+    @State private var showContactosView = false
     @State private var showEmocionesView = false
     @State private var showRecetasMedicasView = false
     @State private var showLlamadasView = false
@@ -19,15 +20,18 @@ struct HomeView: View {
     @State private var scale = 1.0
 
     var body: some View {
-        
+        //Nota el navegation es para pruebas favor de quitarlo
+        NavigationView{
             
+        
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
                     .ignoresSafeArea()
                 
                 VStack {
                     Image("icon")
-                        .imageScale(.large)
+                        .resizable()
+                    
                         .foregroundColor(.accentColor)
                         .onTapGesture {
                             if(scale <= 1.0){
@@ -38,31 +42,23 @@ struct HomeView: View {
                         }
                         .scaleEffect(scale)
                         .animation(.easeIn, value: scale)
-
-
-                    Button(action: {
-                        showEmergenciasView = true
-                    }) {
-                        Text("Emergencias")
-                            .overlay(
-                                HStack {
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                        .foregroundColor(.white)
-                                        .padding(.leading, -50)
-                                    Spacer()
-                                }
-                            )
-                            .frame(width: 320, height: 80)
-                            .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                            .cornerRadius(16)
-                            .padding(5)
-                            .foregroundColor(.white)
-                            .font(.title)
-                            .accessibilityLabel("Emergencias")
-                            .accessibilityHint("Reporta una emergencia a tus contactos")
+                        .frame(width:140,height:140)
+                    
+                    HStack{
+                        // Botón para la vista de emergencias
+                        Button(action: {
+                            showEmergenciasView = true
+                        }) {
+                            createSection(title: "Emergencias", iconName: "exclamationmark.triangle.fill", hint:"Reporta una emergencia a tus contactos")
+                        }
+                        // Botón para la vista de Contactos
+                        Button(action: {
+                            showContactosView = true
+                        }) {
+                            createSection(title: "Contactos", iconName: "person.crop.circle.fill", hint:"Añade contactos o un grupo")
+                        }
                         
                     }
-                    
                     
                     HStack{
                         // Botón para la vista de Emociones
@@ -77,7 +73,7 @@ struct HomeView: View {
                         }) {
                             createSection(title: "Recetas médicas", iconName: "doc.text.fill", hint:"Lee un resumen de tus recetas médicas")
                         }
-
+                        
                     }
                     HStack{
                         // Botón para la vista de Llamadas
@@ -86,7 +82,7 @@ struct HomeView: View {
                         }) {
                             createSection(title: "Llamadas", iconName: "phone.fill.arrow.down.left", hint: "Realiza una llamada traduciendo de señas a voz")
                         }
-
+                        
                         // Botón para la vista de Lesiones
                         Button(action: {
                             showLesionesView = true
@@ -96,10 +92,14 @@ struct HomeView: View {
                     }
                     
                 }
+            }
                 .padding()
                 
                 .background(
                     NavigationLink("", destination: EmergenciasView(), isActive: $showEmergenciasView)
+                )
+                .background(
+                    NavigationLink("", destination: ContactosView(), isActive: $showContactosView)
                 )
                 .background(
                     NavigationLink("", destination: EmergenciasView(), isActive: $showEmocionesView)
