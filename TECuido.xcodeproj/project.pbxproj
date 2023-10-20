@@ -22,6 +22,8 @@
 		FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */; };
 		FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */; };
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
+		FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */; };
+		FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */; };
 		FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */; };
 		FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */; };
 		FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B622AE1D96B0018C268 /* GruposView.swift */; };
@@ -33,6 +35,10 @@
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
+		FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588172AE32B48009A48B6 /* RecetaTabView.swift */; };
+		FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */; };
+		FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */; };
+		FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +58,8 @@
 		FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarEmergenciaView.swift; sourceTree = "<group>"; };
 		FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinEmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
+		FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasView.swift; sourceTree = "<group>"; };
+		FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaModel.swift; sourceTree = "<group>"; };
 		FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosView.swift; sourceTree = "<group>"; };
 		FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosDetallesView.swift; sourceTree = "<group>"; };
 		FB999B622AE1D96B0018C268 /* GruposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruposView.swift; sourceTree = "<group>"; };
@@ -63,6 +71,10 @@
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
+		FBE588172AE32B48009A48B6 /* RecetaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaTabView.swift; sourceTree = "<group>"; };
+		FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostarRecetaView.swift; sourceTree = "<group>"; };
+		FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplificarRecetaView.swift; sourceTree = "<group>"; };
+		FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +152,10 @@
 				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
 				FB999B622AE1D96B0018C268 /* GruposView.swift */,
 				FB999B642AE1D9830018C268 /* GruposDetallesView.swift */,
+				FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */,
+				FBE588172AE32B48009A48B6 /* RecetaTabView.swift */,
+				FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */,
+				FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +167,7 @@
 				FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */,
 				FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */,
 				FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */,
+				FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,6 +178,7 @@
 				FB60F5022ADA1829001E430D /* UsuarioModel.swift */,
 				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
 				FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */,
+				FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB9CF8872AE2191C00A88FDE /* GrupoViewModel.swift in Sources */,
+				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
+				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
@@ -251,8 +271,10 @@
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
+				FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
+				FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
@@ -260,8 +282,10 @@
 				FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */,
 				FB999B652AE1D9830018C268 /* GruposDetallesView.swift in Sources */,
 				FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */,
+				FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */,
 				FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
+				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
