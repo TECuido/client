@@ -21,7 +21,7 @@ struct HomeView: View {
 
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
-        NavigationView{
+ 
             
         
             ZStack {
@@ -117,7 +117,7 @@ struct HomeView: View {
             }
             
             
-        }
+        // Aqui acaba el nav
 
 
     private func createSection(title: String, iconName: String, hint: String) -> some View {
