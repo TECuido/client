@@ -28,6 +28,7 @@
 		FB999B652AE1D9830018C268 /* GruposDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B642AE1D9830018C268 /* GruposDetallesView.swift */; };
 		FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */; };
 		FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */; };
+		FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		FB999B642AE1D9830018C268 /* GruposDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruposDetallesView.swift; sourceTree = "<group>"; };
 		FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewModel.swift; sourceTree = "<group>"; };
 		FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				FB60F5022ADA1829001E430D /* UsuarioModel.swift */,
+				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
+				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
