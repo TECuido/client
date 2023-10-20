@@ -80,15 +80,6 @@ struct LoginView: View {
                         
                     
                     HStack{
-                        
-                        /*
-                        Circle()
-                            .frame(width: 20)
-                            .foregroundColor(Color.black.opacity(0.06))
-                        Text("Recordar").padding(5)
-                            .foregroundColor(Color(red: 0.6824,green: 0.6824,blue: 0.6824))
-                         */
-                         
                         Text("¿Olvidaste tu contraseña?")
                             .foregroundColor(Color(red: 0.6824,green: 0.6824,blue: 0.6824))
                             .frame(maxWidth: 325, alignment: .trailing)

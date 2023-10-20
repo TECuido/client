@@ -13,21 +13,18 @@ struct ContactosView: View {
     }
     
     var body: some View {
-        
+        // Vistas para contacto y grupos
         TabView{
             
-            
-            MandarEmergenciaView()
+            ListaContactosView()
                 .tabItem{
-                    Image(systemName: "text.bubble.fill")
+                    Image(systemName: "person.crop.circle.fill")
                 }
                 .tint(.blue)
-
             
-            
-            SinEmergenciasView()
+            GruposView()
                 .tabItem{
-                    Image(systemName: "exclamationmark.triangle.fill")
+                    Image(systemName: "person.3.fill")
                 }
             
             
