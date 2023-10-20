@@ -106,6 +106,62 @@ class Webservice {
                         
     }
     
+    func PostRequest<T: Decodable, R: Codable>(_ url: URL, with body: R, allowedRetry: Bool = true) async -> Result<T, NetworkError>{
+            
+            do {
+                guard let url = URL(string: "\(baseURL)\(url)") else {
+                    throw NetworkError.invalidURL
+                }
+                
+                var request = URLRequest(url: url)
+                
+                let aToken = UserDefaults.standard.value(forKey: "accessToken")
+                let rToken = UserDefaults.standard.value(forKey: "refreshToken")
+                
+                request.addValue("Bearer \(aToken!)", forHTTPHeaderField: "Authorization")
+                
+                request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = try? JSONEncoder().encode(body)
+                
+                
+                let (data, response) = try await URLSession.shared.data(for: request)
+                
+                guard let response = response as? HTTPURLResponse else {
+                    throw NetworkError.badResponse
+                }
+                            
+                guard response.statusCode >= 200 && response.statusCode < 300 else {
+                    if response.statusCode == 401 && allowedRetry {
+                        let token =  try await authManager.refreshToken(rToken: rToken as! String)
+                        
+                        UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
+                        UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
+                        return await getRequest(url, allowedRetry: false)
+                        
+                    }
+                    throw NetworkError.badStatus(error: response.statusCode)
+                }
+            
+                guard let result = try? JSONDecoder().decode(T.self, from: data) else {
+                    throw NetworkError.decodingError
+                }
+                
+                return .success(result)
+            } catch NetworkError.invalidURL {
+                return .failure(.invalidURL)
+            } catch NetworkError.badResponse {
+                return .failure(.badResponse)
+            } catch NetworkError.badStatus(let error) {
+                return .failure(.badStatus(error: error))
+            } catch NetworkError.decodingError {
+                return .failure(.decodingError)
+            } catch {
+                return .failure(.serverError)
+            }
+                            
+        }
+    
     func login(correo: String, password: String) async -> Result<AuthResponse, NetworkError>{
         
         do {
