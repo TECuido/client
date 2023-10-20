@@ -29,6 +29,8 @@
 		FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */; };
 		FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */; };
 		FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */; };
+		FB9CF8872AE2191C00A88FDE /* GrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */; };
+		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewModel.swift; sourceTree = "<group>"; };
 		FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoModel.swift; sourceTree = "<group>"; };
+		FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoViewModel.swift; sourceTree = "<group>"; };
+		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,7 @@
 				FB60F5002ADA17FF001E430D /* LoginViewModel.swift */,
 				FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */,
 				FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */,
+				FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			children = (
 				FB60F5022ADA1829001E430D /* UsuarioModel.swift */,
 				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
+				FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9CF8872AE2191C00A88FDE /* GrupoViewModel.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
@@ -245,6 +252,7 @@
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */,
+				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
