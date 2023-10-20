@@ -13,9 +13,8 @@ struct ContactosView: View {
     }
     
     var body: some View {
-        
+        // Vistas para contacto y grupos
         TabView{
-            
             
             ListaContactosView()
                 .tabItem{
