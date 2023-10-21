@@ -10,23 +10,28 @@ import SwiftUI
 
 class ContactoViewModel : ObservableObject {
     
-
-    @Published var ejemplo: [UsuarioModel] = [
-        UsuarioModel.defaultUsuario,
-        UsuarioModel.defaultUsuario2,
-        UsuarioModel.defaultUsuario3,
-        UsuarioModel.defaultUsuario4,
-        UsuarioModel.defaultUsuario5,
-        UsuarioModel.defaultUsuario6,
-        UsuarioModel.defaultUsuario7,
-        UsuarioModel.defaultUsuario8,
-        UsuarioModel.defaultUsuario9,
-        UsuarioModel.defaultUsuario10,
-        UsuarioModel.defaultUsuario11,
-        UsuarioModel.defaultUsuario12
-        
+    
+    @Published var ejemplo: [ContactoModel] = [
+        ContactoModel.defaultContacto,
+        ContactoModel.defaultContacto,
+        ContactoModel.defaultContacto
     ]
     
-   
+    public func getContactos() async {
+        
+        
+        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/3")
+        
+        switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.ejemplo = data.data!
+                }
+            case .failure(let error):
+            print(error.self)
+                print(error.localizedDescription)
+            }
+        }
     
-}
+    }
+    

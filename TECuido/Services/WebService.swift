@@ -30,6 +30,7 @@ struct RegisterRequestBody: Codable {
     let nombre: String
     let correo: String
     let password: String
+    let idTipo: Int
 }
 
 struct RefreshRequestBody: Codable {
@@ -54,19 +55,21 @@ class Webservice {
     let authManager = AuthManager.shared
     
     
-    func getRequest<T: Decodable>(_ url: URL, allowedRetry: Bool = true) async -> Result<T, NetworkError>{
+    func getRequest<T: Decodable>(_ link: String, allowedRetry: Bool = true) async -> Result<T, NetworkError>{
         
         do {
-            guard let url = URL(string: "\(baseURL)\(url)") else {
+            guard let url = URL(string: "\(baseURL)\(link)") else {
                 throw NetworkError.invalidURL
             }
             
             var request = URLRequest(url: url)
-            
+        
+            /*
             let aToken = UserDefaults.standard.value(forKey: "accessToken")
             let rToken = UserDefaults.standard.value(forKey: "refreshToken")
             
             request.addValue("Bearer \(aToken!)", forHTTPHeaderField: "Authorization")
+             */
             
             
             let (data, response) = try await URLSession.shared.data(for: request)
@@ -77,11 +80,13 @@ class Webservice {
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {
+                    /*
                     let token =  try await authManager.refreshToken(rToken: rToken as! String)
                     
                     UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
                     UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
-                    return await getRequest(url, allowedRetry: false)
+                    return await getRequest(link, allowedRetry: false)
+                     */
                     
                 }
                 throw NetworkError.badStatus(error: response.statusCode)
@@ -106,19 +111,22 @@ class Webservice {
                         
     }
     
-    func PostRequest<T: Decodable, R: Codable>(_ url: URL, with body: R, allowedRetry: Bool = true) async -> Result<T, NetworkError>{
+    func postRequest<T: Decodable, R: Codable>(_ link: String, with body: R, allowedRetry: Bool = true) async -> Result<T, NetworkError>{
             
             do {
-                guard let url = URL(string: "\(baseURL)\(url)") else {
+                guard let url = URL(string: "\(baseURL)\(link)") else {
                     throw NetworkError.invalidURL
                 }
                 
                 var request = URLRequest(url: url)
                 
+                /*
+                
                 let aToken = UserDefaults.standard.value(forKey: "accessToken")
                 let rToken = UserDefaults.standard.value(forKey: "refreshToken")
                 
                 request.addValue("Bearer \(aToken!)", forHTTPHeaderField: "Authorization")
+                 */
                 
                 request.httpMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -133,11 +141,13 @@ class Webservice {
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {
+                        /*
                         let token =  try await authManager.refreshToken(rToken: rToken as! String)
                         
                         UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
                         UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
-                        return await getRequest(url, allowedRetry: false)
+                        return await getRequest(link, allowedRetry: false)
+                         */
                         
                     }
                     throw NetworkError.badStatus(error: response.statusCode)
@@ -212,14 +222,14 @@ class Webservice {
     }
     
     
-    func register(nombre: String, correo:String, password: String) async -> Result<AuthResponse, NetworkError>{
+    func register(nombre: String, correo:String, password: String, idTipo: Int) async -> Result<AuthResponse, NetworkError>{
         
         do {
             guard let url = URL(string: "\(baseURL)/registro") else {
                 throw NetworkError.invalidURL
             }
             
-            let body = RegisterRequestBody(nombre: nombre, correo:correo, password: password)
+            let body = RegisterRequestBody(nombre: nombre, correo:correo, password: password, idTipo: idTipo)
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -231,15 +241,21 @@ class Webservice {
             guard let response = response as? HTTPURLResponse else {
                 throw NetworkError.badResponse
             }
+            
+            
+            /*
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 throw NetworkError.badStatus(error: response.statusCode)
             }
+             */
             
         
             guard let result = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
                 throw NetworkError.decodingError
             }
+            
+            print(result)
             
             guard let aToken = result.accessToken,
                   let rToken = result.refreshToken else {

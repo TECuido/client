@@ -21,7 +21,7 @@ class RegistroViewModel : ObservableObject {
     @Published var confPassError: Int = 0
     @Published var isAuthenticated: Bool = false
     
-    func register() async {
+    func register(idTipo: Int) async {
         
         do {
             //checar que todos los campos fueran llenados
@@ -72,8 +72,8 @@ class RegistroViewModel : ObservableObject {
             self.message = ""
             
             //enviar request, anular errores
-            let result = await Webservice().register(nombre: nombre, correo: correo, password: password)
-            
+            let result = await Webservice().register(nombre: nombre, correo: correo, password: password, idTipo: idTipo)
+                        
             switch result {
                 case .success(let token):
                     UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
@@ -95,7 +95,6 @@ class RegistroViewModel : ObservableObject {
                             DispatchQueue.main.async {
                                 self.message = "Ocurrió un error interno. Inténtalo de nuevo más tarde."
                             }
-
                 }
             }
         } catch ValidationError.error(let description) {

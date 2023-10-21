@@ -41,9 +41,9 @@ struct ListaContactosView: View {
                                 }
                                
                                 VStack(alignment: .leading){
-                                    Text(item.nombre ?? "Panfila")
+                                    Text(item.usuarioAgregado.nombre)
                                         .font(.title2)
-                                    Text(item.correo ?? "pan@gmail.con")
+                                    Text(item.usuarioAgregado.correo)
                                         .font(.title2)
                                 }.padding(15)
                             }
@@ -51,7 +51,11 @@ struct ListaContactosView: View {
                             
                         }
                         
-                    }.frame(minHeight: minRowHeight * 10)
+                    }
+                    .task {
+                        await viewModel.getContactos()
+                    }
+                    .frame(minHeight: minRowHeight * 10)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                         

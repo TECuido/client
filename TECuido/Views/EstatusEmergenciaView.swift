@@ -21,24 +21,26 @@ struct EstatusEmergenciaView: View {
                     .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
                     .font(.system(size: 55))
                     .bold()
+                
                 // Imagen principal
                 Image("Mal")
-                    .rotationEffect(.degrees(angle))
-                    
+                /*
                     .animation(Animation.easeInOut(duration: 0.3).repeatForever(), value: angle)
+                    .rotationEffect(.degrees(angle))
                     .onAppear {
-                        if(movingLeft && angle < 30){
-                            angle += 30
-                        } else if(movingLeft && angle >= 30){
-                            angle -= 30
+                        if(movingLeft && angle < 10){
+                            angle += 10
+                        } else if(movingLeft && angle >= 10){
+                            angle -= 10
                             movingLeft = false
-                        } else if(!movingLeft && angle > -30){
-                            angle -= 30
+                        } else if(!movingLeft && angle > -10){
+                            angle -= 10
                         } else {
-                            angle += 30
+                            angle += 10
                             movingLeft = true
                         }
                     }
+                 */
                 
                 
                     
