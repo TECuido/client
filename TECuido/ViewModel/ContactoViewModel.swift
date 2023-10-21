@@ -14,8 +14,7 @@ class ContactoViewModel : ObservableObject {
     @Published var ejemplo: [UsuarioModel] = [
         UsuarioModel.defaultUsuario,
         UsuarioModel.defaultUsuario2,
-        UsuarioModel.defaultUsuario3,
-        UsuarioModel.defaultUsuario4,
+        UsuarioModel.defaultUsuario3
        
         
     ]

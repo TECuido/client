@@ -102,16 +102,16 @@ struct HomeView: View {
                 NavigationLink("", destination: ContactosView(), isActive: $showContactosView)
             )
             .background(
-                NavigationLink("", destination: EmergenciasView(), isActive: $showEmocionesView)
+                NavigationLink("", destination: EmocionesView(), isActive: $showEmocionesView)
             )
             .background(
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: EmergenciasView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: LlamadasView(),isActive: $showLlamadasView)
             )
             .background(
-                NavigationLink("", destination: EmergenciasView(), isActive: $showLesionesView)
+                NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
             )
             
         }

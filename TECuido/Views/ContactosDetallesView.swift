@@ -74,7 +74,7 @@ struct ContactosDetallesView: View {
                     .padding([.top, .bottom], 10)
                 }
                 
-                Button("Enviar"){
+                Button("Agregar"){
                     presentationMode.wrappedValue.dismiss()
                 }
                 .foregroundColor(.white)
