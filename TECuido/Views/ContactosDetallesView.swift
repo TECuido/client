@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ContactosDetallesView: View {
-    @State private var nombre = ""
     @State private var correo = ""
+    @State private var isCorreoEmpty = false
+    @State private var isShowingConfirmationModel = false
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        
+
         ZStack{
             VStack{
                 ScrollView{
@@ -32,24 +33,7 @@ struct ContactosDetallesView: View {
                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                             
                     }.padding(40)
-                    HStack {
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .padding(.leading, 16)
-                        TextField("",
-                                  text: $nombre,
-                                  prompt: Text("Nombre")
-                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                          )
-                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                            .font(.title3)
-                            .padding(.leading, 10)
-                    }
-                    .frame(width: 325, height: 55)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(20)
-                    .padding([.top, .bottom], 10)
+                   
                     
                     //Input Correo
                     HStack {
@@ -70,12 +54,41 @@ struct ContactosDetallesView: View {
                     .frame(width: 325, height: 55)
                     .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                     .cornerRadius(20)
-                    
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(isCorreoEmpty ? .red : Color.clear)
+                    }
                     .padding([.top, .bottom], 10)
                 }
                 
+                // Modal 
+                .alert(isPresented: $isShowingConfirmationModel) {
+                    Alert(
+                        title:
+                            Text("Contacto Agregado")
+                               
+                                .font(.title)
+                        ,
+                        message: Text("Se agregó el contacto con éxito")
+                            .font(.title2),
+                        dismissButton: .default(
+                            Text("OK")
+                                .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
+                            action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        )
+                    )
+                }
+
+                // Vamos a checar lo del modal aqui
                 Button("Agregar"){
-                    presentationMode.wrappedValue.dismiss()
+                    if correo.isEmpty{
+                        isCorreoEmpty = true
+                    }
+                    else{
+                        isShowingConfirmationModel = true 
+                    }
                 }
                 .foregroundColor(.white)
                 .bold()
@@ -88,6 +101,7 @@ struct ContactosDetallesView: View {
             
         }
     }
+    
 }
 
 struct ContactosDetallesView_Previews: PreviewProvider {

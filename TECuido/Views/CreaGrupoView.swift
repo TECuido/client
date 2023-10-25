@@ -11,6 +11,8 @@ struct CreaGrupoView: View {
     @State private var nombre = ""
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = ContactoViewModel()
+    @State private var isNombreEmpty = false
+    @State private var isShowingConfirmationModel = false
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @State private var selectedIndices: [Int] = []
@@ -52,7 +54,12 @@ struct CreaGrupoView: View {
                     .frame(width: 325, height: 55)
                     .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                     .cornerRadius(20)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(isNombreEmpty ? .red : Color.clear)
+                    }
                     .padding([.top, .bottom], 10)
+                    
                     //descripcion
                     Text(" Selecciona a los contactos que quieras añadir:")
                         .font(.title2)
@@ -105,8 +112,37 @@ struct CreaGrupoView: View {
                     
                     
                 }
-                Button("Crear"){
-                    presentationMode.wrappedValue.dismiss()
+                
+                // Modal
+                .alert(isPresented: $isShowingConfirmationModel) {
+                    Alert(
+                        title:
+                            Text("Grupo Agregado")
+                               
+                                .font(.title)
+                        ,
+                        message: Text("Se agregó el grupo con éxito")
+                            .font(.title2),
+                        dismissButton: .default(
+                            Text("OK")
+                                .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
+                            action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        )
+                    )
+                }
+                
+                
+                
+                // Vamos a checar lo del modal aqui
+                Button("Crear Grupo"){
+                    if nombre.isEmpty{
+                        isNombreEmpty = true
+                    }
+                    else{
+                        isShowingConfirmationModel = true
+                    }
                 }
                 .foregroundColor(.white)
                 .bold()

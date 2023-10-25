@@ -11,6 +11,7 @@ struct GruposDetallesView: View {
     @StateObject var viewModel = ContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
+   
     
     var body: some View {
         ZStack{
@@ -54,9 +55,6 @@ struct GruposDetallesView: View {
                         .listStyle(InsetListStyle())
                     
                     //El boton de agregar
-                    
-                    
-                    
                     NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
                 }
             }
