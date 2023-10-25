@@ -69,8 +69,10 @@ GruposView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     
+                    /*
                     NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
 
+                     */
                 }
             }
         }

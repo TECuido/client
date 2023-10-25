@@ -5,6 +5,8 @@
 //  Created by Alumno on 20/10/23.
 //
 
+/*
+
 import SwiftUI
 
 struct CreaGrupoView: View {
@@ -186,3 +188,5 @@ struct CreaGrupoView_Previews: PreviewProvider {
         CreaGrupoView()
     }
 }
+
+*/

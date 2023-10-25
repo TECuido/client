@@ -21,7 +21,7 @@ class RegistroViewModel : ObservableObject {
     @Published var confPassError: Int = 0
     @Published var isAuthenticated: Bool = false
     
-    func register() async {
+    func register(idTipo: Int) async {
         
         do {
             //checar que todos los campos fueran llenados
@@ -72,20 +72,22 @@ class RegistroViewModel : ObservableObject {
             self.message = ""
             
             //enviar request, anular errores
-            let result = await Webservice().register(nombre: nombre, correo: correo, password: password)
-            
+            let result = await Webservice().register(nombre: nombre, correo: correo, password: password, idTipo: idTipo)
+                        
             switch result {
                 case .success(let token):
-                    UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
-                    UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
+                    let accessKeys = AccessKeys(id: token.id!, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                    let account = "tecuido.com"
+                    let service = "token"
+                    KeychainHelper.standard.save(accessKeys, service: service, account: account)
                     DispatchQueue.main.async {
                         self.message = ""
                         self.isAuthenticated = true
                     }
                 case .failure(let error):
                     switch(error){
-                        case NetworkError.badStatus(let errorNumber):
-                        if errorNumber == 400 {
+                        case NetworkError.badStatus(let error, let message):
+                        if error == 400 {
                             DispatchQueue.main.async {
                                 self.message = "El usuario ya se encuentra registrado"
                             }
@@ -95,7 +97,6 @@ class RegistroViewModel : ObservableObject {
                             DispatchQueue.main.async {
                                 self.message = "Ocurrió un error interno. Inténtalo de nuevo más tarde."
                             }
-
                 }
             }
         } catch ValidationError.error(let description) {

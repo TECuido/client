@@ -5,8 +5,6 @@
 //  Created by Alumno on 16/10/23.
 //
 
-
-
 enum AuthError: Error {
     case missingToken
 }
@@ -54,5 +52,4 @@ actor AuthManager {
         return try await task.value
     }
 }
-
 

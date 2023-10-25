@@ -7,20 +7,19 @@
 
 import Foundation
 
-struct UsuarioAgregado {
-    var nombre : String
-    var correo : String
-}
-
-struct ContactoModel : Identifiable{
+struct ContactoModel : Decodable, Identifiable{
     var id = UUID()
-    var data = [UsuarioAgregado]()
+    var usuarioAgregado: UsuarioModel
+    
+    enum CodingKeys: String, CodingKey {
+        case usuarioAgregado
+    }
     
 }
-extension ContactoModel  {
+extension ContactoModel {
     // Asi se agrega un usuario default
     public static var defaultContacto : ContactoModel{
-        return ContactoModel(data: [UsuarioAgregado(nombre: "Panfila Lopez", correo: "pan@gmail.com")])
+        return ContactoModel(usuarioAgregado: UsuarioModel(nombre: "Panfila Lopez", correo: "pan@gmail.com"));
     }
    
 }
