@@ -1,24 +1,23 @@
 //
-//  GruposDetalleView.swift
+//  RecetasView.swift
 //  TECuido
 //
-//  Created by Alumno on 19/10/23.
+//  Created by Alumno on 20/10/23.
 //
 
 import SwiftUI
 
-struct GruposDetallesView: View {
-    @StateObject var viewModel = ContactoViewModel()
+struct RecetasView: View {
+    @StateObject var viewModel = RecetaViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
-   
     
     var body: some View {
         ZStack{
             VStack{
                 ScrollView{
                     // Titulo
-                    Text("Nombre del Grupo")
+                    Text("Recetas médicas")
                         .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                         .font(.system(size: 45))
                         .bold()
@@ -42,10 +41,23 @@ struct GruposDetallesView: View {
                                 VStack(alignment: .leading){
                                     Text(item.nombre ?? "Panfila")
                                         .font(.title2)
-                                    Text(item.correo ?? "pan@gmail.con")
+                                    Text(item.fecha ?? "2022-04-06")
                                         .font(.title2)
+                                    Text(item.doctor ?? "pan@gmail.con")
+                                        .font(.title2)
+                                    
                                 }.padding(15)
+                                Button(action:{
+                                      showDetallesView = true
+                                }){
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.blue)
+                                        .padding(.leading, 60)
+                                }
+                                
+                                
                             }
+                            
                             
                             
                         }
@@ -54,16 +66,18 @@ struct GruposDetallesView: View {
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                     
-                    //El boton de agregar
-                    NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
+                
+                    
+                    
+                    NavigationLink("", destination: RecetaTabView(), isActive: $showDetallesView)
                 }
             }
         }
     }
 }
-    
-struct GruposDetalleView_Previews: PreviewProvider {
+
+struct RecetasView_Previews: PreviewProvider {
     static var previews: some View {
-        GruposDetallesView()
+        RecetasView()
     }
 }

@@ -130,10 +130,7 @@ struct MandarEmergenciaView: View {
                     NavigationLink("", destination: EstatusEmergenciaView(), isActive: $showEstatusView)
                                     
                 }
-                
-                
-
-                
+         
             }
     }
 }

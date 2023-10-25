@@ -21,9 +21,9 @@ struct HomeView: View {
 
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
- 
-            
         
+        NavigationView{
+            
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
                     .ignoresSafeArea()
@@ -93,32 +93,32 @@ struct HomeView: View {
                     
                 }
             }
-                .padding()
-                
-                .background(
-                    NavigationLink("", destination: EmergenciasView(), isActive: $showEmergenciasView)
-                )
-                .background(
-                    NavigationLink("", destination: ContactosView(), isActive: $showContactosView)
-                )
-                .background(
-                    NavigationLink("", destination: EmergenciasView(), isActive: $showEmocionesView)
-                )
-                .background(
-                    NavigationLink("", destination: EmergenciasView(),isActive: $showRecetasMedicasView)
-                )
-                .background(
-                    NavigationLink("", destination: EmergenciasView(),isActive: $showLlamadasView)
-                )
-                .background(
-                    NavigationLink("", destination: EmergenciasView(), isActive: $showLesionesView)
-                )
-                
-            }
+            .padding()
             
+            .background(
+                NavigationLink("", destination: EmergenciasView(), isActive: $showEmergenciasView)
+            )
+            .background(
+                NavigationLink("", destination: ContactosView(), isActive: $showContactosView)
+            )
+            .background(
+                NavigationLink("", destination: EmocionesView(), isActive: $showEmocionesView)
+            )
+            .background(
+                NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
+            )
+            .background(
+                NavigationLink("", destination: LlamadasView(),isActive: $showLlamadasView)
+            )
+            .background(
+                NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
+            )
             
+        }
+        
+        
         // Aqui acaba el nav
-
+    }
 
     private func createSection(title: String, iconName: String, hint: String) -> some View {
                 

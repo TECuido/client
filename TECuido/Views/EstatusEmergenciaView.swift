@@ -11,16 +11,20 @@ struct EstatusEmergenciaView: View {
     
     @State var angle = 0.0
     @State var movingLeft = true
-
+    @State var correoError: Int =  0
+    @State var nameError: Int =  0
  
     var body: some View {
         ZStack{
             VStack{
                 // Texto
-                Text("Emergencias")
+                Text("Se ha enviado una emergencia")
                     .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                    .font(.system(size: 55))
+                    .font(.system(size: 35))
                     .bold()
+                    .frame(width: 280)
+                    .padding()
+                    .multilineTextAlignment(.center)
                 // Imagen principal
                 Image("Mal")
                     .rotationEffect(.degrees(angle))
@@ -66,9 +70,6 @@ struct EstatusEmergenciaView: View {
                     .padding(.bottom, 0)
             
             }
-            
-            
-            
         }
     }
 }
