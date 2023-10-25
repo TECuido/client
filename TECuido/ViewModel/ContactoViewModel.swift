@@ -19,8 +19,9 @@ class ContactoViewModel : ObservableObject {
     
     public func getContactos() async {
         
+        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
         
-        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/3")
+        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
         
         switch result {
             case .success(let data):

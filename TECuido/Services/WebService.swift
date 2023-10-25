@@ -37,9 +37,9 @@ struct RefreshRequestBody: Codable {
     let refreshToken: String
 }
 
-
 struct AuthResponse: Decodable {
     let message: String?
+    let id: Int?
     let accessToken: String?
     let refreshToken: String?
 }
@@ -47,6 +47,12 @@ struct AuthResponse: Decodable {
 struct ApiResponse<T: Decodable>: Decodable {
     let message: String?
     let data: T
+}
+
+struct AccessKeys: Codable {
+    let id: Int
+    let accessToken: String
+    let refreshToken: String
 }
 
 class Webservice {
@@ -65,10 +71,9 @@ class Webservice {
             var request = URLRequest(url: url)
         
             /*
-            let aToken = UserDefaults.standard.value(forKey: "accessToken")
-            let rToken = UserDefaults.standard.value(forKey: "refreshToken")
+            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
             
-            request.addValue("Bearer \(aToken!)", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
              */
             
             
@@ -81,10 +86,11 @@ class Webservice {
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {
                     /*
-                    let token =  try await authManager.refreshToken(rToken: rToken as! String)
+                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                     
+                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                    KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                     
-                    UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
-                    UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
                     return await getRequest(link, allowedRetry: false)
                      */
                     
@@ -121,11 +127,9 @@ class Webservice {
                 var request = URLRequest(url: url)
                 
                 /*
+                let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
                 
-                let aToken = UserDefaults.standard.value(forKey: "accessToken")
-                let rToken = UserDefaults.standard.value(forKey: "refreshToken")
-                
-                request.addValue("Bearer \(aToken!)", forHTTPHeaderField: "Authorization")
+                request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
                  */
                 
                 request.httpMethod = "POST"
@@ -142,10 +146,11 @@ class Webservice {
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {
                         /*
-                        let token =  try await authManager.refreshToken(rToken: rToken as! String)
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                         
+                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                        KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                         
-                        UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
-                        UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
                         return await getRequest(link, allowedRetry: false)
                          */
                         
@@ -242,20 +247,16 @@ class Webservice {
                 throw NetworkError.badResponse
             }
             
-            
-            /*
-                        
+                                    
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 throw NetworkError.badStatus(error: response.statusCode)
             }
-             */
             
         
             guard let result = try? JSONDecoder().decode(AuthResponse.self, from: data) else {
                 throw NetworkError.decodingError
             }
             
-            print(result)
             
             guard let aToken = result.accessToken,
                   let rToken = result.refreshToken else {

@@ -33,8 +33,12 @@ class UsuarioViewModel : ObservableObject {
             
             switch result {
                 case .success(let token):
-                    UserDefaults.standard.setValue(token.accessToken, forKey: "accessToken")
-                    UserDefaults.standard.setValue(token.refreshToken, forKey: "refreshToken")
+                    
+                    let accessKeys = AccessKeys(id: token.id!, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                    let account = "tecuido.com"
+                    let service = "token"
+                    KeychainHelper.standard.save(accessKeys, service: service, account: account)
+                    
                     DispatchQueue.main.async {
                         self.correoError = 0
                         self.passwordError = 0

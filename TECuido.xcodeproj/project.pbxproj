@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB13EC392AE85A9C0088AAE1 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13EC382AE85A9C0088AAE1 /* KeychainHelper.swift */; };
 		FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */; };
 		FB1C31822AD9C6E400965B4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31812AD9C6E400965B4B /* Assets.xcassets */; };
 		FB1C31852AD9C6E400965B4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31842AD9C6E400965B4B /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB13EC382AE85A9C0088AAE1 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		FB1C317A2AD9C6E200965B4B /* TECuido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TECuido.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoApp.swift; sourceTree = "<group>"; };
 		FB1C31812AD9C6E400965B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
+				FB13EC382AE85A9C0088AAE1 /* KeychainHelper.swift */,
 			);
 			path = AuthUtils;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
+				FB13EC392AE85A9C0088AAE1 /* KeychainHelper.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
 				FB2A93092AE34ADF008E6FB1 /* TipoUsuario.swift in Sources */,
