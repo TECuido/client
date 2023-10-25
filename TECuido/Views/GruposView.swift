@@ -8,7 +8,8 @@
 import SwiftUI
 
 
-struct GruposView: View {
+struct
+GruposView: View {
     
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
