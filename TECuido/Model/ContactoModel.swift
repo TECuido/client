@@ -16,6 +16,7 @@ struct ContactoModel : Decodable, Identifiable{
     }
     
 }
+
 extension ContactoModel {
     // Asi se agrega un usuario default
     public static var defaultContacto : ContactoModel{

@@ -22,7 +22,7 @@ struct ContactosView: View {
                 }
                 .tint(.blue)
             
-            GruposView()
+            ListaGruposView()
                 .tabItem{
                     Image(systemName: "person.3.fill")
                 }

@@ -8,12 +8,11 @@
 import SwiftUI
 
 
-struct
-GruposView: View {
+struct ListaGruposView: View {
     
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
-    @StateObject var viewModel = GrupoViewModel()
+    @StateObject var viewModel = ListaGrupoViewModel()
     @State private var showDetallesView = false
     @State private var showAgregaView = false
     
@@ -38,23 +37,35 @@ GruposView: View {
                     
                     List {
                         ForEach(viewModel.grupos){ item in
-                            HStack {
-                                Text(item.nombre)
-                                    .listRowBackground(Color(red: 0.85, green: 0.85, blue: 0.85))
-                                    .padding([.top, .bottom], 10)
-                                    .font(.title2)
-                                Spacer()
-                                Button(action:{
-                                      showDetallesView = true
-                                }){
+                            
+                            ZStack {
+                                
+                                NavigationLink(destination: GruposDetallesView(grupo: item)){
+                                    EmptyView()
+                                }
+                                
+                                HStack {
+                                    Text(item.nombre)
+                                        .listRowBackground(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                        .padding([.top, .bottom], 10)
+                                        .font(.title2)
+                                    
+                                    Spacer()
+                                    
+                                    
                                     Image(systemName: "chevron.right")
-                                        .foregroundColor(.blue)
-                                        .padding(.trailing, 5)
+                                        .foregroundColor(.blue)                                    
+                                    
                                 }
                             }
                         }
-                    }.frame(minHeight: minRowHeight * 10)
-                        .scrollContentBackground(.hidden)
+                    }
+                    .task {
+                        await viewModel.getGrupos()
+                    }
+                    .frame(minHeight: minRowHeight * 10)
+                    .scrollContentBackground(.hidden)
+                    
                     
                     VStack{
                         Button(action:{
@@ -69,19 +80,20 @@ GruposView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     
-                    /*
-                    NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
+                    
+                
+                     
+                     NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
 
-                     */
                 }
             }
         }
     }
 }
 
-struct GruposView_Previews: PreviewProvider {
+struct ListaGruposView_Previews: PreviewProvider {
     static var previews: some View {
-        GruposView()
+        ListaGruposView()
     }
 }
 

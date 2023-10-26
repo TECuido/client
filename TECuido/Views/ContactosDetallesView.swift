@@ -10,7 +10,9 @@ import SwiftUI
 struct ContactosDetallesView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    
     @StateObject var viewModel = ContactoViewModel()
+    
     
     
     var body: some View {

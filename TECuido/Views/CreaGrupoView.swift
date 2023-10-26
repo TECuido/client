@@ -5,15 +5,13 @@
 //  Created by Alumno on 20/10/23.
 //
 
-/*
+
 
 import SwiftUI
 
 struct CreaGrupoView: View {
-    @State private var nombre = ""
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = ContactoViewModel()
-    @State private var isNombreEmpty = false
+    @StateObject var viewModel = CrearGrupoViewModel()
     @State private var isShowingConfirmationModel = false
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
@@ -22,31 +20,33 @@ struct CreaGrupoView: View {
         
         ZStack{
             VStack{
-                ScrollView{
                     // Titulo
-                    Text("Crear un grupo")
+                    Text("Crear grupo")
                         .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                         .font(.system(size: 45))
                         .bold()
                         .frame(width: 280)
                         .padding()
                         .multilineTextAlignment(.center)
-                    //Input Nombre
+                
+                    //Icono
                     ZStack{
                         Image(systemName: "person.3.fill")
                             .resizable()
-                            .frame(width: 100,height:80)
+                            .frame(width: 150,height:80)
                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                             
                     }.padding(10)
+                
+                    //input nombre
                     HStack {
                         Image(systemName: "person.fill")
                             .resizable()
                             .frame(width: 24, height: 24)
                             .padding(.leading, 16)
                         TextField("",
-                                  text: $nombre,
-                                  prompt: Text("Nombre")
+                                  text: $viewModel.nombreGrupo,
+                                  prompt: Text("Nombre del grupo")
                             .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                           )
                             .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
@@ -58,9 +58,11 @@ struct CreaGrupoView: View {
                     .cornerRadius(20)
                     .overlay {
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(isNombreEmpty ? .red : Color.clear)
+                            .stroke(.red, lineWidth: CGFloat(viewModel.nombreError)*2)
                     }
                     .padding([.top, .bottom], 10)
+                
+                
                     
                     //descripcion
                     Text(" Selecciona a los contactos que quieras añadir:")
@@ -68,10 +70,13 @@ struct CreaGrupoView: View {
                         .frame(width: 280)
                         .padding()
                         .multilineTextAlignment(.center)
+                    
                     // Lista de contactos
                     
+                    
+                    
                     List {
-                        ForEach(viewModel.ejemplo.indices, id: \.self) { index in
+                        ForEach(viewModel.contactos.indices, id: \.self) { index in
                             HStack {
                                 if selectedIndices.contains(index) {
                                     ZStack{
@@ -92,11 +97,11 @@ struct CreaGrupoView: View {
                                 }
                                 
                                 VStack(alignment: .leading){
-                                    Text(viewModel.ejemplo[index].nombre ?? "Panfila Lopez")
+                                    Text(viewModel.contactos[index].usuarioAgregado.nombre)
                                         .font(.title2)
-                                    Text(viewModel.ejemplo[index].correo ?? "pan@gmail.com")
+                                    Text(viewModel.contactos[index].usuarioAgregado.nombre)
                                         .font(.title2)
-                                        
+                                    
                                 }.padding(15)
                             }
                             .onTapGesture {
@@ -108,12 +113,19 @@ struct CreaGrupoView: View {
                             }
                         }
                         
-                    }.frame(minHeight: minRowHeight * 6)
-                        .scrollContentBackground(.hidden)
-                        .listStyle(InsetListStyle())
+                    }
+                    .task{
+                        await viewModel.getContactos()
+                    }
+                    .frame(minHeight: minRowHeight * 6)
+                    .scrollContentBackground(.hidden)
+                    .listStyle(InsetListStyle())
+                     
                     
                     
-                }
+                
+                     
+                     
                 
                 // Modal
                 .alert(isPresented: $isShowingConfirmationModel) {
@@ -139,11 +151,8 @@ struct CreaGrupoView: View {
                 
                 // Vamos a checar lo del modal aqui
                 Button("Crear Grupo"){
-                    if nombre.isEmpty{
-                        isNombreEmpty = true
-                    }
-                    else{
-                        isShowingConfirmationModel = true
+                    Task {
+                        await viewModel.crearGrupo()
                     }
                 }
                 .foregroundColor(.white)
@@ -189,4 +198,4 @@ struct CreaGrupoView_Previews: PreviewProvider {
     }
 }
 
-*/
+

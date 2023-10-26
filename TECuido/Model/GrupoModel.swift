@@ -7,14 +7,16 @@
 
 import Foundation
 
-struct GrupoModel : Identifiable{
-    var id = UUID()
+struct GrupoModel : Identifiable, Decodable{
+    var id: Int
     var nombre : String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "idGrupo"
+        case nombre = "nombre"
+    }
 }
 extension GrupoModel {
-    public static var exampleList = [
-        GrupoModel(nombre: "Familia"),
-        GrupoModel(nombre: "Amigos"),
-        GrupoModel(nombre: "Contactos de emergencia")
-    ]
+    public static var example =
+        GrupoModel(id: 1, nombre: "Familia")
 }

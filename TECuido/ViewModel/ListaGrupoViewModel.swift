@@ -1,28 +1,26 @@
 //
-//  ContactoViewModel.swift
+//  GrupoViewModel.swift
 //  TECuido
 //
 //  Created by Alumno on 19/10/23.
 //
 
 import Foundation
-import SwiftUI
 
-class ListaContactoViewModel : ObservableObject {
+class ListaGrupoViewModel: ObservableObject {
     
+    @Published var grupos: [GrupoModel] = [GrupoModel.example]
     
-    @Published var ejemplo: [ContactoModel] = []
-    
-    public func getContactos() async {
+    public func getGrupos() async {
         
         let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
         
-        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+        let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
         
         switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    self.ejemplo = data.data!
+                    self.grupos = data.data!
                 }
             case .failure(let error):
             print(error.self)
@@ -31,4 +29,5 @@ class ListaContactoViewModel : ObservableObject {
     }
 
 }
-    
+
+
