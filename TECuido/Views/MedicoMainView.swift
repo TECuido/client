@@ -62,6 +62,7 @@ struct MedicoMainView: View {
                             
                             // Aqui falta back (posiblemente; en el figma hay un cuadro como para agregar mas funcionalidades)
                             HStack{
+                                Spacer()
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
                                         .frame(width: 128, height: 144)
@@ -72,18 +73,19 @@ struct MedicoMainView: View {
                                             Circle()
                                                 .frame(width: 56, height: 56)
                                                 .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                            Image("icon")
+                                            Image("pacientes")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
                                                 .frame(width: 50, height: 50)
                                                 .clipShape(Circle())
                                         }
                                         
-                                        Text("Pacientes")
+                                        Text("Pacientes ")
                                             .font(.system(size: 20, weight: .bold))
                                             .foregroundColor(Color(red: 1, green: 1, blue: 1))
                                     }
                                 }
+                                Spacer()
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
                                         .frame(width: 128, height: 144)
@@ -94,18 +96,19 @@ struct MedicoMainView: View {
                                             Circle()
                                                 .frame(width: 56, height: 56)
                                                 .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                            Image("icon")
+                                            Image("recetas")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
                                                 .frame(width: 50, height: 50)
                                                 .clipShape(Circle())
                                         }
                                         
-                                        Text("Recetas   ")
+                                        Text("Recetas     ")
                                             .font(.system(size: 20, weight: .bold))
                                             .foregroundColor(Color(red: 1, green: 1, blue: 1))
                                     }
                                 }
+                                Spacer()
                             }
                             HStack{
                                 Text("Últimos pacientes")
