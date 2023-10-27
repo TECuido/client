@@ -10,7 +10,7 @@ import SwiftUI
 struct GruposDetallesView: View {
     @StateObject var viewModel = ContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
-    @State private var showDetallesView = false
+  
    
     
     var body: some View {
@@ -53,9 +53,6 @@ struct GruposDetallesView: View {
                     }.frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
-                    
-                    //El boton de agregar
-                    NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
                 }
             }
         }

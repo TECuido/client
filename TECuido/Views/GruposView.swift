@@ -69,6 +69,8 @@ GruposView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     
+                    NavigationLink("", destination: GruposDetallesView(), isActive: $showDetallesView)
+                    
                     NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
 
                 }
