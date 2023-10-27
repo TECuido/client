@@ -20,7 +20,7 @@ struct ContactoModel : Decodable, Identifiable{
 extension ContactoModel {
     // Asi se agrega un usuario default
     public static var defaultContacto : ContactoModel{
-        return ContactoModel(usuarioAgregado: UsuarioModel(nombre: "Panfila Lopez", correo: "pan@gmail.com"));
+        return ContactoModel(usuarioAgregado: UsuarioModel(id: 1, nombre: "Panfila Lopez", correo: "pan@gmail.com"));
     }
    
 }

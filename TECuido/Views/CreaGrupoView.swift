@@ -12,10 +12,9 @@ import SwiftUI
 struct CreaGrupoView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = CrearGrupoViewModel()
-    @State private var isShowingConfirmationModel = false
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
-    @State private var selectedIndices: [Int] = []
+    
     var body: some View {
         
         ZStack{
@@ -73,12 +72,10 @@ struct CreaGrupoView: View {
                     
                     // Lista de contactos
                     
-                    
-                    
                     List {
                         ForEach(viewModel.contactos.indices, id: \.self) { index in
                             HStack {
-                                if selectedIndices.contains(index) {
+                                if viewModel.selectedIndices.contains(index) {
                                     ZStack{
                                         Image(systemName: "checkmark.circle.fill")
                                             .resizable()
@@ -99,16 +96,16 @@ struct CreaGrupoView: View {
                                 VStack(alignment: .leading){
                                     Text(viewModel.contactos[index].usuarioAgregado.nombre)
                                         .font(.title2)
-                                    Text(viewModel.contactos[index].usuarioAgregado.nombre)
+                                    Text(viewModel.contactos[index].usuarioAgregado.correo)
                                         .font(.title2)
                                     
                                 }.padding(15)
                             }
                             .onTapGesture {
-                                if selectedIndices.contains(index) {
-                                    selectedIndices.removeAll { $0 == index }
+                                if viewModel.selectedIndices.contains(index) {
+                                    viewModel.selectedIndices.removeAll { $0 == index }
                                 } else {
-                                    selectedIndices.append(index)
+                                    viewModel.selectedIndices.append(index)
                                 }
                             }
                         }
@@ -128,7 +125,7 @@ struct CreaGrupoView: View {
                      
                 
                 // Modal
-                .alert(isPresented: $isShowingConfirmationModel) {
+                    .alert(isPresented: $viewModel.grupoCreado) {
                     Alert(
                         title:
                             Text("Grupo Agregado")
@@ -141,11 +138,19 @@ struct CreaGrupoView: View {
                             Text("OK")
                                 .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
                             action: {
-                                presentationMode.wrappedValue.dismiss()
+                                
                             }
                         )
                     )
                 }
+                
+                // Aqui validamos que este incorrecto
+                Text(viewModel.error)
+                    .font(.body)
+                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                    .frame(width: 300)
+                    .padding(.top, 5)
+                    .multilineTextAlignment(.center)
                 
                 
                 

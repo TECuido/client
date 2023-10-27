@@ -20,7 +20,7 @@ struct MiembroGrupoModel : Decodable, Identifiable{
 extension MiembroGrupoModel {
     // Asi se agrega un usuario default
     public static var defaultMiembro : MiembroGrupoModel{
-        return MiembroGrupoModel(miembroGrupo: UsuarioModel(nombre: "Panfila Lopez", correo: "pan@gmail.com"));
+        return MiembroGrupoModel(miembroGrupo: UsuarioModel(id: 1, nombre: "Panfila Lopez", correo: "pan@gmail.com"));
     }
    
 }

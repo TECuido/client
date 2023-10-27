@@ -27,6 +27,8 @@
 		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
 		FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */; };
 		FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */; };
+		FB95EF482AEC422A00ECF38D /* AgregarGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */; };
+		FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */; };
 		FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */; };
 		FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */; };
 		FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B622AE1D96B0018C268 /* ListaGruposView.swift */; };
@@ -76,6 +78,8 @@
 		FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoDetailViewModel.swift; sourceTree = "<group>"; };
 		FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembroGrupoModel.swift; sourceTree = "<group>"; };
 		FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearGrupoViewModel.swift; sourceTree = "<group>"; };
+		FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarGrupoModel.swift; sourceTree = "<group>"; };
+		FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarMiembroModel.swift; sourceTree = "<group>"; };
 		FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosView.swift; sourceTree = "<group>"; };
 		FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosDetallesView.swift; sourceTree = "<group>"; };
 		FB999B622AE1D96B0018C268 /* ListaGruposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaGruposView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */,
 				FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */,
 				FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */,
+				FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */,
+				FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,7 +339,9 @@
 				FBFA60FD2AE9C7090076EF5D /* AgregarContactoModel.swift in Sources */,
 				FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */,
 				FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */,
+				FB95EF482AEC422A00ECF38D /* AgregarGrupoModel.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
+				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FBBEF7242AE34B9E00993C02 /* LesionesView.swift in Sources */,
@@ -471,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
+				DEVELOPMENT_TEAM = MAQKY78AV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -499,6 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
+				DEVELOPMENT_TEAM = MAQKY78AV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
