@@ -84,7 +84,7 @@ struct TECuidoView: View {
                         .padding(27)
                         .font(.system(size: 30))
                         
-                        NavigationLink(destination: RegistroView(), isActive: $showRegisterView) {
+                        NavigationLink(destination: TipoCuentaView(), isActive: $showRegisterView) {
                             EmptyView()
                         }
                     }

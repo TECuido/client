@@ -5,10 +5,14 @@
 //  Created by Alumno on 19/10/23.
 //
 
+
+
 import SwiftUI
 
 struct GruposDetallesView: View {
-    @StateObject var viewModel = ContactoViewModel()
+    
+    @State var grupo: GrupoModel
+    @StateObject var viewModel = GrupoDetailViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
    
@@ -18,7 +22,7 @@ struct GruposDetallesView: View {
             VStack{
                 ScrollView{
                     // Titulo
-                    Text("Nombre del Grupo")
+                    Text("\(grupo.nombre)")
                         .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                         .font(.system(size: 45))
                         .bold()
@@ -26,9 +30,11 @@ struct GruposDetallesView: View {
                         .padding()
                         .multilineTextAlignment(.center)
                     
+                    
+                    
                     // Lista de contactos
                     List{
-                        ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index,item in
+                        ForEach(Array(viewModel.miembros.enumerated()), id:\.offset) { index,item in
                             HStack{
                                 ZStack{
                                     Circle()
@@ -40,22 +46,26 @@ struct GruposDetallesView: View {
                                 }
                                 
                                 VStack(alignment: .leading){
-                                    Text(item.nombre ?? "Panfila")
+                                    Text(item.miembroGrupo.nombre)
                                         .font(.title2)
-                                    Text(item.correo ?? "pan@gmail.con")
+                                    Text(item.miembroGrupo.correo)
                                         .font(.title2)
                                 }.padding(15)
                             }
                             
-                            
                         }
                         
-                    }.frame(minHeight: minRowHeight * 12)
-                        .scrollContentBackground(.hidden)
-                        .listStyle(InsetListStyle())
+                    }
+                    .task {
+                        await viewModel.getMiembros(idGrupo: grupo.id)
+                    }
+                    .frame(minHeight: minRowHeight * 12)
+                    .scrollContentBackground(.hidden)
+                    .listStyle(InsetListStyle())
+                     
+                     
                     
-                    //El boton de agregar
-                    NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
+                    
                 }
             }
         }
@@ -64,6 +74,9 @@ struct GruposDetallesView: View {
     
 struct GruposDetalleView_Previews: PreviewProvider {
     static var previews: some View {
-        GruposDetallesView()
+        GruposDetallesView(grupo: GrupoModel.example)
     }
 }
+
+
+

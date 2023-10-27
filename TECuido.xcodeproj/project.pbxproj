@@ -24,14 +24,19 @@
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 		FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */; };
 		FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */; };
+		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
+		FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */; };
+		FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */; };
+		FB95EF482AEC422A00ECF38D /* AgregarGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */; };
+		FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */; };
 		FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */; };
 		FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */; };
-		FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B622AE1D96B0018C268 /* GruposView.swift */; };
+		FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B622AE1D96B0018C268 /* ListaGruposView.swift */; };
 		FB999B652AE1D9830018C268 /* GruposDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B642AE1D9830018C268 /* GruposDetallesView.swift */; };
 		FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */; };
 		FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */; };
 		FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */; };
-		FB9CF8872AE2191C00A88FDE /* GrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */; };
+		FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8862AE2191C00A88FDE /* ListaGrupoViewModel.swift */; };
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBEF7222AE34B5C00993C02 /* EmocionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */; };
@@ -43,6 +48,12 @@
 		FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */; };
 		FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */; };
 		FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */; };
+		FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */; };
+		FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */; };
+		FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */; };
+		FBFA60FD2AE9C7090076EF5D /* AgregarContactoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */; };
+		FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */; };
+		FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,14 +75,19 @@
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasView.swift; sourceTree = "<group>"; };
 		FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaModel.swift; sourceTree = "<group>"; };
+		FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoDetailViewModel.swift; sourceTree = "<group>"; };
+		FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembroGrupoModel.swift; sourceTree = "<group>"; };
+		FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearGrupoViewModel.swift; sourceTree = "<group>"; };
+		FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarGrupoModel.swift; sourceTree = "<group>"; };
+		FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarMiembroModel.swift; sourceTree = "<group>"; };
 		FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosView.swift; sourceTree = "<group>"; };
 		FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosDetallesView.swift; sourceTree = "<group>"; };
-		FB999B622AE1D96B0018C268 /* GruposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruposView.swift; sourceTree = "<group>"; };
+		FB999B622AE1D96B0018C268 /* ListaGruposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaGruposView.swift; sourceTree = "<group>"; };
 		FB999B642AE1D9830018C268 /* GruposDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruposDetallesView.swift; sourceTree = "<group>"; };
 		FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewModel.swift; sourceTree = "<group>"; };
 		FB9A48012ADEFE2B00BC4AC6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoModel.swift; sourceTree = "<group>"; };
-		FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoViewModel.swift; sourceTree = "<group>"; };
+		FB9CF8862AE2191C00A88FDE /* ListaGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaGrupoViewModel.swift; sourceTree = "<group>"; };
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmocionesView.swift; sourceTree = "<group>"; };
@@ -83,6 +99,12 @@
 		FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplificarRecetaView.swift; sourceTree = "<group>"; };
 		FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaGrupoView.swift; sourceTree = "<group>"; };
 		FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel.swift; sourceTree = "<group>"; };
+		FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseModel.swift; sourceTree = "<group>"; };
+		FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoUsuario.swift; sourceTree = "<group>"; };
+		FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarContactoModel.swift; sourceTree = "<group>"; };
+		FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactoViewModel.swift; sourceTree = "<group>"; };
+		FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoCuentaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +180,7 @@
 				FBB8EC632AE1D5E800D8766C /* ContactosView.swift */,
 				FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */,
 				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
-				FB999B622AE1D96B0018C268 /* GruposView.swift */,
+				FB999B622AE1D96B0018C268 /* ListaGruposView.swift */,
 				FB999B642AE1D9830018C268 /* GruposDetallesView.swift */,
 				FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */,
 				FBE588172AE32B48009A48B6 /* RecetaTabView.swift */,
@@ -168,6 +190,7 @@
 				FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */,
 				FBBEF7232AE34B9E00993C02 /* LesionesView.swift */,
 				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
+				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,8 +201,11 @@
 				FB60F5002ADA17FF001E430D /* LoginViewModel.swift */,
 				FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */,
 				FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */,
-				FB9CF8862AE2191C00A88FDE /* GrupoViewModel.swift */,
+				FB9CF8862AE2191C00A88FDE /* ListaGrupoViewModel.swift */,
 				FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */,
+				FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */,
+				FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */,
+				FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -191,6 +217,12 @@
 				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
 				FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */,
 				FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */,
+				FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */,
+				FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */,
+				FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */,
+				FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */,
+				FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */,
+				FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
+				FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */,
 			);
 			path = AuthUtils;
 			sourceTree = "<group>";
@@ -273,32 +306,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB9CF8872AE2191C00A88FDE /* GrupoViewModel.swift in Sources */,
+				FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */,
+				FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
+				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
+				FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */,
 				FBBEF7222AE34B5C00993C02 /* EmocionesView.swift in Sources */,
 				FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */,
-				FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */,
+				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
+				FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */,
 				FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
+				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,
+				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
+				FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */,
 				FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */,
 				FB999B652AE1D9830018C268 /* GruposDetallesView.swift in Sources */,
 				FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */,
+				FBFA60FD2AE9C7090076EF5D /* AgregarContactoModel.swift in Sources */,
 				FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */,
 				FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */,
+				FB95EF482AEC422A00ECF38D /* AgregarGrupoModel.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
+				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FBBEF7242AE34B9E00993C02 /* LesionesView.swift in Sources */,
@@ -307,6 +350,7 @@
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
 				FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
+				DEVELOPMENT_TEAM = MAQKY78AV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -463,6 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
+				DEVELOPMENT_TEAM = MAQKY78AV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
