@@ -69,7 +69,7 @@ struct RecetasView: View {
                 
                     
                     
-                    NavigationLink("", destination: RecetaTabView(), isActive: $showDetallesView)
+                    NavigationLink("", destination: MostarRecetaView(), isActive: $showDetallesView)
                 }
             }
         }

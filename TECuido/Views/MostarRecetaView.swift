@@ -4,43 +4,81 @@
 //
 //  Created by Alumno on 20/10/23.
 //
-
 import SwiftUI
-
 struct MostarRecetaView: View {
-    var body: some View {
-        ZStack{
-            VStack{
-               
-                    // Titulo
-                    Text("Receta x")
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .font(.system(size: 45))
-                        .bold()
-                        .frame(width: 280)
-                        .padding()
-                        .multilineTextAlignment(.center)
-                    // Agregar select de motivo de alerta
-                ScrollView{
-                    LabelAlignment(text: "YLorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu pellentesque velit. Mauris eget neque volutpat, ultrices odio quis, porttitor tellus. Quisque fermentum dignissim orci eget efficitur. Vestibulum feugiat dolor sollicitudin sapien bibendum, vitae commodo dui eleifend. Proin a accumsan arcu. Nunc vulputate ex dapibus, posuere sem facilisis, vulputate nibh. Vestibulum facilisis nisl eget elit tempor lobortis", textAlignmentStyle: .justified, width: UIScreen.main.bounds.width - 80)
+    @StateObject var viewModel = RecetaDetalleViewModel()
+    @Environment(\.defaultMinListRowHeight) var minRowHeight
+    @State private var showDetallesView = false
 
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                        .font(.body)
-                        .padding(.top,30)
-                        
-                        
-                           
+    var body: some View {
+        ZStack {
+            VStack {
+                ScrollView {
+                    // Titulo
+                    Text("Receta X")
+                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(20)
+                        .multilineTextAlignment(.center)
+
+                    // Lista de contactos
+                    List {
+                        ForEach(Array(viewModel.ejemplo.enumerated()), id: \.offset) { index, item in
+                            HStack {
+                                ZStack {
+                                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .topLeading, endPoint: .bottomTrailing) .frame(width: 40, height: 40) .clipShape(Circle()) .overlay( Image(systemName: "heart.fill") .foregroundColor(.white) )
+                                    
+                                }
+
+                                
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text(item.nombreMedicamento ?? "Loratadina")
+                                        .font(.title3)
+                                        .foregroundColor(.blue)
+                                        .multilineTextAlignment(.center)
+                                        
+                                    Text("Dosis: \(item.dosis ?? "50 ml")")
+                                        .font(.title3)
+                                        .foregroundColor(.gray)
+                                    HStack{
+                                        Text("\(item.frecuencia ?? "Por 8 horas") \(item.tiempo ?? "durante 3 días")")
+                                            .font(.title3)
+                                            .foregroundColor(.blue)
+
+                                    }
+                                    
+                                }
+                                .padding(20)
+
+                                Spacer()
+
+                                Button(action: {
+                                    showDetallesView = true
+                                }) {
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.blue)
+                                        .font(.title)
+                                }
+                            }
+                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white))
+                            .padding(10)
+                        }
                     }
-                .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(20)
-                    
+                    .frame(minHeight: minRowHeight * 12)
+                    .listStyle(PlainListStyle()) // Cambiado a PlainListStyle para quitar el espacio innecesario
+
+                    // El botón de agregar
+                    NavigationLink("", destination: SimplificarRecetaView(), isActive: $showDetallesView)
+                        .padding(20)
                 }
-            
+            }
         }
     }
-    
 }
+
+
+
 
 
 // Estructura para justificar el texto

@@ -8,39 +8,45 @@
 import SwiftUI
 
 struct SimplificarRecetaView: View {
-    var body: some View {
-        ZStack{
-            VStack{
-               
-                    // Titulo
-                    Text("Resumen de la  Receta ")
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .font(.system(size: 45))
+
+        var body: some View {
+            ZStack {
+                VStack {
+                    // Título
+                    Text("Paracetamol")
+                        .font(.system(size: 40))
                         .bold()
-                        .frame(width: 280)
+                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                        .frame(width: 320)
                         .padding()
                         .multilineTextAlignment(.center)
-                    // Agregar select de motivo de alerta
-                ScrollView{
-                    LabelAlignment(text: "YLorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu pellentesque velit. Mauris eget neque volutpat, ultrices odio quis, porttitor tellus. Quisque fermentum dignissim orci eget efficitur. Vestibulum feugiat dolor sollicitudin sapien bibendum, vitae commodo dui eleifend. Proin a accumsan arcu. Nunc vulputate ex dapibus, posuere sem facilisis, vulputate nibh. Vestibulum facilisis nisl eget elit tempor lobortis.YLorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu pellentesque velit. Mauris eget neque volutpat, ultrices odio quis, porttitor tellus. Quisque fermentum dignissim orci eget efficitur. Vestibulum feugiat dolor sollicitudin sapien bibendum, vitae commodo dui eleifend. Proin a accumsan arcu. Nunc vulputate ex dapibus, posuere sem facilisis, vulputate nibh. Vestibulum facilisis nisl eget elit tempor lobortisYLorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu pellentesque velit. Mauris eget neque volutpat, ultrices odio quis, porttitor tellus. Quisque fermentum dignissim orci eget efficitur. Vestibulum feugiat dolor sollicitudin sapien bibendum, vitae commodo dui eleifend. Proin a accumsan arcu. Nunc vulputate ex dapibus, posuere sem facilisis, vulputate nibh. Vestibulum facilisis nisl eget elit tempor lobortis", textAlignmentStyle: .justified, width: UIScreen.main.bounds.width - 80)
-
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                        .font(.body)
-                        .padding(.top,30)
-                        
-                        
-                           
-                    }
-                .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(20)
                     
+                    // Imagen del paracetamol
+                    AsyncImage(url:URL(string: "https://m.media-amazon.com/images/I/61uutWxTEIL.__AC_SX300_SY300_QL70_ML2_.jpg"))
+                    .cornerRadius(10)
+                      
+                    Text("Descripción del medicamento:")
+                        .font(.title2)
+                        .bold()
+                        .padding(.top, 50)
+                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                    ScrollView {
+                        // Descripción del paracetamol
+                        LabelAlignment(text: "El paracetamol es un medicamento ampliamente utilizado como analgésico (para aliviar el dolor) y antipirético (para reducir la fiebre). Es uno de los medicamentos más comunes y se encuentra disponible sin receta en muchas partes del mundo.", textAlignmentStyle: .justified, width: UIScreen.main.bounds.width - 80)
+                            .font(.body)
+                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+                            .padding(.top,  -5)
+                    }
+                    .frame(maxWidth: .infinity)
+                   
+                    .cornerRadius(20)
+                    .padding(20)
                 }
-            
+            }
         }
     }
-    
-}
+
+
 
 
 struct SimplificarRecetaView_Previews: PreviewProvider {
