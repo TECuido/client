@@ -35,6 +35,7 @@
 		FBBE42D72AEB3321003C944F /* PacientesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE42D62AEB3321003C944F /* PacientesView.swift */; };
 		FBD527B02AE9B0EE0044E1BB /* MedicoMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD527AF2AE9B0EE0044E1BB /* MedicoMainView.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
+		FBEC67E92AEB3F3F009C3FAF /* PacienteProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC67E82AEB3F3F009C3FAF /* PacienteProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		FBBE42D62AEB3321003C944F /* PacientesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientesView.swift; sourceTree = "<group>"; };
 		FBD527AF2AE9B0EE0044E1BB /* MedicoMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicoMainView.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
+		FBEC67E82AEB3F3F009C3FAF /* PacienteProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacienteProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				FBB8EC632AE1D5E800D8766C /* ContactosView.swift */,
 				FBD527AF2AE9B0EE0044E1BB /* MedicoMainView.swift */,
 				FBBE42D62AEB3321003C944F /* PacientesView.swift */,
+				FBEC67E82AEB3F3F009C3FAF /* PacienteProfileView.swift */,
 				FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */,
 				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
 				FB999B622AE1D96B0018C268 /* GruposView.swift */,
@@ -258,6 +261,7 @@
 				FBD527B02AE9B0EE0044E1BB /* MedicoMainView.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
+				FBEC67E92AEB3F3F009C3FAF /* PacienteProfileView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* GruposView.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
