@@ -15,6 +15,7 @@
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
 		FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */; };
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
+		FB4FB61D2AF0816A00D7372F /* RecetasMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FB61C2AF0816900D7372F /* RecetasMainView.swift */; };
 		FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5002ADA17FF001E430D /* LoginViewModel.swift */; };
 		FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5022ADA1829001E430D /* UsuarioModel.swift */; };
 		FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */; };
@@ -48,6 +49,7 @@
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
+		FB4FB61C2AF0816900D7372F /* RecetasMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasMainView.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FB60F5022ADA1829001E430D /* UsuarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioModel.swift; sourceTree = "<group>"; };
 		FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				FBD527AF2AE9B0EE0044E1BB /* MedicoMainView.swift */,
 				FBBE42D62AEB3321003C944F /* PacientesView.swift */,
 				FBEC67E82AEB3F3F009C3FAF /* PacienteProfileView.swift */,
+				FB4FB61C2AF0816900D7372F /* RecetasMainView.swift */,
 				FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */,
 				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
 				FB999B622AE1D96B0018C268 /* GruposView.swift */,
@@ -279,6 +282,7 @@
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
 				FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FB4FB61D2AF0816A00D7372F /* RecetasMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
