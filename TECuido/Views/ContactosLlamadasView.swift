@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LlamadasView: View {
+struct ContactosLlamadasView: View {
     @StateObject var viewModel = ContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
@@ -72,8 +72,8 @@ struct LlamadasView: View {
 }
 
 
-struct LlamadasView_Previews: PreviewProvider {
+struct ContactosLlamadasView_Previews: PreviewProvider {
     static var previews: some View {
-        LlamadasView()
+        ContactosLlamadasView()
     }
 }
