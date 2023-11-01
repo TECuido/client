@@ -11,21 +11,21 @@ import StreamVideoSwiftUI
 
 struct LlamadasView: View {
     
-    @State var call: Call
-    @ObservedObject var state: CallState
-    @State var callCreated: Bool = false
+    @ObservedObject var viewModel: CallViewModel
+    @State var shouldCreateCall = false
 
     private var client: StreamVideo
-    private let apiKey: String = "mmhfdzb5evj2" // The API key can be found in the Credentials section
-    private let userId: String = "Jango_Fett" // The User Id can be found in the Credentials section
-    private let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiVGFsb25fS2FycmRlIiwiaXNzIjoicHJvbnRvIiwic3ViIjoidXNlci9UYWxvbl9LYXJyZGUiLCJpYXQiOjE2OTg0NDE2MjksImV4cCI6MTY5OTA0NjQzNH0.mxffL3dsoFARKdoX76SzcGZEbS6TypQuNOpp5xTn1sI" // The Token can be found in the Credentials section
-    private let callId: String = "sdpBKJgH4yX6" // The CallId can be found in the Credentials section
+    private let apiKey: String = "pmqxwhbbbhzf"
+    private let token: String = "edww4c3mymka5hjfb3ama3wgh4e8zpw57m63u54r39bdur4e4xxew3qtmd5w7zgsn"
+
+    private let userId: String = "IG_88" // The User Id can be found in the Credentials section
+    private let callId: String = "nDpJZMXYktkO" // The CallId can be found in the Credentials section
     
     init() {
         let user = User(
             id: userId,
-            name: "Martin", // name and imageURL are used in the UI
-            imageURL: .init(string: "https://getstream.io/static/2796a305dd07651fcceb4721a94f4505/a3911/martin-mitrevski.webp")
+            name: "Martin",
+            imageURL: URL(string: "https://cdn-icons-png.flaticon.com/512/3177/3177440.png")
         )
 
         // Initialize Stream Video client
@@ -35,50 +35,30 @@ struct LlamadasView: View {
             token: .init(stringLiteral: token)
         )
 
-        // Initialize the call object
-        let call = client.call(callType: "default", callId: callId)
-
-        self.call = call
-        self.state = call.state
+        self.viewModel = .init()
     }
     
     
     var body: some View {
         VStack {
-            if callCreated {
-                ZStack {
-                    ParticipantsView(
-                        call: call,
-                        participants: call.state.remoteParticipants,
-                        onChangeTrackVisibility: changeTrackVisibility(_:isVisible:)
-                        )
-                    FloatingParticipantView(participant: call.state.localParticipant)
-                }
+            if viewModel.call != nil {
+                CallContainer(viewFactory: DefaultViewFactory.shared, viewModel: viewModel)
             } else {
                 Text("loading...")
             }
         }.onAppear {
             Task {
-                guard callCreated == false else { return }
-                try await call.join(create: true)
-                callCreated = true
+                guard viewModel.call == nil else { return }
+                if(shouldCreateCall){
+                    viewModel.startCall(callType: .default, callId: "123", members: [])
+                } else {
+                    viewModel.joinCall(callType: .default, callId: "123")
+                }
             }
         }
        
     }
     
-    
-    
-    /// Changes the track visibility for a participant (not visible if they go off-screen).
-    /// - Parameters:
-    ///  - participant: the participant whose track visibility would be changed.
-    ///  - isVisible: whether the track should be visible.
-    private func changeTrackVisibility(_ participant: CallParticipant?, isVisible: Bool) {
-        guard let participant else { return }
-        Task {
-            await call.changeTrackVisibility(for: participant, isVisible: isVisible)
-        }
-    }
     
 }
 

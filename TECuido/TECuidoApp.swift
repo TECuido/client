@@ -11,7 +11,9 @@ import SwiftUI
 struct TECuidoApp: App {
     var body: some Scene {
         WindowGroup {
-            LlamadasView()
+            TECuidoView()
         }
     }
 }
+
+
