@@ -15,6 +15,14 @@
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
 		FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */; };
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
+		FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */; };
+		FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */; };
+		FB4D55F62AF3157A00D1C533 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */; };
+		FB4D55F82AF315B800D1C533 /* TextToSpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F72AF315B800D1C533 /* TextToSpeechView.swift */; };
+		FB4D55FA2AF3163400D1C533 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F92AF3163400D1C533 /* CNNEmotions.mlmodel */; };
+		FB4D55FC2AF3166F00D1C533 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */; };
+		FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FD2AF3169C00D1C533 /* CameraView.swift */; };
+		FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */; };
 		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
 		FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5002ADA17FF001E430D /* LoginViewModel.swift */; };
@@ -71,6 +79,14 @@
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
+		FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasTemporalView.swift; sourceTree = "<group>"; };
+		FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextView.swift; sourceTree = "<group>"; };
+		FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		FB4D55F72AF315B800D1C533 /* TextToSpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechView.swift; sourceTree = "<group>"; };
+		FB4D55F92AF3163400D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../../../../Desktop/CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		FB4D55FD2AF3169C00D1C533 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRecognitionView.swift; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +220,11 @@
 				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 				FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */,
+				FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */,
+				FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */,
+				FB4D55F72AF315B800D1C533 /* TextToSpeechView.swift */,
+				FB4D55FD2AF3169C00D1C533 /* CameraView.swift */,
+				FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +268,9 @@
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
 				FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */,
+				FB4D55F92AF3163400D1C533 /* CNNEmotions.mlmodel */,
+				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
+				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
 			);
 			path = AuthUtils;
 			sourceTree = "<group>";
@@ -330,6 +354,7 @@
 			files = (
 				FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */,
 				FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */,
+				FB4D55FA2AF3163400D1C533 /* CNNEmotions.mlmodel in Sources */,
 				FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
@@ -338,15 +363,19 @@
 				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
+				FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */,
+				FB4D55FC2AF3166F00D1C533 /* CameraViewController.swift in Sources */,
+				FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */,
 				FBBEF7222AE34B5C00993C02 /* EmocionesView.swift in Sources */,
 				FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
+				FB4D55F62AF3157A00D1C533 /* SpeechRecognizer.swift in Sources */,
 				FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */,
 				FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
@@ -354,6 +383,7 @@
 				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,
 				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
+				FB4D55F82AF315B800D1C533 /* TextToSpeechView.swift in Sources */,
 				FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
 				FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */,
@@ -368,7 +398,9 @@
 				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
+				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				FBBEF7242AE34B9E00993C02 /* LesionesView.swift in Sources */,
+				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
 				FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */,
 				FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
@@ -510,6 +542,7 @@
 				INFOPLIST_FILE = TECuido/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "TECuido requires speech recognition in order to convert speech to text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -542,6 +575,7 @@
 				INFOPLIST_FILE = TECuido/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "TECuido requires speech recognition in order to convert speech to text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

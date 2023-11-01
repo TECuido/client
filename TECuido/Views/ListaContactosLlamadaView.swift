@@ -41,7 +41,7 @@ struct ListaContactosLlamadaView: View {
                                 
                                 ZStack {
                                     
-                                    NavigationLink(destination: LlamadasView()){
+                                    NavigationLink(destination: LlamadasTemporalView()){
                                         EmptyView()
                                     }
                                     
