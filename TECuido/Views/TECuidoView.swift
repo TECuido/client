@@ -94,9 +94,12 @@ struct TECuidoView: View {
         .navigationBarHidden(true)
     }
     
-    struct TECuidoView_Previews: PreviewProvider {
-        static var previews: some View {
-            TECuidoView()
-        }
+    
+}
+
+
+struct TECuidoView_Previews: PreviewProvider {
+    static var previews: some View {
+        TECuidoView()
     }
 }

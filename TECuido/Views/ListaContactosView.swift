@@ -80,9 +80,12 @@ struct ListaContactosView: View {
     }
     
     
-    struct ListaContactosView_Previews: PreviewProvider {
-        static var previews: some View {
-            ListaContactosView()
-        }
+    
+}
+
+
+struct ListaContactosView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListaContactosView()
     }
 }

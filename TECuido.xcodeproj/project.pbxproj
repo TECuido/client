@@ -15,8 +15,12 @@
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
 		FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */; };
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
+		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
+		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
 		FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5002ADA17FF001E430D /* LoginViewModel.swift */; };
 		FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5022ADA1829001E430D /* UsuarioModel.swift */; };
+		FB62B12F2AEC5BB50026EA18 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = FB62B12E2AEC5BB50026EA18 /* StreamVideo */; };
+		FB62B1312AEC5BB50026EA18 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FB62B1302AEC5BB50026EA18 /* StreamVideoSwiftUI */; };
 		FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */; };
 		FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */; };
 		FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */; };
@@ -24,6 +28,7 @@
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 		FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */; };
 		FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */; };
+		FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */; };
 		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
 		FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */; };
 		FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */; };
@@ -66,6 +71,8 @@
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
+		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
+		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FB60F5022ADA1829001E430D /* UsuarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioModel.swift; sourceTree = "<group>"; };
 		FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasView.swift; sourceTree = "<group>"; };
@@ -75,6 +82,8 @@
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasView.swift; sourceTree = "<group>"; };
 		FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaModel.swift; sourceTree = "<group>"; };
+		FB9034DC2AEC5F5C005E79A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasViewModel.swift; sourceTree = "<group>"; };
 		FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoDetailViewModel.swift; sourceTree = "<group>"; };
 		FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembroGrupoModel.swift; sourceTree = "<group>"; };
 		FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearGrupoViewModel.swift; sourceTree = "<group>"; };
@@ -112,6 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB62B1312AEC5BB50026EA18 /* StreamVideoSwiftUI in Frameworks */,
+				FB62B12F2AEC5BB50026EA18 /* StreamVideo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +148,7 @@
 		FB1C317C2AD9C6E200965B4B /* TECuido */ = {
 			isa = PBXGroup;
 			children = (
+				FB9034DC2AEC5F5C005E79A3 /* Info.plist */,
 				FB9A48002ADEFE1600BC4AC6 /* Services */,
 				FBA831312ADE29A4001EAEAE /* AuthUtils */,
 				FBA831302ADE298A001EAEAE /* Model */,
@@ -191,6 +203,7 @@
 				FBBEF7232AE34B9E00993C02 /* LesionesView.swift */,
 				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
+				FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +219,8 @@
 				FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */,
 				FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */,
 				FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */,
+				FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */,
+				FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -252,6 +267,10 @@
 			dependencies = (
 			);
 			name = TECuido;
+			packageProductDependencies = (
+				FB62B12E2AEC5BB50026EA18 /* StreamVideo */,
+				FB62B1302AEC5BB50026EA18 /* StreamVideoSwiftUI */,
+			);
 			productName = TECuido;
 			productReference = FB1C317A2AD9C6E200965B4B /* TECuido.app */;
 			productType = "com.apple.product-type.application";
@@ -280,6 +299,9 @@
 				Base,
 			);
 			mainGroup = FB1C31712AD9C6E200965B4B;
+			packageReferences = (
+				FB62B12D2AEC5BB50026EA18 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+			);
 			productRefGroup = FB1C317B2AD9C6E200965B4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -308,6 +330,7 @@
 			files = (
 				FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */,
 				FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */,
+				FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
@@ -331,6 +354,7 @@
 				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,
 				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
+				FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
 				FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */,
 				FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */,
@@ -345,6 +369,7 @@
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FBBEF7242AE34B9E00993C02 /* LesionesView.swift in Sources */,
+				FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */,
 				FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
@@ -479,9 +504,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
-				DEVELOPMENT_TEAM = MAQKY78AV2;
+				DEVELOPMENT_TEAM = 23D44T2LM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TECuido/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -492,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuido;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoswift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -508,9 +536,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
-				DEVELOPMENT_TEAM = MAQKY78AV2;
+				DEVELOPMENT_TEAM = 23D44T2LM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TECuido/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -521,7 +552,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuido;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoswift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -551,6 +582,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB62B12D2AEC5BB50026EA18 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-video-swift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB62B12E2AEC5BB50026EA18 /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB62B12D2AEC5BB50026EA18 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		FB62B1302AEC5BB50026EA18 /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB62B12D2AEC5BB50026EA18 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB1C31722AD9C6E200965B4B /* Project object */;
 }
