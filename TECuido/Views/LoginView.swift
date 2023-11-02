@@ -10,7 +10,6 @@ struct LoginView: View {
     @StateObject var viewModel = UsuarioViewModel()
     
     var body: some View {
-        NavigationView{
             ZStack{
                 //Diseño
                 Color(red: 0.1294,green: 0.5882,blue: 0.9529)
@@ -116,9 +115,6 @@ struct LoginView: View {
                 }
                 
             }
-        }
-        .navigationBarHidden(true)
-        
         
         
     }
