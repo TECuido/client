@@ -33,7 +33,7 @@ struct LaunchScreenView: View {
             VStack {
                 // header image:
                 // TODO: replace with your own image.  Drag an image from your computer to assets.xcassets and add the name of your image below
-                Image("ICON")
+                Image("ICON 1")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100)
@@ -94,7 +94,6 @@ struct LaunchScreenView: View {
             .shadow(radius: 5)
             
         }// VStack
-        .navigationBarHidden(true)
         .background(
             NavigationLink("", destination: ClassificationView(data: "mydata", model: Wounds().model), isActive: $showHerida)
         )
