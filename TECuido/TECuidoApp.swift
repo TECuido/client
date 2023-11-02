@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct TECuidoApp: App {
+    
+    @StateObject private var predictionStatus = PredictionStatus()
+    
     var body: some Scene {
         WindowGroup {
             TECuidoView()
+                .environmentObject(predictionStatus)
         }
     }
 }
