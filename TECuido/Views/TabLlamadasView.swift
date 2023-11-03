@@ -18,14 +18,14 @@ struct TabLlamadasView: View {
         TabView{
             
             
-           TextToSpeechView()
+           ListaContactosLlamadaView()
                 .tabItem{
                     Image(systemName: "person.3.fill")
                 }
                 .tint(.blue)
             
             
-            SpeechToTextView()
+         UnirseLlamadasView()
                 .tabItem{
                     Image(systemName: "phone.fill")
                 }

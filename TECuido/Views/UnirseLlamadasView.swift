@@ -8,72 +8,86 @@
 import SwiftUI
 
 struct UnirseLlamadasView: View {
+    @State private var codigo = ""
+    @State private var isCodigoEmpty = false
+    @State private var isShowingConfirmationModel = false
     @Environment(\.presentationMode) var presentationMode
-    
-    
-    @StateObject var viewModel = ContactoViewModel()
-    
-    
-    
     var body: some View {
-        
+
         ZStack{
             VStack{
-                // Titulo
-                Text("Unirse a la llamada")
-                    .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                    .font(.system(size: 45))
-                    .bold()
-                    .frame(width: 280)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                //Input Nombre
-                ZStack{
-                    Image(systemName: "phone.circle.fill")
-                        .resizable()
-                        .frame(width: 140,height: 140)
+                ScrollView{
+                    // Titulo
+                    Text("Unirse a una llamada")
                         .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                        .font(.system(size: 45))
+                        .bold()
+                        .frame(width: 280)
+                        .padding()
+                        .multilineTextAlignment(.center)
+                    //Input Nombre
+                    ZStack{
+                        Image(systemName: "phone.circle.fill")
+                            .resizable()
+                            .frame(width: 140,height: 140)
+                            .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                            
+                    }.padding(40)
+                   
                     
-                }.padding(40)
-                
-                //Input Correo
-                HStack {
-                    Image(systemName: "number")
-                        .resizable()
-                        .frame(width: 30, height: 20)
-                        .padding(.leading, 15)
-                    TextField("",
-                              text: $viewModel.codigo,
-                              prompt: Text("Correo electrónico")
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                      )
-                        .font(.title3)
-                        .padding(.leading, 5)
-                        .autocapitalization(.none)
+                    //Input Correo
+                    HStack {
+                        Image(systemName: "number")
+                            .resizable()
+                            .frame(width: 30, height: 20)
+                            .padding(.leading, 15)
+                        TextField("",
+                                  text: $codigo,
+                                  prompt: Text("Codigo")
+                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+                                          )
+                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+                            .font(.title3)
+                            .padding(.leading, 5)
+                            .autocapitalization(.none)
+                    }
+                    .frame(width: 325, height: 55)
+                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                    .cornerRadius(20)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(isCodigoEmpty ? .red : Color.clear)
+                    }
+                    .padding([.top, .bottom], 10)
                 }
-                .frame(width: 325, height: 55)
-                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                .cornerRadius(20)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(.red, lineWidth: CGFloat(viewModel.correoError)*2)
+                
+                // Modal
+                .alert(isPresented: $isShowingConfirmationModel) {
+                    Alert(
+                        title:
+                            Text("Iniciando llamada")
+                               
+                                .font(.title)
+                        ,
+                        message: Text("Te has unido a una llamada")
+                            .font(.title2),
+                        dismissButton: .default(
+                            Text("OK")
+                                .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
+                            action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        )
+                    )
                 }
-                .padding([.top, .bottom], 10)
-                
-                
-                // Aqui validamos que este incorrecto
-                Text(viewModel.error)
-                    .font(.body)
-                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                    .frame(width: 300)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                
-                
-                Button("Unirse a la llamada"){
-                    //presentationMode.wrappedValue.dismiss()
-                    Task {
-                        await viewModel.addContacto()
+
+                // Vamos a checar lo del modal aqui
+                Button("Agregar"){
+                    if codigo.isEmpty{
+                        isCodigoEmpty = true
+                    }
+                    else{
+                        isShowingConfirmationModel = true
                     }
                 }
                 .foregroundColor(.white)
@@ -83,32 +97,13 @@ struct UnirseLlamadasView: View {
                 .cornerRadius(25)
                 .padding(10)
                 .font(.title2)
-                }
-            
-            
-            // Modal
-            .alert(isPresented: $viewModel.addedContacto) {
-                Alert(
-                    title:
-                        Text("Contacto Agregado")
-                           
-                            .font(.title)
-                    ,
-                    message: Text("Se agregó el contacto con éxito")
-                        .font(.title2),
-                    dismissButton: .default(
-                        Text("OK")
-                            .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
-                        action: {
-                            viewModel.codigo = ""
-                        }
-                    )
-                )
             }
             
         }
     }
+    
 }
+
 
 
 struct UnirseLlamadasView_Previews: PreviewProvider {
