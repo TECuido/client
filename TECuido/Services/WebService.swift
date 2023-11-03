@@ -182,7 +182,136 @@ class Webservice {
                 return .failure(.serverError)
             }
                             
+    }
+    
+    
+    func putRequest<T: Decodable, R: Codable>(_ link: String, with body: R, allowedRetry: Bool = true) async -> Result<APIResponseModel<T>, NetworkError>{
+            
+            do {
+                guard let url = URL(string: "\(baseURL)\(link)") else {
+                    throw NetworkError.invalidURL
+                }
+                
+                var request = URLRequest(url: url)
+                
+                /*
+                let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+                
+                request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
+                 */
+                
+                request.httpMethod = "PUT"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = try? JSONEncoder().encode(body)
+                
+                
+                let (data, response) = try await URLSession.shared.data(for: request)
+                
+                guard let response = response as? HTTPURLResponse else {
+                    throw NetworkError.badResponse
+                }
+                
+                guard let result = try? JSONDecoder().decode(APIResponseModel<T>.self, from: data) else {
+                    throw NetworkError.decodingError
+                }
+                            
+                guard response.statusCode >= 200 && response.statusCode < 300 else {
+                    if response.statusCode == 401 && allowedRetry {
+                        /*
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                         
+                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                        KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                        
+                        return await getRequest(link, allowedRetry: false)
+                         */
+                        
+                    }
+                    throw NetworkError.badStatus(error: response.statusCode, message: result.message ?? "Error")
+
+                }
+            
+        
+                return .success(result)
+            } catch NetworkError.invalidURL {
+                return .failure(.invalidURL)
+            } catch NetworkError.badResponse {
+                return .failure(.badResponse)
+            } catch NetworkError.badStatus(let error, let message) {
+                return .failure(.badStatus(error: error, message: message))
+            } catch NetworkError.decodingError {
+                return .failure(.decodingError)
+            } catch {
+                return .failure(.serverError)
+            }
+                            
+    }
+    
+    
+    func deleteRequest<T: Decodable>(_ link: String, allowedRetry: Bool = true) async -> Result<APIResponseModel<T>, NetworkError>{
+        
+        do {
+            guard let url = URL(string: "\(baseURL)\(link)") else {
+                throw NetworkError.invalidURL
+            }
+            
+            var request = URLRequest(url: url)
+        
+            /*
+            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+            
+            request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
+             */
+            
+            request.httpMethod = "DELETE"
+            
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let response = response as? HTTPURLResponse else {
+                throw NetworkError.badResponse
+            }
+            
+            guard let result = try? JSONDecoder().decode(APIResponseModel<T>.self, from: data) else {
+                throw NetworkError.decodingError
+            }
+                        
+            guard response.statusCode >= 200 && response.statusCode < 300 else {
+                if response.statusCode == 401 && allowedRetry {
+                    /*
+                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                     
+                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                    KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                    
+                    return await getRequest(link, allowedRetry: false)
+                     */
+                    
+                }
+                
+                
+                throw NetworkError.badStatus(error: response.statusCode, message: result.message ?? "Error")
+                
+            }
+        
+            
+            
+            return .success(result)
+        } catch NetworkError.invalidURL {
+            return .failure(.invalidURL)
+        } catch NetworkError.badResponse {
+            return .failure(.badResponse)
+        } catch NetworkError.badStatus(let error, let message) {
+            return .failure(.badStatus(error: error, message: message))
+        } catch NetworkError.decodingError {
+            return .failure(.decodingError)
+        } catch {
+            return .failure(.serverError)
         }
+                        
+    }
+    
+    
+    
     
     func login(correo: String, password: String) async -> Result<AuthResponse, NetworkError>{
         
