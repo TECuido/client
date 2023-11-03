@@ -105,7 +105,7 @@ struct HomeView: View {
         
         // Aqui acaba el nav
     }
-    private func createSection(ti 12tle: String, iconName: String, hint: String) -> some View {
+    private func createSection(title: String, iconName: String, hint: String) -> some View {
                 
         ZStack {
             VStack {
