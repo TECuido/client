@@ -25,7 +25,9 @@ struct EmotionRecognitionView: View {
         }
     }
 }
-
-#Preview {
-    EmotionRecognitionView()
+struct EmotionRecognitionView_Previews: PreviewProvider {
+    static var previews: some View {
+        EmotionRecognitionView()
+    }
 }
+

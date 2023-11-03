@@ -61,6 +61,12 @@ struct SpeechToTextView: View {
         }
 }
 
-#Preview {
-    SpeechToTextView()
+
+
+
+
+struct SpeechToTextView_Previews: PreviewProvider {
+    static var previews: some View{
+        SpeechToTextView()
+    }
 }
