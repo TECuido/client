@@ -4,25 +4,19 @@
 //
 //  Created by Alumno on 11/10/23.
 //
-
-
 import SwiftUI
-
-
 struct HomeView: View {
     @State private var showEmergenciasView = false
     @State private var showContactosView = false
-    @State private var showEmocionesView = false
     @State private var showRecetasMedicasView = false
     @State private var showLlamadasView = false
     @State private var showLesionesView = false
     
     @State private var scale = 1.0
-
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
         
-        //NavigationView{
+        NavigationView{
             
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
@@ -51,28 +45,22 @@ struct HomeView: View {
                         }) {
                             createSection(title: "Emergencias", iconName: "exclamationmark.triangle.fill", hint:"Reporta una emergencia a tus contactos")
                         }
+                      
+                        
+                    }
+                    
+                    HStack{
                         // Botón para la vista de Contactos
                         Button(action: {
                             showContactosView = true
                         }) {
                             createSection(title: "Contactos", iconName: "person.crop.circle.fill", hint:"Añade contactos o un grupo")
                         }
-                        
-                    }
-                    
-                    HStack{
-                        // Botón para la vista de Emociones
-                        Button(action: {
-                            showEmocionesView = true
-                        }) {
-                            createSection(title: "Emociones", iconName: "smiley.fill", hint:"Lleva un seguimiento de tus emociones")
-                        }
                         // Botón para la vista de Recetas médicas
                         Button(action: {
                             showRecetasMedicasView = true
                         }) {
-                            createSection(title: "Recetas médicas", iconName: "doc.text.fill", hint:"Lee un resumen de tus recetas médicas")
-                        }
+                         }
                         
                     }
                     HStack{
@@ -101,9 +89,7 @@ struct HomeView: View {
             .background(
                 NavigationLink("", destination: ContactosView(), isActive: $showContactosView)
             )
-            .background(
-                NavigationLink("", destination: EmocionesView(), isActive: $showEmocionesView)
-            )
+           
             .background(
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
@@ -111,16 +97,15 @@ struct HomeView: View {
                 NavigationLink("", destination: ListaContactosLlamadaView(),isActive: $showLlamadasView)
             )
             .background(
-                NavigationLink("", destination: LaunchScreenView(), isActive: $showLesionesView)
+                NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
             )
             
         }
         
         
         // Aqui acaba el nav
-    //}
-
-    private func createSection(title: String, iconName: String, hint: String) -> some View {
+    }
+    private func createSection(ti 12tle: String, iconName: String, hint: String) -> some View {
                 
         ZStack {
             VStack {
@@ -145,10 +130,9 @@ struct HomeView: View {
         
     }
 }
-
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
 }
+
