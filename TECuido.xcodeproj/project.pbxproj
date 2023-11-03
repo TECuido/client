@@ -56,6 +56,8 @@
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 		FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */; };
 		FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */; };
+		FB7BB7252AF4931C0060CE76 /* TabLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BB7242AF4931C0060CE76 /* TabLlamadasView.swift */; };
+		FB7BB7272AF4933F0060CE76 /* UnirseLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BB7262AF4933F0060CE76 /* UnirseLlamadasView.swift */; };
 		FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */; };
 		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
 		FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */; };
@@ -138,6 +140,8 @@
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasView.swift; sourceTree = "<group>"; };
 		FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaModel.swift; sourceTree = "<group>"; };
+		FB7BB7242AF4931C0060CE76 /* TabLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLlamadasView.swift; sourceTree = "<group>"; };
+		FB7BB7262AF4933F0060CE76 /* UnirseLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasView.swift; sourceTree = "<group>"; };
 		FB9034DC2AEC5F5C005E79A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasViewModel.swift; sourceTree = "<group>"; };
 		FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoDetailViewModel.swift; sourceTree = "<group>"; };
@@ -341,14 +345,14 @@
 				FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */,
 				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
 				FB999B622AE1D96B0018C268 /* ListaGruposView.swift */,
+				FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */,
 				FB999B642AE1D9830018C268 /* GruposDetallesView.swift */,
 				FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */,
 				FBE588172AE32B48009A48B6 /* RecetaTabView.swift */,
-				FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */,
 				FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */,
+				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
 				FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */,
 				FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */,
-				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
 				FBBEF7232AE34B9E00993C02 /* LesionesView.swift */,
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 				FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */,
@@ -357,6 +361,8 @@
 				FB4D55F72AF315B800D1C533 /* TextToSpeechView.swift */,
 				FB4D55FD2AF3169C00D1C533 /* CameraView.swift */,
 				FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */,
+				FB7BB7242AF4931C0060CE76 /* TabLlamadasView.swift */,
+				FB7BB7262AF4933F0060CE76 /* UnirseLlamadasView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
 				FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */,
+				FB7BB7272AF4933F0060CE76 /* UnirseLlamadasView.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				C0271A812AF33A5A00024BE5 /* ClassificationObject.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
@@ -520,6 +527,7 @@
 				C0271A7E2AF33A5A00024BE5 /* Wounds.mlmodel in Sources */,
 				C0271A7A2AF33A5A00024BE5 /* Constants.swift in Sources */,
 				C0271A752AF33A5A00024BE5 /* LiveCameraRepresentable.swift in Sources */,
+				FB7BB7252AF4931C0060CE76 /* TabLlamadasView.swift in Sources */,
 				C0271A722AF33A5A00024BE5 /* ClassificationView.swift in Sources */,
 				C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
