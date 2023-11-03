@@ -60,7 +60,8 @@ struct HomeView: View {
                         Button(action: {
                             showRecetasMedicasView = true
                         }) {
-                         }
+                            createSection(title: "Recetas médicas", iconName: "doc.text.fill", hint:"Lee un resumen de tus recetas médicas")
+                        }
                         
                     }
                     HStack{
