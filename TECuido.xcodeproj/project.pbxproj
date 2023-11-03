@@ -56,6 +56,8 @@
 		FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */; };
 		FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */; };
 		FB8811942AF44B2E00387A63 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB8811932AF44B2D00387A63 /* CNNEmotions.mlmodel */; };
+		FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */; };
+		FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */; };
 		FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */; };
 		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
 		FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */; };
@@ -138,6 +140,8 @@
 		FB6A5BB72AE30F6200D6F4C5 /* RecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasView.swift; sourceTree = "<group>"; };
 		FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaModel.swift; sourceTree = "<group>"; };
 		FB8811932AF44B2D00387A63 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../../../../Downloads/CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLlamadasView.swift; sourceTree = "<group>"; };
+		FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasView.swift; sourceTree = "<group>"; };
 		FB9034DC2AEC5F5C005E79A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasViewModel.swift; sourceTree = "<group>"; };
 		FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoDetailViewModel.swift; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 				FB4D55F72AF315B800D1C533 /* TextToSpeechView.swift */,
 				FB4D55FD2AF3169C00D1C533 /* CameraView.swift */,
 				FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */,
+				FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */,
+				FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 			files = (
 				FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */,
 				FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */,
+				FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */,
 				FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */,
 				C0271A742AF33A5A00024BE5 /* LiveCameraViewController.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
@@ -559,6 +566,7 @@
 				FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */,
 				C0271A712AF33A5A00024BE5 /* LaunchScreenView.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */,
 				FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

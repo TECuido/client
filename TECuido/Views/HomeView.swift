@@ -95,7 +95,7 @@ struct HomeView: View {
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: ListaContactosLlamadaView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: TabLlamadasView(),isActive: $showLlamadasView)
             )
             .background(
                 NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
