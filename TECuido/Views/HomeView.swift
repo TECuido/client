@@ -98,7 +98,7 @@ struct HomeView: View {
                 NavigationLink("", destination: TabLlamadasView(),isActive: $showLlamadasView)
             )
             .background(
-                NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
+                NavigationLink("", destination: LaunchScreenView(), isActive: $showLesionesView)
             )
             
        //s }

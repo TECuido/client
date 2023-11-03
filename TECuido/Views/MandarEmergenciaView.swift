@@ -27,29 +27,32 @@ struct MandarEmergenciaView: View {
                             .bold()
                         
                         // Imagen principal
-                        Image("bien")
+                       /* Image("bien")
                             .resizable()
-                            .frame(width: 125, height: 125)
+                            .frame(width: 125, height: 125)*/
                         
                         // Selección de motivo
                         Text("Selecciona el motivo de la alerta")
                             .font(.title2)
                             .bold()
                             .multilineTextAlignment(.center)
+                            .padding(.top)
                         
                         Picker("Selecciona un motivo", selection: $selectedOption){
                             ForEach(options, id: \.self) { option in
+                                
                                 Text(option)
                                     .font(.title)
                             }
                         }
                         .pickerStyle(DefaultPickerStyle())
-                        .frame(width: 325, height: 65)
+                        .frame(width: 325, height: 55)
                         .background(.white)
                         .overlay(
                             RoundedRectangle(cornerRadius: 25)
                                 .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
                                         )
+                       
                         .cornerRadius(25)
                         .padding(10)
                         
@@ -69,7 +72,7 @@ struct MandarEmergenciaView: View {
                             }
                         }
                         .pickerStyle(DefaultPickerStyle())
-                        .frame(width: 325, height: 65)
+                        .frame(width: 325, height: 55)
                         .background(.white)
                         .overlay(
                             RoundedRectangle(cornerRadius: 25)
@@ -118,7 +121,7 @@ struct MandarEmergenciaView: View {
                             }
                             .foregroundColor(.white)
                             .bold()
-                            .frame(width: 300, height: 65)
+                            .frame(width: 300, height: 55)
                             .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                             .cornerRadius(25)
                             .padding(30)

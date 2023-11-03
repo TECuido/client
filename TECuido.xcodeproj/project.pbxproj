@@ -75,7 +75,6 @@
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBEF7222AE34B5C00993C02 /* EmocionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */; };
-		FBBEF7242AE34B9E00993C02 /* LesionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7232AE34B9E00993C02 /* LesionesView.swift */; };
 		FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7252AE34BC200993C02 /* LlamadasView.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 		FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588172AE32B48009A48B6 /* RecetaTabView.swift */; };
@@ -160,7 +159,6 @@
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmocionesView.swift; sourceTree = "<group>"; };
-		FBBEF7232AE34B9E00993C02 /* LesionesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LesionesView.swift; sourceTree = "<group>"; };
 		FBBEF7252AE34BC200993C02 /* LlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasView.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 		FBE588172AE32B48009A48B6 /* RecetaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaTabView.swift; sourceTree = "<group>"; };
@@ -353,7 +351,6 @@
 				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
 				FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */,
 				FBBEF7212AE34B5C00993C02 /* EmocionesView.swift */,
-				FBBEF7232AE34B9E00993C02 /* LesionesView.swift */,
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 				FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */,
 				FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */,
@@ -554,7 +551,6 @@
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
-				FBBEF7242AE34B9E00993C02 /* LesionesView.swift in Sources */,
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
 				C0271A792AF33A5A00024BE5 /* ContentView.swift in Sources */,
