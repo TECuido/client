@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-
-
 struct ListaContactosView: View {
     @StateObject var viewModel = ListaContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
     @State private var showEditarView = false
-    @State private var showEliminarView = false
+    @State private var isShowingConfirmationModel = false
     var body: some View {
         ZStack{
             VStack{
@@ -27,7 +25,7 @@ struct ListaContactosView: View {
                         .frame(width: 280)
                         .padding()
                         .multilineTextAlignment(.center)
-                        
+                    
                     // Lista de contactos
                     
                     List {
@@ -41,63 +39,94 @@ struct ListaContactosView: View {
                                         .foregroundColor(.white)
                                         .font(.system(size: 20))
                                 }
-
                                 VStack(alignment: .leading) {
                                     Text(item.usuarioAgregado.nombre)
                                         .font(.title2)
                                     Text(item.usuarioAgregado.correo)
                                         .font(.title2)
-                                }
-                                .padding(10)
-
-                                Menu {
-                                    Button(action: {
-                                        // Acción para editar
-                                        showEditarView = true
-                                    }) {
-                                        Label("Editar", systemImage: "pencil")
-                                    }
-
+                                }.frame(width:230)
+                                    .padding(10)
+                                HStack{
+                                    
+                                    Spacer()
+                                    
                                     Button(action: {
                                         // Acción para borrar
-                                        showEliminarView = true
+                                        isShowingConfirmationModel = true
                                     }) {
-                                        Label("Borrar", systemImage: "trash")
+                                        Image(systemName: "minus.circle.fill")
+                                            .resizable()
+                                            .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                                            .frame(width: 30, height: 30)
                                     }
-                                } label: {
-                                    Image(systemName: "ellipsis.circle")
-                                        .resizable()
-                                        .frame(width: 30, height: 30) // Ajusta el tamaño del icono
                                 }
+                                /*
+                                 Menu {
+                                 Button(action: {
+                                 // Acción para borrar
+                                 isShowingConfirmationModel = true
+                                 }) {
+                                 Label("Borrar", systemImage: "trash")
+                                 .foregroundColor(.red)
+                                 
+                                 }
+                                 } label: {
+                                 Spacer() // Empuja el menú a la izquierda
+                                 Image(systemName: "ellipsis.circle")
+                                 .resizable()
+                                 .frame(width: 30, height: 30)
+                                 .padding(.leading) // Alineación a la izquierda
+                                 }*/
                             } // Acaba el HStack
-                   
-                     }
+                        }
                     }
+                    
                     .task {
                         await viewModel.getContactos()
                     }
                     .frame(minHeight: minRowHeight * 10)
                     .scrollContentBackground(.hidden)
                     .listStyle(InsetListStyle())
-
-                }
-                    //El boton de agregar
-                   
-                    Button(action:{
-                        showDetallesView = true
-                    }){
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 65, height: 65)
-                            .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                    }
-                    .padding(.bottom,20)
-                    .padding(.leading,240)
                     
-                NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
-                NavigationLink("", destination: EditarContactoView(), isActive: $showEditarView)
                 }
+                //El boton de agregar
+                
+                Button(action:{
+                    showDetallesView = true
+                }){
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 65, height: 65)
+                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                }
+                .padding(.bottom,20)
+                .padding(.leading,240)
+                
+                NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
+                
+                
+                // Modal
+                    .alert(isPresented: $isShowingConfirmationModel) {
+                        Alert(
+                            title: Text("Contacto Eliminado"),
+                            message: Text("Se ha eliminado el contacto con éxito"),
+                            primaryButton: .default(
+                                Text("Aceptar")
+                                    .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529)),
+                                action: {
+                                    // Aquí puedes agregar alguna acción si es necesario
+                                }
+                            ),
+                            secondaryButton: .cancel(
+                                Text("Cancelar")
+                                    .foregroundColor(.red)
+                            )
+                        )
+                    }
+
             }
+                    }
+
         }
 
     

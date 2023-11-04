@@ -29,6 +29,22 @@ class ListaContactoViewModel : ObservableObject {
                 print(error.localizedDescription)
         }
     }
-
+    
+    public func deleteContactos() async {
+        
+        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+        
+        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+        
+        switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.ejemplo = data.data!
+                }
+            case .failure(let error):
+            print(error.self)
+                print(error.localizedDescription)
+        }
+    }
 }
     
