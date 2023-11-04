@@ -13,7 +13,8 @@ struct ListaContactosView: View {
     @StateObject var viewModel = ListaContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
-    
+    @State private var showEditarView = false
+    @State private var showEliminarView = false
     var body: some View {
         ZStack{
             VStack{
@@ -28,37 +29,58 @@ struct ListaContactosView: View {
                         .multilineTextAlignment(.center)
                         
                     // Lista de contactos
-                    List{
-                        ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index,item in
-                            HStack{
-                                ZStack{
+                    
+                    List {
+                        ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index, item in
+                            HStack {
+                                ZStack {
                                     Circle()
-                                        .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                                        .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                                         .frame(width: 40, height: 40)
-                                    Text("\(index+1)")
+                                    Text("\(index + 1)")
                                         .foregroundColor(.white)
                                         .font(.system(size: 20))
                                 }
-                               
-                                VStack(alignment: .leading){
+
+                                VStack(alignment: .leading) {
                                     Text(item.usuarioAgregado.nombre)
                                         .font(.title2)
                                     Text(item.usuarioAgregado.correo)
                                         .font(.title2)
-                                }.padding(15)
-                            }
-                            
-                            
-                        }
-                        
+                                }
+                                .padding(10)
+
+                                Menu {
+                                    Button(action: {
+                                        // Acción para editar
+                                        showEditarView = true
+                                    }) {
+                                        Label("Editar", systemImage: "pencil")
+                                    }
+
+                                    Button(action: {
+                                        // Acción para borrar
+                                        showEliminarView = true
+                                    }) {
+                                        Label("Borrar", systemImage: "trash")
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis.circle")
+                                        .resizable()
+                                        .frame(width: 30, height: 30) // Ajusta el tamaño del icono
+                                }
+                            } // Acaba el HStack
+                   
+                     }
                     }
                     .task {
                         await viewModel.getContactos()
                     }
                     .frame(minHeight: minRowHeight * 10)
-                        .scrollContentBackground(.hidden)
-                        .listStyle(InsetListStyle())
-                        
+                    .scrollContentBackground(.hidden)
+                    .listStyle(InsetListStyle())
+
+                }
                     //El boton de agregar
                    
                     Button(action:{
@@ -72,14 +94,12 @@ struct ListaContactosView: View {
                     .padding(.bottom,20)
                     .padding(.leading,240)
                     
-              
                 NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
+                NavigationLink("", destination: EditarContactoView(), isActive: $showEditarView)
                 }
             }
         }
-    }
-    
-    
+
     
 }
 

@@ -78,6 +78,8 @@ struct ListaContactosLlamadaView: View {
     }
 }
 
-#Preview {
-    ListaContactosLlamadaView()
+struct ListaContactosLlamadaView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListaContactosLlamadaView()
+    }
 }
