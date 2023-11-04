@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
         
-        NavigationView{
+        //NavigationView{
             
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
@@ -82,6 +82,22 @@ struct HomeView: View {
                     
                 }
             }
+            .task {
+                Task {
+                    // request push notification authorization
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { allowed, error in
+                        if allowed {
+                            // register for remote push notification
+                            DispatchQueue.main.async {
+                                UIApplication.shared.registerForRemoteNotifications()
+                            }
+                            print("Notificaciones remotas autorizadas por el usuario")
+                        } else {
+                            print("Error al solicitar el prermiso para notificaciones remotas. Error \(error)")
+                        }
+                    }
+                }
+            }
             .padding()
             
             .background(
@@ -105,7 +121,7 @@ struct HomeView: View {
         
         
         // Aqui acaba el nav
-    }
+    //}
     private func createSection(title: String, iconName: String, hint: String) -> some View {
                 
         ZStack {

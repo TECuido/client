@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LaunchScreenView: View {
+struct LesionesView: View {
     
     @State private var showHerida = false
     @State private var showQuemadura = false
@@ -133,11 +133,11 @@ struct LaunchScreenView: View {
     
 }
 
-struct LaunchScreenView_Previews: PreviewProvider {
+struct LesionesScreenView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             if #available(iOS 15.0, *) {
-                LaunchScreenView()
+                LesionesView()
                     .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
             } else {
                 // Fallback on earlier versions

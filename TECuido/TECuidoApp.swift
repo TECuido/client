@@ -11,6 +11,8 @@ import SwiftUI
 struct TECuidoApp: App {
     
     @StateObject private var predictionStatus = PredictionStatus()
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+
     
     var body: some Scene {
         WindowGroup {
