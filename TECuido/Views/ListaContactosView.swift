@@ -13,6 +13,7 @@ struct ListaContactosView: View {
     @State private var showDetallesView = false
     @State private var showEditarView = false
     @State private var isShowingConfirmationModel = false
+    
     var body: some View {
         ZStack{
             VStack{
@@ -31,33 +32,55 @@ struct ListaContactosView: View {
                     List {
                         ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index, item in
                             HStack {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                        .frame(width: 40, height: 40)
-                                    Text("\(index + 1)")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 20))
-                                }
-                                VStack(alignment: .leading) {
-                                    Text(item.usuarioAgregado.nombre)
-                                        .font(.title2)
-                                    Text(item.usuarioAgregado.correo)
-                                        .font(.title2)
-                                }.frame(width:230)
-                                    .padding(10)
-                                HStack{
+                                if viewModel.ejemplo.isEmpty {
+                                     Image(systemName: "person.crop.circle.fill.badge.xmark")
+                                         .resizable()
+                                         .frame(width: 170,height: 170)
+                                         .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                                         .padding(20)
+                                     
+                                     Text("No hay contactos agregados")
+                                         .font(.system(size: 40))
+                                     .bold()
+                                     .frame(width: 280)
+                                     .padding()
+                                     .multilineTextAlignment(.center)
                                     
-                                    Spacer()
+                                     
                                     
-                                    Button(action: {
-                                        // Acción para borrar
-                                        isShowingConfirmationModel = true
-                                    }) {
-                                        Image(systemName: "minus.circle.fill")
-                                            .resizable()
-                                            .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                            .frame(width: 30, height: 30)
+
+                                } else {
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                                            .frame(width: 40, height: 40)
+                                        Text("\(index + 1)")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 20))
+                                    }
+                                    VStack(alignment: .leading) {
+                                        Text(item.usuarioAgregado.nombre)
+                                            .font(.title2)
+                                        Text(item.usuarioAgregado.correo)
+                                            .font(.title2)
+                                    }.frame(width:230)
+                                        .padding(10)
+                                    
+                                    HStack{
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            // Acción para borrar
+                                            isShowingConfirmationModel = true
+                                            viewModel.idAgregado = item.usuarioAgregado.id
+                                            
+                                        }) {
+                                            Image(systemName: "minus.circle.fill")
+                                                .resizable()
+                                                .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                                                .frame(width: 30, height: 30)
+                                        }
                                     }
                                 }
                                 /*
@@ -109,12 +132,14 @@ struct ListaContactosView: View {
                     .alert(isPresented: $isShowingConfirmationModel) {
                         Alert(
                             title: Text("Contacto Eliminado"),
-                            message: Text("Se ha eliminado el contacto con éxito"),
+                            message: Text("¿Estás seguro de que deseas eliminar el contacto?"),
                             primaryButton: .default(
                                 Text("Aceptar")
                                     .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529)),
                                 action: {
-                                    // Aquí puedes agregar alguna acción si es necesario
+                                    Task{
+                                        await viewModel.deleteContactos()
+                                    }
                                 }
                             ),
                             secondaryButton: .cancel(
@@ -123,6 +148,31 @@ struct ListaContactosView: View {
                             )
                         )
                     }
+                
+                // Modal
+                    .alert(isPresented: $viewModel.borrado) {
+                    Alert(
+                        title:
+                            Text("Contacto Eliminado")
+                               
+                                .font(.title)
+                        ,
+                        message: Text("Se eliminó el contacto con éxito")
+                            .font(.title2),
+                        dismissButton: .default(
+                            Text("OK")
+                                .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
+                            action: {
+                                Task {
+                                    viewModel.borrado = false
+                                    await viewModel.getContactos()
+                                }
+                            }
+                        )
+                    )
+                }
+                
+                
 
             }
                     }
