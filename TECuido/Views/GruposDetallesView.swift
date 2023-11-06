@@ -33,37 +33,59 @@ struct GruposDetallesView: View {
                     
                     
                     // Lista de contactos
-                    List{
-                        ForEach(Array(viewModel.miembros.enumerated()), id:\.offset) { index,item in
-                            HStack{
-                                ZStack{
-                                    Circle()
-                                        .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                                        .frame(width: 40, height: 40)
-                                    Text("\(index+1)")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 20))
+                    
+                   /* if viewModel.miembros.isEmpty {
+                        Image(systemName: "person.crop.circle.fill.badge.xmark")
+                            .resizable()
+                            .frame(width: 170,height: 170)
+                            .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                            .padding(20)
+                        
+                        Text("No hay contactos agregados")
+                            .font(.system(size: 40))
+                        .bold()
+                        .frame(width: 280)
+                        .padding()
+                        .multilineTextAlignment(.center)
+                       
+                        
+                       
+
+                    } else {
+                        */
+                        
+                        List{
+                            
+                            ForEach(Array(viewModel.miembros.enumerated()), id:\.offset) { index,item in
+                                HStack{
+                                    ZStack{
+                                        Circle()
+                                            .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                                            .frame(width: 40, height: 40)
+                                        Text("\(index+1)")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 20))
+                                    }
+                                    
+                                    VStack(alignment: .leading){
+                                        Text(item.miembroGrupo.nombre)
+                                            .font(.title2)
+                                        Text(item.miembroGrupo.correo)
+                                            .font(.title2)
+                                    }.padding(15)
                                 }
                                 
-                                VStack(alignment: .leading){
-                                    Text(item.miembroGrupo.nombre)
-                                        .font(.title2)
-                                    Text(item.miembroGrupo.correo)
-                                        .font(.title2)
-                                }.padding(15)
                             }
                             
                         }
+                        .task {
+                            await viewModel.getMiembros(idGrupo: grupo.id)
+                        }
+                        .frame(minHeight: minRowHeight * 12)
+                        .scrollContentBackground(.hidden)
+                        .listStyle(InsetListStyle())
                         
-                    }
-                    .task {
-                        await viewModel.getMiembros(idGrupo: grupo.id)
-                    }
-                    .frame(minHeight: minRowHeight * 12)
-                    .scrollContentBackground(.hidden)
-                    .listStyle(InsetListStyle())
-                     
-                     
+                    //}
                     
                     
                 }
