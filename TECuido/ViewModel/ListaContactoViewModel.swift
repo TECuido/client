@@ -13,7 +13,9 @@ class ListaContactoViewModel : ObservableObject {
     
     @Published var ejemplo: [ContactoModel] = []
     @Published var idAgregado: Int = -1
+    @Published var isShowingConfirmationModel: Bool = false
     @Published var borrado: Bool = false
+    
     public func getContactos() async {
         
         let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
