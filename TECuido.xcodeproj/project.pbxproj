@@ -33,6 +33,7 @@
 		FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318B2AD9C6F500965B4B /* LoginView.swift */; };
 		FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318D2AD9C71700965B4B /* RegistroView.swift */; };
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
+		FB246D152AF9961E0066C234 /* EmergenciaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB246D142AF9961E0066C234 /* EmergenciaModel.swift */; };
 		FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */; };
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
 		FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */; };
@@ -117,6 +118,7 @@
 		FB1C318B2AD9C6F500965B4B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FB1C318D2AD9C71700965B4B /* RegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroView.swift; sourceTree = "<group>"; };
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FB246D142AF9961E0066C234 /* EmergenciaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaModel.swift; sourceTree = "<group>"; };
 		FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
 		FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasTemporalView.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */,
 				FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */,
 				FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */,
+				FB246D142AF9961E0066C234 /* EmergenciaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				C0271A7D2AF33A5A00024BE5 /* PredictionStatus.swift in Sources */,
 				FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */,
+				FB246D152AF9961E0066C234 /* EmergenciaModel.swift in Sources */,
 				FB4D55FC2AF3166F00D1C533 /* CameraViewController.swift in Sources */,
 				FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelViewHerida.swift in Sources */,
