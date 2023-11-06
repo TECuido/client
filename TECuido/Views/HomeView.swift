@@ -8,12 +8,12 @@
 //
 import SwiftUI
 struct HomeView: View {
+        
     @State private var showEmergenciasView = false
     @State private var showContactosView = false
     @State private var showRecetasMedicasView = false
     @State private var showLlamadasView = false
     @State private var showLesionesView = false
-    
     @State private var scale = 1.0
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
