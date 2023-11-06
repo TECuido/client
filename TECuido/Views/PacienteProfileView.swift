@@ -187,9 +187,9 @@ struct PacienteProfileView: View {
                                 
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                        .foregroundColor(.white)
                                         .frame(height: 150)
-                                        .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
+                                        .shadow(color: .black, radius: 5, x: 0, y: 4)
                                     VStack(spacing: 20){
                                         HStack{
                                             Text("SPO²")

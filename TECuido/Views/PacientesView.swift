@@ -26,7 +26,7 @@ struct PacientesView: View {
                             Text("Pacientes")
                                 .font(.system(size: 26, weight: .bold))
                             Spacer()
-                            Image(systemName: "plus.circle.fill")
+                            Image(systemName: "plus")
                                 .font(.system(size: 26))
                                 
                         }
@@ -34,7 +34,7 @@ struct PacientesView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
-                                .strokeBorder(Color(red: 0, green: 0, blue: 0), lineWidth: 1)
+                                .strokeBorder(.black, lineWidth: 1)
                                 .frame(height: 70)
                                 .padding(.horizontal, 20)
 
@@ -53,9 +53,9 @@ struct PacientesView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                .foregroundColor(.white)
                                 .frame(height: 70)
-                                .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .padding(.horizontal, 20)
                             HStack{
                                 Text("Pedro Lopez")
@@ -69,9 +69,9 @@ struct PacientesView: View {
                         .padding(.bottom, 20)
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                .foregroundColor(.white)
                                 .frame(height: 70)
-                                .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .padding(.horizontal, 20)
                             HStack{
                                 Text("Sofia Baeza")
@@ -86,9 +86,9 @@ struct PacientesView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                .foregroundColor(.white)
                                 .frame(height: 70)
-                                .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .padding(.horizontal, 20)
                             HStack{
                                 Text("Diego Leyva")
@@ -103,9 +103,9 @@ struct PacientesView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                .foregroundColor(.white)
                                 .frame(height: 70)
-                                .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .padding(.horizontal, 20)
                             HStack{
                                 Text("Erika Lopez")

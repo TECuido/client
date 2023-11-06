@@ -1,8 +1,8 @@
 //
-//  RecetasMainView.swift
-//  TECuido
+//  ContentView.swift
+//  erickxD
 //
-//  Created by Alumno on 30/10/23.
+//  Created by Leonardo García Ledezma on 06/11/23.
 //
 
 import SwiftUI
@@ -10,155 +10,154 @@ import SwiftUI
 struct RecetasMainView: View {
     var body: some View {
         ZStack{
-            Color(red: 0.1294,green: 0.5882,blue: 0.9529)
-                .edgesIgnoringSafeArea(.all)
+            Color(red: 0.2824, green: 0.5804, blue: 0.9961)
+                .ignoresSafeArea(.all)
             VStack{
-                HStack{
+                
+                HStack(spacing: 20){
                     Image(systemName: "arrowshape.turn.up.left.fill")
-                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                        .font(.system(size: 20))
-                    Text("Recetas")
-                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                        .font(.system(size: 26, weight: .semibold))
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .bold))
+                    
+//                    Text("Recetas")
+//                        .foregroundColor(.white)
+//                        .font(.system(size: 26, weight: .heavy))
                     Spacer()
                 }
-                .padding(.horizontal, 20)
+                .padding()
                 ZStack{
                     Rectangle()
-                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                        .foregroundColor(.white)
+                        .ignoresSafeArea()
+                    
                     VStack{
-                        VStack{
-                            Text("Receta")
-                                .font(.system(size: 26, weight: .semibold))
-                                
-                            Text("Inserte Nombre")
-                                .font(.system(size: 26, weight: .semibold))
-                        }
-                        .padding(20)
-
                         HStack{
-                            Text("Paciente:")
-                                .font(.system(size: 20, weight: .bold))
+                            Text("Recetas")
+                                .font(.system(size: 26, weight: .bold))
 
-                            Text("Pedro López")
-                                .font(.system(size: 20, weight: .regular))
+                            Spacer()
+
+                            Image(systemName: "plus")
+                                .font(.system(size: 26, weight: .bold))
+
                         }
-                        ScrollView{
-                            
+                        .padding(.horizontal, 30)
+                        .padding(.vertical)
+
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color(red: 0.8824, green: 0.8824, blue: 0.8824))
+
                             VStack{
-                                    HStack{
-                                        Text("Paracetamol")
-                                            .font(.system(size: 25, weight: .bold))
-                                        Spacer()
-                                    }
-                                    .padding([.horizontal, .top])
-                                    
-                                    Image("icon")
-                                    HStack{
-                                        Text("Cantidad")
-                                            .font(.system(size: 20, weight: .semibold))
-                                        Spacer()
-                                    }
-                                    .padding(.horizontal, 20)
+                                HStack(spacing: 30){
                                     ZStack{
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(height: 50)
-                                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        HStack{
-                                            Text("1 tableta por día")
-                                                .font(.system(size: 17, weight: .semibold))
-                                            Spacer()
-                                        }
-                                        .padding(.horizontal)
+                                        Circle()
+                                            .frame(width: 50, height: 50)
+                                            .foregroundColor(Color(red: 0.2824, green: 0.5804, blue: 0.9961))
                                         
+                                        Text("1")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(.white)
                                     }
-                                    .padding(.horizontal, 20)
-                                    
-                                    HStack{
-                                        Text("¿Cuando tomar?")
-                                            .font(.system(size: 20, weight: .semibold))
-                                        Spacer()
-                                    }
-                                    .padding(.horizontal, 20)
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(height: 50)
-                                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        HStack{
-                                            Text("Temprano por las mañanas")
-                                                .font(.system(size: 17, weight: .semibold))
-                                            Spacer()
-                                        }
-                                        .padding(.horizontal)
+                                    VStack(alignment: .leading, spacing: 10){
+                                        Text("Receta 4")
+                                            .font(.system(size: 20, weight: .bold))
                                         
+                                        Text("24/08/2023")
+                                            .font(.system(size: 16, weight: .semibold))
                                     }
-                                    .padding(.horizontal, 20)
                                     
-                                    HStack{
-                                        Text("PeptoBismol")
-                                        Spacer()
-                                    }
-                                    .padding(.horizontal)
                                     
-                                    Image("icon")
-                                    HStack{
-                                        Text("Cantidad")
-                                            .font(.system(size: 20, weight: .semibold))
-                                        Spacer()
-                                    }
-                                    .padding(.horizontal, 20)
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(height: 50)
-                                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        HStack{
-                                            Text("1 tableta por día")
-                                                .font(.system(size: 17, weight: .semibold))
-                                            Spacer()
-                                        }
-                                        .padding(.horizontal)
-                                        
-                                    }
-                                    .padding(.horizontal, 20)
-                                    
-                                    //                                HStack{
-                                    //                                    Text("¿Cuando tomar?")
-                                    //                                        .font(.system(size: 20, weight: .semibold))
-                                    //                                    Spacer()
-                                    //                                }
-                                    //                                .padding(.horizontal, 20)
-                                    
+                                    Spacer()
+
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 20, weight: .bold))
                                 }
+                                .padding()
+
+
+                                Rectangle()
+                                    .fill(Color.black)
+                                    .frame(height: 1)
+
+                                HStack(spacing: 30){
+                                    ZStack{
+                                        Circle()
+                                            .frame(width: 50, height: 50)
+                                            .foregroundColor(Color(red: 0.2824, green: 0.5804, blue: 0.9961))
+                                        
+                                        Text("2")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(.white)
+                                    }
+                                    VStack(alignment: .leading, spacing: 10){
+                                        Text("Receta 8")
+                                            .font(.system(size: 20, weight: .bold))
+                                        
+                                        Text("24/08/2023")
+                                            .font(.system(size: 16, weight: .semibold))
+                                    }
+                                    
+                                    
+                                    Spacer()
+
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 20, weight: .bold))
+                                }
+                                .padding()
+
+
+                                Rectangle()
+                                    .fill(Color.black)
+                                    .frame(height: 1)
+
+                                HStack(spacing: 30){
+                                    ZStack{
+                                        Circle()
+                                            .frame(width: 50, height: 50)
+                                            .foregroundColor(Color(red: 0.2824, green: 0.5804, blue: 0.9961))
+                                        
+                                        Text("3")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(.white)
+                                    }
+                                    VStack(alignment: .leading, spacing: 10){
+                                        Text("Receta 2")
+                                            .font(.system(size: 20, weight: .bold))
+                                        
+                                        Text("24/08/2023")
+                                            .font(.system(size: 16, weight: .semibold))
+                                    }
+                                    
+                                    
+                                    Spacer()
+
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 20, weight: .bold))
+                                }
+                                .padding()
+
+
+                                Rectangle()
+                                    .fill(Color.black)
+                                    .frame(height: 1)
+                                Spacer()
                             }
                         }
-                        .padding(.horizontal, 30)
                     }
+                    .padding()
                 }
-                HStack{
-                    Spacer()
-                    VStack{
-                        Image(systemName: "square.and.pencil")
-                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                            .font(.system(size: 30, weight: .bold))
-                        Text("Modificar")
-                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                            .font(.system(size: 15, weight: .regular))
-                    }
-                    Spacer()
-                    VStack{
-                        Image(systemName: "trash.fill")
-                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                            .font(.system(size: 30, weight: .bold))
-                        Text("Eliminar")
-                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                            .font(.system(size: 15, weight: .regular))
-                    }
-                    Spacer()
-                }
-                
+//                HStack{
+//                    Spacer()
+//                    VStack(spacing: 5){
+//                        Image(systemName: "square.and.pencil")
+//                            .foregroundColor(.white)
+//                            .font(.system(size: 30, weight: .bold))
+//                        Text("Modificar")
+//                    }
+//                    Spacer()
+//                    Spacer()
+//                }
             }
         }
     }
