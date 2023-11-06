@@ -42,7 +42,6 @@
 		FB4D55FC2AF3166F00D1C533 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */; };
 		FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FD2AF3169C00D1C533 /* CameraView.swift */; };
 		FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */; };
-		FB4D56022AF883D600D1C533 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56012AF883D600D1C533 /* CNNEmotions.mlmodel */; };
 		FB4D56042AF8A42A00D1C533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */; };
 		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
@@ -127,8 +126,8 @@
 		FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		FB4D55FD2AF3169C00D1C533 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRecognitionView.swift; sourceTree = "<group>"; };
-		FB4D56012AF883D600D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../../../../Downloads/CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -297,10 +296,10 @@
 		FB1C317C2AD9C6E200965B4B /* TECuido */ = {
 			isa = PBXGroup;
 			children = (
+				FB4D56062AF8A51A00D1C533 /* Utils */,
 				C0271A4A2AF33A5900024BE5 /* coreML-nanostarter */,
 				FB9034DC2AEC5F5C005E79A3 /* Info.plist */,
 				FB9A48002ADEFE1600BC4AC6 /* Services */,
-				FBA831312ADE29A4001EAEAE /* AuthUtils */,
 				FBA831302ADE298A001EAEAE /* Model */,
 				FBA8312F2ADE286A001EAEAE /* ViewModel */,
 				FBA8312E2ADE280A001EAEAE /* Views */,
@@ -318,6 +317,25 @@
 				FB1C31842AD9C6E400965B4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FB4D56052AF8A50D00D1C533 /* MLUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */,
+				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
+				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
+			);
+			path = MLUtils;
+			sourceTree = "<group>";
+		};
+		FB4D56062AF8A51A00D1C533 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FBA831312ADE29A4001EAEAE /* AuthUtils */,
+				FB4D56052AF8A50D00D1C533 /* MLUtils */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FB9A48002ADEFE1600BC4AC6 /* Services */ = {
@@ -403,9 +421,6 @@
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
 				FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */,
-				FB4D56012AF883D600D1C533 /* CNNEmotions.mlmodel */,
-				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
-				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
 			);
 			path = AuthUtils;
 			sourceTree = "<group>";
@@ -552,7 +567,6 @@
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
 				C0271A792AF33A5A00024BE5 /* ContentView.swift in Sources */,
-				FB4D56022AF883D600D1C533 /* CNNEmotions.mlmodel in Sources */,
 				FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */,
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
 				FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */,
