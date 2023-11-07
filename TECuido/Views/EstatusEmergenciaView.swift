@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct EstatusEmergenciaView: View {
+    
+    @State var dataEmergencia: DataEmergenciaGrupoModel
     @State private var rotation: Double = 0.0
 
     var body: some View {
         
-        VStack {
+        VStack() {
+                        
             Text("Se ha enviado una emergencia")
                 .foregroundColor(Color(red: 0.8392, green: 0, blue: 0))
                 .font(.system(size: 35))
                 .bold()
                 .frame(width: 280)
-                .padding()
+                .padding(.top, 50)
                 .multilineTextAlignment(.center)
 
             Image("Mal")
+                .padding()
                 .rotationEffect(.degrees(rotation))
                 .onAppear {
                     
@@ -32,17 +36,20 @@ struct EstatusEmergenciaView: View {
                     }
                 }
 
-            Text("Alerta")
-                .font(.largeTitle)
+            Text("Alerta de tipo \(dataEmergencia.tipo)")
+                .font(.title)
                 .bold()
-            Text("Descripción de la alerta")
-                .font(.title3)
+                .padding()
+            
+            Text("Descripción de la alerta:")
+                .font(.title2)
                 .bold()
-            VStack {
-                Text("Descripción de la alerta")
-                    .font(.title2)
+                .padding(.bottom, 20)
+            
+            
+            if((dataEmergencia.descripcion) != nil){
+                Text(dataEmergencia.descripcion!)
             }
-            .frame(width: 300, height: 200)
 
             Spacer()
 
@@ -58,6 +65,6 @@ struct EstatusEmergenciaView: View {
 
 struct EstatusEmergenciaView_Previews: PreviewProvider {
     static var previews: some View {
-        EstatusEmergenciaView()
+        EstatusEmergenciaView(dataEmergencia: DataEmergenciaGrupoModel.defaultEmergencia)
     }
 }

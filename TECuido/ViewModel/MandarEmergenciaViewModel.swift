@@ -20,6 +20,9 @@ class MandarEmergenciaViewModel: ObservableObject {
     @Published var isNivelGravedadSelected = false
     @Published var nivel: Int = 1
     @Published var descripcion: String = ""
+    
+    @Published var dataEmergencia = DataEmergenciaGrupoModel.defaultEmergencia
+    @Published var showEstatusView = false
 
     
     public func getGrupos() async {
@@ -43,6 +46,54 @@ class MandarEmergenciaViewModel: ObservableObject {
             print(error.self)
                 print(error.localizedDescription)
         }
+    }
+    
+    public func addEmergencia() async {
+        
+        //obetener tokens
+        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+        
+        //obtener el grupo seleccionado a partir del nombre
+        let i = grupos.firstIndex {
+            $0.nombre == selectedOptionContacto
+        }
+        let selectedGrupo = grupos[i!]
+        
+        //obetener descripcion
+        let descripcion = isNivelGravedadSelected ? "Nivel de gravedad: \(nivel)" : descripcion
+        
+        //agregar los datos de ubicación
+        
+        let data: EmergenciaGrupoModel
+        
+        if(descripcion.count > 0){
+            data = EmergenciaGrupoModel(tipo: selectedMotivo, descripcion: descripcion, idEmisor: tokens.id, idGrupo: selectedGrupo.id)
+        } else {
+            data = EmergenciaGrupoModel(tipo: selectedMotivo, idEmisor: tokens.id, idGrupo: selectedGrupo.id)
+        }
+        
+        
+        
+        let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError> = await Webservice().postRequest("/emergencias/grupo", with: data)
+        
+        
+        switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.dataEmergencia = data.data!
+                    self.showEstatusView = true
+                }
+            case .failure(let error):
+                switch error {
+                case .badStatus(let error, let message):
+                    print(error.self)
+                default:
+                    print(error.self)
+                    print(error.localizedDescription)
+                }
+            
+        }
+        
     }
 
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MandarEmergenciaView: View {
-    @State private var showEstatusView = false
     
     @State private var otro = ""
     
@@ -138,7 +137,9 @@ struct MandarEmergenciaView: View {
                     
                     // Inicio boton
                         Button("Continuar") {
-                            showEstatusView = true
+                            Task {
+                                await viewModel.addEmergencia()
+                            }
                         }
                         .foregroundColor(.white)
                         .bold()
@@ -150,7 +151,7 @@ struct MandarEmergenciaView: View {
                 }
                 
             }
-                    NavigationLink("", destination: EstatusEmergenciaView(), isActive: $showEstatusView)
+            NavigationLink("", destination: EstatusEmergenciaView(dataEmergencia: viewModel.dataEmergencia), isActive: $viewModel.showEstatusView)
                                     
                 }
          

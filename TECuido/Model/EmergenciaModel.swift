@@ -17,10 +17,14 @@ struct EmergenciaGrupoModel : Codable {
 }
 
 struct DataEmergenciaGrupoModel : Decodable {
+    var idEmergencia: Int
     var tipo: String
     var descripcion: String?
     var idEmisor: Int
-    var idGrupo: Int
     var longitud: Float?
     var latitud: Float?
+}
+
+extension DataEmergenciaGrupoModel  {
+    public static var defaultEmergencia = DataEmergenciaGrupoModel(idEmergencia: 1, tipo: "Médica", descripcion: "Emergencia médica", idEmisor: 1)
 }
