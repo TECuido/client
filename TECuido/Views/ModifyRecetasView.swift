@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
-//  erickxD
+//  EditRecetasView.swift
+//  TECuido
 //
-//  Created by Leonardo García Ledezma on 06/11/23.
+//  Created by Erick on 06/11/23.
 //
 
 import SwiftUI
@@ -28,25 +28,139 @@ struct ModifyRecetasView: View {
                     Rectangle()
                         .foregroundColor(.white)
                     ScrollView{
-                        VStack{
+                        VStack(alignment: .leading, spacing: 20){
                             Text("Titulo")
-//                            ZStack{
-//                                RoundedRectangle(corner)
-//                            }
+                                .font(.system(size: 20, weight: .semibold))
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 50)                            .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                    .foregroundColor(.white)
+                                    .frame(height: 50)
+
+                                
+                                HStack{
+                                    Text("Ingrese el nombre de la receta")
+                                        .font(.system(size: 15, weight: .bold))
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+
+                                    Spacer()
+                                }
+                                .padding(.horizontal)
+                            }
+
+                            Text("Paciente")
+                                .font(.system(size: 20, weight: .semibold))
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 50)
+                                    .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                    .foregroundColor(.white)
+                                    .frame(height: 50)
+                                
+                                HStack(spacing: 5){
+                                    Circle()
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                        .frame(width: 30, height: 30)
+
+                                    Text("Selecciona paciente")
+                                        .font(.system(size: 15, weight: .bold))
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                        .padding(.horizontal)
+                                    
+                                    Spacer()
+
+                                    Image(systemName: "chevron.down")
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                }
+                                .padding(.horizontal)
+                            }
+
+                            Text("Fecha de Inicio")
+                                .font(.system(size: 20, weight: .semibold))
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 50)
+                                    .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                    .foregroundColor(.white)
+                                    .frame(height: 50)
+                                
+                                HStack(spacing: 5){
+                                    Circle()
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                        .frame(width: 30, height: 30)
+
+                                    Text("dd/mm/yyyy")
+                                        .font(.system(size: 15, weight: .bold))
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                        .padding(.horizontal)
+                                    
+                                    Spacer()
+
+                                    Image(systemName: "chevron.down")
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                }
+                                .padding(.horizontal)
+                            }
+                            
+                            Text("Fecha de Cierre")
+                                .font(.system(size: 20, weight: .semibold))
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 50)
+                                    .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                    .foregroundColor(.white)
+                                    .frame(height: 50)
+                                
+                                HStack(spacing: 5){
+                                    Circle()
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                        .frame(width: 30, height: 30)
+
+                                    Text("dd/mm/yyyy")
+                                        .font(.system(size: 15, weight: .bold))
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                        .padding(.horizontal)
+                                    
+                                    Spacer()
+
+                                    Image(systemName: "chevron.down")
+                                        .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
+                                }
+                                .padding(.horizontal)
+                            }
+                            
+                            Text("Medicamentos")
+                                .font(.system(size: 20, weight: .semibold))
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 25)
+                                    .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                    .foregroundColor(.white)
+                                VStack{
+                                    HStack{
+                                        Text("Paracetamol")
+                                            .font(.system(size: 25, weight: .bold))
+                                        Spacer()
+                                        Image(systemName: "chevron.down")
+                                    }
+                                    .padding(.horizontal)
+                                    
+                                    Image("icon")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                }
+                                .padding(.vertical)
+                                
+                            }
                         }
-                        
-                        .padding()
+                        .padding(30)
                     }
                 }
 
                 HStack{
                     Spacer()
                     VStack(spacing: 5){
-                        Image(systemName: "square.and.pencil")
+                        Image(systemName: "x.square")
                             .foregroundColor(.white)
                             .font(.system(size: 30, weight: .bold))
                         
-                        Text("Modificar")
+                        Text("Cancelar")
                             .foregroundColor(.white)
                             .font(.system(size: 17, weight: .regular))
                     }
@@ -54,11 +168,11 @@ struct ModifyRecetasView: View {
                     Spacer()
 
                     VStack(spacing: 5){
-                        Image(systemName: "trash.fill")
+                        Image(systemName: "checkmark.square")
                             .foregroundColor(.white)
                             .font(.system(size: 30, weight: .bold))
                         
-                        Text("Eliminar")
+                        Text("Guardar")
                             .foregroundColor(.white)
                             .font(.system(size: 17, weight: .regular))
                     }

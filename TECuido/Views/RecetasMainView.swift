@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  erickxD
+//  TECuido
 //
-//  Created by Leonardo García Ledezma on 06/11/23.
+//  Created by Erick on 06/11/23.
 //
 
 import SwiftUI
