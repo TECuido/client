@@ -45,6 +45,7 @@
 		FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D560E2AF8A75100D1C533 /* NotificationViewModel.swift */; };
 		FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */; };
 		FB4D56152AF8AAA100D1C533 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56142AF8AAA100D1C533 /* CNNEmotions.mlmodel */; };
+		FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */; };
 		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
 		FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5002ADA17FF001E430D /* LoginViewModel.swift */; };
@@ -132,6 +133,7 @@
 		FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTokenModel.swift; sourceTree = "<group>"; };
 		FB4D56142AF8AAA100D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4D56162AF8B1DC00D1C533 /* TECuido.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TECuido.entitlements; sourceTree = "<group>"; };
+		FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaModel.swift; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */,
 				FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */,
 				FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */,
+				FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				C0271A6E2AF33A5A00024BE5 /* DisplayedContentView.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
+				FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,

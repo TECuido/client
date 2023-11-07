@@ -20,21 +20,15 @@ struct MandarEmergenciaView: View {
     var body: some View {
         ZStack{
                 VStack{
-                    ScrollView{
                         Text("Emergencias")
                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                             .font(.system(size: 45))
                             .bold()
-                        
-                        // Imagen principal
-                        Image("bien")
-                            .resizable()
-                            .frame(width: 125, height: 125)
+                            .padding()
                         
                         // Selección de motivo
                         Text("Selecciona el motivo de la alerta")
                             .font(.title2)
-                            .bold()
                             .multilineTextAlignment(.center)
                         
                         Picker("Selecciona un motivo", selection: $selectedOption){
@@ -57,7 +51,6 @@ struct MandarEmergenciaView: View {
                         //Selección de contactos
                         Text("Selecciona los contactos a los que les vas a avisar")
                             .font(.title2)
-                            .bold()
                             .frame(width:340)
                             .multilineTextAlignment(.center)
                         // Picker de grupos
@@ -98,19 +91,17 @@ struct MandarEmergenciaView: View {
                         //descripcion
                         Text("Describe la emergencia")
                             .font(.title2)
-                            .bold()
                             .padding(.top, 10)
                         // Agregar select de motivo de alerta
                         VStack {
                             PlaceholderTextEditor(text: $descripcion, placeholder: "Escribe aquí la descripción")
-
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.body)
-                                .frame(width: 325, height: 200)
+                                .frame(width: 325, height: 100)
                                 .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                                 .cornerRadius(20)
                         }
-                        .frame(width: 325, height: 200)
+                        .frame(width: 325, height: 100)
                         
                         // Inicio boton
                             Button("Continuar") {
@@ -133,7 +124,6 @@ struct MandarEmergenciaView: View {
          
             }
     }
-}
 
 struct PlaceholderTextEditor: View {
     @Binding var text: String
