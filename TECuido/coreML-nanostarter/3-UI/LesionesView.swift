@@ -25,10 +25,7 @@ struct LesionesView: View {
             Color(hex: 0xF9F9F9, opacity: 1.0)
                 .ignoresSafeArea()
             
-//            Image("Background")
-//                .resizable()
-//                .ignoresSafeArea()
-//                .scaledToFill()
+//
 
             VStack {
                 // header image:
@@ -39,12 +36,10 @@ struct LesionesView: View {
                     .frame(width: 100)
                 
                 // title
-                // TODO: Replace app title
                 Text("Heridas")
                     .font(.title)
-                    .fontWeight(.bold)
                     .padding()
-                    .foregroundColor(.black)
+                    .foregroundColor(.blue)
                 
                 Divider().frame(maxWidth: 300)
                     .padding(.bottom, 20)
@@ -57,6 +52,7 @@ struct LesionesView: View {
                         }) {
                             createSection(title: "Herida", iconName: "bandage.fill", hint: "Aquí se analiza si tiene alguna herida")
                         }
+                        .shadow(radius: 5)
                         .alert("⚠️\n\nSolo son recomendaciones, no es consejo médico. Si te sientes mal, mejor consulta a tu médico.", isPresented: $showingAlertHerida) {
                             Button("Entendido", role: .cancel) {
                                 showHerida = true
@@ -68,6 +64,7 @@ struct LesionesView: View {
                         }) {
                             createSection(title: "Quemadura", iconName: "flame.fill", hint: "Aquí se analiza si tiene alguna quemadura")
                         }
+                        .shadow(radius: 5)
                         .alert("⚠️\n\nSolo son recomendaciones, no es consejo médico. Si te sientes mal, mejor consulta a tu médico.", isPresented: $showingAlertQuemadura) {
                             Button("Entendido", role: .cancel) {
                                 showQuemadura = true
@@ -79,6 +76,7 @@ struct LesionesView: View {
                     }) {
                         createSection(title: "Picadura", iconName: "ladybug.fill", hint: "Aquí se analiza si tiene alguna picadura")
                     }
+                    .shadow(radius: 5)
                     .alert("⚠️\n\nSolo son recomendaciones, no es consejo médico. Si te sientes mal, mejor consulta a tu médico.", isPresented: $showingAlertPicadura) {
                         Button("Entendido", role: .cancel) {
                             showPicadura = true
@@ -91,7 +89,8 @@ struct LesionesView: View {
             .padding()
             .frame(maxWidth: 500) // This sets the width of the white card
             .cornerRadius(25)
-            .shadow(radius: 5)
+
+
             
         }// VStack
         .background(

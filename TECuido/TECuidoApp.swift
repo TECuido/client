@@ -18,6 +18,13 @@ struct TECuidoApp: App {
         WindowGroup {
             TECuidoView()
                 .environmentObject(predictionStatus)
+                .environmentObject(appDelegate.notificationViewModel)
+                .environmentObject(appDelegate.notificationsManager)
+                .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
+                    Task {
+                        await appDelegate.notificationViewModel.sendNotificationToken()
+                    }
+                }
         }
     }
 }

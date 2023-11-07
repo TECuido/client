@@ -8,13 +8,16 @@
 //
 import SwiftUI
 struct HomeView: View {
+        
     @State private var showEmergenciasView = false
     @State private var showContactosView = false
     @State private var showRecetasMedicasView = false
     @State private var showLlamadasView = false
     @State private var showLesionesView = false
-    
     @State private var scale = 1.0
+    
+    @EnvironmentObject var notificationViewModel: NotificationViewModel
+    
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
         
@@ -101,7 +104,6 @@ struct HomeView: View {
                 }
             }
             .padding()
-            
             .background(
                 NavigationLink("", destination: EmergenciasView(), isActive: $showEmergenciasView)
             )
@@ -113,7 +115,7 @@ struct HomeView: View {
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: ListaContactosLlamadaView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: TabLlamadasView(),isActive: $showLlamadasView)
             )
             .background(
                 NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)

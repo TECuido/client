@@ -16,7 +16,6 @@
 		C0271A752AF33A5A00024BE5 /* LiveCameraRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A572AF33A5A00024BE5 /* LiveCameraRepresentable.swift */; };
 		C0271A762AF33A5A00024BE5 /* ClassifierViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A592AF33A5A00024BE5 /* ClassifierViewModel.swift */; };
 		C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A5A2AF33A5A00024BE5 /* RoundedRectButtonStyle.swift */; };
-		C0271A792AF33A5A00024BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A5C2AF33A5A00024BE5 /* ContentView.swift */; };
 		C0271A7A2AF33A5A00024BE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A5E2AF33A5A00024BE5 /* Constants.swift */; };
 		C0271A7B2AF33A5A00024BE5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A5F2AF33A5A00024BE5 /* Helpers.swift */; };
 		C0271A7D2AF33A5A00024BE5 /* PredictionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0271A632AF33A5A00024BE5 /* PredictionStatus.swift */; };
@@ -43,6 +42,11 @@
 		FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FD2AF3169C00D1C533 /* CameraView.swift */; };
 		FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */; };
 		FB4D56042AF8A42A00D1C533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */; };
+		FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D560E2AF8A75100D1C533 /* NotificationViewModel.swift */; };
+		FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */; };
+		FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */; };
+		FB4D561A2AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56192AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift */; };
+		FB4D561E2AF9D91100D1C533 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB4D561D2AF9D91100D1C533 /* CNNEmotions.mlmodel */; };
 		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
 		FB60F5012ADA17FF001E430D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5002ADA17FF001E430D /* LoginViewModel.swift */; };
@@ -75,6 +79,8 @@
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7252AE34BC200993C02 /* LlamadasView.swift */; };
+		FBCD14852AFA9AAF00DF5A8B /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14842AFA9AAF00DF5A8B /* NotificationsManager.swift */; };
+		FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14872AFAABB400DF5A8B /* LocationManager.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 		FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588172AE32B48009A48B6 /* RecetaTabView.swift */; };
 		FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */; };
@@ -99,7 +105,6 @@
 		C0271A572AF33A5A00024BE5 /* LiveCameraRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveCameraRepresentable.swift; sourceTree = "<group>"; };
 		C0271A592AF33A5A00024BE5 /* ClassifierViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierViewModel.swift; sourceTree = "<group>"; };
 		C0271A5A2AF33A5A00024BE5 /* RoundedRectButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButtonStyle.swift; sourceTree = "<group>"; };
-		C0271A5C2AF33A5A00024BE5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0271A5E2AF33A5A00024BE5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C0271A5F2AF33A5A00024BE5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		C0271A632AF33A5A00024BE5 /* PredictionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionStatus.swift; sourceTree = "<group>"; };
@@ -127,7 +132,12 @@
 		FB4D55FD2AF3169C00D1C533 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRecognitionView.swift; sourceTree = "<group>"; };
 		FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		FB4D560E2AF8A75100D1C533 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTokenModel.swift; sourceTree = "<group>"; };
+		FB4D56162AF8B1DC00D1C533 /* TECuido.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TECuido.entitlements; sourceTree = "<group>"; };
+		FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaModel.swift; sourceTree = "<group>"; };
+		FB4D56192AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarEmergenciaViewModel.swift; sourceTree = "<group>"; };
+		FB4D561D2AF9D91100D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../../../../../Downloads/CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -159,6 +169,8 @@
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBEF7252AE34BC200993C02 /* LlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasView.swift; sourceTree = "<group>"; };
+		FBCD14842AFA9AAF00DF5A8B /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		FBCD14872AFAABB400DF5A8B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 		FBE588172AE32B48009A48B6 /* RecetaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaTabView.swift; sourceTree = "<group>"; };
 		FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostarRecetaView.swift; sourceTree = "<group>"; };
@@ -241,7 +253,6 @@
 			children = (
 				C0271A592AF33A5A00024BE5 /* ClassifierViewModel.swift */,
 				C0271A5A2AF33A5A00024BE5 /* RoundedRectButtonStyle.swift */,
-				C0271A5C2AF33A5A00024BE5 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 		FB1C317C2AD9C6E200965B4B /* TECuido */ = {
 			isa = PBXGroup;
 			children = (
+				FB4D56162AF8B1DC00D1C533 /* TECuido.entitlements */,
 				FB4D56062AF8A51A00D1C533 /* Utils */,
 				C0271A4A2AF33A5900024BE5 /* coreML-nanostarter */,
 				FB9034DC2AEC5F5C005E79A3 /* Info.plist */,
@@ -322,7 +334,7 @@
 		FB4D56052AF8A50D00D1C533 /* MLUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */,
+				FB4D561D2AF9D91100D1C533 /* CNNEmotions.mlmodel */,
 				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
 				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
 			);
@@ -332,6 +344,7 @@
 		FB4D56062AF8A51A00D1C533 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FBCD14862AFAABA300DF5A8B /* LocationUtils */,
 				FBA831312ADE29A4001EAEAE /* AuthUtils */,
 				FB4D56052AF8A50D00D1C533 /* MLUtils */,
 			);
@@ -395,6 +408,8 @@
 				FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */,
 				FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */,
 				FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */,
+				FB4D560E2AF8A75100D1C533 /* NotificationViewModel.swift */,
+				FB4D56192AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -412,6 +427,8 @@
 				FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */,
 				FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */,
 				FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */,
+				FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */,
+				FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,8 +438,17 @@
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
 				FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */,
+				FBCD14842AFA9AAF00DF5A8B /* NotificationsManager.swift */,
 			);
 			path = AuthUtils;
+			sourceTree = "<group>";
+		};
+		FBCD14862AFAABA300DF5A8B /* LocationUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FBCD14872AFAABB400DF5A8B /* LocationManager.swift */,
+			);
+			path = LocationUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,10 +536,12 @@
 				FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */,
 				FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */,
 				C0271A742AF33A5A00024BE5 /* LiveCameraViewController.swift in Sources */,
+				FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
 				C0271A6E2AF33A5A00024BE5 /* DisplayedContentView.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
+				FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
@@ -528,6 +556,8 @@
 				FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */,
 				FB4D55FC2AF3166F00D1C533 /* CameraViewController.swift in Sources */,
 				FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */,
+				FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */,
+				FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelViewHerida.swift in Sources */,
 				FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
@@ -535,6 +565,7 @@
 				FB4D55F62AF3157A00D1C533 /* SpeechRecognizer.swift in Sources */,
 				FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */,
 				FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */,
+				FB4D561E2AF9D91100D1C533 /* CNNEmotions.mlmodel in Sources */,
 				C0271A7E2AF33A5A00024BE5 /* Wounds.mlmodel in Sources */,
 				C0271A7A2AF33A5A00024BE5 /* Constants.swift in Sources */,
 				C0271A752AF33A5A00024BE5 /* LiveCameraRepresentable.swift in Sources */,
@@ -563,13 +594,14 @@
 				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
+				FBCD14852AFA9AAF00DF5A8B /* NotificationsManager.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
-				C0271A792AF33A5A00024BE5 /* ContentView.swift in Sources */,
 				FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */,
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
 				FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */,
+				FB4D561A2AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift in Sources */,
 				C0271A702AF33A5A00024BE5 /* ModalView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
@@ -703,14 +735,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TECuido/TECuido.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
-				DEVELOPMENT_TEAM = 23D44T2LM8;
+				DEVELOPMENT_TEAM = 7NP8953QA5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TECuido/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to location";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "TECuido requires speech recognition in order to convert speech to text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -723,7 +757,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoswift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoDES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -736,14 +770,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TECuido/TECuido.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
-				DEVELOPMENT_TEAM = 23D44T2LM8;
+				DEVELOPMENT_TEAM = 7NP8953QA5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TECuido/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to location";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "TECuido requires speech recognition in order to convert speech to text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -756,7 +792,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoswift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoDES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
