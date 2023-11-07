@@ -4,6 +4,12 @@
 //
 //  Created by Alumno on 11/10/23.
 //
+//
+//  HomeView.swift
+//  frontend
+//
+//  Created by Alumno on 11/10/23.
+//
 import SwiftUI
 struct HomeView: View {
     @State private var showEmergenciasView = false
@@ -16,7 +22,7 @@ struct HomeView: View {
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
         
-        NavigationView{
+      //  NavigationView{
             
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
@@ -60,6 +66,7 @@ struct HomeView: View {
                         Button(action: {
                             showRecetasMedicasView = true
                         }) {
+                            createSection(title: "Recetas", iconName: "doc.text.fill", hint:"Lee un resumen de tus recetas médicas")
                          }
                         
                     }
@@ -94,13 +101,13 @@ struct HomeView: View {
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: ListaContactosLlamadaView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: LesionesView(),isActive: $showLlamadasView)
             )
             .background(
-                NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
+                NavigationLink("", destination: LaunchScreenView(), isActive: $showLesionesView)
             )
             
-        }
+       //s }
         
         
         // Aqui acaba el nav
@@ -135,4 +142,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+
 
