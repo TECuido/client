@@ -2,23 +2,17 @@
 //  ClassificationView.swift
 //  coreML-starter
 //
-//
+//  
 //
 
 import SwiftUI
 import CoreML
 
-class ModalManager: ObservableObject{
-    @Published var closeModal: Bool = false
-    @Published var showModal: Bool = false
-}
-
 struct ClassificationView: View {
     
     @State var data: String = ""
     @State var model: MLModel
-    //@State private var showModal = false
-    @StateObject var closeModal = ModalManager()
+    @State private var showModal = false
     @State private var LabelVariable: String = ""
     
     @EnvironmentObject var predictionStatus: PredictionStatus
@@ -56,21 +50,17 @@ struct ClassificationView: View {
                 }
                 Spacer()
                 Button{
-                    closeModal.showModal = true
+                    showModal = true
                     LabelVariable = predictionLabel
                 } label: {
                     Image(systemName: "circle")
                         .resizable()
                         .frame(width: 70, height: 70)
                 }
-                .sheet(isPresented: $closeModal.showModal, onDismiss: {closeModal.showModal = false}) {
+                .sheet(isPresented: $showModal, onDismiss: {showModal = false}) {
                     ModalView(labelData: classifierViewModel.getPredictionData(label: LabelVariable))
                 }
             }
         }
-        .environmentObject(closeModal)
-        .background(
-            NavigationLink("", destination: EmergenciasView(), isActive: $closeModal.closeModal)
-        )
     }
 }

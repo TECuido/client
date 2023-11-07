@@ -27,7 +27,6 @@
 		C0271A822AF33A5A00024BE5 /* mydata3.json in Resources */ = {isa = PBXBuildFile; fileRef = C0271A692AF33A5A00024BE5 /* mydata3.json */; };
 		C0271A832AF33A5A00024BE5 /* mydata2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0271A6A2AF33A5A00024BE5 /* mydata2.json */; };
 		C0271A842AF33A5A00024BE5 /* mydata.json in Resources */ = {isa = PBXBuildFile; fileRef = C0271A6B2AF33A5A00024BE5 /* mydata.json */; };
-		FB19B1632AFAF8CC00BEFF9F /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB19B1622AFAF8CC00BEFF9F /* CNNEmotions.mlmodel */; };
 		FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */; };
 		FB1C31822AD9C6E400965B4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31812AD9C6E400965B4B /* Assets.xcassets */; };
 		FB1C31852AD9C6E400965B4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31842AD9C6E400965B4B /* Preview Assets.xcassets */; };
@@ -111,7 +110,6 @@
 		C0271A692AF33A5A00024BE5 /* mydata3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mydata3.json; sourceTree = "<group>"; };
 		C0271A6A2AF33A5A00024BE5 /* mydata2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mydata2.json; sourceTree = "<group>"; };
 		C0271A6B2AF33A5A00024BE5 /* mydata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mydata.json; sourceTree = "<group>"; };
-		FB19B1622AFAF8CC00BEFF9F /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB1C317A2AD9C6E200965B4B /* TECuido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TECuido.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoApp.swift; sourceTree = "<group>"; };
 		FB1C31812AD9C6E400965B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +127,7 @@
 		FB4D55FD2AF3169C00D1C533 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRecognitionView.swift; sourceTree = "<group>"; };
 		FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -323,7 +322,7 @@
 		FB4D56052AF8A50D00D1C533 /* MLUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FB19B1622AFAF8CC00BEFF9F /* CNNEmotions.mlmodel */,
+				FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */,
 				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
 				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
 			);
@@ -542,7 +541,6 @@
 				C0271A722AF33A5A00024BE5 /* ClassificationView.swift in Sources */,
 				C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
-				FB19B1632AFAF8CC00BEFF9F /* CNNEmotions.mlmodel in Sources */,
 				C0271A762AF33A5A00024BE5 /* ClassifierViewModel.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
 				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,

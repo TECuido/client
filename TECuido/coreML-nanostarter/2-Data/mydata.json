@@ -3,40 +3,30 @@
         "label": "Raspón",
         "icono": "raspon",
         "recommendations": "-Lava la herida con agua y jabón o algún agente germicida.\n-Aplicar una pomada antibiótica para prevenir infecciones.\n-Cubrir su herida con una venda.",
-        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
-        "llamar": "tel:911"
+        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)"
     },
     {
         "label": "Moretón",
         "icono": "moreton",
         "recommendations": "-Descansar y elevar área lesionada.\n-Aplicar compresas de hielo durante las primeras 24 a 48 horas.\n-Consultar con un médico el manejo del dolor y en caso de ser necesario realizarse un estudio de readiografías.",
-        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
-        "llamar": "tel:911"
+        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)"
     },
     {
         "label": "Abierta",
         "icono": "abierta",
         "recommendations": "-Detener el sangrado con un paño limpio o venda.\n-Limpiar la herida con agua limpia.\n-Cerrar y vendar la herida.\n-Acudir con un médico para una valoración.",
-        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
-        "llamar": "tel:911"
+        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)"
     },
     {
         "label": "Punzante",
         "icono": "punzante",
         "recommendations": "-Lavar la herida con agua limpia 2 veces al día.\n-Cubrir la herida con una fina capa de vaselina.\n-Vendar la herida.",
-        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
-        "llamar": "tel:911"
+        "disclaimer": "⚠️\n(En caso de ser provocado por algún metal oxidado, consultar vacunación contra tétanos.)"
     },
     {
         "label": "Saludable",
         "icono": "saludable",
         "recommendations": "💪",
-        "disclaimer": "",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
-        "llamar": "tel:911"
+        "disclaimer": ""
     }
 ]
