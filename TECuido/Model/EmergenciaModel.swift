@@ -7,11 +7,20 @@
 
 import Foundation
 
-struct EmergenciaModel : Codable {
+struct EmergenciaGrupoModel : Codable {
     var tipo: String
     var descripcion: String?
     var idEmisor: Int
-    var idReceptor: Int
-    var longitud: String
-    var latitud: String
+    var idGrupo: Int
+    var longitud: Float?
+    var latitud: Float?
+}
+
+struct DataEmergenciaGrupoModel : Decodable {
+    var tipo: String
+    var descripcion: String?
+    var idEmisor: Int
+    var idGrupo: Int
+    var longitud: Float?
+    var latitud: Float?
 }

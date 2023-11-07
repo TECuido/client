@@ -9,14 +9,11 @@ import SwiftUI
 
 struct MandarEmergenciaView: View {
     @State private var showEstatusView = false
-    @State private var selectedOption = "Médica"
-    let options = ["Médica", "Desastre natural","Incendio","Accidente de tráfico","Acoso","Secuestro", "Extorsión","Emergencia tecnológica"]
     
-    @State private var selectedOptionContacto = "Familiares"
-    let optionsContacto = ["Familiares", "Mejores amigos", "Amigos", "Conocidos", "Otro"]
     @State private var otro = ""
-    @State private var descripcion = ""
-    @State private var isNivelGravedadSelected = false
+    
+    @StateObject private var viewModel = MandarEmergenciaViewModel()
+    
     var body: some View {
         ZStack{
             VStack{
@@ -31,8 +28,8 @@ struct MandarEmergenciaView: View {
                     .font(.title2)
                     .multilineTextAlignment(.center)
                 
-                Picker("Selecciona un motivo", selection: $selectedOption){
-                    ForEach(options, id: \.self) { option in
+                Picker("Selecciona un motivo", selection: $viewModel.selectedMotivo){
+                    ForEach(viewModel.motivos, id: \.self) { option in
                         Text(option)
                             .font(.title)
                     }
@@ -55,11 +52,14 @@ struct MandarEmergenciaView: View {
                     .multilineTextAlignment(.center)
                 // Picker de grupos
                 // Seleccionador
-                Picker("Selecciona un contacto", selection: $selectedOptionContacto){
-                    ForEach(optionsContacto, id: \.self) { option in
-                        Text(option)
+                Picker("Selecciona un contacto", selection: $viewModel.selectedOptionContacto){
+                    ForEach(viewModel.gruposNombres, id: \.self) { grupo in
+                        Text(grupo)
                             .font(.title)
                     }
+                }
+                .task {
+                    await viewModel.getGrupos()
                 }
                 .pickerStyle(DefaultPickerStyle())
                 .frame(width: 325, height: 65)
@@ -70,8 +70,8 @@ struct MandarEmergenciaView: View {
                 )
                 .cornerRadius(25)
                 
-                // Caso Otro
-                if selectedOptionContacto == "Otro"{
+                /*
+                if viewModel.selectedOptionContacto == "Otro"{
                     HStack {
                         Image(systemName: "person.fill")
                             .resizable()
@@ -87,11 +87,12 @@ struct MandarEmergenciaView: View {
                         .padding(.leading, 10)
                     }.padding(10) .frame(width: 300, height: 85)
                 }
+                 */
                 
                 //descripcion
                 VStack {
                     // Opción para elegir entre nivel de gravedad y texto descriptivo
-                    Picker("Selecciona una opción", selection: $isNivelGravedadSelected) {
+                    Picker("Selecciona una opción", selection: $viewModel.isNivelGravedadSelected) {
                         Text("Nivel de gravedad").tag(true).font(.title2)
                         Text("Descripción").tag(false).font(.title2)
                     }
@@ -99,12 +100,9 @@ struct MandarEmergenciaView: View {
                     .padding(10)
                     
                     // Mostrar el campo de nivel de gravedad si se selecciona
-                    if isNivelGravedadSelected {
-                        /*Text("Nivel de gravedad")
-                            .font(.title2)
-                            .padding(.top, 10)*/
+                    if viewModel.isNivelGravedadSelected {
                         
-                        Picker("Selecciona el nivel de gravedad", selection: $descripcion) {
+                        Picker("Selecciona el nivel de gravedad", selection: $viewModel.nivel) {
                             ForEach(1 ..< 11, id: \.self) { level in
                                 Text("\(level)")
                                     .font(.title)
@@ -118,22 +116,12 @@ struct MandarEmergenciaView: View {
                                 .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529), lineWidth: 4)
                         )
                         .cornerRadius(25)
-                        // Inicio boton
-                            Button("Continuar") {
-                                showEstatusView = true
-                            }
-                            .foregroundColor(.white)
-                            .bold()
-                            .frame(width: 300, height: 65)
-                            .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                            .cornerRadius(25)
-                            .padding(30)
-                            .font(.title2)
+                        
                     
                     } else {
                         
                         VStack {
-                            PlaceholderTextEditor(text: $descripcion, placeholder: "Escribe aquí la descripción")
+                            PlaceholderTextEditor(text: $viewModel.descripcion, placeholder: "Escribe aquí la descripción")
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                 .font(.body)
                                 .frame(width: 325, height: 100)
@@ -145,18 +133,20 @@ struct MandarEmergenciaView: View {
                         
                         
                         
-                        // Inicio boton
-                            Button("Continuar") {
-                                showEstatusView = true
-                            }
-                            .foregroundColor(.white)
-                            .bold()
-                            .frame(width: 300, height: 65)
-                            .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                            .cornerRadius(25)
-                            .padding(30)
-                            .font(.title2)
+                        
                     }
+                    
+                    // Inicio boton
+                        Button("Continuar") {
+                            showEstatusView = true
+                        }
+                        .foregroundColor(.white)
+                        .bold()
+                        .frame(width: 300, height: 65)
+                        .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                        .cornerRadius(25)
+                        .padding(30)
+                        .font(.title2)
                 }
                 
             }

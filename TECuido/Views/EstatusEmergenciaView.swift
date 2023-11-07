@@ -8,70 +8,52 @@
 import SwiftUI
 
 struct EstatusEmergenciaView: View {
-    
-    @State var angle = 0.0
-    @State var movingLeft = true
-    @State var correoError: Int =  0
-    @State var nameError: Int =  0
- 
+    @State private var rotation: Double = 0.0
+
     var body: some View {
-        ZStack{
-            VStack{
-                // Texto
-                Text("Se ha enviado una emergencia")
-                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                    .font(.system(size: 35))
-                    .bold()
-                    .frame(width: 280)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                // Imagen principal
-                Image("Mal")
-                    .rotationEffect(.degrees(angle))
+        
+        VStack {
+            Text("Se ha enviado una emergencia")
+                .foregroundColor(Color(red: 0.8392, green: 0, blue: 0))
+                .font(.system(size: 35))
+                .bold()
+                .frame(width: 280)
+                .padding()
+                .multilineTextAlignment(.center)
+
+            Image("Mal")
+                .rotationEffect(.degrees(rotation))
+                .onAppear {
                     
-                    .animation(Animation.easeInOut(duration: 0.3).repeatForever(), value: angle)
-                    .onAppear {
-                        if(movingLeft && angle < 30){
-                            angle += 30
-                        } else if(movingLeft && angle >= 30){
-                            angle -= 30
-                            movingLeft = false
-                        } else if(!movingLeft && angle > -30){
-                            angle -= 30
-                        } else {
-                            angle += 30
-                            movingLeft = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(200)){
+                        withAnimation(Animation.easeInOut(duration: 0.5).repeatForever()) {
+                            rotation = 30
                         }
                     }
-                
-                
-                    
-                // Texto de todo bien
-                Text("Alerta")
-                    .font(.largeTitle)
-                    .bold()
+                }
+
+            Text("Alerta")
+                .font(.largeTitle)
+                .bold()
+            Text("Descripción de la alerta")
+                .font(.title3)
+                .bold()
+            VStack {
                 Text("Descripción de la alerta")
-                    .font(.title3)
-                    .bold()
-                VStack{
-                   // Aqui iria la descripcion ya enviada
-                    Text("Descripción de la alerta")
-                    Spacer()
-                        .font(.title2)
-                }.frame(width: 300, height: 200)
-                
-                
-                Spacer()
-                
-                Rectangle()
-                    .fill(Color(red: 0.83, green: 0, blue: 0))
-                    .ignoresSafeArea()
-                    .frame(width:.infinity, height: 50)
-                    .padding(.bottom, 0)
-            
+                    .font(.title2)
             }
+            .frame(width: 300, height: 200)
+
+            Spacer()
+
+            Rectangle()
+                .fill(Color(red: 0.83, green: 0, blue: 0))
+                .ignoresSafeArea()
+                .frame(width:.infinity, height: 50)
+                .padding(.bottom, 0)
         }
     }
+
 }
 
 struct EstatusEmergenciaView_Previews: PreviewProvider {
@@ -79,4 +61,3 @@ struct EstatusEmergenciaView_Previews: PreviewProvider {
         EstatusEmergenciaView()
     }
 }
-
