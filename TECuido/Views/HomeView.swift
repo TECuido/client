@@ -18,7 +18,7 @@ struct HomeView: View {
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
         
-        //NavigationView{
+        NavigationView{
             
             ZStack {
                 Color(red: 0.98, green: 0.98, blue: 0.98)
@@ -113,7 +113,7 @@ struct HomeView: View {
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: ListaContactosLlamadaView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: TabLlamadasView(),isActive: $showLlamadasView)
             )
             .background(
                 NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
@@ -123,7 +123,7 @@ struct HomeView: View {
         
         
         // Aqui acaba el nav
-    //}
+    }
     private func createSection(title: String, iconName: String, hint: String) -> some View {
                 
         ZStack {
