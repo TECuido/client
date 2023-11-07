@@ -16,6 +16,10 @@ class NotificationViewModel: ObservableObject {
     public func sendNotificationToken() async {
         do {
             
+            if(notificationToken.count == 0){
+                throw ValidationError.error(description: "Token invalido")
+            }
+            
             let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
             let data = NotificatioTokenModel(token: notificationToken)
             let result : Result<APIResponseModel<UsuarioTokenModel>, NetworkError> = await Webservice().putRequest("/usuarios/\(tokens.id)/notification/token", with: data)

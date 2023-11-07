@@ -23,6 +23,8 @@ class MandarEmergenciaViewModel: ObservableObject {
     
     @Published var dataEmergencia = DataEmergenciaGrupoModel.defaultEmergencia
     @Published var showEstatusView = false
+    
+    @Published var locationManager = LocationManager()
 
     
     public func getGrupos() async {
@@ -66,12 +68,21 @@ class MandarEmergenciaViewModel: ObservableObject {
         
         let data: EmergenciaGrupoModel
         
-        if(descripcion.count > 0){
-            data = EmergenciaGrupoModel(tipo: selectedMotivo, descripcion: descripcion, idEmisor: tokens.id, idGrupo: selectedGrupo.id)
-        } else {
-            data = EmergenciaGrupoModel(tipo: selectedMotivo, idEmisor: tokens.id, idGrupo: selectedGrupo.id)
-        }
         
+        let longitud = locationManager.lastLocation?.longitude
+        let latitud = locationManager.lastLocation?.latitude
+        
+        print(longitud ?? 0)
+        print(latitud ?? 0)
+        
+        data = EmergenciaGrupoModel(
+            tipo: selectedMotivo,
+            descripcion: descripcion.count > 0 ? descripcion : nil,
+            idEmisor: tokens.id,
+            idGrupo: selectedGrupo.id,
+            longitud: (longitud != nil) ? Float(longitud!) : nil,
+            latitud: (latitud != nil) ? Float(latitud!) : nil
+        )
         
         
         let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError> = await Webservice().postRequest("/emergencias/grupo", with: data)

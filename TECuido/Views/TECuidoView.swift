@@ -92,6 +92,7 @@ struct TECuidoView: View {
             }
         }
         .navigationBarHidden(true)
+
     }
     
     

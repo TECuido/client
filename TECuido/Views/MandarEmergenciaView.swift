@@ -130,14 +130,12 @@ struct MandarEmergenciaView: View {
                         
                         .frame(width: 325, height: 100)
                         
-                        
-                        
-                        
                     }
                     
                     // Inicio boton
                         Button("Continuar") {
                             Task {
+                                
                                 await viewModel.addEmergencia()
                             }
                         }
@@ -153,10 +151,10 @@ struct MandarEmergenciaView: View {
             }
             NavigationLink("", destination: EstatusEmergenciaView(dataEmergencia: viewModel.dataEmergencia), isActive: $viewModel.showEstatusView)
                                     
-                }
+        }
          
-            }
     }
+}
 
 struct PlaceholderTextEditor: View {
     @Binding var text: String

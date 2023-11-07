@@ -41,14 +41,20 @@ struct EstatusEmergenciaView: View {
                 .bold()
                 .padding()
             
-            Text("Descripción de la alerta:")
-                .font(.title2)
-                .bold()
-                .padding(.bottom, 20)
+            
             
             
             if((dataEmergencia.descripcion) != nil){
+                
+                Text("Descripción de la alerta:")
+                    .font(.title2)
+                    .bold()
+                    .padding(.bottom, 20)
+                
                 Text(dataEmergencia.descripcion!)
+                    .padding()
+            } else {
+                Text("No se agregó descripción")
             }
 
             Spacer()
