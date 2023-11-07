@@ -16,83 +16,122 @@ struct MandarEmergenciaView: View {
     let optionsContacto = ["Familiares", "Mejores amigos", "Amigos", "Conocidos", "Otro"]
     @State private var otro = ""
     @State private var descripcion = ""
-    
+    @State private var isNivelGravedadSelected = false
     var body: some View {
         ZStack{
-                VStack{
-                        Text("Emergencias")
-                            .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                            .font(.system(size: 45))
+            VStack{
+                Text("Emergencias")
+                    .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                    .font(.system(size: 45))
+                    .bold()
+                    .padding()
+                
+                // Selección de motivo
+                Text("Selecciona el motivo de la alerta")
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                
+                Picker("Selecciona un motivo", selection: $selectedOption){
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .font(.title)
+                    }
+                }
+                .pickerStyle(DefaultPickerStyle())
+                .frame(width: 325, height: 65)
+                .background(.white)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
+                )
+                .cornerRadius(25)
+                .padding(10)
+                
+                
+                //Selección de contactos
+                Text("Selecciona los contactos a los que les vas a avisar")
+                    .font(.title2)
+                    .frame(width:340)
+                    .multilineTextAlignment(.center)
+                // Picker de grupos
+                // Seleccionador
+                Picker("Selecciona un contacto", selection: $selectedOptionContacto){
+                    ForEach(optionsContacto, id: \.self) { option in
+                        Text(option)
+                            .font(.title)
+                    }
+                }
+                .pickerStyle(DefaultPickerStyle())
+                .frame(width: 325, height: 65)
+                .background(.white)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
+                )
+                .cornerRadius(25)
+                
+                // Caso Otro
+                if selectedOptionContacto == "Otro"{
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding(.leading, 15)
+                        TextField("",
+                                  text: $otro,
+                                  prompt: Text("Contacto o grupo")
+                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+                        )
+                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+                        .font(.title3)
+                        .padding(.leading, 10)
+                    }.padding(10) .frame(width: 300, height: 85)
+                }
+                
+                //descripcion
+                VStack {
+                    // Opción para elegir entre nivel de gravedad y texto descriptivo
+                    Picker("Selecciona una opción", selection: $isNivelGravedadSelected) {
+                        Text("Nivel de gravedad").tag(true).font(.title2)
+                        Text("Descripción").tag(false).font(.title2)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(10)
+                    
+                    // Mostrar el campo de nivel de gravedad si se selecciona
+                    if isNivelGravedadSelected {
+                        /*Text("Nivel de gravedad")
+                            .font(.title2)
+                            .padding(.top, 10)*/
+                        
+                        Picker("Selecciona el nivel de gravedad", selection: $descripcion) {
+                            ForEach(1 ..< 11, id: \.self) { level in
+                                Text("\(level)")
+                                    .font(.title)
+                            }
+                        }
+                        .pickerStyle(DefaultPickerStyle())
+                        .frame(width: 325, height: 65)
+                        .background(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529), lineWidth: 4)
+                        )
+                        .cornerRadius(25)
+                        // Inicio boton
+                            Button("Continuar") {
+                                showEstatusView = true
+                            }
+                            .foregroundColor(.white)
                             .bold()
-                            .padding()
-                        
-                        // Selección de motivo
-                        Text("Selecciona el motivo de la alerta")
+                            .frame(width: 300, height: 65)
+                            .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                            .cornerRadius(25)
+                            .padding(30)
                             .font(.title2)
-                            .multilineTextAlignment(.center)
+                    
+                    } else {
                         
-                        Picker("Selecciona un motivo", selection: $selectedOption){
-                            ForEach(options, id: \.self) { option in
-                                Text(option)
-                                    .font(.title)
-                            }
-                        }
-                        .pickerStyle(DefaultPickerStyle())
-                        .frame(width: 325, height: 65)
-                        .background(.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
-                                        )
-                        .cornerRadius(25)
-                        .padding(10)
-                        
-                        
-                        //Selección de contactos
-                        Text("Selecciona los contactos a los que les vas a avisar")
-                            .font(.title2)
-                            .frame(width:340)
-                            .multilineTextAlignment(.center)
-                        // Picker de grupos
-                        // Seleccionador
-                        Picker("Selecciona un contacto", selection: $selectedOptionContacto){
-                            ForEach(optionsContacto, id: \.self) { option in
-                                Text(option)
-                                    .font(.title)
-                            }
-                        }
-                        .pickerStyle(DefaultPickerStyle())
-                        .frame(width: 325, height: 65)
-                        .background(.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
-                                        )
-                        .cornerRadius(25)
-                        
-                        // Caso Otro
-                        if selectedOptionContacto == "Otro"{
-                            HStack {
-                                Image(systemName: "person.fill")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .padding(.leading, 15)
-                                TextField("",
-                                          text: $otro,
-                                          prompt: Text("Contacto o grupo")
-                                    .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                )
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                .font(.title3)
-                                .padding(.leading, 10)
-                            }.padding(10) .frame(width: 300, height: 85)
-                        }
-                        
-                        //descripcion
-                        Text("Describe la emergencia")
-                            .font(.title2)
-                            .padding(.top, 10)
-                        // Agregar select de motivo de alerta
                         VStack {
                             PlaceholderTextEditor(text: $descripcion, placeholder: "Escribe aquí la descripción")
                                 .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
@@ -101,7 +140,10 @@ struct MandarEmergenciaView: View {
                                 .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                                 .cornerRadius(20)
                         }
+                        
                         .frame(width: 325, height: 100)
+                        
+                        
                         
                         // Inicio boton
                             Button("Continuar") {
@@ -114,10 +156,10 @@ struct MandarEmergenciaView: View {
                             .cornerRadius(25)
                             .padding(30)
                             .font(.title2)
-                       
                     }
-                    
-                    
+                }
+                
+            }
                     NavigationLink("", destination: EstatusEmergenciaView(), isActive: $showEstatusView)
                                     
                 }

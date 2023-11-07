@@ -44,7 +44,6 @@
 		FB4D56042AF8A42A00D1C533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */; };
 		FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D560E2AF8A75100D1C533 /* NotificationViewModel.swift */; };
 		FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */; };
-		FB4D56152AF8AAA100D1C533 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56142AF8AAA100D1C533 /* CNNEmotions.mlmodel */; };
 		FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */; };
 		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
@@ -83,6 +82,7 @@
 		FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */; };
 		FBE5881C2AE32C2A009A48B6 /* SimplificarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */; };
 		FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */; };
+		FBE96EB12AF9C09800E6D9C8 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FBE96EB02AF9C09800E6D9C8 /* CNNEmotions.mlmodel */; };
 		FBEAC1832AE3224200934F95 /* RecetaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */; };
 		FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */; };
 		FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */; };
@@ -131,7 +131,6 @@
 		FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4D560E2AF8A75100D1C533 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		FB4D56122AF8A95400D1C533 /* NotificationTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTokenModel.swift; sourceTree = "<group>"; };
-		FB4D56142AF8AAA100D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4D56162AF8B1DC00D1C533 /* TECuido.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TECuido.entitlements; sourceTree = "<group>"; };
 		FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaModel.swift; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
@@ -170,6 +169,7 @@
 		FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostarRecetaView.swift; sourceTree = "<group>"; };
 		FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplificarRecetaView.swift; sourceTree = "<group>"; };
 		FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaGrupoView.swift; sourceTree = "<group>"; };
+		FBE96EB02AF9C09800E6D9C8 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../../../../../../Downloads/CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FBEAC1822AE3224100934F95 /* RecetaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel.swift; sourceTree = "<group>"; };
 		FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseModel.swift; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 		FB4D56052AF8A50D00D1C533 /* MLUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FB4D56142AF8AAA100D1C533 /* CNNEmotions.mlmodel */,
+				FBE96EB02AF9C09800E6D9C8 /* CNNEmotions.mlmodel */,
 				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
 				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
 			);
@@ -551,7 +551,6 @@
 				C0271A7A2AF33A5A00024BE5 /* Constants.swift in Sources */,
 				C0271A752AF33A5A00024BE5 /* LiveCameraRepresentable.swift in Sources */,
 				C0271A722AF33A5A00024BE5 /* ClassificationView.swift in Sources */,
-				FB4D56152AF8AAA100D1C533 /* CNNEmotions.mlmodel in Sources */,
 				C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				C0271A762AF33A5A00024BE5 /* ClassifierViewModel.swift in Sources */,
@@ -579,6 +578,7 @@
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
+				FBE96EB12AF9C09800E6D9C8 /* CNNEmotions.mlmodel in Sources */,
 				FB9034DE2AEC6257005E79A3 /* LlamadasViewModel.swift in Sources */,
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
 				FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */,
