@@ -1,4 +1,4 @@
-  #TECuido
+# TECuido
 
 Aplicación médica para apoyar en la salud física y mental de las personas sordas.
 
