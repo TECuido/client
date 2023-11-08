@@ -13,6 +13,14 @@ class NotificationViewModel: ObservableObject {
     @Published var notificationToken: String = ""
     @Published var tokenAgregado: Bool = false
     
+    @Published var navigateToNotificationView: Bool = false
+    @Published var emergencia = DataEmergenciaGrupoModel.defaultEmergencia
+
+    func handleNotificationReceived() {
+        navigateToNotificationView = true
+        print("llego notificacion")
+    }
+    
     public func sendNotificationToken() async {
         do {
             

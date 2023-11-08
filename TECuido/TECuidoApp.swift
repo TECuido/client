@@ -10,21 +10,36 @@ import SwiftUI
 @main
 struct TECuidoApp: App {
     
-    @StateObject private var predictionStatus = PredictionStatus()
+    @StateObject var predictionStatus = PredictionStatus()
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    
+    @State private var isNavigatingToEmergenciasView = false
 
     
     var body: some Scene {
         WindowGroup {
-            TECuidoView()
-                .environmentObject(predictionStatus)
-                .environmentObject(appDelegate.notificationViewModel)
-                .environmentObject(appDelegate.notificationsManager)
-                .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
-                    Task {
-                        await appDelegate.notificationViewModel.sendNotificationToken()
-                    }
+            
+            NavigationStack {
+                
+                TECuidoView()
+                
+            }
+            .environmentObject(predictionStatus)
+            .environmentObject(appDelegate.notificationViewModel)
+            .background(
+                NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true, emergencia: appDelegate.notificationViewModel.emergencia), isActive: $isNavigatingToEmergenciasView)
+            )
+            .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
+                Task {
+                    await appDelegate.notificationViewModel.sendNotificationToken()
                 }
+            }
+            .onReceive(appDelegate.notificationViewModel.$navigateToNotificationView) { navigate in
+                if navigate {
+                    isNavigatingToEmergenciasView = true
+                }
+            }
+            
         }
     }
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AlertEmergenciasView: View {
     
-    @State var angle = 0.0
-    @State var movingLeft = true
+    @State var dataEmergencia: DataEmergenciaGrupoModel
+    @State private var rotation: Double = 0.0
     
     
     var body: some View {
@@ -23,38 +23,44 @@ struct AlertEmergenciasView: View {
                     .bold()
                 // Imagen principal
                 Image("Mal")
-                    .rotationEffect(.degrees(angle))
-                    
-                    .animation(Animation.easeInOut(duration: 0.3).repeatForever(), value: angle)
+                    .padding()
+                    .rotationEffect(.degrees(rotation))
                     .onAppear {
-                        if(movingLeft && angle < 30){
-                            angle += 30
-                        } else if(movingLeft && angle >= 30){
-                            angle -= 30
-                            movingLeft = false
-                        } else if(!movingLeft && angle > -30){
-                            angle -= 30
-                        } else {
-                            angle += 30
-                            movingLeft = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(200)){
+                            withAnimation(Animation.easeInOut(duration: 0.5).repeatForever()) {
+                                rotation = 30
+                            }
                         }
                     }
                 
                 
-                // Texto de todo bien
-                Text("Alerta")
-                    .font(.largeTitle)
-                    .bold()
-                ScrollView{
-                   
-                    Text("Descripción de la alerta")
-                    Spacer()
+                // Texto de alerta
+                if((dataEmergencia.descripcion) != nil){
+                    
+                    Text("Descripción de la alerta:")
                         .font(.title2)
-                }.frame(width: 300, height: 100)
-                Text("Enviado por:")
-                    .font(.title2)
-                Text("Familiar")
-                    .font(.title2)
+                        .bold()
+                        .padding(.bottom, 10)
+                    
+                    Text(dataEmergencia.descripcion!)
+                        .font(.title3)
+                } else {
+                    Text("No se agregó descripción")
+                }
+            
+            
+                if(dataEmergencia.emisor != nil){
+                    Text("Enviado por:")
+                        .font(.title2)
+                        .bold()
+                        .padding(.top, 20)
+                        .padding(.bottom, 10)
+                    Text(dataEmergencia.emisor!)
+                        .font(.title3)
+                }
+                
+                
             }
                 
             
@@ -64,6 +70,6 @@ struct AlertEmergenciasView: View {
 
 struct AlertEmergenciasView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertEmergenciasView()
+        AlertEmergenciasView(dataEmergencia: DataEmergenciaGrupoModel.defaultEmergencia)
     }
 }

@@ -79,7 +79,6 @@
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7252AE34BC200993C02 /* LlamadasView.swift */; };
-		FBCD14852AFA9AAF00DF5A8B /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14842AFA9AAF00DF5A8B /* NotificationsManager.swift */; };
 		FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14872AFAABB400DF5A8B /* LocationManager.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 		FBE588182AE32B48009A48B6 /* RecetaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588172AE32B48009A48B6 /* RecetaTabView.swift */; };
@@ -169,7 +168,6 @@
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBEF7252AE34BC200993C02 /* LlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasView.swift; sourceTree = "<group>"; };
-		FBCD14842AFA9AAF00DF5A8B /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		FBCD14872AFAABB400DF5A8B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 		FBE588172AE32B48009A48B6 /* RecetaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaTabView.swift; sourceTree = "<group>"; };
@@ -438,7 +436,6 @@
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
 				FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */,
-				FBCD14842AFA9AAF00DF5A8B /* NotificationsManager.swift */,
 			);
 			path = AuthUtils;
 			sourceTree = "<group>";
@@ -594,7 +591,6 @@
 				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostarRecetaView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
-				FBCD14852AFA9AAF00DF5A8B /* NotificationsManager.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,

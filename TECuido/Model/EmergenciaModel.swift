@@ -23,8 +23,9 @@ struct DataEmergenciaGrupoModel : Decodable {
     var idEmisor: Int
     var longitud: Float?
     var latitud: Float?
+    var emisor: String?
 }
 
 extension DataEmergenciaGrupoModel  {
-    public static var defaultEmergencia = DataEmergenciaGrupoModel(idEmergencia: 1, tipo: "Médica", descripcion: "Emergencia médica", idEmisor: 1)
+    public static var defaultEmergencia = DataEmergenciaGrupoModel(idEmergencia: 1, tipo: "Médica", descripcion: "Emergencia médica", idEmisor: 1, longitud: 50, latitud: 50, emisor: "Juan Pérez")
 }

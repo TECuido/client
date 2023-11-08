@@ -9,13 +9,24 @@ import SwiftUI
 
 struct EmergenciasView: View {
     
-    init() {
+    @State var selection: Int
+    @State var hayEmergencia: Bool
+    @State var emergencia: DataEmergenciaGrupoModel
+
+    
+    init(
+        selection: Int,
+        hayEmergencia: Bool = false,
+        emergencia: DataEmergenciaGrupoModel = DataEmergenciaGrupoModel.defaultEmergencia) {
+        self.selection = selection
+        self.hayEmergencia = hayEmergencia
+        self.emergencia = emergencia
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1)
     }
     
     var body: some View {
         
-        TabView{
+        TabView(selection: $selection){
             
             
             MandarEmergenciaView()
@@ -23,13 +34,21 @@ struct EmergenciasView: View {
                     Image(systemName: "text.bubble.fill")
                 }
                 .tint(.blue)
+                .tag(1)
 
-            
-            
-            SinEmergenciasView()
+            if hayEmergencia {
+                AlertEmergenciasView(dataEmergencia: emergencia)
                 .tabItem{
                     Image(systemName: "exclamationmark.triangle.fill")
                 }
+                    .tag(2)
+            } else {
+                SinEmergenciasView()
+                .tabItem{
+                    Image(systemName: "exclamationmark.triangle.fill")
+                }
+                    .tag(2)
+            }
             
             
         }
@@ -48,7 +67,7 @@ struct EmergenciasView: View {
 
 struct EmergenciasView_Previews: PreviewProvider {
     static var previews: some View {
-        EmergenciasView()
+        EmergenciasView(selection: 2, hayEmergencia: true, emergencia: DataEmergenciaGrupoModel.defaultEmergencia)
     }
 }
 
