@@ -162,8 +162,10 @@ struct InfoRecetasView: View {
                     }
                     Spacer()
                 }
+                .padding(.top, 2)
             }
-        }    }
+        }
+    }
 }
 
 struct InfoRecetasView_Previews: PreviewProvider {

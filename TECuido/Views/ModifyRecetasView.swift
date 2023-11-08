@@ -32,7 +32,8 @@ struct ModifyRecetasView: View {
                             Text("Titulo")
                                 .font(.system(size: 20, weight: .semibold))
                             ZStack{
-                                RoundedRectangle(cornerRadius: 50)                            .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                RoundedRectangle(cornerRadius: 50)
+                                    .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
                                     .foregroundColor(.white)
                                     .frame(height: 50)
 
