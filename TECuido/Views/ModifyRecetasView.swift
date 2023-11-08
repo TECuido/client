@@ -17,7 +17,7 @@ struct ModifyRecetasView: View {
                     Image(systemName: "arrowshape.turn.up.left.fill")
                         .foregroundColor(.white)
                         .font(.system(size: 20, weight: .bold))
-                    Text("Receta")
+                    Text("Crear nueva receta")
                         .font(.system(size: 26, weight: .heavy))
                         .foregroundColor(.white)
                     Spacer()
@@ -36,7 +36,7 @@ struct ModifyRecetasView: View {
                                     .foregroundColor(.white)
                                     .frame(height: 50)
 
-                                
+
                                 HStack{
                                     Text("Ingrese el nombre de la receta")
                                         .font(.system(size: 15, weight: .bold))
@@ -54,7 +54,7 @@ struct ModifyRecetasView: View {
                                     .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
                                     .foregroundColor(.white)
                                     .frame(height: 50)
-                                
+
                                 HStack(spacing: 5){
                                     Circle()
                                         .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
@@ -64,7 +64,7 @@ struct ModifyRecetasView: View {
                                         .font(.system(size: 15, weight: .bold))
                                         .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
                                         .padding(.horizontal)
-                                    
+
                                     Spacer()
 
                                     Image(systemName: "chevron.down")
@@ -80,7 +80,7 @@ struct ModifyRecetasView: View {
                                     .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
                                     .foregroundColor(.white)
                                     .frame(height: 50)
-                                
+
                                 HStack(spacing: 5){
                                     Circle()
                                         .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
@@ -90,7 +90,7 @@ struct ModifyRecetasView: View {
                                         .font(.system(size: 15, weight: .bold))
                                         .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
                                         .padding(.horizontal)
-                                    
+
                                     Spacer()
 
                                     Image(systemName: "chevron.down")
@@ -98,7 +98,7 @@ struct ModifyRecetasView: View {
                                 }
                                 .padding(.horizontal)
                             }
-                            
+
                             Text("Fecha de Cierre")
                                 .font(.system(size: 20, weight: .semibold))
                             ZStack{
@@ -106,7 +106,7 @@ struct ModifyRecetasView: View {
                                     .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
                                     .foregroundColor(.white)
                                     .frame(height: 50)
-                                
+
                                 HStack(spacing: 5){
                                     Circle()
                                         .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
@@ -116,7 +116,7 @@ struct ModifyRecetasView: View {
                                         .font(.system(size: 15, weight: .bold))
                                         .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
                                         .padding(.horizontal)
-                                    
+
                                     Spacer()
 
                                     Image(systemName: "chevron.down")
@@ -138,12 +138,36 @@ struct ModifyRecetasView: View {
                                             .font(.system(size: 25, weight: .bold))
                                         Spacer()
                                         Image(systemName: "chevron.down")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
                                     }
                                     .padding(.horizontal)
                                     
                                     Image("icon")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
+                                        .frame(height: 250)
+                                    VStack(alignment: .leading){
+                                        Text("Breve Descripción")
+                                            .font(.system(size: 20, weight: .semibold))
+
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 25)
+                                                .strokeBorder(Color(red: 0.851, green: 0.851, blue: 0.851), lineWidth: 1)
+                                                .foregroundColor(.white)
+                                            HStack{
+                                                Text("1 tableta por día")
+                                                    .font(.system(size: 17, weight: .semibold))
+                                                
+                                                Spacer()
+                                                
+                                                Image(systemName: "chevron.down")
+                                            }
+                                            .padding()
+                                        }
+                                    
+                                    }
+                                    .padding(.horizontal)
                                 }
                                 .padding(.vertical)
                                 
@@ -176,10 +200,13 @@ struct ModifyRecetasView: View {
                             .foregroundColor(.white)
                             .font(.system(size: 17, weight: .regular))
                     }
+                    
                     Spacer()
                 }
+                .padding(.top, 2)
             }
-        }    }
+        }
+    }
 }
 
 struct ModifyRecetasView_Previews: PreviewProvider {

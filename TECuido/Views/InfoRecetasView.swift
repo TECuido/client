@@ -17,7 +17,7 @@ struct InfoRecetasView: View {
                     Image(systemName: "arrowshape.turn.up.left.fill")
                         .foregroundColor(.white)
                         .font(.system(size: 20, weight: .bold))
-                    Text("Recetas")
+                    Text("Inserte Nombre")
                         .font(.system(size: 26, weight: .heavy))
                         .foregroundColor(.white)
                     Spacer()
@@ -58,7 +58,9 @@ struct InfoRecetasView: View {
                                     }
                                     
                                     Image("icon")
-                                        .frame(height: 200)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(height: 250)
                                         
 
                                     VStack(alignment: .leading, spacing: 15){
@@ -96,7 +98,10 @@ struct InfoRecetasView: View {
                                     }
                                     
                                     Image("icon")
-                                        .frame(height: 200)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(height: 250)
+
 
                                     VStack(alignment: .leading, spacing: 15){
                                         Text("Cantidad")

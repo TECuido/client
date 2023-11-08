@@ -19,9 +19,9 @@ struct RecetasMainView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 20, weight: .bold))
                     
-//                    Text("Recetas")
-//                        .foregroundColor(.white)
-//                        .font(.system(size: 26, weight: .heavy))
+                    Text("Recetas")
+                        .foregroundColor(.white)
+                        .font(.system(size: 26, weight: .heavy))
                     Spacer()
                 }
                 .padding()
