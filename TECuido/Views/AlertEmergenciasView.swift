@@ -9,8 +9,10 @@ import SwiftUI
 
 struct AlertEmergenciasView: View {
     
-    @State var dataEmergencia: DataEmergenciaGrupoModel
     @State private var rotation: Double = 0.0
+    @State private var showMapaView: Bool = false
+    @State private var viewModel = AlertEmergenciasViewModel()
+    @Binding var dataEmergencia: DataEmergenciaGrupoModel
     
     
     var body: some View {
@@ -33,6 +35,11 @@ struct AlertEmergenciasView: View {
                             }
                         }
                     }
+                
+                Text("Alerta de tipo \(dataEmergencia.tipo)")
+                    .font(.title)
+                    .bold()
+                    .padding()
                 
                 
                 // Texto de alerta
@@ -60,6 +67,25 @@ struct AlertEmergenciasView: View {
                         .font(.title3)
                 }
                 
+                if(dataEmergencia.longitud != nil){
+                    Button("Ubicación"){
+                        viewModel.updateCoordinates(latitude: dataEmergencia.latitud ?? 0, longitude: dataEmergencia.longitud ?? 0)
+                        showMapaView = true
+                    }
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: 300, height:55)
+                    .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                    .cornerRadius(25)
+                    .padding(10)
+                    .font(.title2)
+                    .padding()
+                    .background(
+                        NavigationLink("", destination: MapaView(region: $viewModel.region, markers: $viewModel.markers), isActive: $showMapaView)
+                    )
+                }
+                
+                
                 
             }
                 
@@ -70,6 +96,6 @@ struct AlertEmergenciasView: View {
 
 struct AlertEmergenciasView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertEmergenciasView(dataEmergencia: DataEmergenciaGrupoModel.defaultEmergencia)
+        AlertEmergenciasView(dataEmergencia: .constant( DataEmergenciaGrupoModel.defaultEmergencia))
     }
 }

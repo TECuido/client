@@ -13,7 +13,7 @@ struct TECuidoView: View {
     
     var body: some View {
         //nav view
-        //NavigationView{
+        NavigationView{
             ZStack{
                 
                 
@@ -91,8 +91,8 @@ struct TECuidoView: View {
                     }
                 }
             }
-        //}//aqui termina
-        //.navigationBarHidden(true)
+        }//aqui termina
+        .navigationBarHidden(true)
 
     }
     

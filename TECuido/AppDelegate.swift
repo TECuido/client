@@ -43,19 +43,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        
+                
         guard let aps = userInfo["aps"] as? [String: AnyObject] else {
             completionHandler(.failed)
             return
         }
         
         // Trigger the navigation via the environment object
-        self.notificationViewModel.handleNotificationReceived()
+        self.notificationViewModel.setEmergencia(notification: userInfo)
         
         completionHandler(.newData)
         
     }
-    
     
     
 }
@@ -68,7 +67,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
 
         if let aps = userInfo["aps"] as? [String: AnyObject] {
             // Do what you want with the notification
-            notificationViewModel.handleNotificationReceived()
+            self.notificationViewModel.setEmergencia(notification: userInfo)
         }
 
       completionHandler()

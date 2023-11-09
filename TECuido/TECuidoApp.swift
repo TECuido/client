@@ -14,7 +14,7 @@ struct TECuidoApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
     @State private var isNavigatingToEmergenciasView = false
-
+    @State var emergencia: DataEmergenciaGrupoModel = DataEmergenciaGrupoModel.defaultEmergencia
     
     var body: some Scene {
         WindowGroup {
@@ -22,20 +22,21 @@ struct TECuidoApp: App {
             NavigationStack {
                 
                 TECuidoView()
+                .background(
+                    NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
+                )
                 
             }
             .environmentObject(predictionStatus)
             .environmentObject(appDelegate.notificationViewModel)
-            .background(
-                NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true, emergencia: appDelegate.notificationViewModel.emergencia), isActive: $isNavigatingToEmergenciasView)
-            )
             .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
                 Task {
                     await appDelegate.notificationViewModel.sendNotificationToken()
                 }
             }
-            .onReceive(appDelegate.notificationViewModel.$navigateToNotificationView) { navigate in
-                if navigate {
+            .onReceive(appDelegate.notificationViewModel.$emergencia) { em in
+                if em.idEmergencia > -1 {
+                    emergencia = em
                     isNavigatingToEmergenciasView = true
                 }
             }
