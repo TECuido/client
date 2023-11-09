@@ -16,8 +16,7 @@ class EmergenciaViewModel: ObservableObject {
         
         let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
         
-        let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError> = await Webservice().getRequest("/emergenc ias/receptor/\(tokens.id)")
-        
+        let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError> = await Webservice().getRequest("/emergencias/receptor/\(tokens.id)")
         switch result {
             case .success(let data):
                 DispatchQueue.main.async {
