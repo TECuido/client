@@ -12,6 +12,7 @@ struct TECuidoView: View {
     @State private var scale = 1.0
     
     var body: some View {
+        //nav view
         NavigationView{
             ZStack{
                 
@@ -90,7 +91,7 @@ struct TECuidoView: View {
                     }
                 }
             }
-        }
+        }//aqui termina
         .navigationBarHidden(true)
 
     }

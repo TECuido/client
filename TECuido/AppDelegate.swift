@@ -12,23 +12,19 @@ import SwiftUI
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     var notificationViewModel = NotificationViewModel()
-    var notificationsManager = NotificationsManager()
-    
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // Check if launched from notification
-        let notificationOption = launchOptions?[.remoteNotification]
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge, .carPlay], completionHandler: { (granted, error) in
+                if granted {
+                    print("granted")
+                }else{
+                    print("not granted")
+                }
+            })
 
-        // get notification
-        if
-          let notification = notificationOption as? [String: AnyObject],
-          let aps = notification["aps"] as? [String: AnyObject] {
-          
-            // handle notification
-            notificationsManager.handleNotificationReceived()
-          
-        }
-
+        UNUserNotificationCenter.current().delegate = self
+                
         return true
     }
     
@@ -44,16 +40,36 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("Fallo al registrarse para notificaciones remotas. Error \(error)")
     }
     
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
+                
         guard let aps = userInfo["aps"] as? [String: AnyObject] else {
             completionHandler(.failed)
             return
         }
-    
+        
         // Trigger the navigation via the environment object
-        notificationsManager.handleNotificationReceived()
-
+        self.notificationViewModel.setEmergencia(notification: userInfo)
+        
         completionHandler(.newData)
+        
+    }
+    
+    
+}
+
+
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+
+        if let aps = userInfo["aps"] as? [String: AnyObject] {
+            // Do what you want with the notification
+            self.notificationViewModel.setEmergencia(notification: userInfo)
+        }
+
+      completionHandler()
     }
 }

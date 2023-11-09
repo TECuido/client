@@ -13,6 +13,27 @@ class NotificationViewModel: ObservableObject {
     @Published var notificationToken: String = ""
     @Published var tokenAgregado: Bool = false
     
+    @Published var navigateToNotificationView: Bool = false
+    @Published var emergencia: DataEmergenciaGrupoModel = DataEmergenciaGrupoModel.defaultEmergencia
+
+    func setEmergencia(notification: [AnyHashable: Any]){
+        
+        var longitud = notification["longitud"] as? Double
+        var latitud = notification["latitud"] as? Double
+        
+        
+        self.emergencia = DataEmergenciaGrupoModel(
+            idEmergencia: notification["idEmergencia"] as! Int,
+            tipo: notification["tipo"] as! String,
+            descripcion: notification["descripcion"] as? String,
+            idEmisor: notification["idEmisor"] as! Int,
+            longitud: longitud != nil ? Float(longitud!) : nil,
+            latitud:  latitud != nil ? Float(latitud!) : nil,
+            emisor: notification["emisor"] as? String
+        )
+        
+    }
+    
     public func sendNotificationToken() async {
         do {
             

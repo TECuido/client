@@ -70,7 +70,7 @@ struct ClassificationView: View {
         }
         .environmentObject(closeModal)
         .background(
-            NavigationLink("", destination: EmergenciasView(), isActive: $closeModal.closeModal)
+            NavigationLink("", destination: EmergenciasView(selection: 1), isActive: $closeModal.closeModal)
         )
     }
 }
