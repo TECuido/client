@@ -11,7 +11,7 @@ class MandarEmergenciaViewModel: ObservableObject {
     
     
     @Published var selectedMotivo = "Médica"
-    @Published var motivos = ["Médica", "Desastre natural","Incendio","Accidente de tráfico","Acoso","Secuestro", "Extorsión","Emergencia tecnológica"]
+    @Published var motivos = ["Médica","Acoso","Secuestro", "Desastre natural","Incendio","Accidente de tráfico", "Extorsión","Emergencia tecnológica"]
     
     @Published var selectedOptionContacto: String = ""
     @Published var grupos: [GrupoModel] = [GrupoModel.example]

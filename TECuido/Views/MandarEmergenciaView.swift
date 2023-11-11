@@ -12,6 +12,22 @@ struct MandarEmergenciaView: View {
     @State private var otro = ""
     
     @StateObject private var viewModel = MandarEmergenciaViewModel()
+    @State private var selectedIcon: String = "questionmark.circle.fill"
+
+        // Define un diccionario que mapea los motivos a los iconos
+        let motivoIconMapping: [String: String] = [
+            "Médica": "heart.circle.fill",
+            "Acoso": "exclamationmark.triangle.fill",
+            "Secuestro": "bolt.horizontal.circle.fill",
+            "Desastre natural": "tornado",
+            "Incendio":"flame.fill",
+            "Accidente de tráfico":"car.fill",
+            "Extorsión":"hand.raised.fill",
+            "Emergencia tecnológica":"antenna.radiowaves.left.and.right",
+            
+            // Agrega más motivos y sus iconos aquí
+        ]
+
     
     var body: some View {
         ZStack{
@@ -27,10 +43,17 @@ struct MandarEmergenciaView: View {
                     .font(.title2)
                     .multilineTextAlignment(.center)
                 
-                Picker("Selecciona un motivo", selection: $viewModel.selectedMotivo){
+                
+                Picker("Selecciona un motivo", selection: $viewModel.selectedMotivo) {
                     ForEach(viewModel.motivos, id: \.self) { option in
-                        Text(option)
-                            .font(.title)
+                        HStack {
+                            Image(systemName: motivoIconMapping[option] ?? "questionmark.circle.fill")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .padding(80)
+                            Text(option)
+                                .font(.title)
+                        }
                     }
                 }
                 .pickerStyle(DefaultPickerStyle())
@@ -38,7 +61,7 @@ struct MandarEmergenciaView: View {
                 .background(.white)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
+                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529), lineWidth: 4)
                 )
                 .cornerRadius(25)
                 .padding(10)
