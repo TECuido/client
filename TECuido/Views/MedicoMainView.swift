@@ -15,26 +15,25 @@ struct MedicoMainView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                Spacer()
                 Text("TECuido")
                     .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                        .font(.system(size: 34, weight: .black))
-                Spacer()
+                    .font(.system(size: 34, weight: .black))
                 
-                    
-
                 ZStack {
                     // Rectangulos de fondo
                     RoundedRectangle(cornerRadius: 30)
-                    .fill(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                        .fill(.white)
 
                     RoundedRectangle(cornerRadius: 30)
-                    .strokeBorder(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), lineWidth: 1)
+                        .strokeBorder(.black, lineWidth: 1)
+                    
                     ScrollView{
-                        VStack{
+                        VStack(alignment: .leading){
                             // Presentacion de dr
-                            HStack(spacing: 100){
-                                VStack(alignment: .leading){
+                            HStack{
+                                Spacer()
+                                
+                                VStack{
                                     Text("Hola,")
                                         .font(.system(size: 20))
                                         .foregroundColor(Color(red: 0.53, green: 0.59, blue: 0.73))
@@ -42,37 +41,29 @@ struct MedicoMainView: View {
                                     Text("Dr. Carlos")
                                         .font(.system(size: 25, weight: .bold))
                                 }
+                                .padding(.vertical)
                                 
-                                // Aqui falta back para conectar con la imagen personalizada
-                                Image("icon")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 60, height: 60)
-                                    .clipShape(Circle())
-                            }
-                            .padding(20)
-                                                    
-                            // Botones de servicios
-                            HStack{
-                                Text("Servicios")
-                                    .font(.system(size: 20, weight: .bold))
                                 Spacer()
                             }
-                            
+                                     
+                            // Botones de servicios
+                            Text("Servicios")
+                                .font(.system(size: 20, weight: .bold))
                             
                             // Aqui falta back (posiblemente; en el figma hay un cuadro como para agregar mas funcionalidades)
                             HStack{
                                 Spacer()
+                                
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                                         .frame(width: 128, height: 144)
-                                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                    VStack(alignment: .leading, spacing: 30){
-                                        
+                                    
+                                    VStack(alignment: .leading){
                                         ZStack{
                                             Circle()
+                                                .fill(.white)
                                                 .frame(width: 56, height: 56)
-                                                .foregroundColor(Color(red: 1, green: 1, blue: 1))
                                             Image("pacientes")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
@@ -80,137 +71,151 @@ struct MedicoMainView: View {
                                                 .clipShape(Circle())
                                         }
                                         
-                                        Text("Pacientes ")
+                                        Spacer()
+
+                                        Text("Pacientes")
                                             .font(.system(size: 20, weight: .bold))
-                                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                            .foregroundColor(.white)
                                     }
+                                    .padding()
                                 }
+                                
                                 Spacer()
+                                
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                                         .frame(width: 128, height: 144)
-                                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                    VStack(alignment: .leading, spacing: 30){
-                                        
+                                    
+                                    VStack(alignment: .leading){
                                         ZStack{
                                             Circle()
                                                 .frame(width: 56, height: 56)
-                                                .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                                .foregroundColor(.white)
+                                            
                                             Image("recetas")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
                                                 .frame(width: 50, height: 50)
                                                 .clipShape(Circle())
                                         }
-                                        
-                                        Text("Recetas     ")
+                                        Spacer()
+                                        Text("Recetas")
                                             .font(.system(size: 20, weight: .bold))
-                                            .foregroundColor(Color(red: 1, green: 1, blue: 1))
+                                            .foregroundColor(.white)
                                     }
+                                    .padding()
                                 }
                                 Spacer()
                             }
-                            HStack{
-                                Text("Últimos pacientes")
-                                    .font(.system(size: 20, weight: .bold))
-                                Spacer()
-                            }
-                            .padding(.top, 15)
-                            .padding(.bottom, 15)
+                            
+                            Text("Últimos pacientes")
+                                .font(.system(size: 20, weight: .bold))
+                                .padding(.vertical)
+                            
                             VStack(spacing:20){
-                                
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(.white)
+                                        .shadow(color: .black, radius: 5, x: 0, y: 4)
+                                    HStack{
+                                        Text("Pedro Lopez")
+                                            .font(.system(size: 20, weight: .bold))
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 20, weight: .bold))
+                                    }
+                                    .padding(20)
+                                }
                                 
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 355, height: 67)
-                                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
-                                    HStack(spacing: 190){
+                                        .fill(.white)
+                                        .shadow(color: .black, radius: 5, x: 0, y: 4)
+                                    HStack{
                                         Text("Pedro Lopez")
-                                            .bold()
-                                        Image(systemName: "arrow.right")
+                                            .font(.system(size: 20, weight: .bold))
+
+                                        Spacer()
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 20, weight: .bold))
                                     }
-                                }
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 355, height: 67)
-                                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
-                                    HStack(spacing: 190){
-                                        Text("Pedro Lopez")
-                                            .bold()
-                                        Image(systemName: "arrow.right")
-                                    }
+                                    .padding(20)
                                 }
                             }
-                            HStack{
-                                Text("Últimas Recetas")
-                                    .font(.system(size: 20, weight: .bold))
-                                Spacer()
-                            }
-                            .padding(.top, 15)
-                            .padding(.bottom, 15)
+                            
+                            Text("Últimas Recetas")
+                                .font(.system(size: 20, weight: .bold))
+                                .padding(.vertical)
+                            
                             VStack(spacing: 20){
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 355, height: 67)
-                                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
+                                        .fill(.white)
+                                        .shadow(color: .black, radius: 5, x: 0, y: 4)
                                     
-                                    HStack(spacing: 160){
+                                    HStack{
+                                        ZStack{
+                                            Circle()
+                                                .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                                                .frame(width: 50, height: 50)
+                                                .shadow(color: .black, radius: 3, x: 0, y: 4)
+                                            
+                                            Text("1")
+                                                .font(.system(size: 20, weight: .bold))
+                                                .foregroundColor(.white)
+                                        }
                                         
-                                            HStack(spacing: 20){
-                                                ZStack{
-                                                    Circle()
-                                                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                                        .frame(width: 50, height: 50)
-                                                        .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 3, x: 0, y: 4)
-                                                    Text("1")
-                                                        .font(.system(size: 20, weight: .bold))
-                                                        .foregroundColor(Color(red: 0.9765, green: 0.9765, blue: 0.9765))
-                                                }
-                                                
-                                                Text("Receta 8")
-                                                    .bold()
-                                            }
+                                        Text("Receta 8")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .padding(.horizontal)
                                         
-                                        Image(systemName: "arrow.right")
+                                        Spacer()
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 20, weight: .bold))
+
                                         
                                     }
+                                    .padding()
                                 }
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 355, height: 67)
-                                        .foregroundColor(Color(red: 1, green: 1, blue: 1))
-                                        .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 5, x: 0, y: 4)
-                                    HStack(spacing: 160){
-                                        HStack(spacing: 20){
-                                            ZStack{
-                                                Circle()
-                                                    .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                                    .frame(width: 50, height: 50)
-                                                    .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 3, x: 0, y: 4)
-                                                Text("2")
-                                                    .font(.system(size: 20, weight: .bold))
-                                                    .foregroundColor(Color(red: 0.9765, green: 0.9765, blue: 0.9765))
-                                            }
-                                            
-                                            Text("Receta 4")
-                                                .bold()
+                                        .fill(.white)
+                                        .shadow(color: .black, radius: 5, x: 0, y: 4)
+                                    HStack{
+                                        ZStack{
+                                            Circle()
+                                                .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                                                .frame(width: 50, height: 50)
+                                                .shadow(color: Color(red: 0, green: 0, blue: 0), radius: 3, x: 0, y: 4)
+                                            Text("2")
+                                                .font(.system(size: 20, weight: .bold))
+                                                .foregroundColor(.white)
                                         }
-                                        Image(systemName: "arrow.right")
+                                        
+                                        Text("Receta 4")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .padding(.horizontal)
+                                        
+                                        Spacer()
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 20, weight: .bold))
+
                                         
                                     }
+                                    .padding()
                                 }
-                                .padding(.bottom, 50)
                             }
-                            
+                            .padding(.bottom, 30)
                         }
+                        .padding(20)
                     }
-                    .padding()
+                    .padding(.top, 1)
                 }
                 .ignoresSafeArea()
-                .frame(width: 393, height: 675)
             }
         }
     }

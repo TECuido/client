@@ -55,6 +55,7 @@ struct PacientesView: View {
                                     
                                     Text("Buscar Pacientes")
                                         .foregroundColor(Color(red: 0.6686, green: 0.6686, blue: 0.6686))
+                                    
                                     Spacer()
                                 }
                                 .padding()

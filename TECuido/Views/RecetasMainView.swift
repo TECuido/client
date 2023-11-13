@@ -45,7 +45,7 @@ struct RecetasMainView: View {
 
                         ZStack{
                             RoundedRectangle(cornerRadius: 25)
-                                .foregroundColor(Color(red: 0.8824, green: 0.8824, blue: 0.8824))
+                                .fill(Color(red: 0.8824, green: 0.8824, blue: 0.8824))
                             ScrollView{
                                 
                                 VStack(spacing: 20){
@@ -76,7 +76,7 @@ struct RecetasMainView: View {
                                     
                                     
                                     Rectangle()
-                                        .fill(Color.black)
+                                        .fill(.black)
                                         .frame(height: 1)
                                     
                                     HStack(spacing: 20){
@@ -105,7 +105,7 @@ struct RecetasMainView: View {
                                     
                                     
                                     Rectangle()
-                                        .fill(Color.black)
+                                        .fill(.black)
                                         .frame(height: 1)
                                     
                                     HStack(spacing: 20){
@@ -134,7 +134,7 @@ struct RecetasMainView: View {
                                     
                                     
                                     Rectangle()
-                                        .fill(Color.black)
+                                        .fill(.black)
                                         .frame(height: 1)
                                     Spacer()
                                 }
