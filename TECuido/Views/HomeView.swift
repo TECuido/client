@@ -16,7 +16,6 @@ struct HomeView: View {
     @State private var showLesionesView = false
     @State private var scale = 1.0
     
-    @EnvironmentObject var notificationViewModel: NotificationViewModel
     
     var body: some View {
         //Nota el navegation es para pruebas favor de quitarlo
@@ -105,7 +104,7 @@ struct HomeView: View {
             }
             .padding()
             .background(
-                NavigationLink("", destination: EmergenciasView(), isActive: $showEmergenciasView)
+                NavigationLink("", destination: EmergenciasView(selection: 1), isActive: $showEmergenciasView)
             )
             .background(
                 NavigationLink("", destination: ContactosView(), isActive: $showContactosView)

@@ -64,9 +64,12 @@ class Webservice {
     func getRequest<T: Decodable>(_ link: String, allowedRetry: Bool = true) async -> Result<APIResponseModel<T>, NetworkError>{
         
         do {
+            
+            
             guard let url = URL(string: "\(baseURL)\(link)") else {
                 throw NetworkError.invalidURL
             }
+            
             
             var request = URLRequest(url: url)
         
@@ -78,14 +81,16 @@ class Webservice {
             
             
             let (data, response) = try await URLSession.shared.data(for: request)
-            
+                        
             guard let response = response as? HTTPURLResponse else {
                 throw NetworkError.badResponse
             }
             
+            
             guard let result = try? JSONDecoder().decode(APIResponseModel<T>.self, from: data) else {
                 throw NetworkError.decodingError
             }
+            
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {

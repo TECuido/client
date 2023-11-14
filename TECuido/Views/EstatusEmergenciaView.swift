@@ -42,8 +42,6 @@ struct EstatusEmergenciaView: View {
                 .padding()
             
             
-            
-            
             if((dataEmergencia.descripcion) != nil){
                 
                 Text("Descripción de la alerta:")
