@@ -15,6 +15,8 @@ struct ListaGruposView: View {
     @StateObject var viewModel = ListaGrupoViewModel()
     @State private var showDetallesView = false
     @State private var showAgregaView = false
+    @State private var showEditarView = false
+    @State private var showEliminarView = false
     
     var body: some View {
         
@@ -52,16 +54,52 @@ struct ListaGruposView: View {
                                     
                                     Spacer()
                                     
+                                    Menu{
+                                        Button(action: {
+                                            viewModel.grupoSeleccionado = item
+                                            showEditarView = true
+                                            
+                                        }){
+                                            Label("Editar", systemImage: "pencil")
+                                        }
+                                        Button(action: {
+                                            viewModel.grupoSeleccionado = item
+                                            showEliminarView = true
+                                        }){
+                                            Label("Borrar", systemImage: "trash")
+                                        }
+                                    }label: {
+                                        Image(systemName: "ellipsis.circle")
+                                            .frame(width: 30, height: 30)
+                                            .foregroundColor(.blue)
+                                    }
                                     
                                     Image(systemName: "chevron.right")
-                                        .foregroundColor(.blue)                                    
-                                    
+                                        .foregroundColor(.blue)
                                 }
                             }
                         }
                     }
                     .task {
                         await viewModel.getGrupos()
+                    }
+                    .alert(isPresented: $showEliminarView) {
+                        Alert(
+                            title:
+                                Text("Confirmación")
+                            
+                                .font(.title)
+                            ,
+                            message: Text("¿Está seguro que desea eliminar este grupo?")
+                                .font(.title2),
+                            primaryButton: .destructive(Text("Eliminar")) {
+                                Task{
+                                    await viewModel.deleteGrupo()
+                                    await viewModel.getGrupos()
+                                }
+                            },
+                            secondaryButton: .cancel(Text("Cancelar"))
+                        )
                     }
                     .frame(minHeight: minRowHeight * 10)
                     .scrollContentBackground(.hidden)
@@ -88,6 +126,10 @@ struct ListaGruposView: View {
                 }
             }
         }
+        .background(
+            NavigationLink("", destination:
+                            EditarGrupoView(grupo: viewModel.grupoSeleccionado), isActive: $showEditarView)
+        )
     }
 }
 
@@ -96,4 +138,3 @@ struct ListaGruposView_Previews: PreviewProvider {
         ListaGruposView()
     }
 }
-

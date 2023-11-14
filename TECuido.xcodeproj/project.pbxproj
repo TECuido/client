@@ -27,6 +27,9 @@
 		C0271A822AF33A5A00024BE5 /* mydata3.json in Resources */ = {isa = PBXBuildFile; fileRef = C0271A692AF33A5A00024BE5 /* mydata3.json */; };
 		C0271A832AF33A5A00024BE5 /* mydata2.json in Resources */ = {isa = PBXBuildFile; fileRef = C0271A6A2AF33A5A00024BE5 /* mydata2.json */; };
 		C0271A842AF33A5A00024BE5 /* mydata.json in Resources */ = {isa = PBXBuildFile; fileRef = C0271A6B2AF33A5A00024BE5 /* mydata.json */; };
+		C08261E92AFDA53B000CA507 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C08261E82AFDA53B000CA507 /* CNNEmotions.mlmodel */; };
+		C08261EB2AFDAEB4000CA507 /* EditarGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08261EA2AFDAEB4000CA507 /* EditarGrupoView.swift */; };
+		C08261EF2AFDB0AD000CA507 /* EditarGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08261EE2AFDB0AD000CA507 /* EditarGrupoViewModel.swift */; };
 		FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */; };
 		FB1C31822AD9C6E400965B4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31812AD9C6E400965B4B /* Assets.xcassets */; };
 		FB1C31852AD9C6E400965B4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1C31842AD9C6E400965B4B /* Preview Assets.xcassets */; };
@@ -110,6 +113,9 @@
 		C0271A692AF33A5A00024BE5 /* mydata3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mydata3.json; sourceTree = "<group>"; };
 		C0271A6A2AF33A5A00024BE5 /* mydata2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mydata2.json; sourceTree = "<group>"; };
 		C0271A6B2AF33A5A00024BE5 /* mydata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mydata.json; sourceTree = "<group>"; };
+		C08261E82AFDA53B000CA507 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		C08261EA2AFDAEB4000CA507 /* EditarGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarGrupoView.swift; sourceTree = "<group>"; };
+		C08261EE2AFDB0AD000CA507 /* EditarGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarGrupoViewModel.swift; sourceTree = "<group>"; };
 		FB1C317A2AD9C6E200965B4B /* TECuido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TECuido.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1C317D2AD9C6E300965B4B /* TECuidoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoApp.swift; sourceTree = "<group>"; };
 		FB1C31812AD9C6E400965B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,7 +133,6 @@
 		FB4D55FD2AF3169C00D1C533 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		FB4D55FF2AF316C900D1C533 /* EmotionRecognitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionRecognitionView.swift; sourceTree = "<group>"; };
 		FB4D56032AF8A42A00D1C533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB60F5002ADA17FF001E430D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -322,7 +327,7 @@
 		FB4D56052AF8A50D00D1C533 /* MLUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FB4D56092AF8A5EF00D1C533 /* CNNEmotions.mlmodel */,
+				C08261E82AFDA53B000CA507 /* CNNEmotions.mlmodel */,
 				FB4D55F52AF3157A00D1C533 /* SpeechRecognizer.swift */,
 				FB4D55FB2AF3166F00D1C533 /* CameraViewController.swift */,
 			);
@@ -368,6 +373,7 @@
 				FBE588192AE32C19009A48B6 /* MostarRecetaView.swift */,
 				FBE5881B2AE32C2A009A48B6 /* SimplificarRecetaView.swift */,
 				FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */,
+				C08261EA2AFDAEB4000CA507 /* EditarGrupoView.swift */,
 				FBBEF7252AE34BC200993C02 /* LlamadasView.swift */,
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 				FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */,
@@ -393,6 +399,7 @@
 				FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */,
 				FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */,
 				FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */,
+				C08261EE2AFDB0AD000CA507 /* EditarGrupoViewModel.swift */,
 				FB9034DD2AEC6257005E79A3 /* LlamadasViewModel.swift */,
 				FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */,
 			);
@@ -512,6 +519,7 @@
 				C0271A742AF33A5A00024BE5 /* LiveCameraViewController.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
 				C0271A6E2AF33A5A00024BE5 /* DisplayedContentView.swift in Sources */,
+				C08261EF2AFDB0AD000CA507 /* EditarGrupoViewModel.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* RecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
@@ -538,9 +546,11 @@
 				C0271A7E2AF33A5A00024BE5 /* Wounds.mlmodel in Sources */,
 				C0271A7A2AF33A5A00024BE5 /* Constants.swift in Sources */,
 				C0271A752AF33A5A00024BE5 /* LiveCameraRepresentable.swift in Sources */,
+				C08261EB2AFDAEB4000CA507 /* EditarGrupoView.swift in Sources */,
 				C0271A722AF33A5A00024BE5 /* ClassificationView.swift in Sources */,
 				C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
+				C08261E92AFDA53B000CA507 /* CNNEmotions.mlmodel in Sources */,
 				C0271A762AF33A5A00024BE5 /* ClassifierViewModel.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
 				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,
@@ -706,7 +716,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
-				DEVELOPMENT_TEAM = 23D44T2LM8;
+				DEVELOPMENT_TEAM = SD8RNYDD2N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TECuido/Info.plist;
@@ -723,7 +733,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoswift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -739,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TECuido/Preview Content\"";
-				DEVELOPMENT_TEAM = 23D44T2LM8;
+				DEVELOPMENT_TEAM = SD8RNYDD2N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TECuido/Info.plist;
@@ -756,7 +766,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuidoswift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itesm.TECuido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

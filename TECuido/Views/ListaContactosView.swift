@@ -59,7 +59,7 @@ struct ListaContactosView: View {
                                             .font(.title2)
                                         Text(item.usuarioAgregado.correo)
                                             .font(.title2)
-                                    }.frame(width:.infinity)
+                                    }.frame(width: .infinity)
                                         .padding(10)
                                                                 
                                     Spacer()
