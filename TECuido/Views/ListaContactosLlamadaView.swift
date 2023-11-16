@@ -41,9 +41,6 @@ struct ListaContactosLlamadaView: View {
                                 
                                 ZStack {
                                     
-                                    NavigationLink(destination: LlamadasTemporalView()){
-                                        EmptyView()
-                                    }
                                     
                                     HStack {
                                         VStack(alignment: .leading){
@@ -55,11 +52,17 @@ struct ListaContactosLlamadaView: View {
                                         
                                         Spacer()
                                         
-                                        
                                         Image(systemName: "chevron.right")
                                             .foregroundColor(.blue)
                                         
                                     }
+                                }
+                            }
+                            .onTapGesture{
+                                Task  {
+                                    viewModel.showLlamadaView = true
+                                    //viewModel.selected = index
+                                    //await viewModel.createCall()
                                 }
                             }
                             
@@ -67,6 +70,11 @@ struct ListaContactosLlamadaView: View {
                     }
                     .task {
                         await viewModel.getContactos()
+                    }
+                    .background {
+                        NavigationLink(destination: LlamadasTemporalView(), isActive: $viewModel.showLlamadaView){
+                            EmptyView()
+                        }
                     }
                     .frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)

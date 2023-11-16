@@ -29,6 +29,11 @@ struct LlamadasTemporalView: View {
                     Image(systemName: "phone.fill")
                 }
             
+            LlamTView()
+                .tabItem {
+                    Image(systemName: "camera.fill")
+                }
+            
             EmotionRecognitionView()
                 .tabItem{
                     Image(systemName: "smiley.fill")

@@ -16,16 +16,12 @@ struct RecetaTabView: View {
         // Vistas para contacto y grupos
         TabView{
             
-            MostarRecetaView()
+            MostrarRecetaView()
                 .tabItem{
                     Image(systemName: "text.justify")
                 }
                 .tint(.blue)
-            
-            SimplificarRecetaView()
-                .tabItem{
-                    Image(systemName: "text.quote")
-                }
+         
             
             
         }

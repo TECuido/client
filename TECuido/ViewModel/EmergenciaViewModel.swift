@@ -19,12 +19,14 @@ class EmergenciaViewModel: ObservableObject {
         let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError> = await Webservice().getRequest("/emergencias/receptor/\(tokens.id)")
         switch result {
             case .success(let data):
+            if let data = data.data {
                 DispatchQueue.main.async {
-                    self.emergencia = data.data!
-                    if(data.data != nil){
-                        self.hayEmergencia = true
-                    }
+                    self.emergencia = data
+                    self.hayEmergencia = true
                 }
+            } else {
+                self.hayEmergencia = false
+            }
             case .failure(let error):
             print(error.self)
                 print(error.localizedDescription)

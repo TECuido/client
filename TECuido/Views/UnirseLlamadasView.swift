@@ -7,9 +7,7 @@
 import SwiftUI
 
 struct UnirseLlamadasView: View {
-    @State private var codigo = ""
-    @State private var isCodigoEmpty = false
-    @State private var isShowingConfirmationModel = false
+    @StateObject var viewModel = UnirseLlamadasViewModel()
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack{
@@ -40,7 +38,7 @@ struct UnirseLlamadasView: View {
                             .frame(width: 30, height: 20)
                             .padding(.leading, 15)
                         TextField("",
-                                  text: $codigo,
+                                  text: $viewModel.codigo,
                                   prompt: Text("Codigo")
                             .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
                                           )
@@ -54,12 +52,20 @@ struct UnirseLlamadasView: View {
                     .cornerRadius(20)
                     .overlay {
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(isCodigoEmpty ? .red : Color.clear)
+                            .stroke(.red, lineWidth: CGFloat(viewModel.codigoError)*2)
                     }
                     .padding([.top, .bottom], 10)
                 }
                 
-                // Modal
+                // Aqui validamos que este incorrecto
+                Text(viewModel.error)
+                    .font(.body)
+                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                    .frame(width: 300)
+                    .padding(.top, 5)
+                    .multilineTextAlignment(.center)
+                
+                /*
                 .alert(isPresented: $isShowingConfirmationModel) {
                     Alert(
                         title:
@@ -78,13 +84,14 @@ struct UnirseLlamadasView: View {
                         )
                     )
                 }
+                 */
+                
+                
                 // Vamos a checar lo del modal aqui
-                Button("Agregar"){
-                    if codigo.isEmpty{
-                        isCodigoEmpty = true
-                    }
-                    else{
-                        isShowingConfirmationModel = true
+                Button("Unirse a llamada"){
+                    Task {
+                        viewModel.showLlamadaView = true
+                        //await viewModel.getLlamada()
                     }
                 }
                 .foregroundColor(.white)
@@ -94,6 +101,13 @@ struct UnirseLlamadasView: View {
                 .cornerRadius(25)
                 .padding(10)
                 .font(.title2)
+                
+                .background {
+                    NavigationLink(destination: LlamadasTemporalView(), isActive: $viewModel.showLlamadaView){
+                        EmptyView()
+                    }
+                }
+                
             }
             
         }
