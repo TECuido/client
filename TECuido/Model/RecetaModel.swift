@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecetaModel : Identifiable{
+struct RecetaModel : Identifiable, Decodable{
     var id = UUID()
     var nombre: String
     var fecha: String

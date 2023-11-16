@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct RecetasView: View {
-    @StateObject var viewModel = RecetaViewModel()
+struct ListaRecetasView: View {
+    @StateObject var viewModel = ListaRecetasViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
     
@@ -27,7 +27,7 @@ struct RecetasView: View {
                     
                     // Lista de contactos
                     List{
-                        ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index,item in
+                        ForEach(Array(viewModel.recetas.enumerated()), id:\.offset) { index,item in
                             HStack{
                                 ZStack{
                                     Circle()
@@ -76,8 +76,8 @@ struct RecetasView: View {
     }
 }
 
-struct RecetasView_Previews: PreviewProvider {
+struct ListaRecetasView_Previews: PreviewProvider {
     static var previews: some View {
-        RecetasView()
+        ListaRecetasView()
     }
 }

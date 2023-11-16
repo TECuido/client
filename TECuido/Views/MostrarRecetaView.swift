@@ -9,14 +9,10 @@ import SwiftUI
 
 struct MostrarRecetaView: View {
     
-    @State var receta = [
-        MedicamentoModel(id: 1, nombre: "Aspirina", dosis: 2, unidadDosis: "tabletas", frecuencia: 8, unidadFrecuencia: "horas", duracion: 3, unidadDuracion: "días"),
-        MedicamentoModel(id: 2, nombre: "Paracetamol", dosis: 3, unidadDosis: "pastillas", frecuencia: 6, unidadFrecuencia: "horas", duracion: 1, unidadDuracion: "semana")
-    ]
+    @StateObject var viewModel = RecetaViewModel()
     
     var body: some View {
             VStack{
-               
                     // Titulo
                     Text("Receta x")
                         .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
@@ -27,7 +23,7 @@ struct MostrarRecetaView: View {
                         .multilineTextAlignment(.center)
                     // Agregar select de motivo de alerta
                     
-                    List(receta){ item in
+                    List(viewModel.recetaMedicamentos){ item in
                         VStack(alignment:  .leading) {
                             HStack {
                                 
