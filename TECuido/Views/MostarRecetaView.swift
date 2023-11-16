@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-struct MostarRecetaView: View {
+struct MostrarRecetaView: View {
+    
+    @State var receta = [
+        MedicamentoModel(id: 1, nombre: "Aspirina", dosis: 2, unidadDosis: "tabletas", frecuencia: 8, unidadFrecuencia: "horas", duracion: 3, unidadDuracion: "días"),
+        MedicamentoModel(id: 2, nombre: "Paracetamol", dosis: 3, unidadDosis: "pastillas", frecuencia: 6, unidadFrecuencia: "horas", duracion: 1, unidadDuracion: "semana")
+    ]
+    
     var body: some View {
-        ZStack{
             VStack{
                
                     // Titulo
@@ -21,61 +26,50 @@ struct MostarRecetaView: View {
                         .padding()
                         .multilineTextAlignment(.center)
                     // Agregar select de motivo de alerta
-                ScrollView{
-                    LabelAlignment(text: "YLorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu pellentesque velit. Mauris eget neque volutpat, ultrices odio quis, porttitor tellus. Quisque fermentum dignissim orci eget efficitur. Vestibulum feugiat dolor sollicitudin sapien bibendum, vitae commodo dui eleifend. Proin a accumsan arcu. Nunc vulputate ex dapibus, posuere sem facilisis, vulputate nibh. Vestibulum facilisis nisl eget elit tempor lobortis", textAlignmentStyle: .justified, width: UIScreen.main.bounds.width - 80)
-
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                        .font(.body)
-                        .padding(.top,30)
-                        
-                        
-                           
-                    }
-                .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(20)
                     
-                }
+                    List(receta){ item in
+                        VStack(alignment:  .leading) {
+                            HStack {
+                                
+                                ZStack {
+                                    
+                                    Circle()
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(.blue)
+                                    
+                                    Image(systemName: "pill.fill")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 20, height:20)
+                                    
+                                }
+                                .padding(.trailing, 5)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(item.nombre)
+                                        .foregroundColor(.blue)
+                                        .fontWeight(.bold)
+                                        .font(.title3)
+                                        .padding(.bottom, 3)
+                                    
+                                    Text("\(item.dosis) \(item.unidadDosis) cada \(item.frecuencia!) \(item.unidadFrecuencia!)")
+                                        .padding(.bottom, 3)
+                                    Text("Duración: \(item.duracion) \(item.unidadDuracion)")
+                                }
+                            }
+                            .padding(.bottom, 5)
+                        }
+                    }
+                    .font(.body)
+                    
+                    
+            }
             
         }
-    }
-    
 }
-
-
-// Estructura para justificar el texto
-/**
- Consta de texto a enviar
- donde lo alineas y width de lados
- */
-struct LabelAlignment: UIViewRepresentable {
-  var text: String
-  var textAlignmentStyle : TextAlignmentStyle
-  var width: CGFloat
-
-  func makeUIView(context: Context) -> UILabel {
-      let label = UILabel()
-      label.textAlignment = NSTextAlignment(rawValue: textAlignmentStyle.rawValue)!
-      label.numberOfLines = 0
-      label.preferredMaxLayoutWidth = width
-      label.setContentHuggingPriority(.required, for: .horizontal)
-      label.setContentHuggingPriority(.required, for: .vertical)
-
-      return label
-  }
-
-  func updateUIView(_ uiView: UILabel, context: Context) {
-      uiView.text = text
-  }
-}
-
-enum TextAlignmentStyle : Int{
-   case left = 0 ,center = 1 , right = 2 ,justified = 3 ,natural = 4
-}
-
 
 struct MostarRecetaView_Previews: PreviewProvider {
     static var previews: some View {
-        MostarRecetaView()
+        MostrarRecetaView()
     }
 }

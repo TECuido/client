@@ -11,30 +11,53 @@ import StreamVideoSwiftUI
 
 struct LlamadasView: View {
     
+    @State var creador: Bool
+    @Binding var dataLlamada: DataLlamadaModel
+    @Binding var token: String
+    
     @ObservedObject var viewModel: CallViewModel
-    @State var shouldCreateCall = false
 
     private var client: StreamVideo
-    private let apiKey: String = "pmqxwhbbbhzf"
-    private let token: String = "edww4c3mymka5hjfb3ama3wgh4e8zpw57m63u54r39bdur4e4xxew3qtmd5w7zgsn"
-
-    private let userId: String = "IG_88" // The User Id can be found in the Credentials section
-    private let callId: String = "nDpJZMXYktkO" // The CallId can be found in the Credentials section
+    private let apiKey: String = "krhf9hwpw7pv"
     
-    init() {
-        let user = User(
-            id: userId,
-            name: "Martin",
-            imageURL: URL(string: "https://cdn-icons-png.flaticon.com/512/3177/3177440.png")
-        )
+    init(creador: Bool, token: Binding<String>, dataLlamada: Binding<DataLlamadaModel>) {
+        
+        let userId: Int
+        let user: User
+        
+        if(creador){
+            userId = dataLlamada.wrappedValue.idUsuarioEmisor
+            
+            user = User(
+                id: String(userId),
+                name: "Pànfila López",
+                imageURL: nil
+            )
+        } else {
+            userId = dataLlamada.wrappedValue.idUsuarioReceptor
+            
+            user = User(
+                id: String(userId),
+                name: "Rubén",
+                imageURL: nil
+            )
+        }
 
+        self.creador = creador
+        self._token = token
+        self._dataLlamada = dataLlamada
+        
+        print(token.wrappedValue)
+        
         // Initialize Stream Video client
         self.client = StreamVideo(
             apiKey: apiKey,
             user: user,
-            token: .init(stringLiteral: token)
+            token: .init(stringLiteral: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMyJ9.ZQgjJvuJcQjQAOwfjksz4wHR2QvyvmML21TT4T3oMuw")
         )
-
+        
+        print(self.client)
+        
         self.viewModel = .init()
     }
     
@@ -44,16 +67,26 @@ struct LlamadasView: View {
             if viewModel.call != nil {
                 CallContainer(viewFactory: DefaultViewFactory.shared, viewModel: viewModel)
             } else {
-                Text("loading...")
+                Text("Cargando ...")
             }
         }.onAppear {
             Task {
                 guard viewModel.call == nil else { return }
-                if(shouldCreateCall){
-                    viewModel.startCall(callType: .default, callId: "123", members: [])
+                
+                if(creador){
+                    viewModel.startCall(
+                        callType: .default,
+                        callId: dataLlamada.idLlamada,
+                        members: [
+                            MemberRequest(userId: String(dataLlamada.idUsuarioEmisor)),
+                            MemberRequest(userId: String(dataLlamada.idUsuarioReceptor))
+                        ])
+                    viewModel.joinCall(callType: .default, callId: dataLlamada.idLlamada)
                 } else {
-                    viewModel.joinCall(callType: .default, callId: "123")
+                    print(dataLlamada.idLlamada)
+                    viewModel.joinCall(callType: .default, callId: dataLlamada.idLlamada)
                 }
+                 
             }
         }
        
