@@ -20,3 +20,9 @@ extension GrupoModel {
     public static var example =
         GrupoModel(id: 1, nombre: "Familia")
 }
+
+
+struct EditarNombreGrupoModel : Codable {
+    var id: Int
+    var nombre: String
+}

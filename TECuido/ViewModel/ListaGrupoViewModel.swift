@@ -10,6 +10,7 @@ import Foundation
 class ListaGrupoViewModel: ObservableObject {
     
     @Published var grupos: [GrupoModel] = [GrupoModel.example]
+    @Published var grupoSeleccionado = GrupoModel.example
     
     public func getGrupos() async {
         
@@ -27,7 +28,21 @@ class ListaGrupoViewModel: ObservableObject {
                 print(error.localizedDescription)
         }
     }
+    
+    public func deleteGrupo() async {
+            let idGrupo = self.grupoSeleccionado.id
+            let result : Result<APIResponseModel<GrupoModel>, NetworkError> = await Webservice().deleteRequest("/grupos/\(idGrupo)")
+            switch result {
+            case .success(let data):
+                print(data)
+                //return
+            case .failure(let error):
+                print(error)
+            }
+        }
 
 }
+
+
 
 
