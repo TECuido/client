@@ -23,11 +23,9 @@ class ListaGrupoViewModel: ObservableObject {
                     self.grupos = data.data!
                 }
             case .failure(let error):
-            print(error.self)
+                print(error.self)
                 print(error.localizedDescription)
         }
     }
 
 }
-
-
