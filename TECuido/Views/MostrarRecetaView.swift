@@ -24,36 +24,50 @@ struct MostrarRecetaView: View {
                     // Agregar select de motivo de alerta
                     
                     List(viewModel.recetaMedicamentos){ item in
-                        VStack(alignment:  .leading) {
-                            HStack {
+                        VStack(alignment: .leading) {
+                            
+                            ZStack{
                                 
-                                ZStack {
-                                    
-                                    Circle()
-                                        .frame(width: 40, height: 40)
-                                        .foregroundColor(.blue)
-                                    
-                                    Image(systemName: "pill.fill")
-                                        .resizable()
-                                        .foregroundColor(.white)
-                                        .frame(width: 20, height:20)
-                                    
+                                NavigationLink(destination: MedicamentoDetalleView(idMedicamento: item.id)){
+                                    EmptyView()
                                 }
-                                .padding(.trailing, 5)
                                 
-                                VStack(alignment: .leading) {
-                                    Text(item.nombre)
-                                        .foregroundColor(.blue)
-                                        .fontWeight(.bold)
-                                        .font(.title3)
-                                        .padding(.bottom, 3)
+                                HStack {
                                     
-                                    Text("\(item.dosis) \(item.unidadDosis) cada \(item.frecuencia!) \(item.unidadFrecuencia!)")
-                                        .padding(.bottom, 3)
-                                    Text("Duración: \(item.duracion) \(item.unidadDuracion)")
+                                    ZStack {
+                                        
+                                        Circle()
+                                            .frame(width: 40, height: 40)
+                                            .foregroundColor(.blue)
+                                        
+                                        Image(systemName: "pill.fill")
+                                            .resizable()
+                                            .foregroundColor(.white)
+                                            .frame(width: 20, height:20)
+                                        
+                                    }
+                                    .padding(.trailing, 5)
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(item.nombre)
+                                            .foregroundColor(.blue)
+                                            .fontWeight(.bold)
+                                            .font(.title3)
+                                            .padding(.bottom, 3)
+                                        
+                                        Text("\(item.dosis) \(item.unidadDosis) cada \(item.frecuencia!) \(item.unidadFrecuencia!)")
+                                            .padding(.bottom, 3)
+                                        Text("Duración: \(item.duracion) \(item.unidadDuracion)")
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.blue)
                                 }
+                                .padding(.bottom, 5)
                             }
-                            .padding(.bottom, 5)
+                            
                         }
                     }
                     .font(.body)
