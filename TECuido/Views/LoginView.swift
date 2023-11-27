@@ -111,7 +111,7 @@ struct LoginView: View {
                                    isActive: $viewModel.isAuthenticated){
                         EmptyView()
                     }
-                                   .transition(.slide)
+                    .transition(.slide)
                 }
                 
             }

@@ -1,78 +1,43 @@
 //
-//  RecetasView.swift
+//  TabLlamadasView.swift
 //  TECuido
 //
-//  Created by Alumno on 20/10/23.
+//  Created by Alumno on 02/11/23.
 //
-
 import SwiftUI
-
 struct RecetasView: View {
-    @StateObject var viewModel = RecetaViewModel()
-    @Environment(\.defaultMinListRowHeight) var minRowHeight
-    @State private var showDetallesView = false
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1)
+    }
     
     var body: some View {
-        ZStack{
-            VStack{
-                ScrollView{
-                    // Titulo
-                    Text("Recetas médicas")
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .font(.system(size: 45))
-                        .bold()
-                        .frame(width: 280)
-                        .padding()
-                        .multilineTextAlignment(.center)
-                    
-                    // Lista de contactos
-                    List{
-                        ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index,item in
-                            HStack{
-                                ZStack{
-                                    Circle()
-                                        .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                                        .frame(width: 40, height: 40)
-                                    Text("\(index+1)")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 20))
-                                }
-                                
-                                VStack(alignment: .leading){
-                                    Text(item.nombre ?? "Panfila")
-                                        .font(.title2)
-                                    Text(item.fecha ?? "2022-04-06")
-                                        .font(.title2)
-                                    Text(item.doctor ?? "pan@gmail.con")
-                                        .font(.title2)
-                                    
-                                }.padding(15)
-                                Button(action:{
-                                      showDetallesView = true
-                                }){
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.blue)
-                                        .padding(.leading, 60)
-                                }
-                                
-                                
-                            }
-                            
-                            
-                            
-                        }
-                        
-                    }.frame(minHeight: minRowHeight * 12)
-                        .scrollContentBackground(.hidden)
-                        .listStyle(InsetListStyle())
-                    
-                
-                    
-                    
-                    NavigationLink("", destination: MostrarRecetaView(), isActive: $showDetallesView)
+        
+        TabView{
+            
+           ListaRecetasView()
+                .tabItem{
+                    Image(systemName: "person.3.fill")
                 }
-            }
+                .tint(.blue)
+            
+            
+           AgregaRecetaView()
+                .tabItem{
+                    Image(systemName: "phone.fill")
+                }
+            
         }
+        .onAppear() {
+            UITabBar.appearance().barTintColor = UIColor(red: 0.1294, green: 0.5882, blue: 0.9529, alpha: 0)
+            UITabBar.appearance().backgroundColor = UIColor(red: 0.1294, green: 0.5882, blue: 0.9529, alpha: 1)
+        }
+        .toolbarBackground(Color(red: 0.1294, green: 0.5882, blue: 0.9529), for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
+        .toolbarColorScheme(.dark, for: .tabBar)
+        .tint(Color(red: 0.98, green: 0.98, blue: 0.98))
+        
+        
     }
 }
 

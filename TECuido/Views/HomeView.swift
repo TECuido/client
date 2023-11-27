@@ -62,7 +62,7 @@ struct HomeView: View {
                         }
                         // Botón para la vista de Recetas médicas
                         Button(action: {
-                            showRecetasMedicasView = true
+                        showRecetasMedicasView = true
                         }) {
                             createSection(title: "Recetas médicas", iconName: "doc.text.fill", hint:"Lee un resumen de tus recetas médicas")
                         }
