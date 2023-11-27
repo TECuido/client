@@ -55,9 +55,9 @@ struct MostrarRecetaView: View {
                                             .font(.title3)
                                             .padding(.bottom, 3)
                                         
-                                        Text("\(item.dosis) \(item.unidadDosis) cada \(item.frecuencia!) \(item.unidadFrecuencia!)")
+                                        Text("\(item.dosis) \(item.frecuencia.lowercased())")
                                             .padding(.bottom, 3)
-                                        Text("Duración: \(item.duracion) \(item.unidadDuracion)")
+                                        Text("Duración: \(item.duracion)")
                                     }
                                     
                                     Spacer()
