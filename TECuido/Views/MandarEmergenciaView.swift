@@ -29,8 +29,14 @@ struct MandarEmergenciaView: View {
                 
                 Picker("Selecciona un motivo", selection: $viewModel.selectedMotivo){
                     ForEach(viewModel.motivos, id: \.self) { option in
-                        Text(option)
-                            .font(.title)
+                        HStack {
+                            Image(systemName: viewModel.motivoIconMapping[option] ?? "questionmark.circle.fill")
+                                 .resizable()
+                                 .frame(width: 40, height: 40)
+                                 .padding(80)
+                             Text(option)
+                                 .font(.title)
+                        }
                     }
                 }
                 .pickerStyle(DefaultPickerStyle())
@@ -68,25 +74,6 @@ struct MandarEmergenciaView: View {
                         .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
                 )
                 .cornerRadius(25)
-                
-                /*
-                if viewModel.selectedOptionContacto == "Otro"{
-                    HStack {
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding(.leading, 15)
-                        TextField("",
-                                  text: $otro,
-                                  prompt: Text("Contacto o grupo")
-                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                        )
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                        .font(.title3)
-                        .padding(.leading, 10)
-                    }.padding(10) .frame(width: 300, height: 85)
-                }
-                 */
                 
                 //descripcion
                 VStack {

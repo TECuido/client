@@ -101,6 +101,8 @@
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7252AE34BC200993C02 /* LlamadasView.swift */; };
+		FBC798862B15D1DA00A3E6B5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */; };
+		FBC798882B15D32200A3E6B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC798872B15D32200A3E6B5 /* ContentView.swift */; };
 		FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14872AFAABB400DF5A8B /* LocationManager.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 		FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */; };
@@ -210,6 +212,8 @@
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBEF7252AE34BC200993C02 /* LlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasView.swift; sourceTree = "<group>"; };
+		FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		FBC798872B15D32200A3E6B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FBCD14872AFAABB400DF5A8B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 		FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostrarRecetaView.swift; sourceTree = "<group>"; };
@@ -383,6 +387,7 @@
 		FB4D56062AF8A51A00D1C533 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FBC798892B15DC4C00A3E6B5 /* Navigation */,
 				FB5F05672B06FC7B005D5403 /* UI */,
 				FBCD14862AFAABA300DF5A8B /* LocationUtils */,
 				FBA831312ADE29A4001EAEAE /* AuthUtils */,
@@ -447,6 +452,7 @@
 				FB5F05612B06F000005D5403 /* AgregaRecetaView.swift */,
 				FB5F05652B06F552005D5403 /* AgregarMedicamentoView.swift */,
 				FB5F056C2B0715FE005D5403 /* RecetasView.swift */,
+				FBC798872B15D32200A3E6B5 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -504,8 +510,16 @@
 			children = (
 				FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */,
 				FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */,
+				FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */,
 			);
 			path = AuthUtils;
+			sourceTree = "<group>";
+		};
+		FBC798892B15DC4C00A3E6B5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		FBCD14862AFAABA300DF5A8B /* LocationUtils */ = {
@@ -622,6 +636,7 @@
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				C0271A812AF33A5A00024BE5 /* ClassificationObject.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
+				FBC798882B15D32200A3E6B5 /* ContentView.swift in Sources */,
 				FB5F056D2B0715FE005D5403 /* RecetasView.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
@@ -661,6 +676,7 @@
 				FB4D55F82AF315B800D1C533 /* TextToSpeechView.swift in Sources */,
 				FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
+				FBC798862B15D1DA00A3E6B5 /* SessionManager.swift in Sources */,
 				FB5F055A2B06C8EF005D5403 /* EditarGrupoView.swift in Sources */,
 				C0271A7B2AF33A5A00024BE5 /* Helpers.swift in Sources */,
 				FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */,

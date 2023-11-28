@@ -11,6 +11,7 @@ import SwiftUI
 struct TECuidoApp: App {
     
     @StateObject var predictionStatus = PredictionStatus()
+    @StateObject var session = SessionManager()
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
     @State private var isNavigatingToEmergenciasView = false
@@ -19,15 +20,15 @@ struct TECuidoApp: App {
     var body: some Scene {
         WindowGroup {
             
-            NavigationStack {
-                
-                TECuidoView()
+            NavigationStack(path: $session.path) {
+                ContentView()
                 .background(
-                    NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
+                NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
                 )
                 
             }
             .environmentObject(predictionStatus)
+            .environmentObject(session)
             .environmentObject(appDelegate.notificationViewModel)
             .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
                 Task {

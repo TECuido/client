@@ -28,7 +28,9 @@ class UsuarioViewModel : ObservableObject {
                 throw ValidationError.error(description: "Debes ingresar tu correo y contraseña")
             }
             
-            self.message = ""
+            DispatchQueue.main.async {
+                self.message = ""
+            }
             let result = await Webservice().login(correo: correo, password: password)
             
             switch result {
@@ -44,6 +46,7 @@ class UsuarioViewModel : ObservableObject {
                         self.passwordError = 0
                         self.isAuthenticated = true
                     }
+                
                 case .failure(let error):
                     switch(error){
                         case NetworkError.badStatus(let error, let message):
