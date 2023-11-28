@@ -54,7 +54,9 @@ struct AgregaRecetaView: View {
                         .foregroundColor(.blue)
                         .padding(.leading, 15)
                     
-                    DatePicker(selection: $viewModel.fecha, in: ...Date(), displayedComponents: .date) {
+                    DatePicker(selection: $viewModel.fecha,
+                               in: ...Date(),
+                               displayedComponents: .date) {
                         Text("Fecha")
                     }
                     .font(.title3)
@@ -87,18 +89,26 @@ struct AgregaRecetaView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        viewModel.medicamentos.append(MedicamentoModel(id: 0, nombre: "", dosis: "", frecuencia: "", duracion: ""))
-                        print(viewModel.medicamentos)
+                        viewModel.medicamentos.append(CrearMedicamentoModel(nombre: "", dosis: "", frecuencia: "", duracion: ""))
                     }) {
                         Text("Agregar medicamento")
                     }
+                    .foregroundColor(.blue)
                     .padding(.trailing, 25)
                 }
+                
+                // Aqui validamos que este incorrecto
+                Text(viewModel.error)
+                    .font(.body)
+                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                    .frame(width: 300)
+                    .padding(.top, 5)
+                    .multilineTextAlignment(.center)
                 
                 //Boton
                 Button("Crear receta"){
                     Task {
-                        viewModel.recetaCreada = true
+                        await viewModel.createReceta()
                     }
                 }
                 .foregroundColor(.white)

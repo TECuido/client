@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AgregarMedicamentoView: View {
-    @Binding var medicamento: MedicamentoModel
+    @Binding var medicamento: CrearMedicamentoModel
     
     var body: some View {
                 
@@ -100,6 +100,6 @@ struct AgregarMedicamentoView: View {
 
 struct AgregarMedicamentoView_Previews: PreviewProvider {
     static var previews: some View {
-        AgregarMedicamentoView(medicamento: .constant(MedicamentoModel.defaultMedicamento1))
+        AgregarMedicamentoView(medicamento: .constant(CrearMedicamentoModel.defaultMedicamento1))
     }
 }

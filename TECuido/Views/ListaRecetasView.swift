@@ -10,7 +10,6 @@ import SwiftUI
 struct ListaRecetasView: View {
     @StateObject var viewModel = ListaRecetasViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
-    @State private var showDetallesView = false
     
     var body: some View {
         ZStack{
@@ -28,51 +27,66 @@ struct ListaRecetasView: View {
                     // Lista de contactos
                     List{
                         ForEach(Array(viewModel.recetas.enumerated()), id:\.offset) { index,item in
-                            HStack{
-                                ZStack{
-                                    Circle()
-                                        .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                                        .frame(width: 40, height: 40)
-                                    Text("\(index+1)")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 20))
-                                }
+                            
+                            ZStack {
+                                NavigationLink("", destination: MostrarRecetaView(receta: item))
                                 
-                                VStack(alignment: .leading){
-                                    Text(item.nombre ?? "Panfila")
-                                        .font(.title2)
-                                    Text(item.fecha ?? "2022-04-06")
-                                        .font(.title2)
-                                    Text(item.doctor ?? "pan@gmail.con")
-                                        .font(.title2)
+                                HStack{
+                                    ZStack{
+                                        Circle()
+                                            .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                                            .frame(width: 40, height: 40)
+                                        Text("\(index+1)")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 20))
+                                    }
                                     
-                                }.padding(15)
-                                Button(action:{
-                                      showDetallesView = true
-                                }){
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.blue)
-                                        .padding(.leading, 60)
+                                    VStack(alignment: .leading){
+                                        Text(item.nombre)
+                                            .font(.title2)
+                                        Text(formatDate(date: item.fecha))
+                                            .font(.title2)
+                                        if let doctor = item.doctor {
+                                            Text(doctor)
+                                                .font(.title2)
+                                        }
+                                        
+                                    }.padding(15)
+                                    
+                                    Spacer()
+                                    
+                                    Button(action:{
+                                    }){
+                                        Image(systemName: "chevron.right")
+                                            .foregroundColor(.blue)
+                                            .padding(.leading, 60)
+                                    }
+                                    
+                                    
                                 }
-                                
                                 
                             }
-                            
-                            
-                            
+                        
+                        
                         }
                         
-                    }.frame(minHeight: minRowHeight * 12)
+                    }
+                    .task {
+                        await viewModel.getRecetas()
+                    }
+                    .frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                     
                 
-                    
-                    
-                    NavigationLink("", destination: MostrarRecetaView(), isActive: $showDetallesView)
                 }
             }
         }
+    }
+    
+    
+    func formatDate(date: String) -> String{
+        return String(date.prefix(10))
     }
 }
 

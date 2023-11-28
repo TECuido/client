@@ -4,7 +4,7 @@
         "icono": "hormiga",
         "recommendations": "-Lava la picadura con agua y jabón.\n-Aplica hielo envuelto en un paño sobre la picadura para reducir la hinchazón y el dolor.\n-Evita rascarte para prevenir infecciones.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -12,7 +12,7 @@
         "icono": "acaro",
         "recommendations": "-Lava la zona afectada con agua tibia y jabón.\n-Evita rascarte, ya que esto puede empeorar la irritación.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -20,7 +20,7 @@
         "icono": "chinche",
         "recommendations": "-Lava la zona afectada con agua tibia y jabón.\n-Evita rascarte, ya que esto puede empeorar la irritación.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -28,7 +28,7 @@
         "icono": "abeja",
         "recommendations": "-Retira el aguijón con cuidado utilizando una tarjeta de crédito o el borde de una uña.\n-Lava la zona con agua y jabón.\n-Aplica compresas frías para aliviar la hinchazón y el dolor.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -36,7 +36,7 @@
         "icono": "garrapata",
         "recommendations": "-Utiliza pinzas finas para agarrar la garrapata lo más cerca posible de la piel y de ser posible capturarla.\n-Asegúrate de que la cabeza no quede incrustada.\n-Consulta a un profesional médico por posibles enfermedades.\n-Limpia la zona con agua y jabón, y consulta a un médico si experimentas síntomas como fiebre o erupción.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -44,7 +44,7 @@
         "icono": "pulga",
         "recommendations": "-Lava la picadura con agua y jabón e intente capturar el animal.\n-Aplica una crema antihistamínica o loción de calamina para aliviar la picazón.\n-Lava y desinfecta cualquier ropa o ropa de cama que pueda estar infestada.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -52,7 +52,7 @@
         "icono": "mosquito",
         "recommendations": "-Lava la picadura con agua y jabón.\n-Aplica una crema o loción antihistamínica para reducir la picazón.\n-Evita rascarte para prevenir infecciones.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -60,7 +60,7 @@
         "icono": "araña",
         "recommendations": "-Lava la picadura con agua y jabón.\n-Aplica un paño frío sobre la zona para reducir la hinchazón.\n-Consulta a un médico si la picadura se vuelve dolorosa o muestra signos de infección.",
         "disclaimer": "⚠️\n(En caso de padecer alergia contra algún insecto, acudir inmediatamente a un hospital.)",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     },
     {
@@ -68,7 +68,7 @@
         "icono": "saludable",
         "recommendations": "💪",
         "disclaimer": "",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/sRES-dAZWJM",
         "llamar": "tel:911"
     }
 ]

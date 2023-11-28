@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct MedicamentoDetalleView: View {
-    @State var idMedicamento: Int
+    @State var medicamento: MedicamentoModel
     @StateObject var viewModel = MedicamentoDetalleViewModel()
+    
+    @State private var isDictionaryPresented = false
+    @State private var isTermValid = false
+    @State private var errorMessage = ""
+
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,57 +24,36 @@ struct MedicamentoDetalleView: View {
                 .frame(width: UIScreen.main.bounds.width)
                 .padding(.bottom, 15)
             
-            Text("\(viewModel.medicamentoDetalle.nombre)")
+            Text("\(medicamento.nombre)")
                 .font(.title)
                 .foregroundColor(.blue)
                 .padding(.leading, 25)
                 .padding(.bottom, 15)
             
             HStack {
-                Image(systemName: "pill.fill")
-                    .resizable()
-                    .foregroundColor(.blue)
-                    .frame(width: 20, height: 20)
-                    .padding(.trailing, 5)
-
                 
-                Text("Usos:")
-                    .font(.title2)
-                    .foregroundColor(.blue)
-            }
-            .padding(.bottom, 5)
-            .padding(.leading, 25)
-            
-            Text("\(viewModel.medicamentoDetalle.uso)")
-                .padding(.bottom, 20)
-                .padding(.leading, 25)
-            
-            HStack {
-                Image(systemName: "book.fill")
-                    .resizable()
-                    .foregroundColor(.blue)
-                    .frame(width: 20, height: 20)
-                    .padding(.trailing, 5)
+                Spacer()
                 
-                Text("Descripción:")
+                Link("Ver información", destination: URL(string: "https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus-spanish&v%3Asources=medlineplus-spanish-bundle&query=\(medicamento.nombre)")!)
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: 300, height:55)
+                    .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                    .cornerRadius(25)
+                    .padding(10)
                     .font(.title2)
-                    .foregroundColor(.blue)
+                
+                Spacer()
             }
-            .padding(.bottom, 5)
-            .padding(.leading, 25)
-
-            Text("\(viewModel.medicamentoDetalle.uso)")
-                .padding(.bottom, 10)
-                .padding(.leading, 25)
-
             
-            Spacer()
+            
         }
     }
+    
 }
 
 struct MedicamentoDetalleView_Previews: PreviewProvider {
     static var previews: some View {
-        MedicamentoDetalleView(idMedicamento: 0)
+        MedicamentoDetalleView(medicamento: MedicamentoModel.defaultMedicamento1)
     }
 }
