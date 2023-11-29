@@ -9,15 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var session: SessionManager
+    
     var body: some View {
+        
+        TECuidoView()
+            .navigationBarBackButtonHidden(true)
+        
+        /*
         if(session.isLoggedIn){
             HomeView()
         } else {
             TECuidoView()
         }
+         */
     }
 }
 
-#Preview {
-    ContentView()
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

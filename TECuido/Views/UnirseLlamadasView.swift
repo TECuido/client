@@ -108,6 +108,8 @@ struct UnirseLlamadasView: View {
                     }
                 }
                 
+                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                
             }
             
         }

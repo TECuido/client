@@ -80,6 +80,9 @@ struct ListaContactosLlamadaView: View {
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                     
+                    
+                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                    
                 }
             }
         }

@@ -137,6 +137,8 @@ struct MandarEmergenciaView: View {
                 
             }
             NavigationLink("", destination: EstatusEmergenciaView(dataEmergencia: viewModel.dataEmergencia), isActive: $viewModel.showEstatusView)
+            
+            NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                                     
         }
          

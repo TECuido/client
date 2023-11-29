@@ -31,6 +31,7 @@ class UsuarioViewModel : ObservableObject {
             DispatchQueue.main.async {
                 self.message = ""
             }
+            
             let result = await Webservice().login(correo: correo, password: password)
             
             switch result {

@@ -24,6 +24,8 @@ struct ListaRecetasView: View {
                         .padding()
                         .multilineTextAlignment(.center)
                     
+                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                    
                     // Lista de contactos
                     List{
                         ForEach(Array(viewModel.recetas.enumerated()), id:\.offset) { index,item in

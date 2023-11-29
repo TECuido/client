@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MedicamentoDetalleView: View {
     @State var medicamento: MedicamentoModel
-    @StateObject var viewModel = MedicamentoDetalleViewModel()
     
     @State private var isDictionaryPresented = false
     @State private var isTermValid = false

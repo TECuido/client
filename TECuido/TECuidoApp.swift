@@ -20,12 +20,11 @@ struct TECuidoApp: App {
     var body: some Scene {
         WindowGroup {
             
-            NavigationStack(path: $session.path) {
+            NavigationStack {
                 ContentView()
                 .background(
                 NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
                 )
-                
             }
             .environmentObject(predictionStatus)
             .environmentObject(session)

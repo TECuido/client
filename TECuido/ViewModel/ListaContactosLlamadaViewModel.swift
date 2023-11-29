@@ -13,24 +13,43 @@ class ListaContactosLlamadaViewModel: ObservableObject {
     @Published var selected = 0
     @Published var llamada = DataLlamadaModel.defaultLlamada
     @Published var showLlamadaView = false
+    
+    @Published var failedAuthentication: Bool = false
 
     @Published var token = ""
     
     public func getContactos() async {
         
-        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-        
-        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
-        
-        switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.contactos = data.data!
-                }
-            case .failure(let error):
-            print(error.self)
-                print(error.localizedDescription)
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+            
+            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+            
+            switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.contactos = data.data!
+                    }
+                case .failure(let error):
+                    switch error {
+                        case .badStatus(let error, let message):
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
+                        default:
+                            print(error.self)
+                            print(error.localizedDescription)
+                    }
+            }
+            
+        } else {
+            DispatchQueue.main.async {
+                self.failedAuthentication = true
+            }
         }
+        
+        
     }
     
     public func createCall() async {
@@ -47,7 +66,17 @@ class ListaContactosLlamadaViewModel: ObservableObject {
                 }
                 //await getToken()
             case .failure(let error):
-                print(error.localizedDescription)
+                switch error {
+                    case .badStatus(let error, let message):
+                        if(error == 401){
+                            DispatchQueue.main.async {
+                                self.failedAuthentication = true
+                            }
+                        }
+                    default:
+                        print(error.self)
+                        print(error.localizedDescription)
+                }
         }
          
     }
@@ -63,7 +92,17 @@ class ListaContactosLlamadaViewModel: ObservableObject {
                     self.showLlamadaView = true
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                switch error {
+                    case .badStatus(let error, let message):
+                        if(error == 401){
+                            DispatchQueue.main.async {
+                                self.failedAuthentication = true
+                            }
+                        }
+                    default:
+                        print(error.self)
+                        print(error.localizedDescription)
+                }
         }
     }
     

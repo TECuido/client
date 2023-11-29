@@ -15,6 +15,9 @@ class NotificationViewModel: ObservableObject {
     
     @Published var navigateToNotificationView: Bool = false
     @Published var emergencia: DataEmergenciaGrupoModel = DataEmergenciaGrupoModel.defaultEmergencia
+    
+    @Published var failedAuthentication: Bool = false
+
 
     func setEmergencia(notification: [AnyHashable: Any]){
         
@@ -41,26 +44,36 @@ class NotificationViewModel: ObservableObject {
                 throw ValidationError.error(description: "Token invalido")
             }
             
-            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-            let data = NotificatioTokenModel(token: notificationToken)
-            let result : Result<APIResponseModel<UsuarioTokenModel>, NetworkError> = await Webservice().putRequest("/usuarios/\(tokens.id)/notification/token", with: data)
-            
-            
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.tokenAgregado = true
-                }
-            case .failure(let error):
-                switch error {
-                default:
-                    print(error.self)
-                    print(error.localizedDescription)
-                }
+            if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
                 
+                let data = NotificatioTokenModel(token: notificationToken)
+                let result : Result<APIResponseModel<UsuarioTokenModel>, NetworkError> = await Webservice().putRequest("/usuarios/\(tokens.id)/notification/token", with: data)
+                
+                
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.tokenAgregado = true
+                    }
+                case .failure(let error):
+                    switch error {
+                    case .badStatus(let error, let message):
+                        if(error == 401){
+                            DispatchQueue.main.async {
+                                self.failedAuthentication = true
+                            }
+                        }
+                    default:
+                        print(error.self)
+                        print(error.localizedDescription)
+                    }
+                    
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.failedAuthentication = true
+                }
             }
-            
-            
             
         } catch {
             print(error.localizedDescription)

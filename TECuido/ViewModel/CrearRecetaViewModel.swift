@@ -30,7 +30,7 @@ class CrearRecetaViewModel : ObservableObject {
     
     @Published var error: String = ""
     
-    
+    @Published var failedAuthentication: Bool = false
 
     public func createReceta() async {
         
@@ -56,7 +56,6 @@ class CrearRecetaViewModel : ObservableObject {
                 
             }
             
-            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -67,31 +66,43 @@ class CrearRecetaViewModel : ObservableObject {
                 idMedico: idMedico != -1 ? idMedico : nil
             )
             
-            print(data.fecha)
-            
-            let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(tokens.id)", with: data)
-            
-            
-            switch result {
-                case .success(let data):
-                    for (index, element) in medicamentos.enumerated() {
-                        await createMedicamento(medicamento: element, index: index, idReceta: data.data!.id)
-                    }
-                    DispatchQueue.main.async {
-                        self.recetaCreada = true
-                    }
-                case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, let message):
-                        DispatchQueue.main.async {
-                            self.error = message
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                    }
+            if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                 
+                let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(tokens.id)", with: data)
+                
+                
+                switch result {
+                    case .success(let data):
+                        for (index, element) in medicamentos.enumerated() {
+                            await createMedicamento(medicamento: element, index: index, idReceta: data.data!.id)
+                        }
+                        DispatchQueue.main.async {
+                            self.recetaCreada = true
+                        }
+                    case .failure(let error):
+                        switch error {
+                        case .badStatus(let error, let message):
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
+                            DispatchQueue.main.async {
+                                self.error = message
+                            }
+                        default:
+                            print(error.self)
+                            print(error.localizedDescription)
+                        }
+                    
+                }
+                
+            } else {
+                DispatchQueue.main.async {
+                    self.failedAuthentication = true
+                }
             }
+
         } catch ValidationError.error(let description){
             DispatchQueue.main.async {
                 self.error = description
@@ -113,6 +124,11 @@ class CrearRecetaViewModel : ObservableObject {
                     switch error {
                     case .badStatus(let error, let message):
                         DispatchQueue.main.async {
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
                             self.error = message
                         }
                 default:

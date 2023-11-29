@@ -87,11 +87,11 @@ class RegistroViewModel : ObservableObject {
                 case .failure(let error):
                     switch(error){
                         case NetworkError.badStatus(let error, let message):
-                        if error == 400 {
-                            DispatchQueue.main.async {
-                                self.message = "El usuario ya se encuentra registrado"
+                            if error == 400 {
+                                DispatchQueue.main.async {
+                                    self.message = "El usuario ya se encuentra registrado"
+                                }
                             }
-                        }
                         default:
                             print(error.localizedDescription)
                             DispatchQueue.main.async {

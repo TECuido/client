@@ -88,6 +88,7 @@ struct AlertEmergenciasView: View {
                 
                 
             }
+            
                 
             
         }

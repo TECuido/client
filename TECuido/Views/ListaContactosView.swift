@@ -61,7 +61,7 @@ struct ListaContactosView: View {
                                             .font(.title2)
                                     }.frame(width:.infinity)
                                         .padding(10)
-                                                                
+                                    
                                     Spacer()
                                     
                                     Button(action: {
@@ -102,7 +102,7 @@ struct ListaContactosView: View {
                                 } // Acaba el HStack
                             }
                         }
-                
+                        
                         .frame(minHeight: minRowHeight * 10)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
@@ -119,8 +119,8 @@ struct ListaContactosView: View {
                     Alert(
                         title:
                             Text("Contacto Eliminado")
-                               
-                                .font(.title)
+                        
+                            .font(.title)
                         ,
                         message: Text("Se eliminó el contacto con éxito")
                             .font(.title2),
@@ -152,12 +152,13 @@ struct ListaContactosView: View {
                 
                 NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
                 
-
-                }
+                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                
+                
             }
-
         }
-
+        
+    }
     
 }
 

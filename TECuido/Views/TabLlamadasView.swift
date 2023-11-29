@@ -15,21 +15,16 @@ struct TabLlamadasView: View {
         
         TabView{
             
-            
            ListaContactosLlamadaView()
                 .tabItem{
                     Image(systemName: "person.3.fill")
                 }
                 .tint(.blue)
             
-            
            UnirseLlamadasView()
                 .tabItem{
                     Image(systemName: "phone.fill")
                 }
-            
-            
-            
             
         }
         .onAppear() {
@@ -41,7 +36,6 @@ struct TabLlamadasView: View {
         .toolbarColorScheme(.dark, for: .tabBar)
         .tint(Color(red: 0.98, green: 0.98, blue: 0.98))
         
-        
     }
 }
 
@@ -50,3 +44,4 @@ struct TabLlamadasView_Previews: PreviewProvider {
         TabLlamadasView()
     }
 }
+

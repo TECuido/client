@@ -30,11 +30,11 @@ struct GruposDetallesView: View {
                         .padding()
                         .multilineTextAlignment(.center)
                     
-                    
+                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                     
                     // Lista de contactos
                     
-                   /* if viewModel.miembros.isEmpty {
+                    if viewModel.miembros.isEmpty {
                         Image(systemName: "person.crop.circle.fill.badge.xmark")
                             .resizable()
                             .frame(width: 170,height: 170)
@@ -52,7 +52,7 @@ struct GruposDetallesView: View {
                        
 
                     } else {
-                        */
+                        
                         
                         List{
                             
@@ -78,17 +78,18 @@ struct GruposDetallesView: View {
                             }
                             
                         }
-                        .task {
-                            await viewModel.getMiembros(idGrupo: grupo.id)
-                        }
+                        
                         .frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                         
-                    //}
+                    }
                     
                     
                 }
+            }
+            .task {
+                await viewModel.getMiembros(idGrupo: grupo.id)
             }
         }
     }

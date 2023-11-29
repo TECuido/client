@@ -36,36 +36,51 @@ class MandarEmergenciaViewModel: ObservableObject {
     @Published var showEstatusView = false
     
     @Published var locationManager = LocationManager()
-
+    
+    @Published var failedAuthentication: Bool = false
     
     public func getGrupos() async {
         
-        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-        
-        let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
-        
-        switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.grupos = data.data!
-                    if(self.grupos.count > 0){
-                        self.gruposNombres = ["Todos mis contactos"] + self.grupos.map{
-                            $0.nombre
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+            
+            
+            let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
+            
+            switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.grupos = data.data!
+                        if(self.grupos.count > 0){
+                            self.gruposNombres = ["Todos mis contactos"] + self.grupos.map{
+                                $0.nombre
+                            }
+                            self.selectedOptionContacto = self.gruposNombres[0]
                         }
-                        self.selectedOptionContacto = self.gruposNombres[0]
                     }
-                }
-            case .failure(let error):
-            print(error.self)
-                print(error.localizedDescription)
+                case .failure(let error):
+                    switch error {
+                        case .badStatus(let error, let message):
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
+                        default:
+                            print(error.self)
+                            print(error.localizedDescription)
+                    }
+            }
+            
+        } else {
+            DispatchQueue.main.async {
+                self.failedAuthentication = true
+            }
         }
+        
+        
     }
     
     public func addEmergencia() async {
-        
-        //obetener tokens
-        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-                
         
         //obtener descripcion
         let descripcion = isNivelGravedadSelected ? "Nivel de gravedad: \(nivel)" : descripcion
@@ -76,40 +91,42 @@ class MandarEmergenciaViewModel: ObservableObject {
         
         let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError>
         
-        if(selectedOptionContacto != "Todos mis contactos"){
+        //obetener tokens
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
-            //obtener el grupo seleccionado a partir del nombre
-            let i = grupos.firstIndex {
-                $0.nombre == selectedOptionContacto
+            if(selectedOptionContacto != "Todos mis contactos"){
+                
+                //obtener el grupo seleccionado a partir del nombre
+                let i = grupos.firstIndex {
+                    $0.nombre == selectedOptionContacto
+                }
+                let selectedGrupo = grupos[i!]
+                
+                let data = EmergenciaGrupoModel(
+                    tipo: selectedMotivo,
+                    descripcion: descripcion.count > 0 ? descripcion : nil,
+                    idEmisor: tokens.id,
+                    idGrupo: selectedGrupo.id,
+                    longitud: (longitud != nil) ? Float(longitud!) : nil,
+                    latitud: (latitud != nil) ? Float(latitud!) : nil
+                )
+                
+                
+                result = await Webservice().postRequest("/emergencias/grupo", with: data)
+            } else {
+                let data = EmergenciaContactosModel(
+                    tipo: selectedMotivo,
+                    descripcion: descripcion.count > 0 ? descripcion : nil,
+                    idEmisor: tokens.id,
+                    longitud: (longitud != nil) ? Float(longitud!) : nil,
+                    latitud: (latitud != nil) ? Float(latitud!) : nil
+                )
+                
+                result = await Webservice().postRequest("/emergencias/allgrupo", with: data)
             }
-            let selectedGrupo = grupos[i!]
-            
-            let data = EmergenciaGrupoModel(
-                tipo: selectedMotivo,
-                descripcion: descripcion.count > 0 ? descripcion : nil,
-                idEmisor: tokens.id,
-                idGrupo: selectedGrupo.id,
-                longitud: (longitud != nil) ? Float(longitud!) : nil,
-                latitud: (latitud != nil) ? Float(latitud!) : nil
-            )
             
             
-            result = await Webservice().postRequest("/emergencias/grupo", with: data)
-        } else {
-            let data = EmergenciaContactosModel(
-                tipo: selectedMotivo,
-                descripcion: descripcion.count > 0 ? descripcion : nil,
-                idEmisor: tokens.id,
-                longitud: (longitud != nil) ? Float(longitud!) : nil,
-                latitud: (latitud != nil) ? Float(latitud!) : nil
-            )
-            
-            
-            result = await Webservice().postRequest("/emergencias/allgrupo", with: data)
-        }
-        
-        
-        switch result {
+            switch result {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.dataEmergencia = data.data!
@@ -118,12 +135,21 @@ class MandarEmergenciaViewModel: ObservableObject {
             case .failure(let error):
                 switch error {
                 case .badStatus(let error, let message):
-                    print(error.self)
+                    if(error == 401){
+                        DispatchQueue.main.async {
+                            self.failedAuthentication = true
+                        }
+                    }
                 default:
                     print(error.self)
                     print(error.localizedDescription)
                 }
-            
+                
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.failedAuthentication = true
+            }
         }
         
     }

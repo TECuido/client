@@ -56,26 +56,26 @@ struct ListaGruposView: View {
                                     Spacer()
                                     
                                     Menu{
-                                                                            Button(action: {
-                                                                                viewModel.grupoSeleccionado = item
-                                                                                showEditarView = true
+                                        Button(action: {
+                                            viewModel.grupoSeleccionado = item
+                                            showEditarView = true
 
-                                                                            }){
-                                                                                Label("Editar", systemImage: "pencil")
-                                                                            }
+                                        }){
+                                            Label("Editar", systemImage: "pencil")
+                                        }
 
-                                                                            Button(action: {
-                                                                                viewModel.grupoSeleccionado = item
-                                                                                showEliminarView = true
-                                                                            }){
-                                                                                Label("Borrar", systemImage: "trash")
-                                                                            }
+                                        Button(action: {
+                                            viewModel.grupoSeleccionado = item
+                                            showEliminarView = true
+                                        }){
+                                            Label("Borrar", systemImage: "trash")
+                                        }
 
-                                                                        }label: {
-                                                                            Image(systemName: "ellipsis.circle")
-                                                                                .frame(width: 30, height: 30)
-                                                                                .foregroundColor(.blue)
-                                                                        }
+                                    }label: {
+                                        Image(systemName: "ellipsis.circle")
+                                            .frame(width: 30, height: 30)
+                                            .foregroundColor(.blue)
+                                    }
                                     
                                     Image(systemName: "chevron.right")
                                         .foregroundColor(.blue)                                    
@@ -123,8 +123,9 @@ struct ListaGruposView: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     
                      
-                     NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
-
+                    NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
+                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                    
                 }
             }
         }

@@ -16,6 +16,7 @@ class ContactoViewModel : ObservableObject {
     @Published var correoError: Int =  0
     @Published var error: String = ""
     @Published var addedContacto: Bool = false
+    @Published var failedAuthentication: Bool = false
     
     public func addContacto() async {
         
@@ -26,31 +27,43 @@ class ContactoViewModel : ObservableObject {
                 throw ValidationError.error(description: "Debes ingresar el correo del contacto")
             }
             
-            correoError = 0
-            error = ""
+            DispatchQueue.main.async {
+                self.correoError = 0
+                self.error = ""
+            }
             
-            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-            let data = AgregarContactoModel(correo: correo)
-            
-            let result : Result<APIResponseModel<[ContactoAgregadoModel]>, NetworkError> = await Webservice().postRequest("/contactos/usuario/\(tokens.id)", with: data)
-            
-            
-            switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        self.addedContacto = true
-                    }
-                case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, let message):
-                        DispatchQueue.main.async {
-                            self.error = message
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                    }
+            if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+                let data = AgregarContactoModel(correo: correo)
                 
+                let result : Result<APIResponseModel<[ContactoAgregadoModel]>, NetworkError> = await Webservice().postRequest("/contactos/usuario/\(tokens.id)", with: data)
+                
+                
+                switch result {
+                    case .success(let data):
+                        DispatchQueue.main.async {
+                            self.addedContacto = true
+                        }
+                    case .failure(let error):
+                        switch error {
+                            case .badStatus(let error, let message):
+                                if(error == 401){
+                                    DispatchQueue.main.async {
+                                        self.failedAuthentication = true
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.error = message
+                                }
+                            default:
+                                print(error.self)
+                                print(error.localizedDescription)
+                        }
+                    
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.failedAuthentication = true
+                }
             }
         } catch ValidationError.error(let description){
             DispatchQueue.main.async {

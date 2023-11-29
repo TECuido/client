@@ -17,22 +17,42 @@ class EditarGrupoViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var editarGrupo: Bool = false
     @Published var editarGrupoFail: Bool = false
+    
+    @Published var failedAuthentication: Bool = false
+
 
     public func getContactos() async {
 
-        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+            
+            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
 
-        let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
-
-        switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.contactos = data.data!
-                }
-            case .failure(let error):
-            print(error.self)
-                print(error.localizedDescription)
+            switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.contactos = data.data!
+                    }
+                case .failure(let error):
+                    switch error {
+                        case .badStatus(let error, let message):
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
+                        default:
+                            print(error.self)
+                            print(error.localizedDescription)
+                    }
+            }
+            
+        } else {
+            DispatchQueue.main.async {
+                self.failedAuthentication = true
+            }
         }
+
+        
     }
 
 
@@ -45,7 +65,17 @@ class EditarGrupoViewModel: ObservableObject {
             case .success(let data):
                 return
             case .failure(let error):
-                throw error
+                switch error {
+                    case .badStatus(let error, let message):
+                        if(error == 401){
+                            DispatchQueue.main.async {
+                                self.failedAuthentication = true
+                            }
+                        }
+                    default:
+                        print(error.self)
+                        print(error.localizedDescription)
+                }
         }
 
 
@@ -72,8 +102,17 @@ class EditarGrupoViewModel: ObservableObject {
                 }
             }
         case .failure(let error):
-            print(error.self)
-            print(error.localizedDescription)
+            switch error {
+                case .badStatus(let error, let message):
+                    if(error == 401){
+                        DispatchQueue.main.async {
+                            self.failedAuthentication = true
+                        }
+                    }
+                default:
+                    print(error.self)
+                    print(error.localizedDescription)
+            }
         }
     }
 
@@ -99,15 +138,6 @@ class EditarGrupoViewModel: ObservableObject {
             selectedIndicesFinal.insert(self.contactos[index].usuarioAgregado.id)
         }
 
-        print("SelectIndicesOriginal")
-        for index in self.selectedIndicesOriginal{
-            print(index)
-        }
-
-        print("SelectIndicesFinal")
-        for index in selectedIndicesFinal{
-            print(index)
-        }
 
         if selectedIndicesFinal.isEmpty{
             DispatchQueue.main.async {
@@ -122,7 +152,6 @@ class EditarGrupoViewModel: ObservableObject {
             self.editarGrupoFail = false
         }
 
-        print("Entro")
 
         let OriginalMinFinal: Set<Int> = self.selectedIndicesOriginal.subtracting(selectedIndicesFinal)
         for idMiembro in OriginalMinFinal {
@@ -133,13 +162,18 @@ class EditarGrupoViewModel: ObservableObject {
                 print(data)
                 //return
             case .failure(let error):
-                print(error)
+                switch error {
+                    case .badStatus(let error, let message):
+                        if(error == 401){
+                            DispatchQueue.main.async {
+                                self.failedAuthentication = true
+                            }
+                        }
+                    default:
+                        print(error.self)
+                        print(error.localizedDescription)
+                }
             }
-        }
-
-        print("OriginalMinFinal")
-        for index in OriginalMinFinal{
-            print(index)
         }
 
         let FinalMinOriginal: Set<Int> = selectedIndicesFinal.subtracting(self.selectedIndicesOriginal)
@@ -148,18 +182,25 @@ class EditarGrupoViewModel: ObservableObject {
             let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
 
             switch result {
-            case .success(let data):
-                print(data)
-                //return
-            case .failure(let error):
-                print(error)
+                case .success(let data):
+                    print(data)
+                    //return
+                case .failure(let error):
+                    switch error {
+                        case .badStatus(let error, let message):
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
+                        default:
+                            print(error.self)
+                            print(error.localizedDescription)
+                    }
             }
         }
 
-        print("FinalMinOriginal")
-        for index in FinalMinOriginal{
-            print(index)
-        }
+        
     }
 
 
