@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContactosDetallesView: View {
+    
+    @EnvironmentObject var session: SessionManager
+
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = ContactoViewModel()
     
@@ -16,7 +19,7 @@ struct ContactosDetallesView: View {
         ZStack{
             VStack{
                 // Titulo
-                Text("Agrega a un contacto")
+                Text(session.tipoUsuario == 2 ? "Agrega a un paciente" : "Agrega a un contacto")
                     .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                     .font(.system(size: 45))
                     .bold()
@@ -79,18 +82,22 @@ struct ContactosDetallesView: View {
                 .cornerRadius(25)
                 .padding(10)
                 .font(.title2)
-                }
+                
+                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                
+                
+            }
             
+        
             
             // Modal
             .alert(isPresented: $viewModel.addedContacto) {
                 Alert(
                     title:
-                        Text("Contacto Agregado")
-                           
+                        Text(session.tipoUsuario == 2 ? "Paciente Agregado" : "Contacto Agregado")
                             .font(.title)
                     ,
-                    message: Text("Se agregó el contacto con éxito")
+                    message: Text(session.tipoUsuario == 2 ? "Se agregó al paciente con éxito" : "Se agregó el contacto con éxito")
                         .font(.title2),
                     dismissButton: .default(
                         Text("OK")

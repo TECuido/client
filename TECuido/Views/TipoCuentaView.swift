@@ -57,9 +57,7 @@ struct TipoCuentaView: View {
                         .font(.title2)
                         .bold()
                         
-//                        NavigationLink(destination: TipoCuentaView(), isActive: $showRegisterView) {
-//                            EmptyView()
-//                        }
+
                         // Boton Registrarse
                         Button("Persona Oyente"){
                             selectedCuenta = .personaOyente
@@ -75,9 +73,7 @@ struct TipoCuentaView: View {
                         .font(.title2)
                         .bold()
                         
-//                        NavigationLink(destination: TipoCuentaView(), isActive: $showRegisterView) {
-//                            EmptyView()
-//                        }
+
 
                         // Boton Iniciar Sesion
                         Button("Médico"){
@@ -98,11 +94,10 @@ struct TipoCuentaView: View {
 //                            EmptyView()
 //                        }
                         // Aquí validamos si se seleccionó un tipo de cuenta
-                        if selectedCuenta != nil {
-                            NavigationLink(destination: RegistroView(typeCuenta: $selectedCuenta), isActive: $showRegisterView) {
-                                EmptyView()
-                            }
+                        NavigationLink(destination: RegistroView(typeCuenta: $selectedCuenta), isActive: $showRegisterView) {
+                            EmptyView()
                         }
+                        
                         Spacer()
                     }
                 }

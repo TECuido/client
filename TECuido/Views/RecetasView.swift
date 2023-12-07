@@ -7,6 +7,8 @@
 import SwiftUI
 struct RecetasView: View {
     
+    @EnvironmentObject var session: SessionManager
+    
     init() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1)
     }
@@ -17,14 +19,14 @@ struct RecetasView: View {
             
            ListaRecetasView()
                 .tabItem{
-                    Image(systemName: "person.3.fill")
+                    Image(systemName: "doc.text.fill")
                 }
                 .tint(.blue)
             
             
            AgregaRecetaView()
                 .tabItem{
-                    Image(systemName: "phone.fill")
+                    Image(systemName: "pencil.circle.fill")
                 }
             
         }

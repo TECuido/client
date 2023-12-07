@@ -42,6 +42,7 @@ struct AuthResponse: Decodable {
     let id: Int?
     let accessToken: String?
     let refreshToken: String?
+    let tipo: Int?
 }
 
 struct ApiResponse<T: Decodable>: Decodable {
@@ -73,11 +74,9 @@ class Webservice {
             
             var request = URLRequest(url: url)
         
-            /*
-            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
             
-            request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
-             */
+            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+            request.addValue("Bearer \(tokens.accessToken)", forHTTPHeaderField: "Authorization")
             
             
             let (data, response) = try await URLSession.shared.data(for: request)
@@ -94,14 +93,12 @@ class Webservice {
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {
-                    /*
-                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
-                     
-                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                    
+                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken )
+                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                     KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                     
                     return await getRequest(link, allowedRetry: false)
-                     */
                     
                 }
                 
@@ -136,12 +133,10 @@ class Webservice {
                 
                 var request = URLRequest(url: url)
                 
-                /*
+                
                 let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
                 
-                request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
-                 */
-                
+                request.addValue("Bearer \(tokens.accessToken)", forHTTPHeaderField: "Authorization")
                 request.httpMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.httpBody = try? JSONEncoder().encode(body)
@@ -159,21 +154,17 @@ class Webservice {
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {
-                        /*
-                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
                          
-                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                         KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                         
                         return await getRequest(link, allowedRetry: false)
-                         */
-                        
                     }
                     throw NetworkError.badStatus(error: response.statusCode, message: result.message ?? "Error")
 
                 }
             
-        
                 return .success(result)
             } catch NetworkError.invalidURL {
                 return .failure(.invalidURL)
@@ -199,12 +190,10 @@ class Webservice {
                 
                 var request = URLRequest(url: url)
                 
-                /*
+                
                 let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
                 
-                request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
-                 */
-                
+                request.addValue("Bearer \(tokens.accessToken)", forHTTPHeaderField: "Authorization")
                 request.httpMethod = "PUT"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.httpBody = try? JSONEncoder().encode(body)
@@ -222,15 +211,12 @@ class Webservice {
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {
-                        /*
-                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
                          
-                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                         KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                         
                         return await getRequest(link, allowedRetry: false)
-                         */
-                        
                     }
                     throw NetworkError.badStatus(error: response.statusCode, message: result.message ?? "Error")
 
@@ -262,11 +248,10 @@ class Webservice {
             
             var request = URLRequest(url: url)
         
-            /*
+            
             let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
             
-            request.addValue("Bearer \(tokens.accessToken!)", forHTTPHeaderField: "Authorization")
-             */
+            request.addValue("Bearer \(tokens.accessToken)", forHTTPHeaderField: "Authorization")
             
             request.httpMethod = "DELETE"
             
@@ -282,14 +267,14 @@ class Webservice {
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {
-                    /*
-                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                    
+                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as String)
                      
-                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken!, refreshToken: token.refreshToken!)
+                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                     KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                     
                     return await getRequest(link, allowedRetry: false)
-                     */
+                     
                     
                 }
                 
@@ -314,7 +299,6 @@ class Webservice {
         }
                         
     }
-    
     
     
     

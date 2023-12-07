@@ -11,11 +11,22 @@ class MandarEmergenciaViewModel: ObservableObject {
     
     
     @Published var selectedMotivo = "Médica"
-    @Published var motivos = ["Médica", "Desastre natural","Incendio","Accidente de tráfico","Acoso","Secuestro", "Extorsión","Emergencia tecnológica"]
+    @Published var motivos = ["Médica", "Acoso", "Incendio", "Accidente de tráfico", "Desastre natural", "Secuestro", "Extorsión","Emergencia tecnológica"]
     
-    @Published var selectedOptionContacto: String = ""
+    @Published var selectedIcon: String = "questionmark.circle.fill"
+    @Published var motivoIconMapping: [String: String] = [
+         "Médica": "heart.circle.fill",
+         "Acoso": "exclamationmark.triangle.fill",
+         "Secuestro": "bolt.horizontal.circle.fill",
+         "Desastre natural": "tornado",
+         "Incendio":"flame.fill",
+         "Accidente de tráfico":"car.fill",
+         "Extorsión":"hand.raised.fill",
+         "Emergencia tecnológica":"antenna.radiowaves.left.and.right"]
+    
+    @Published var selectedOptionContacto: String = "Todos mis contactos"
     @Published var grupos: [GrupoModel] = [GrupoModel.example]
-    @Published var gruposNombres: [String] = ["Familia"]
+    @Published var gruposNombres: [String] = ["Todos mis contactos"]
     
     @Published var isNivelGravedadSelected = false
     @Published var nivel: Int = 1
@@ -25,70 +36,97 @@ class MandarEmergenciaViewModel: ObservableObject {
     @Published var showEstatusView = false
     
     @Published var locationManager = LocationManager()
-
+    
+    @Published var failedAuthentication: Bool = false
     
     public func getGrupos() async {
         
-        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-        
-        let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
-        
-        switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.grupos = data.data!
-                    if(self.grupos.count > 0){
-                        self.gruposNombres = self.grupos.map{
-                            $0.nombre
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+            
+            
+            let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
+            
+            switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.grupos = data.data!
+                        if(self.grupos.count > 0){
+                            self.gruposNombres = ["Todos mis contactos"] + self.grupos.map{
+                                $0.nombre
+                            }
+                            self.selectedOptionContacto = self.gruposNombres[0]
                         }
-                        self.selectedOptionContacto = self.gruposNombres[0]
                     }
-                }
-            case .failure(let error):
-            print(error.self)
-                print(error.localizedDescription)
+                case .failure(let error):
+                    switch error {
+                    case .badStatus(let error, _):
+                            if(error == 401){
+                                DispatchQueue.main.async {
+                                    self.failedAuthentication = true
+                                }
+                            }
+                        default:
+                            print(error.self)
+                            print(error.localizedDescription)
+                    }
+            }
+            
+        } else {
+            DispatchQueue.main.async {
+                self.failedAuthentication = true
+            }
         }
+        
+        
     }
     
     public func addEmergencia() async {
         
-        //obetener tokens
-        let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-        
-        //obtener el grupo seleccionado a partir del nombre
-        let i = grupos.firstIndex {
-            $0.nombre == selectedOptionContacto
-        }
-        let selectedGrupo = grupos[i!]
-        
-        //obetener descripcion
+        //obtener descripcion
         let descripcion = isNivelGravedadSelected ? "Nivel de gravedad: \(nivel)" : descripcion
         
         //agregar los datos de ubicación
-        
-        let data: EmergenciaGrupoModel
-        
-        
         let longitud = locationManager.lastLocation?.longitude
         let latitud = locationManager.lastLocation?.latitude
         
-        print(longitud ?? 0)
-        print(latitud ?? 0)
+        let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError>
         
-        data = EmergenciaGrupoModel(
-            tipo: selectedMotivo,
-            descripcion: descripcion.count > 0 ? descripcion : nil,
-            idEmisor: tokens.id,
-            idGrupo: selectedGrupo.id,
-            longitud: (longitud != nil) ? Float(longitud!) : nil,
-            latitud: (latitud != nil) ? Float(latitud!) : nil
-        )
-        
-        
-        let result : Result<APIResponseModel<DataEmergenciaGrupoModel>, NetworkError> = await Webservice().postRequest("/emergencias/grupo", with: data)
-        
-        
-        switch result {
+        //obetener tokens
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+            
+            if(selectedOptionContacto != "Todos mis contactos"){
+                
+                //obtener el grupo seleccionado a partir del nombre
+                let i = grupos.firstIndex {
+                    $0.nombre == selectedOptionContacto
+                }
+                let selectedGrupo = grupos[i!]
+                
+                let data = EmergenciaGrupoModel(
+                    tipo: selectedMotivo,
+                    descripcion: descripcion.count > 0 ? descripcion : nil,
+                    idEmisor: tokens.id,
+                    idGrupo: selectedGrupo.id,
+                    longitud: (longitud != nil) ? Float(longitud!) : nil,
+                    latitud: (latitud != nil) ? Float(latitud!) : nil
+                )
+                
+                
+                result = await Webservice().postRequest("/emergencias/grupo", with: data)
+            } else {
+                let data = EmergenciaContactosModel(
+                    tipo: selectedMotivo,
+                    descripcion: descripcion.count > 0 ? descripcion : nil,
+                    idEmisor: tokens.id,
+                    longitud: (longitud != nil) ? Float(longitud!) : nil,
+                    latitud: (latitud != nil) ? Float(latitud!) : nil
+                )
+                
+                result = await Webservice().postRequest("/emergencias/allgrupo", with: data)
+            }
+            
+            
+            switch result {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.dataEmergencia = data.data!
@@ -96,13 +134,22 @@ class MandarEmergenciaViewModel: ObservableObject {
                 }
             case .failure(let error):
                 switch error {
-                case .badStatus(let error, let message):
-                    print(error.self)
+                case .badStatus(let error, _):
+                    if(error == 401){
+                        DispatchQueue.main.async {
+                            self.failedAuthentication = true
+                        }
+                    }
                 default:
                     print(error.self)
                     print(error.localizedDescription)
                 }
-            
+                
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.failedAuthentication = true
+            }
         }
         
     }

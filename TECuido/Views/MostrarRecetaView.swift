@@ -22,6 +22,10 @@ struct MostrarRecetaView: View {
                     .frame(width: 280)
                     .padding()
                     .multilineTextAlignment(.center)
+                
+                
+                
+                
                 // Agregar select de motivo de alerta
                     
                 List(viewModel.recetaMedicamentos.medicamentoReceta){ item in
@@ -75,7 +79,9 @@ struct MostrarRecetaView: View {
                 .background(.white)
                 .scrollContentBackground(.hidden)
                 .font(.body)
-                    
+                
+                
+                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                     
         }
     }

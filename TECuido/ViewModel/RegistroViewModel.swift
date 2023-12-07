@@ -21,6 +21,9 @@ class RegistroViewModel : ObservableObject {
     @Published var confPassError: Int = 0
     @Published var isAuthenticated: Bool = false
     
+    @Published var tipoUsuario: Int = 0
+
+    
     func register(idTipo: Int) async {
         
         do {
@@ -81,17 +84,18 @@ class RegistroViewModel : ObservableObject {
                     let service = "token"
                     KeychainHelper.standard.save(accessKeys, service: service, account: account)
                     DispatchQueue.main.async {
+                        self.tipoUsuario = token.tipo!
                         self.message = ""
                         self.isAuthenticated = true
                     }
                 case .failure(let error):
                     switch(error){
-                        case NetworkError.badStatus(let error, let message):
-                        if error == 400 {
-                            DispatchQueue.main.async {
-                                self.message = "El usuario ya se encuentra registrado"
+                    case NetworkError.badStatus(let error, _):
+                            if error == 400 {
+                                DispatchQueue.main.async {
+                                    self.message = "El usuario ya se encuentra registrado"
+                                }
                             }
-                        }
                         default:
                             print(error.localizedDescription)
                             DispatchQueue.main.async {

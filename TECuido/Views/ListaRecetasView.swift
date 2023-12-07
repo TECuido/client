@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ListaRecetasView: View {
+    
+    @EnvironmentObject var session: SessionManager
     @StateObject var viewModel = ListaRecetasViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
@@ -23,6 +25,8 @@ struct ListaRecetasView: View {
                         .frame(width: 280)
                         .padding()
                         .multilineTextAlignment(.center)
+                    
+                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                     
                     // Lista de contactos
                     List{
@@ -46,11 +50,10 @@ struct ListaRecetasView: View {
                                             .font(.title2)
                                         Text(formatDate(date: item.fecha))
                                             .font(.title2)
-                                        if let doctor = item.doctor {
-                                            Text(doctor)
-                                                .font(.title2)
+                                        if let persona = item.nombrePersona {
+                                            Text(session.tipoUsuario == 2 ? "Paciente: \(persona)" : "Doctor: \(persona)")
+                                            .font(.title2)
                                         }
-                                        
                                     }.padding(15)
                                     
                                     Spacer()
@@ -72,7 +75,11 @@ struct ListaRecetasView: View {
                         
                     }
                     .task {
-                        await viewModel.getRecetas()
+                        if(session.tipoUsuario == 2){
+                            await viewModel.getRecetasMedico()
+                        } else {
+                            await viewModel.getRecetasPaciente()
+                        }
                     }
                     .frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)

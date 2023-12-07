@@ -7,6 +7,7 @@
 import SwiftUI
 struct LoginView: View {
     
+    @EnvironmentObject var session: SessionManager
     @StateObject var viewModel = UsuarioViewModel()
     
     var body: some View {
@@ -97,6 +98,7 @@ struct LoginView: View {
                     Button("Iniciar sesión"){
                         Task {
                             await viewModel.login()
+                            session.tipoUsuario = viewModel.tipoUsuario
                         }
                     }
                     .foregroundColor(.white)

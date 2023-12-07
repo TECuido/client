@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AgregaRecetaView: View {
     
+    @EnvironmentObject var session: SessionManager
     @StateObject var viewModel = CrearRecetaViewModel()
 
     
@@ -46,7 +47,7 @@ struct AgregaRecetaView: View {
                 .cornerRadius(20)
                 .padding([.top, .bottom], 10)
                 
-                //Input Correo
+                //Input fecha
                 HStack {
                     Image(systemName: "calendar")
                         .resizable()
@@ -67,6 +68,33 @@ struct AgregaRecetaView: View {
                 .background(Color(red: 0.85, green: 0.85, blue: 0.85))
                 .cornerRadius(20)
                 .padding([.top, .bottom], 10)
+                
+                if(session.tipoUsuario == 2){
+                    Text("Selecciona a tu paciente")
+                        .font(.title2)
+                        .frame(width:340)
+                        .multilineTextAlignment(.center)
+                    // Picker de grupos
+                    // Seleccionador
+                    Picker("Selecciona un paciente", selection: $viewModel.selectedOptionPaciente){
+                        ForEach(viewModel.pacientesNombres, id: \.self) { paciente in
+                            Text(paciente)
+                                .font(.title)
+                        }
+                    }
+                    .task {
+                        await viewModel.getPacientes()
+                    }
+                    .pickerStyle(DefaultPickerStyle())
+                    .frame(width: 325, height: 65)
+                    .background(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
+                    )
+                    .cornerRadius(25)
+                    
+                }
                 
                 // Cards
                 Text("Medicamentos")
@@ -108,7 +136,11 @@ struct AgregaRecetaView: View {
                 //Boton
                 Button("Crear receta"){
                     Task {
-                        await viewModel.createReceta()
+                        if(session.tipoUsuario == 2){
+                            await viewModel.createRecetaMedico()
+                        } else {
+                            await viewModel.createRecetaPaciente()
+                        }
                     }
                 }
                 .foregroundColor(.white)
@@ -124,8 +156,8 @@ struct AgregaRecetaView: View {
                     EmptyView()
                 }
                 .transition(.slide)
-
-               
+                
+                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                 
                 
             }

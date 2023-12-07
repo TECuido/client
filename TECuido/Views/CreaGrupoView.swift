@@ -167,6 +167,9 @@ struct CreaGrupoView: View {
                 .cornerRadius(25)
                 .padding(10)
                 .font(.title2)
+                
+                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                
             }
             
                 

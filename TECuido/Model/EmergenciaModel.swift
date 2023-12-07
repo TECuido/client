@@ -16,6 +16,14 @@ struct EmergenciaGrupoModel : Codable {
     var latitud: Float?
 }
 
+struct EmergenciaContactosModel : Codable {
+    var tipo: String
+    var descripcion: String?
+    var idEmisor: Int
+    var longitud: Float?
+    var latitud: Float?
+}
+
 struct DataEmergenciaGrupoModel : Decodable {
     var idEmergencia: Int
     var tipo: String

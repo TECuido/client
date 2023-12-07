@@ -9,6 +9,7 @@ import Foundation
 class GrupoDetailViewModel: ObservableObject {
     
     @Published var miembros: [MiembroGrupoModel] = []
+    @Published var failedAuthentication: Bool = false
     
     public func getMiembros(idGrupo: Int) async {
                 
@@ -20,8 +21,17 @@ class GrupoDetailViewModel: ObservableObject {
                 self.miembros = data.data!
             }
         case .failure(let error):
-            print(error.self)
-            print(error.localizedDescription)
+            switch error {
+            case .badStatus(let error, _):
+                    if(error == 401){
+                        DispatchQueue.main.async {
+                            self.failedAuthentication = true
+                        }
+                    }
+                default:
+                    print(error.self)
+                    print(error.localizedDescription)
+            }
         }
     }
 

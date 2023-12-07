@@ -7,23 +7,21 @@
 import SwiftUI
 
 struct TECuidoView: View {
+    
     @State private var showLoginView = false
     @State private var showRegisterView = false
     @State private var scale = 1.0
     
     var body: some View {
         //nav view
-        NavigationView{
+        //NavigationView{
             ZStack{
-                
                 
                 Image("InicioBack")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .edgesIgnoringSafeArea(.all)
-                
-                
                 
                 // Texto general
                 VStack{
@@ -33,12 +31,12 @@ struct TECuidoView: View {
                             .font(.system(size: 80))
                             .bold()
                             .padding(3)
+                        
                         Text("Salud sin barreras")
                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                             .font(.system(size: 20))
                             .bold()
                             .padding(3)
-                        
                         
                         Image("icon")
                             .resizable()
@@ -91,16 +89,15 @@ struct TECuidoView: View {
                     }
                 }
             }
-        }//aqui termina
-        .navigationBarHidden(true)
-
+        //}//aqui termina
+        //.navigationBarHidden(true)
     }
-    
     
 }
 
 
-struct TECuidoView_Previews: PreviewProvider {
+struct 
+TECuidoView_Previews: PreviewProvider {
     static var previews: some View {
         TECuidoView()
     }
