@@ -42,6 +42,7 @@ struct AuthResponse: Decodable {
     let id: Int?
     let accessToken: String?
     let refreshToken: String?
+    let tipo: Int?
 }
 
 struct ApiResponse<T: Decodable>: Decodable {
@@ -93,7 +94,7 @@ class Webservice {
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {
                     
-                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken )
                     let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                     KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
                     
@@ -153,7 +154,7 @@ class Webservice {
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {
-                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
                          
                         let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                         KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
@@ -164,7 +165,6 @@ class Webservice {
 
                 }
             
-        
                 return .success(result)
             } catch NetworkError.invalidURL {
                 return .failure(.invalidURL)
@@ -211,7 +211,7 @@ class Webservice {
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {
-                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
                          
                         let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                         KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
@@ -268,7 +268,7 @@ class Webservice {
             guard response.statusCode >= 200 && response.statusCode < 300 else {
                 if response.statusCode == 401 && allowedRetry {
                     
-                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as! String)
+                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as String)
                      
                     let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
                     KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")

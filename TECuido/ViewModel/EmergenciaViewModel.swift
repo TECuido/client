@@ -27,7 +27,9 @@ class EmergenciaViewModel: ObservableObject {
                         self.hayEmergencia = true
                     }
                 } else {
-                    self.hayEmergencia = false
+                    DispatchQueue.main.async {
+                        self.hayEmergencia = false
+                    }
                 }
                 case .failure(let error):
                     switch error {

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RegistroView: View {
+        
+    @EnvironmentObject var session: SessionManager
+
     @Binding var typeCuenta: TipoUsuario?
     @StateObject var viewModel = RegistroViewModel()
     
@@ -147,6 +150,7 @@ struct RegistroView: View {
                         Button("Registrarme"){
                             Task {
                                 await viewModel.register(idTipo: typeCuenta?.rawValue ?? 0)
+                                session.tipoUsuario = viewModel.tipoUsuario
                             }
                         }
                         .foregroundColor(.white)

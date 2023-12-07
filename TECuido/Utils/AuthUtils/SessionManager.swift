@@ -10,5 +10,6 @@ import Foundation
 class SessionManager: ObservableObject {
     
     @Published var isLoggedIn = false
+    @Published var tipoUsuario = 0
     
 }

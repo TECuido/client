@@ -17,6 +17,8 @@ class UsuarioViewModel : ObservableObject {
     @Published var passwordError: Int =  0
     @Published var isAuthenticated: Bool = false
     
+    @Published var tipoUsuario: Int = 0
+    
     func login() async {
         
         do {
@@ -43,6 +45,7 @@ class UsuarioViewModel : ObservableObject {
                     KeychainHelper.standard.save(accessKeys, service: service, account: account)
                     
                     DispatchQueue.main.async {
+                        self.tipoUsuario = token.tipo!
                         self.correoError = 0
                         self.passwordError = 0
                         self.isAuthenticated = true
@@ -50,7 +53,7 @@ class UsuarioViewModel : ObservableObject {
                 
                 case .failure(let error):
                     switch(error){
-                        case NetworkError.badStatus(let error, let message):
+                    case NetworkError.badStatus(let error, _):
                         if error == 404 {
                             DispatchQueue.main.async {
                                 self.message = "El correo no se encuentra registrado"

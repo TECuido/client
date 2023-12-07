@@ -21,7 +21,8 @@ struct TECuidoApp: App {
         WindowGroup {
             
             NavigationStack {
-                ContentView()
+                TECuidoView()
+                .navigationBarBackButtonHidden(true)
                 .background(
                 NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
                 )
@@ -31,7 +32,9 @@ struct TECuidoApp: App {
             .environmentObject(appDelegate.notificationViewModel)
             .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
                 Task {
-                    await appDelegate.notificationViewModel.sendNotificationToken()
+                    if(!appDelegate.notificationViewModel.tokenAgregado){
+                        await appDelegate.notificationViewModel.sendNotificationToken()
+                    }
                 }
             }
             .onReceive(appDelegate.notificationViewModel.$emergencia) { em in

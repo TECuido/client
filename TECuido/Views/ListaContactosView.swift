@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ListaContactosView: View {
+    
+    @EnvironmentObject var session: SessionManager
+
+    
     @StateObject var viewModel = ListaContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
@@ -18,7 +22,8 @@ struct ListaContactosView: View {
             VStack{
                 ScrollView{
                     // Titulo
-                    Text("Lista de Contactos")
+                    
+                    Text(session.tipoUsuario == 2 ? "Lista de Pacientes" : "Lista de Contactos")
                         .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
                         .font(.system(size: 45))
                         .bold()
@@ -34,7 +39,7 @@ struct ListaContactosView: View {
                             .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
                             .padding(20)
                         
-                        Text("No hay contactos agregados")
+                        Text(session.tipoUsuario == 2 ? "No hay pacientes agregados" : "No hay contactos agregados")
                             .font(.system(size: 40))
                             .bold()
                             .frame(width: 280)
@@ -78,7 +83,7 @@ struct ListaContactosView: View {
                                     // Modal
                                     .alert(isPresented: $viewModel.isShowingConfirmationModel) {
                                         Alert(
-                                            title: Text("Eliminar contacto"),
+                                            title: Text(session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto"),
                                             message: Text("¿Estás seguro de que deseas eliminar el contacto?"),
                                             primaryButton: .default(
                                                 Text("Aceptar")
@@ -118,11 +123,11 @@ struct ListaContactosView: View {
                 .alert(isPresented: $viewModel.borrado) {
                     Alert(
                         title:
-                            Text("Contacto Eliminado")
+                            Text(session.tipoUsuario == 2 ? "Paciente eliminado" : "Contacto eliminado")
                         
                             .font(.title)
                         ,
-                        message: Text("Se eliminó el contacto con éxito")
+                        message: Text(session.tipoUsuario == 2 ? "Se eliminó el paciente con éxito" : "Se eliminó el contacto con éxito")
                             .font(.title2),
                         dismissButton: .default(
                             Text("OK")

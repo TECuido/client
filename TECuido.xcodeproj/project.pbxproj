@@ -54,9 +54,7 @@
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
 		FB5F05422B045572005D5403 /* MedicamentoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05412B045571005D5403 /* MedicamentoModel.swift */; };
 		FB5F05482B06B696005D5403 /* InfoRecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05472B06B696005D5403 /* InfoRecetasView.swift */; };
-		FB5F054C2B06B703005D5403 /* ModifyRecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F054B2B06B703005D5403 /* ModifyRecetasView.swift */; };
 		FB5F054E2B06B73F005D5403 /* PacientesProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */; };
-		FB5F05502B06B771005D5403 /* PacientesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F054F2B06B771005D5403 /* PacientesView.swift */; };
 		FB5F05562B06C279005D5403 /* RecetaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05552B06C279005D5403 /* RecetaViewModel.swift */; };
 		FB5F05582B06C8B5005D5403 /* EditarGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05572B06C8B5005D5403 /* EditarGrupoViewModel.swift */; };
 		FB5F055A2B06C8EF005D5403 /* EditarGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05592B06C8EF005D5403 /* EditarGrupoView.swift */; };
@@ -99,7 +97,6 @@
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBEF7262AE34BC200993C02 /* LlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEF7252AE34BC200993C02 /* LlamadasView.swift */; };
 		FBC798862B15D1DA00A3E6B5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */; };
-		FBC798882B15D32200A3E6B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC798872B15D32200A3E6B5 /* ContentView.swift */; };
 		FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14872AFAABB400DF5A8B /* LocationManager.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
 		FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */; };
@@ -163,9 +160,7 @@
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
 		FB5F05412B045571005D5403 /* MedicamentoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentoModel.swift; sourceTree = "<group>"; };
 		FB5F05472B06B696005D5403 /* InfoRecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRecetasView.swift; sourceTree = "<group>"; };
-		FB5F054B2B06B703005D5403 /* ModifyRecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyRecetasView.swift; sourceTree = "<group>"; };
 		FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientesProfileView.swift; sourceTree = "<group>"; };
-		FB5F054F2B06B771005D5403 /* PacientesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientesView.swift; sourceTree = "<group>"; };
 		FB5F05552B06C279005D5403 /* RecetaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel.swift; sourceTree = "<group>"; };
 		FB5F05572B06C8B5005D5403 /* EditarGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarGrupoViewModel.swift; sourceTree = "<group>"; };
 		FB5F05592B06C8EF005D5403 /* EditarGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarGrupoView.swift; sourceTree = "<group>"; };
@@ -207,7 +202,6 @@
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBEF7252AE34BC200993C02 /* LlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasView.swift; sourceTree = "<group>"; };
 		FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		FBC798872B15D32200A3E6B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FBCD14872AFAABB400DF5A8B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 		FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostrarRecetaView.swift; sourceTree = "<group>"; };
@@ -437,15 +431,12 @@
 				FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */,
 				FB732FC72AFC59FA003CE102 /* MapaView.swift */,
 				FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */,
-				FB5F054B2B06B703005D5403 /* ModifyRecetasView.swift */,
 				FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */,
-				FB5F054F2B06B771005D5403 /* PacientesView.swift */,
 				FB5F05592B06C8EF005D5403 /* EditarGrupoView.swift */,
 				FB5F055B2B06CB50005D5403 /* MedicamentoDetalleView.swift */,
 				FB5F05612B06F000005D5403 /* AgregaRecetaView.swift */,
 				FB5F05652B06F552005D5403 /* AgregarMedicamentoView.swift */,
 				FB5F056C2B0715FE005D5403 /* RecetasView.swift */,
-				FBC798872B15D32200A3E6B5 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -627,7 +618,6 @@
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
 				C0271A812AF33A5A00024BE5 /* ClassificationObject.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
-				FBC798882B15D32200A3E6B5 /* ContentView.swift in Sources */,
 				FB5F056D2B0715FE005D5403 /* RecetasView.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
@@ -658,7 +648,6 @@
 				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,
 				FB4D56042AF8A42A00D1C533 /* AppDelegate.swift in Sources */,
 				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
-				FB5F05502B06B771005D5403 /* PacientesView.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
 				FB732FCC2AFC6AF6003CE102 /* EmergenciaViewModel.swift in Sources */,
 				FB5F054E2B06B73F005D5403 /* PacientesProfileView.swift in Sources */,
@@ -683,7 +672,6 @@
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */,
 				FB732FCA2AFC5E11003CE102 /* AlertEmergenciasViewModel.swift in Sources */,
-				FB5F054C2B06B703005D5403 /* ModifyRecetasView.swift in Sources */,
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
@@ -823,6 +811,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = TECuido/TECuido.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -858,6 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = TECuido/TECuido.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

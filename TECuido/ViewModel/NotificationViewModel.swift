@@ -21,8 +21,8 @@ class NotificationViewModel: ObservableObject {
 
     func setEmergencia(notification: [AnyHashable: Any]){
         
-        var longitud = notification["longitud"] as? Double
-        var latitud = notification["latitud"] as? Double
+        let longitud = notification["longitud"] as? Double
+        let latitud = notification["latitud"] as? Double
         
         
         self.emergencia = DataEmergenciaGrupoModel(
@@ -51,13 +51,13 @@ class NotificationViewModel: ObservableObject {
                 
                 
                 switch result {
-                case .success(let data):
+                case .success(_):
                     DispatchQueue.main.async {
                         self.tokenAgregado = true
                     }
                 case .failure(let error):
                     switch error {
-                    case .badStatus(let error, let message):
+                    case .badStatus(let error, _):
                         if(error == 401){
                             DispatchQueue.main.async {
                                 self.failedAuthentication = true

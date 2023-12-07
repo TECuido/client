@@ -8,6 +8,8 @@
 //
 import SwiftUI
 struct HomeView: View {
+    
+    @EnvironmentObject var session: SessionManager
         
     @State private var showEmergenciasView = false
     @State private var showContactosView = false
@@ -58,7 +60,7 @@ struct HomeView: View {
                         Button(action: {
                             showContactosView = true
                         }) {
-                            createSection(title: "Contactos", iconName: "person.crop.circle.fill", hint:"Añade contactos o un grupo")
+                            createSection(title: session.tipoUsuario == 2 ? "Pacientes" : "Contactos", iconName: "person.crop.circle.fill", hint:"Añade contactos o un grupo")
                         }
                         // Botón para la vista de Recetas médicas
                         Button(action: {
