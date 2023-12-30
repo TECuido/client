@@ -157,7 +157,7 @@ struct AgregaRecetaView: View {
                 }
                 .transition(.slide)
                 
-                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+       
                 
                 
             }
