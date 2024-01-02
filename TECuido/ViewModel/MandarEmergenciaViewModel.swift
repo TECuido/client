@@ -28,6 +28,16 @@ class MandarEmergenciaViewModel: ObservableObject {
     @Published var grupos: [GrupoModel] = [GrupoModel.example]
     @Published var gruposNombres: [String] = ["Todos mis contactos"]
     
+    //  Seleccion de boton
+    @Published var isMedicaSelected = false
+    @Published var isAcosoSelected = false
+    @Published var isSecuestroSelected = false
+    @Published var isDesastreSelected = false
+    @Published var isIncendioSelected = false
+    @Published var isTraficoSelected = false
+    @Published var isExtorsionSelected = false
+    @Published var isTecnologicaSelected = false
+    
     @Published var isNivelGravedadSelected = false
     @Published var nivel: Int = 1
     @Published var descripcion: String = ""

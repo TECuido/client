@@ -9,8 +9,7 @@ import SwiftUI
 
 struct NuevaEmergenciaView: View {
     
-    @State private var isMedicaSelected = false
-    @State private var isAcosoSelected = false
+
 
     @StateObject private var viewModel = MandarEmergenciaViewModel()
     var body: some View {
@@ -24,83 +23,172 @@ struct NuevaEmergenciaView: View {
                     .padding()
                 //Fila 1
                 HStack{
-                    
-                   
+                    //Boton Medico Inicia
                     Button(action: {
-                        
-                        isMedicaSelected.toggle()
-                        if isMedicaSelected {
-                            isAcosoSelected = false
+                        viewModel.isMedicaSelected.toggle()
+                        if viewModel.isMedicaSelected {
+                            viewModel.isAcosoSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isExtorsionSelected = false
+                            viewModel.isTecnologicaSelected = false
                             viewModel.selectedMotivo = "Medica"
                             viewModel.descripcion = "He tenido una emergencia medica por favor ven a ayudarme"
                             }
 
                     }) {
                         BotonEmergencia(title: "Médica", iconName: "heart.circle.fill", hint: "Manda una notificacion de una emergencia medica")
-                    }.background(isMedicaSelected ? Color.blue.opacity(0.5) : Color.clear)
+                    }.background(viewModel.isMedicaSelected ? Color.blue.opacity(0.5) : Color.clear)
+                    //Boton Medico acaba
                     
+                    // Boton Acoso
                     Button(action: {
-                        isAcosoSelected.toggle()
-                        if isAcosoSelected {
-                            isMedicaSelected = false
+                        viewModel.isAcosoSelected.toggle()
+                        if viewModel.isAcosoSelected {
+                            viewModel.isMedicaSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isExtorsionSelected = false
+                            viewModel.isTecnologicaSelected = false
                             
                         viewModel.selectedMotivo = "Acoso"
                         viewModel.descripcion = "Ayudame me estan acosando, ven pronto"
                         }
                     }) {
                         BotonEmergencia(title: "Acoso", iconName: "exclamationmark.triangle.fill", hint: "Manda una notificacion de que estas recibiendo acoso")
-                    }.background(isAcosoSelected ? Color.blue.opacity(0.5) : Color.clear)
-                   
+                    }.background(viewModel.isAcosoSelected ? Color.blue.opacity(0.5) : Color.clear)
+                   //  Fin boton Acoso
+                    
+                    // Inicio boton Secuestro
                     Button(action: {
+                        viewModel.isSecuestroSelected.toggle()
+                        if viewModel.isSecuestroSelected {
+                            viewModel.isMedicaSelected = false
+                            viewModel.isAcosoSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isExtorsionSelected = false
+                            viewModel.isTecnologicaSelected = false
                         viewModel.selectedMotivo = "Secuestro"
                         viewModel.descripcion = "Estoy teniendo un intento de secuestro "
+                        }
                     }) {
                         BotonEmergencia(title:  "Secuestro", iconName: "bolt.horizontal.circle.fill", hint: "Manda una notificacion de que estas siendo secuestrado")
-                    }
+                    }.background(viewModel.isSecuestroSelected ? Color.blue.opacity(0.5) : Color.clear)
+                    //  Fin boton Secuestro
                 }
                 
                 //Fila 2
                 HStack{
+                    // Boton desastre inicio
                     Button(action: {
+                        viewModel.isDesastreSelected.toggle()
+                        if viewModel.isDesastreSelected {
+                            viewModel.isMedicaSelected = false
+                            viewModel.isAcosoSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isExtorsionSelected = false
+                            viewModel.isTecnologicaSelected = false
                         viewModel.selectedMotivo = "Desastre natural"
                         viewModel.descripcion = "Ha sucedido un desastre natural"
+                        }
                     }) {
                         BotonEmergencia(title: "Desastre natural", iconName: "tornado", hint: "Manda una notificacion de un desastre natural")
-                    }
+                    }.background(viewModel.isDesastreSelected ? Color.blue.opacity(0.5) : Color.clear)
+                    // Fin desastre
                     
-                
+                    // Inicio incendio
                     Button(action: {
+                        viewModel.isIncendioSelected.toggle()
+                        if viewModel.isIncendioSelected {
+                            viewModel.isMedicaSelected = false
+                            viewModel.isAcosoSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isExtorsionSelected = false
+                            viewModel.isTecnologicaSelected = false
                         viewModel.selectedMotivo = "Incendio"
                         viewModel.descripcion = "Esta sucediendo un incendio"
+                        }
                     }) {
                         BotonEmergencia(title: "Incendio", iconName: "flame.fill", hint: "Recibe recomendaciones de qué hacer ante quemaduras, heridas y picaduras")
-                    }
+                    }.background(viewModel.isIncendioSelected ? Color.blue.opacity(0.5) : Color.clear)
+                    // Fin incendio
                   
+                    // Inicio Trafico
                     Button(action: {
+                        viewModel.isTraficoSelected.toggle()
+                        if viewModel.isTraficoSelected {
+                            viewModel.isMedicaSelected = false
+                            viewModel.isAcosoSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isExtorsionSelected = false
+                            viewModel.isTecnologicaSelected = false
                         viewModel.selectedMotivo = "Accidente de trafico"
                         viewModel.descripcion = "He tenido un accidente de trafico, ven a ayudarme"
+                        }
                     }) {
                         BotonEmergencia(title:  "Accidente de tráfico", iconName: "car.fill", hint: "Manda una notificacion que has tenido un accidente de trafico")
-                    }
+                    }.background(viewModel.isTraficoSelected ? Color.blue.opacity(0.5) : Color.clear)
+                    // Fin trafico
                 }
                 //Fila 3
                 
                 HStack{
+                    //  Inicio Extorsion
                     Button(action: {
+                        viewModel.isExtorsionSelected.toggle()
+                        if viewModel.isExtorsionSelected{
+                            viewModel.isMedicaSelected = false
+                            viewModel.isAcosoSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isTecnologicaSelected = false
                         viewModel.selectedMotivo = "Extorsion"
                         viewModel.descripcion = "Estoy siendo victima de una extorsion"
+                        }
                     }) {
                         BotonEmergencia(title: "Extorsión", iconName: "hand.raised.fill", hint: "Manda una emergencia de que te estan extorsionando")
-                    }
-                  
+                    }.background(viewModel.isExtorsionSelected ? Color.blue.opacity(0.5) : Color.clear)
+                  // Fin extorsion
+                    
+                    //Inicio tecnologica
                     Button(action: {
+                        viewModel.isTecnologicaSelected.toggle()
+                        if viewModel.isTecnologicaSelected{
+                            viewModel.isMedicaSelected = false
+                            viewModel.isAcosoSelected = false
+                            viewModel.isSecuestroSelected = false
+                            viewModel.isDesastreSelected = false
+                            viewModel.isIncendioSelected = false
+                            viewModel.isTraficoSelected = false
+                            viewModel.isExtorsionSelected = false
                         viewModel.selectedMotivo = "Emergencia tecnologica"
                         viewModel.descripcion = "He tenido una emergencia tecnologica por favor ven a ayudarme"
+                        }
                     }) {
                         BotonEmergencia(title: "Emergencia tecnológica", iconName: "antenna.radiowaves.left.and.right", hint: "Recibe recomendaciones de qué hacer ante quemaduras, heridas y picaduras")
-                    }
+                    }.background(viewModel.isTecnologicaSelected ? Color.blue.opacity(0.5) : Color.clear)
                    
                 }
+                //Selección de contactos
+                Text("Selecciona los contactos a los que les vas a avisar")
+                    .font(.title2)
+                    .frame(width:340)
+                    .multilineTextAlignment(.center)
+                
                 Picker("Selecciona un contacto", selection: $viewModel.selectedOptionContacto){
                     ForEach(viewModel.gruposNombres, id: \.self) { grupo in
                         Text(grupo)
@@ -115,8 +203,14 @@ struct NuevaEmergenciaView: View {
                     Task {
                         
                         await viewModel.addEmergencia()
-                        isMedicaSelected = false
-                        isAcosoSelected = false
+                        viewModel.isMedicaSelected = false
+                        viewModel.isAcosoSelected = false
+                        viewModel.isSecuestroSelected = false
+                        viewModel.isDesastreSelected = false
+                        viewModel.isIncendioSelected = false
+                        viewModel.isTraficoSelected = false
+                        viewModel.isExtorsionSelected = false
+                        viewModel.isTecnologicaSelected = false
                     }
                 }
                 .foregroundColor(.white)
