@@ -62,6 +62,10 @@ struct NuevaEmergenciaView: View {
                         BotonEmergencia(title: "Acoso", iconName: "exclamationmark.triangle.fill", hint: "Manda una notificacion de que estas recibiendo acoso")
                     }.background(viewModel.isAcosoSelected ? Color.blue.opacity(0.5) : Color.clear)
                    //  Fin boton Acoso
+                   
+                }
+                
+                HStack{
                     
                     // Inicio boton Secuestro
                     Button(action: {
@@ -81,10 +85,6 @@ struct NuevaEmergenciaView: View {
                         BotonEmergencia(title:  "Secuestro", iconName: "bolt.horizontal.circle.fill", hint: "Manda una notificacion de que estas siendo secuestrado")
                     }.background(viewModel.isSecuestroSelected ? Color.blue.opacity(0.5) : Color.clear)
                     //  Fin boton Secuestro
-                }
-                
-                //Fila 2
-                HStack{
                     // Boton desastre inicio
                     Button(action: {
                         viewModel.isDesastreSelected.toggle()
@@ -103,6 +103,11 @@ struct NuevaEmergenciaView: View {
                         BotonEmergencia(title: "Desastre natural", iconName: "tornado", hint: "Manda una notificacion de un desastre natural")
                     }.background(viewModel.isDesastreSelected ? Color.blue.opacity(0.5) : Color.clear)
                     // Fin desastre
+                }
+                
+                //Fila 2
+                HStack{
+                    
                     
                     // Inicio incendio
                     Button(action: {
@@ -184,7 +189,7 @@ struct NuevaEmergenciaView: View {
                    
                 }
                 //Selección de contactos
-                Text("Selecciona los contactos a los que les vas a avisar")
+                Text("Selecciona los contactos a avisar")
                     .font(.title2)
                     .frame(width:340)
                     .multilineTextAlignment(.center)
@@ -203,19 +208,12 @@ struct NuevaEmergenciaView: View {
                     Task {
                         
                         await viewModel.addEmergencia()
-                        viewModel.isMedicaSelected = false
-                        viewModel.isAcosoSelected = false
-                        viewModel.isSecuestroSelected = false
-                        viewModel.isDesastreSelected = false
-                        viewModel.isIncendioSelected = false
-                        viewModel.isTraficoSelected = false
-                        viewModel.isExtorsionSelected = false
-                        viewModel.isTecnologicaSelected = false
+                        viewModel.resetSelectedMotivos()
                     }
                 }
                 .foregroundColor(.white)
                 .bold()
-                .frame(width: 300, height: 65)
+                .frame(width: 300, height: 55)
                 .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                 .cornerRadius(25)
                 .padding(30)
@@ -241,9 +239,9 @@ struct NuevaEmergenciaView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.white)
-                    .frame(width: 40, height: 40)
+                    .frame(width: 30, height: 30)
             }
-            .frame(width: 115, height: 130)
+            .frame(width: 145, height: 112)
             .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
             .cornerRadius(16)
             .padding(5)

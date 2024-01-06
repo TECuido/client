@@ -163,6 +163,86 @@ class MandarEmergenciaViewModel: ObservableObject {
         }
         
     }
+    
+    public func updateSelectedMotivo(motivo: String) {
+            // Restablecer todas las selecciones
+            resetSelectedMotivos()
+            
+            // Actualizar motivo y descripción según el motivo seleccionado
+            switch motivo {
+            case "Médica":
+                isMedicaSelected = true
+                selectedMotivo = motivo
+                descripcion = "He tenido una emergencia médica, por favor ven a ayudarme"
+            case "Acoso":
+                isAcosoSelected = true
+                selectedMotivo = motivo
+                descripcion = "Ayúdame, me están acosando, ven pronto"
+            case "Secuestro":
+                isSecuestroSelected = true
+                selectedMotivo = motivo
+                descripcion = "Estoy teniendo un intento de secuestro"
+            case "Desastre natural":
+                isDesastreSelected = true
+                selectedMotivo = motivo
+                descripcion = "Ha sucedido un desastre natural"
+            case "Incendio":
+                isIncendioSelected = true
+                selectedMotivo = motivo
+                descripcion = "Está sucediendo un incendio"
+            case "Accidente de tráfico":
+                isTraficoSelected = true
+                selectedMotivo = motivo
+                descripcion = "He tenido un accidente de tráfico, ven a ayudarme"
+            case "Extorsión":
+                isExtorsionSelected = true
+                selectedMotivo = motivo
+                descripcion = "Estoy siendo víctima de una extorsión"
+            case "Emergencia tecnológica":
+                isTecnologicaSelected = true
+                selectedMotivo = motivo
+                descripcion = "He tenido una emergencia tecnológica, por favor ven a ayudarme"
+            default:
+                break
+            }
+        }
+        
+        public func resetSelectedMotivos() {
+            // Restablecer todas las selecciones
+            isMedicaSelected = false
+            isAcosoSelected = false
+            isSecuestroSelected = false
+            isDesastreSelected = false
+            isIncendioSelected = false
+            isTraficoSelected = false
+            isExtorsionSelected = false
+            isTecnologicaSelected = false
+        }
+        
+        public func isSelected(motivo: String) -> Bool {
+            // Verificar si un motivo está seleccionado
+            switch motivo {
+            case "Médica":
+                return isMedicaSelected
+            case "Acoso":
+                return isAcosoSelected
+            case "Secuestro":
+                return isSecuestroSelected
+            case "Desastre natural":
+                return isDesastreSelected
+            case "Incendio":
+                return isIncendioSelected
+            case "Accidente de tráfico":
+                return isTraficoSelected
+            case "Extorsión":
+                return isExtorsionSelected
+            case "Emergencia tecnológica":
+                return isTecnologicaSelected
+            default:
+                return false
+            }
+        }
+
 
 }
 
