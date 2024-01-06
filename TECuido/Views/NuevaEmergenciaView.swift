@@ -9,21 +9,19 @@ import SwiftUI
 
 struct NuevaEmergenciaView: View {
     
-    
-    
     @StateObject private var viewModel = MandarEmergenciaViewModel()
+    
     var body: some View {
-        
-        ZStack{
-            VStack{
+        ZStack {
+            VStack {
                 Text("Emergencias")
-                    .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                    .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                     .font(.system(size: 45))
                     .bold()
                     .padding()
-                //Fila 1
-                HStack{
-                    // Emergency Buttons in Pairs
+
+                // Fila 1 - Emergency Buttons in Pairs
+                HStack {
                     ForEach(0..<viewModel.motivos.count / 2) { rowIndex in
                         HStack {
                             ForEach(0..<2) { colIndex in
@@ -42,50 +40,44 @@ struct NuevaEmergenciaView: View {
                         }
                         .padding(.vertical, 5)
                     }
-                    
-                    
-                    //Selección de contactos
-                    Text("Selecciona los contactos a avisar")
-                        .font(.title2)
-                        .frame(width:340)
-                        .multilineTextAlignment(.center)
-                    
-                    Picker("Selecciona un contacto", selection: $viewModel.selectedOptionContacto){
-                        ForEach(viewModel.gruposNombres, id: \.self) { grupo in
-                            Text(grupo)
-                                .font(.title)
-                        }
-                    }
-                    .task {
-                        await viewModel.getGrupos()
-                    }
-                    // Acaban las filas
-                    Button("Continuar") {
-                        Task {
-                            
-                            await viewModel.addEmergencia()
-                            viewModel.resetSelectedMotivos()
-                        }
-                    }
-                    .foregroundColor(.white)
-                    .bold()
-                    .frame(width: 300, height: 55)
-                    .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                    .cornerRadius(25)
-                    .padding(30)
-                    .font(.title2)
                 }
-                
-                NavigationLink("", destination: EstatusEmergenciaView(dataEmergencia: viewModel.dataEmergencia), isActive: $viewModel.showEstatusView)
-                
-                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
-                
-                
+
+                // Selección de contactos
+                Text("Selecciona los contactos a avisar")
+                    .font(.title2)
+                    .frame(width: 340)
+                    .multilineTextAlignment(.center)
+
+                Picker("Selecciona un contacto", selection: $viewModel.selectedOptionContacto) {
+                    ForEach(viewModel.gruposNombres, id: \.self) { grupo in
+                        Text(grupo)
+                            .font(.title)
+                    }
+                }
+                .task {
+                    await viewModel.getGrupos()
+                }
+
+                // Acaban las filas
+                Button("Continuar") {
+                    Task {
+                        await viewModel.addEmergencia()
+                        viewModel.resetSelectedMotivos()
+                    }
+                }
+                .foregroundColor(.white)
+                .bold()
+                .frame(width: 300, height: 55)
+                .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                .cornerRadius(25)
+                .padding(30)
+                .font(.title2)
             }
         }
+        .background(Color.white) // Add background color to fix compilation issue
     }
+
     private func BotonEmergencia(title: String, iconName: String, hint: String) -> some View {
-        
         ZStack {
             VStack {
                 Text(title)
@@ -106,10 +98,8 @@ struct NuevaEmergenciaView: View {
             .accessibilityLabel(title)
             .accessibilityHint(hint)
         }
-        
     }
-    
-    
+
     struct NuevaEmergenciaView_Previews: PreviewProvider {
         static var previews: some View {
             NuevaEmergenciaView()
