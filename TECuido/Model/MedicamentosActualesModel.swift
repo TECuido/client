@@ -13,17 +13,15 @@ import Foundation
 struct MedicamentosActualesModel : Identifiable, Decodable{
     var id: Int
     var nombre : String
-    var motivo : String
     var idUsuario : Int
     
     enum CodingKeys: String, CodingKey {
         case id = "idMedicamentoActual"
         case nombre = "nombre"
-        case motivo = "motivo"
         case idUsuario = "idUsuario"
     }
 }
 extension MedicamentosActualesModel  {
     public static var example =
-    MedicamentosActualesModel (id: 1, nombre: "Loratadina",motivo: "Alergias",idUsuario: 1)
+    MedicamentosActualesModel (id: 1, nombre: "Loratadina"  ,idUsuario: 1)
 }
