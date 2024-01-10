@@ -10,7 +10,6 @@ import Foundation
 
 import Foundation
 
-// Modelo debe ir en mayuscula
 struct MedicamentosActualesModel : Identifiable, Decodable{
     var id: Int
     var nombre : String
@@ -18,7 +17,7 @@ struct MedicamentosActualesModel : Identifiable, Decodable{
     var idUsuario : Int
     
     enum CodingKeys: String, CodingKey {
-        case id = "idAlergia"
+        case id = "idMedicamentoActual"
         case nombre = "nombre"
         case motivo = "motivo"
         case idUsuario = "idUsuario"
