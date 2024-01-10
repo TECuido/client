@@ -23,7 +23,7 @@ struct EmergenciasView: View {
             TabView(selection: $selection){
                 
                 
-                MandarEmergenciaView()
+                NuevaEmergenciaView()
                     .tabItem{
                         Image(systemName: "text.bubble.fill")
                     }
