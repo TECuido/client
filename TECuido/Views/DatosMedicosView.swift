@@ -52,9 +52,6 @@ struct DatosMedicosView: View {
                         }
                         .padding()
                     }.font(.system(size: 20)) // Tamaño del título
-                      
-
-                        
                     
                     // Condiciones Médicas
                     DisclosureGroup("Condiciones Médicas", isExpanded: $mostrarCondiciones) {
@@ -81,10 +78,6 @@ struct DatosMedicosView: View {
                         }
                         .padding()
                     }.font(.system(size: 20)) // Tamaño del título
-                       
-
-                        
-
                     
                     // Medicamentos
                     DisclosureGroup("Medicamentos", isExpanded: $mostrarMedicamentos) {
@@ -114,11 +107,10 @@ struct DatosMedicosView: View {
                 }
                 .padding()
             }.font(.system(size: 20)) // Tamaño del título
-             
-
-           
-
-        }
+        } .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+            .padding()
     }
 }
 
