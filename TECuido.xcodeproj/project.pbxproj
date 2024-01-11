@@ -76,6 +76,7 @@
 		FB732FC82AFC59FA003CE102 /* MapaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FC72AFC59FA003CE102 /* MapaView.swift */; };
 		FB732FCA2AFC5E11003CE102 /* AlertEmergenciasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */; };
 		FB732FCC2AFC6AF6003CE102 /* EmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */; };
+		FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB831C8B2B50416500A89167 /* DatosMedicosView.swift */; };
 		FB85685C2B3F7D7900E03B65 /* NuevaEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85685B2B3F7D7900E03B65 /* NuevaEmergenciaView.swift */; };
 		FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */; };
 		FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */; };
@@ -188,6 +189,7 @@
 		FB732FC72AFC59FA003CE102 /* MapaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaView.swift; sourceTree = "<group>"; };
 		FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasViewModel.swift; sourceTree = "<group>"; };
 		FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaViewModel.swift; sourceTree = "<group>"; };
+		FB831C8B2B50416500A89167 /* DatosMedicosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosMedicosView.swift; sourceTree = "<group>"; };
 		FB85685B2B3F7D7900E03B65 /* NuevaEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevaEmergenciaView.swift; sourceTree = "<group>"; };
 		FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLlamadasView.swift; sourceTree = "<group>"; };
 		FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasView.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */,
 				FBB8EC632AE1D5E800D8766C /* ContactosView.swift */,
 				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
+				FB831C8B2B50416500A89167 /* DatosMedicosView.swift */,
 				FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */,
 				FB999B642AE1D9830018C268 /* GruposDetallesView.swift */,
 				FB6A5BB72AE30F6200D6F4C5 /* ListaRecetasView.swift */,
@@ -677,6 +680,7 @@
 				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBBD9AD22B4E32FE0045DF9D /* CondicionMedica.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */,
+				FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */,
