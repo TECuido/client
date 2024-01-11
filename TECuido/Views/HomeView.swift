@@ -75,7 +75,7 @@ struct HomeView: View {
                         Button(action: {
                             showLlamadasView = true
                         }) {
-                            createSection(title: "Llamadas", iconName: "phone.fill.arrow.down.left", hint: "Realiza una llamada traduciendo de señas a voz")
+                            createSection(title: "Perfil de Usuario", iconName: "person.crop.circle.fill", hint: "Ve tu perfil de usuario")
                         }
                         
                         // Botón para la vista de Lesiones
@@ -116,7 +116,7 @@ struct HomeView: View {
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: TabLlamadasView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: UsuarioDetallesView(),isActive: $showLlamadasView)
             )
             .background(
                 NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)

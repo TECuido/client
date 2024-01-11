@@ -58,7 +58,7 @@ struct AccessKeys: Codable {
 
 class Webservice {
     
-    let baseURL = "https://tecuido-server-v6og.onrender.com/"
+    let baseURL = "https://tecuido-server-v6og.onrender.com"
     let authManager = AuthManager.shared
     
     
