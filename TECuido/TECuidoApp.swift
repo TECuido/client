@@ -20,13 +20,10 @@ struct TECuidoApp: App {
     var body: some Scene {
         WindowGroup {
             
-            NavigationStack {
-                TECuidoView()
-                .navigationBarBackButtonHidden(true)
-                .background(
+            TECuidoView()
+            .background(
                 NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
-                )
-            }
+            )
             .environmentObject(predictionStatus)
             .environmentObject(session)
             .environmentObject(appDelegate.notificationViewModel)

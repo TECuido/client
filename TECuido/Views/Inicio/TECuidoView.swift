@@ -26,7 +26,7 @@ struct TECuidoView: View {
                 VStack{
                     
                     Text("TECuido")
-                        .font(.custom("Inter", size:64))
+                        .font(.custom("Inter", size: FontSize.largeTitle.rawValue))
                         .foregroundColor(Color("LightBlue"))
                         .bold()
                         .padding(3)
@@ -68,6 +68,8 @@ struct TECuidoView: View {
                     LoginView(path: $path)
                 case TipoCuentaView.tag:
                     TipoCuentaView(path: $path)
+                case HomeView.tag:
+                    HomeView(path: $path)
                 default:
                     TECuidoView()
                 }

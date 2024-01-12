@@ -151,11 +151,6 @@ struct AgregaRecetaView: View {
                 .padding(10)
                 .font(.title2)
                 
-                NavigationLink(destination: HomeView(),
-                               isActive: $viewModel.recetaCreada){
-                    EmptyView()
-                }
-                .transition(.slide)
                 
        
                 

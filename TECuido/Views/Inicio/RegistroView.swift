@@ -162,10 +162,7 @@ struct RegistroView: View {
                         .padding(10)
                         .font(.title2)
                                                 
-                        NavigationLink(destination: HomeView(),
-                                       isActive: $viewModel.isAuthenticated){
-                            EmptyView()
-                        }
+                        
                         
                         
                     }

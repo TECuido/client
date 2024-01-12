@@ -16,7 +16,6 @@ class UsuarioViewModel : ObservableObject {
     @Published var correoError: Int =  0
     @Published var passwordError: Int =  0
     @Published var isAuthenticated: Bool = false
-    
     @Published var tipoUsuario: Int = 0
     
     func login() async {
@@ -24,8 +23,10 @@ class UsuarioViewModel : ObservableObject {
         do {
             
             if(correo.isEmpty || password.isEmpty){
-                self.correoError = correo.isEmpty ? 1 : 0
-                self.passwordError = password.isEmpty ? 1 : 0
+                DispatchQueue.main.async {
+                    self.correoError = self.correo.isEmpty ? 1 : 0
+                    self.passwordError = self.password.isEmpty ? 1 : 0
+                }
                 
                 throw ValidationError.error(description: "Debes ingresar tu correo y contraseña")
             }
@@ -79,7 +80,9 @@ class UsuarioViewModel : ObservableObject {
             }
             
         } catch ValidationError.error(let description) {
-            self.message = description
+            DispatchQueue.main.async {
+                self.message = description
+            }
         } catch {
             print(error.localizedDescription)
         }

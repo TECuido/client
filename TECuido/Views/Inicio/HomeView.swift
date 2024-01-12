@@ -17,6 +17,9 @@ struct HomeView: View {
     @State private var showLlamadasView = false
     @State private var showLesionesView = false
     @State private var scale = 1.0
+    @Binding var path: NavigationPath
+    
+    static var tag = "Home"
     
     
     var body: some View {
@@ -154,7 +157,7 @@ struct HomeView: View {
 }
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(path: .constant(NavigationPath()))
     }
 }
 
