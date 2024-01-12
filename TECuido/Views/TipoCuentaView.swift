@@ -12,6 +12,10 @@ struct TipoCuentaView: View {
     @StateObject var viewModel = RegistroViewModel()
     @State private var showRegisterView = false
     @State private var selectedCuenta: TipoUsuario?
+    @Binding var path: NavigationPath
+
+    
+    static var tag = "TipoCuenta"
 
     var body: some View {
         
@@ -106,6 +110,6 @@ struct TipoCuentaView: View {
 
 struct TipoCuentaView_Previews: PreviewProvider {
     static var previews: some View {
-        TipoCuentaView()
+        TipoCuentaView(path: .constant(NavigationPath()))
     }
 }

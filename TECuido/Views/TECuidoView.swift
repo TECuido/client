@@ -12,9 +12,11 @@ struct TECuidoView: View {
     @State private var showRegisterView = false
     @State private var scale = 1.0
     
+    @State private var path: NavigationPath = .init()
+    
     var body: some View {
         //nav view
-        NavigationView{
+        NavigationStack(path: $path){
             ZStack{
                 
                 Color("BackgroundColor")
@@ -28,8 +30,6 @@ struct TECuidoView: View {
                         .foregroundColor(Color("LightBlue"))
                         .bold()
                         .padding(3)
-                    
-                    
                         
                     Image("icon")
                         .resizable()
@@ -45,22 +45,13 @@ struct TECuidoView: View {
                         .animation(.easeIn, value: scale)
                         .padding(.top, 30)
                     
-                    PrimaryButton(title: "Iniciar sesión", action: {
-                        showLoginView = true
-                    })
-                    
-                    NavigationLink(destination: LoginView(), isActive: $showLoginView) {
-                        EmptyView()
+                    PrimaryButton(title: "Iniciar sesión"){
+                        path.append("Login")
                     }
                     
                     // Boton Registrarse
-                    SecondaryButton(title: "Regístrate", action: {
-                        showRegisterView = true
-                    })
-                    
-
-                    NavigationLink(destination: TipoCuentaView(), isActive: $showRegisterView) {
-                        EmptyView()
+                    SecondaryButton(title: "Regístrate"){
+                        path.append("TipoCuenta")
                     }
                     
                     Text("Salud sin barreras")
@@ -69,13 +60,24 @@ struct TECuidoView: View {
                         .bold()
                         .padding(3)
                         .padding(.top, 30)
-                    
                 }
             }
+            .navigationDestination(for: String.self){ tag in
+                switch tag {
+                case LoginView.tag:
+                    LoginView(path: $path)
+                case TipoCuentaView.tag:
+                    TipoCuentaView(path: $path)
+                default:
+                    TECuidoView()
+                }
+            }
+              
+            
+            
         }//aqui termina navigation view
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
 }
 
 

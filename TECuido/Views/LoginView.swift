@@ -9,6 +9,9 @@ struct LoginView: View {
     
     @EnvironmentObject var session: SessionManager
     @StateObject var viewModel = UsuarioViewModel()
+    @Binding var path: NavigationPath
+    
+    static var tag = "Login"
     
     var body: some View {
             ZStack{
@@ -127,6 +130,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(path: .constant(NavigationPath()))
     }
 }

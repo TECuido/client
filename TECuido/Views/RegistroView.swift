@@ -10,9 +10,10 @@ import SwiftUI
 struct RegistroView: View {
         
     @EnvironmentObject var session: SessionManager
-
     @Binding var typeCuenta: TipoUsuario?
     @StateObject var viewModel = RegistroViewModel()
+    
+    static var tag = "Registro"
     
     var body: some View {
         
