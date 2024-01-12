@@ -12,20 +12,16 @@ struct TipoCuentaView: View {
     @StateObject var viewModel = RegistroViewModel()
     @State private var showRegisterView = false
     @State private var selectedCuenta: TipoUsuario?
+    @Binding var path: NavigationPath
+
+    
+    static var tag = "TipoCuenta"
 
     var body: some View {
         
                 ZStack{
-                    //Diseño
-                    Color(red: 0.1294,green: 0.5882,blue: 0.9529)
-                        .ignoresSafeArea()
-                    Circle()
-                        .scale(2)
-                        .foregroundColor(.white.opacity(0.15))
-                    Circle()
-                        .scale(1.75)
-                        .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
-                    
+                    Color("BackgroundColor")
+
                     // Texto general
                     VStack{
                         Spacer()
@@ -106,6 +102,6 @@ struct TipoCuentaView: View {
 
 struct TipoCuentaView_Previews: PreviewProvider {
     static var previews: some View {
-        TipoCuentaView()
+        TipoCuentaView(path: .constant(NavigationPath()))
     }
 }

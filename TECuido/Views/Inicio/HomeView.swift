@@ -17,6 +17,9 @@ struct HomeView: View {
     @State private var showLlamadasView = false
     @State private var showLesionesView = false
     @State private var scale = 1.0
+    @Binding var path: NavigationPath
+    
+    static var tag = "Home"
     
     
     var body: some View {
@@ -75,7 +78,7 @@ struct HomeView: View {
                         Button(action: {
                             showLlamadasView = true
                         }) {
-                            createSection(title: "Llamadas", iconName: "phone.fill.arrow.down.left", hint: "Realiza una llamada traduciendo de señas a voz")
+                            createSection(title: "Perfil de Usuario", iconName: "person.crop.circle.fill", hint: "Ve tu perfil de usuario")
                         }
                         
                         // Botón para la vista de Lesiones
@@ -116,7 +119,7 @@ struct HomeView: View {
                 NavigationLink("", destination: RecetasView(),isActive: $showRecetasMedicasView)
             )
             .background(
-                NavigationLink("", destination: TabLlamadasView(),isActive: $showLlamadasView)
+                NavigationLink("", destination: UsuarioDetallesView(),isActive: $showLlamadasView)
             )
             .background(
                 NavigationLink("", destination: LesionesView(), isActive: $showLesionesView)
@@ -154,7 +157,7 @@ struct HomeView: View {
 }
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(path: .constant(NavigationPath()))
     }
 }
 

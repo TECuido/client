@@ -44,7 +44,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
                 
-        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+        guard let _ = userInfo["aps"] as? [String: AnyObject] else {
             completionHandler(.failed)
             return
         }
@@ -65,7 +65,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         
         let userInfo = response.notification.request.content.userInfo
 
-        if let aps = userInfo["aps"] as? [String: AnyObject] {
+        if let _ = userInfo["aps"] as? [String: AnyObject] {
             // Do what you want with the notification
             self.notificationViewModel.setEmergencia(notification: userInfo)
         }
