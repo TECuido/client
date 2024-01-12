@@ -10,18 +10,22 @@ import Foundation
 
 import Foundation
 
-struct MedicamentosActualesModel : Identifiable, Decodable{
-    var id: Int
-    var nombre : String
-    var idUsuario : Int
-    
+struct MedicamentosActualesModel : Codable, Hashable {
+    var nombre: String
+    var idUsuario: Int
+
     enum CodingKeys: String, CodingKey {
-        case id = "idMedicamentoActual"
         case nombre = "nombre"
         case idUsuario = "idUsuario"
+    }
+
+ 
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(nombre)
+        hasher.combine(idUsuario)
     }
 }
 extension MedicamentosActualesModel  {
     public static var example =
-    MedicamentosActualesModel (id: 1, nombre: "Loratadina"  ,idUsuario: 1)
+    MedicamentosActualesModel ( nombre: "Loratadina"  ,idUsuario: 1)
 }

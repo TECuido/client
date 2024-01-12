@@ -61,8 +61,7 @@ struct ListaContactosLlamadaView: View {
                             .onTapGesture{
                                 Task  {
                                     viewModel.showLlamadaView = true
-                                    //viewModel.selected = index
-                                    //await viewModel.createCall()
+                                   
                                 }
                             }
                             
