@@ -11,7 +11,7 @@ struct PasswordInput: View {
     
     @Binding var inputText: String
     var inputPrompt: String
-    var inputError: Int
+    var inputError: Int = 0
     
     var body: some View {
         HStack {

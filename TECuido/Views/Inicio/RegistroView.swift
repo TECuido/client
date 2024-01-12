@@ -18,151 +18,47 @@ struct RegistroView: View {
     var body: some View {
         
                 ZStack{
-                    //Diseño
-                    Color(red: 0.1294,green: 0.5882,blue: 0.9529)
-                        .ignoresSafeArea()
-                    Circle()
-                        .scale(2)
-                        .foregroundColor(.white.opacity(0.15))
-                    Circle()
-                        .scale(1.75)
-                        .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
+                    Color("BackgroundColor")
                     
                     // Texto general
                     VStack{
-                        Text("Registro")
-                            .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                            .font(.system(size: 45))
-                            .bold()
-                            .padding(20)
+                        Title(text:"Regístrate")
                         
                         //Input Nombre
-                        HStack {
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .padding(.leading, 16)
-                            TextField("",
-                                      text: $viewModel.nombre,
-                                      prompt: Text("Nombre")
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                              )
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                .font(.title3)
-                                .padding(.leading, 10)
-                        }
-                        .frame(width: 325, height: 55)
-                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                        .cornerRadius(20)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(viewModel.nombreError)*2)
-                        }
-                        .padding([.top, .bottom], 10)
+                        Input(inputText: $viewModel.nombre,
+                              inputPrompt: "Nombre",
+                              icon: "person.fill",
+                              iconSize: (24, 24),
+                              iconPadding: 16,
+                              inputError: viewModel.nombreError)
                         
-                        //Input Correo
-                        HStack {
-                            Image(systemName: "envelope.fill")
-                                .resizable()
-                                .frame(width: 30, height: 20)
-                                .padding(.leading, 15)
-                            TextField("",
-                                      text: $viewModel.correo,
-                                      prompt: Text("Correo electrónico")
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                              )
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                .font(.title3)
-                                .padding(.leading, 5)
-                                .autocapitalization(.none)
-                        }
-                        .frame(width: 325, height: 55)
-                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                        .cornerRadius(20)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(viewModel.correoError)*2)
-                        }
-                        .padding([.top, .bottom], 10)
+                        Input(inputText: $viewModel.correo,
+                              inputPrompt: "Correo elctrónico",
+                              icon: "envelope.fill",
+                              iconSize: (30, 20),
+                              iconPadding: 15,
+                              inputError: viewModel.correoError)
                         
                         
-                        //Input Contraseña
-                        HStack {
-                            Image(systemName: "lock.fill")
-                                .resizable()
-                                .frame(width: 17, height: 25)
-                                .padding(.leading, 20)
-                            SecureField("",
-                                      text: $viewModel.password,
-                                      prompt: Text("Contraseña")
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                              )
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                .font(.title3)
-                                .padding(.leading, 13)
-                                .autocapitalization(.none)
-
-                        }
-                        .frame(width: 325, height: 55)
-                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                        .cornerRadius(20)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(viewModel.passwordError)*2)
-                        }
-                        .padding([.top, .bottom], 10)
+                        PasswordInput(
+                            inputText: $viewModel.password,
+                            inputPrompt: "Contraseña",
+                            inputError: viewModel.passwordError)
                         
+                        PasswordInput(
+                            inputText: $viewModel.confPassword,
+                            inputPrompt: "Confirma tu contraseña",
+                            inputError: viewModel.confPassError)
                         
-                        //Input Confirmar contraseña
-                        HStack {
-                            Image(systemName: "lock.fill")
-                                .resizable()
-                                .frame(width: 17, height: 25)
-                                .padding(.leading, 20)
-                            SecureField("",
-                                        text: $viewModel.confPassword,
-                                        prompt: Text("Confirma tu contraseña")
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                              )
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                .font(.title3)
-                                .padding(.leading, 13)
-                                .autocapitalization(.none)
-                        }
-                        .frame(width: 325, height: 55)
-                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                        .cornerRadius(20)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.red, lineWidth: CGFloat(viewModel.confPassError)*2)
-                        }
-                        .padding([.top, .bottom], 10)
-                    
-            
-                        // Aqui validamos que este incorrecto
-                        Text(viewModel.message)
-                            .font(.body)
-                            .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                            .frame(width: 300)
-                            .padding(.top, 5)
-                            .multilineTextAlignment(.center)
+                        // Mostramos si hay un error
+                        ErrorMessage(errorText: viewModel.message)
                         
-                        //Boton
-                        Button("Registrarme"){
+                        PrimaryButton(title: "Registrarme"){
                             Task {
                                 await viewModel.register(idTipo: typeCuenta?.rawValue ?? 0)
                                 session.tipoUsuario = viewModel.tipoUsuario
                             }
                         }
-                        .foregroundColor(.white)
-                        .bold()
-                        .frame(width: 300, height:55)
-                        .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .cornerRadius(25)
-                        .padding(10)
-                        .font(.title2)
-                                                
-                        
                         
                         
                     }

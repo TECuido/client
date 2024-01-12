@@ -118,6 +118,8 @@
 		FBE093EF2B51049500A49DE1 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093EE2B51049500A49DE1 /* FontSize.swift */; };
 		FBE093F22B510A0E00A49DE1 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093F12B510A0E00A49DE1 /* Input.swift */; };
 		FBE093F42B51184200A49DE1 /* PasswordInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093F32B51184200A49DE1 /* PasswordInput.swift */; };
+		FBE093F72B51BD4400A49DE1 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093F62B51BD4400A49DE1 /* Title.swift */; };
+		FBE093F92B51C25300A49DE1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */; };
 		FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */; };
 		FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */; };
 		FBEAC1832AE3224200934F95 /* ListaRecetasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEAC1822AE3224100934F95 /* ListaRecetasViewModel.swift */; };
@@ -244,6 +246,8 @@
 		FBE093EE2B51049500A49DE1 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		FBE093F12B510A0E00A49DE1 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		FBE093F32B51184200A49DE1 /* PasswordInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInput.swift; sourceTree = "<group>"; };
+		FBE093F62B51BD4400A49DE1 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostrarRecetaView.swift; sourceTree = "<group>"; };
 		FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaGrupoView.swift; sourceTree = "<group>"; };
 		FBEAC1822AE3224100934F95 /* ListaRecetasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaRecetasViewModel.swift; sourceTree = "<group>"; };
@@ -432,6 +436,7 @@
 		FBA8312E2ADE280A001EAEAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FBE093F52B51BD0000A49DE1 /* Text */,
 				FBE093F02B5109E500A49DE1 /* Inputs */,
 				FBE093EC2B50FA0D00A49DE1 /* Inicio */,
 				FBE093E72B50D28900A49DE1 /* Buttons */,
@@ -595,6 +600,15 @@
 			path = Inputs;
 			sourceTree = "<group>";
 		};
+		FBE093F52B51BD0000A49DE1 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				FBE093F62B51BD4400A49DE1 /* Title.swift */,
+				FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -718,6 +732,7 @@
 				FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */,
 				FB732FC82AFC59FA003CE102 /* MapaView.swift in Sources */,
 				FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */,
+				FBE093F92B51C25300A49DE1 /* ErrorMessage.swift in Sources */,
 				FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelViewHerida.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
@@ -768,6 +783,7 @@
 				FBBD9AD22B4E32FE0045DF9D /* CondicionMedica.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */,
 				FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */,
+				FBE093F72B51BD4400A49DE1 /* Title.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */,

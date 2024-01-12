@@ -12,14 +12,16 @@ struct Input: View {
     @Binding var inputText: String
     var inputPrompt: String
     var icon: String
-    var inputError: Int
+    var iconSize: (CGFloat, CGFloat)
+    var iconPadding: CGFloat
+    var inputError: Int = 0
     
     var body: some View {
         HStack {
             Image(systemName: icon)
                 .resizable()
-                .frame(width: 30, height: 20)
-                .padding(.leading, 15)
+                .frame(width: iconSize.0, height: iconSize.1)
+                .padding(.leading, iconPadding)
             TextField("",
                       text: $inputText,
                       prompt: Text(inputPrompt)
@@ -43,7 +45,7 @@ struct Input: View {
 struct
 Input_Previews: PreviewProvider {
     static var previews: some View {
-        Input(inputText: .constant("Input"), inputPrompt: "type your input", icon: "envelope.fill", inputError: 0)
+        Input(inputText: .constant("Input"), inputPrompt: "type your input", icon: "envelope.fill", iconSize: (20, 20), iconPadding:15, inputError: 0)
     }
 }
 

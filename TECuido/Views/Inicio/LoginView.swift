@@ -20,32 +20,26 @@ struct LoginView: View {
                 
                 // Texto general
                 VStack{
-                    Text("Iniciar Sesión")
-                        .foregroundColor(Color("TitleColor"))
-                        .font(.custom("Inter", size: FontSize.title.rawValue))
-                        .bold()
-                        .padding(10)
+                    Title(text:"Iniciar sesión")
                                         
                     //Input Correo
                     Input(inputText: $viewModel.correo,
                           inputPrompt: "Correo electrónico",
                           icon: "envelope.fill", 
+                          iconSize: (30, 20),
+                          iconPadding: 15,
                           inputError: viewModel.correoError)
                     .padding(.top, 40)
                     
+                    //Input contraseña
                     PasswordInput(inputText: $viewModel.password,
                                   inputPrompt: "Contraseña",
                                   inputError: viewModel.passwordError)
                     .padding(.top, 20)
                     
                     
-                    // Aqui validamos que este incorrecto
-                    Text(viewModel.message)
-                        .font(.body)
-                        .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                        .frame(width: 300)
-                        .padding(.top, 5)
-                        .multilineTextAlignment(.center)
+                    // Se muestra un mensaje si es incorrecto
+                    ErrorMessage(errorText: viewModel.message)
                     
                     //Boton
                     PrimaryButton(title: "Iniciar sesión"){

@@ -22,7 +22,6 @@ struct TECuidoView: View {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
                 
-                // Texto general
                 VStack{
                     
                     Text("TECuido")
