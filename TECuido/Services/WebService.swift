@@ -331,8 +331,8 @@ class Webservice {
                 throw NetworkError.decodingError
             }
             
-            guard let aToken = result.accessToken,
-                  let rToken = result.refreshToken else {
+            guard let _ = result.accessToken,
+                  let _ = result.refreshToken else {
                 throw NetworkError.invalidCredentials
             }
             
@@ -383,8 +383,8 @@ class Webservice {
             }
             
             
-            guard let aToken = result.accessToken,
-                  let rToken = result.refreshToken else {
+            guard let _ = result.accessToken,
+                  let _ = result.refreshToken else {
                 throw NetworkError.invalidCredentials
             }
             
@@ -432,8 +432,8 @@ class Webservice {
                 throw NetworkError.decodingError
             }
             
-            guard let aToken = result.accessToken,
-                  let rToken = result.refreshToken else {
+            guard let _ = result.accessToken,
+                  let _ = result.refreshToken else {
                 throw NetworkError.invalidCredentials
             }
             

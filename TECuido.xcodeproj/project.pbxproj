@@ -107,6 +107,14 @@
 		FBC798862B15D1DA00A3E6B5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */; };
 		FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCD14872AFAABB400DF5A8B /* LocationManager.swift */; };
 		FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */; };
+		FBE093E12B50BF8200A49DE1 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBE093DA2B50B9C000A49DE1 /* Inter-Regular.ttf */; };
+		FBE093E22B50BF8A00A49DE1 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBE093DE2B50BA2700A49DE1 /* Lato-Bold.ttf */; };
+		FBE093E32B50BF8A00A49DE1 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBE093DB2B50B9E200A49DE1 /* Inter-ExtraLight.ttf */; };
+		FBE093E42B50BF8A00A49DE1 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBE093D92B50B9A900A49DE1 /* Inter-Bold.ttf */; };
+		FBE093E52B50BF8A00A49DE1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBE093DD2B50BA2700A49DE1 /* Lato-Regular.ttf */; };
+		FBE093E62B50BF8A00A49DE1 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBE093DC2B50BA2700A49DE1 /* Lato-Light.ttf */; };
+		FBE093E92B50D2B400A49DE1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093E82B50D2B400A49DE1 /* PrimaryButton.swift */; };
+		FBE093EB2B50D6E600A49DE1 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093EA2B50D6E600A49DE1 /* SecondaryButton.swift */; };
 		FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */; };
 		FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */; };
 		FBEAC1832AE3224200934F95 /* ListaRecetasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEAC1822AE3224100934F95 /* ListaRecetasViewModel.swift */; };
@@ -222,6 +230,14 @@
 		FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		FBCD14872AFAABB400DF5A8B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FBD9C6F82ADF75B100A436FA /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
+		FBE093D92B50B9A900A49DE1 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		FBE093DA2B50B9C000A49DE1 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		FBE093DB2B50B9E200A49DE1 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FBE093DC2B50BA2700A49DE1 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		FBE093DD2B50BA2700A49DE1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		FBE093DE2B50BA2700A49DE1 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		FBE093E82B50D2B400A49DE1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		FBE093EA2B50D6E600A49DE1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostrarRecetaView.swift; sourceTree = "<group>"; };
 		FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaGrupoView.swift; sourceTree = "<group>"; };
 		FBEAC1822AE3224100934F95 /* ListaRecetasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaRecetasViewModel.swift; sourceTree = "<group>"; };
@@ -353,6 +369,7 @@
 		FB1C317C2AD9C6E200965B4B /* TECuido */ = {
 			isa = PBXGroup;
 			children = (
+				FBE093D82B50B93900A49DE1 /* Fonts */,
 				FB4D56162AF8B1DC00D1C533 /* TECuido.entitlements */,
 				FB4D56062AF8A51A00D1C533 /* Utils */,
 				C0271A4A2AF33A5900024BE5 /* coreML-nanostarter */,
@@ -409,6 +426,7 @@
 		FBA8312E2ADE280A001EAEAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FBE093E72B50D28900A49DE1 /* Buttons */,
 				FB1C318D2AD9C71700965B4B /* RegistroView.swift */,
 				FBB4572C2B4F29B000541CAE /* UsuarioDetallesView.swift */,
 				FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */,
@@ -522,6 +540,28 @@
 			path = LocationUtils;
 			sourceTree = "<group>";
 		};
+		FBE093D82B50B93900A49DE1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FBE093DA2B50B9C000A49DE1 /* Inter-Regular.ttf */,
+				FBE093D92B50B9A900A49DE1 /* Inter-Bold.ttf */,
+				FBE093DB2B50B9E200A49DE1 /* Inter-ExtraLight.ttf */,
+				FBE093DE2B50BA2700A49DE1 /* Lato-Bold.ttf */,
+				FBE093DC2B50BA2700A49DE1 /* Lato-Light.ttf */,
+				FBE093DD2B50BA2700A49DE1 /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FBE093E72B50D28900A49DE1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FBE093E82B50D2B400A49DE1 /* PrimaryButton.swift */,
+				FBE093EA2B50D6E600A49DE1 /* SecondaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -584,10 +624,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE093E22B50BF8A00A49DE1 /* Lato-Bold.ttf in Resources */,
 				C0271A842AF33A5A00024BE5 /* mydata.json in Resources */,
 				FB1C31852AD9C6E400965B4B /* Preview Assets.xcassets in Resources */,
+				FBE093E62B50BF8A00A49DE1 /* Lato-Light.ttf in Resources */,
+				FBE093E42B50BF8A00A49DE1 /* Inter-Bold.ttf in Resources */,
+				FBE093E32B50BF8A00A49DE1 /* Inter-ExtraLight.ttf in Resources */,
 				C0271A822AF33A5A00024BE5 /* mydata3.json in Resources */,
 				C0271A832AF33A5A00024BE5 /* mydata2.json in Resources */,
+				FBE093E52B50BF8A00A49DE1 /* Lato-Regular.ttf in Resources */,
+				FBE093E12B50BF8200A49DE1 /* Inter-Regular.ttf in Resources */,
 				FB1C31822AD9C6E400965B4B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +699,7 @@
 				C0271A752AF33A5A00024BE5 /* LiveCameraRepresentable.swift in Sources */,
 				FBBD9ACC2B4E12450045DF9D /* MedicamentoActualView.swift in Sources */,
 				C0271A722AF33A5A00024BE5 /* ClassificationView.swift in Sources */,
+				FBE093EB2B50D6E600A49DE1 /* SecondaryButton.swift in Sources */,
 				C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				C0271A762AF33A5A00024BE5 /* ClassifierViewModel.swift in Sources */,
@@ -701,6 +748,7 @@
 				FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */,
 				C0271A712AF33A5A00024BE5 /* LesionesView.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FBE093E92B50D2B400A49DE1 /* PrimaryButton.swift in Sources */,
 				FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */,
 				FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */,
 			);
