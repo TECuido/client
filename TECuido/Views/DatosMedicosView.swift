@@ -1,4 +1,3 @@
-//
 //  DatosMedicoaView.swift
 //  TECuido
 //
@@ -7,15 +6,15 @@
 import SwiftUI
 
 struct DatosMedicosView: View {
-    let alergias = ["Alergia1", "Alergia2", "Alergia3"]
-    let condicionesMedicas = ["fCondición1", "Condición2", "Condición3"]
-    let medicamentos = ["Medicamento1", "Medicamento2", "Medicamento3"]
     @State private var mostrarAlergias = false
     @State private var mostrarCondiciones = false
     @State private var mostrarMedicamentos = false
+    @StateObject var viewModel = AlergiaViewModel()
+    @StateObject var viewModel1 = CondicionMedicaViewModel()
+    @StateObject var viewModel2 = MedicamentosActualesViewModel()
 
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView {
                 VStack {
                     // Titulo
@@ -26,19 +25,19 @@ struct DatosMedicosView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 30)
                         .multilineTextAlignment(.center)
-                    
+
                     // Alergias
                     DisclosureGroup("Alergias", isExpanded: $mostrarAlergias) {
                         VStack(alignment: .leading, spacing: 10) {
-                            ForEach(alergias, id: \.self) { alergia in
-                                Text(alergia)
+                            ForEach(viewModel.alergias, id: \.self) { alergia in
+                                Text(alergia.nombre)
                                     .font(.headline)
                                     .frame(width: 200)
                                     .font(.system(size: 25))
                                     .padding(10)
                                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
                             }
-                            // Botón "+" que lleva a AlergiasView
+
                             NavigationLink(destination: AlergiaView()) {
                                 HStack {
                                     Spacer()
@@ -51,20 +50,26 @@ struct DatosMedicosView: View {
                             }
                         }
                         .padding()
-                    }.font(.system(size: 20)) // Tamaño del título
-                    
+                    }
+                    .font(.system(size: 20))
+                    .onAppear {
+                        Task {
+                            await viewModel.getAlergias()
+                        }
+                    }
+
                     // Condiciones Médicas
                     DisclosureGroup("Condiciones Médicas", isExpanded: $mostrarCondiciones) {
                         VStack(alignment: .leading, spacing: 10) {
-                            ForEach(condicionesMedicas, id: \.self) { condicion in
-                                Text(condicion)
+                            ForEach(viewModel1.condicion, id: \.self) { condiciones in
+                                Text(condiciones.nombre)
                                     .font(.headline)
                                     .frame(width: 200)
                                     .font(.system(size: 25))
                                     .padding(10)
                                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
                             }
-                            // Botón "+" que lleva a CondicionMedicaView
+
                             NavigationLink(destination: CondicionMedicaView()) {
                                 HStack {
                                     Spacer()
@@ -77,20 +82,27 @@ struct DatosMedicosView: View {
                             }
                         }
                         .padding()
-                    }.font(.system(size: 20)) // Tamaño del título
-                    
+                    }
+                    .font(.system(size: 20))
+                    .onAppear {
+                        Task {
+                            await viewModel1.getCondicionMedica()
+                        }
+                    }
+
+
                     // Medicamentos
                     DisclosureGroup("Medicamentos", isExpanded: $mostrarMedicamentos) {
                         VStack(alignment: .leading, spacing: 10) {
-                            ForEach(medicamentos, id: \.self) { medicamento in
-                                Text(medicamento)
+                            ForEach(viewModel2.medicamento, id: \.self) { medicamento in
+                                Text(medicamento.nombre)
                                     .font(.headline)
                                     .frame(width: 200)
                                     .font(.system(size: 25))
                                     .padding(10)
                                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
                             }
-                            // Botón "+" que lleva a MedicamentoActualView
+
                             NavigationLink(destination: MedicamentoActualView()) {
                                 HStack {
                                     Spacer()
@@ -104,19 +116,26 @@ struct DatosMedicosView: View {
                         }
                         .padding()
                     }
+                    .font(.system(size: 20))
+                    .onAppear {
+                        Task {
+                            await viewModel2.getMedicamentosActuales()
+                        }
+                    }
+
                 }
                 .padding()
-            }.font(.system(size: 20)) // Tamaño del título
-        } .background(Color.white)
+            }
+            .background(Color.white)
             .cornerRadius(10)
             .shadow(radius: 5)
             .padding()
+        }
     }
-}
 
-
-struct DatosMedicoaView_Previews: PreviewProvider {
-    static var previews: some View {
-        DatosMedicosView()
+    struct DatosMedicoaView_Previews: PreviewProvider {
+        static var previews: some View {
+            DatosMedicosView()
+        }
     }
 }
