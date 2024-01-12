@@ -21,9 +21,9 @@ struct NuevaEmergenciaView: View {
             VStack{
                 Text("Emergencias")
                     .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                    .font(.system(size: 45))
+                    .font(.system(size: 40))
                     .bold()
-                    .padding()
+                   
                 //Fila 1
                 HStack{
                     //Boton Medico Inicia
@@ -192,12 +192,12 @@ struct NuevaEmergenciaView: View {
                    
                 }
                 //Selección de contactos
-                Text("Selecciona los contactos a avisar")
+                Text("Selecciona los grupos a avisar")
                     .font(.title2)
                     .frame(width:340)
                     .multilineTextAlignment(.center)
                 
-                Picker("Selecciona un contacto", selection: $viewModel.selectedOptionContacto){
+                Picker("Selecciona un grupo", selection: $viewModel.selectedOptionContacto){
                     ForEach(viewModel.gruposNombres, id: \.self) { grupo in
                         Text(grupo)
                             .font(.title)
@@ -216,10 +216,10 @@ struct NuevaEmergenciaView: View {
                 }
                 .foregroundColor(.white)
                 .bold()
-                .frame(width: 300, height: 55)
+                .frame(width: 300, height: 45)
                 .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
                 .cornerRadius(25)
-                .padding(30)
+                .padding(5)
                 .font(.title2)
         }
             
@@ -244,10 +244,10 @@ struct NuevaEmergenciaView: View {
                     .foregroundColor(.white)
                     .frame(width: 30, height: 30)
             }
-            .frame(width: 145, height: 112)
+            .frame(width: 145, height: 100)
             .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
             .cornerRadius(16)
-            .padding(5)
+            
             .foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))
             .font(.title)
             .accessibilityLabel(title)
