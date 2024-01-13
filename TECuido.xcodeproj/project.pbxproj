@@ -515,12 +515,11 @@
 		FBA831302ADE298A001EAEAE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FB60F5022ADA1829001E430D /* UsuarioModel.swift */,
+				FBE094022B52064A00A49DE1 /* Usuario */,
 				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
 				FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */,
 				FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */,
 				FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */,
-				FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */,
 				FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */,
 				FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */,
 				FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */,
@@ -616,6 +615,15 @@
 				FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		FBE094022B52064A00A49DE1 /* Usuario */ = {
+			isa = PBXGroup;
+			children = (
+				FB60F5022ADA1829001E430D /* UsuarioModel.swift */,
+				FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */,
+			);
+			path = Usuario;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

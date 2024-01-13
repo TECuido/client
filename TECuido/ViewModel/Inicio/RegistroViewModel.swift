@@ -29,50 +29,60 @@ class RegistroViewModel : ObservableObject {
         do {
             //checar que todos los campos fueran llenados
             if(correo.isEmpty || password.isEmpty || nombre.isEmpty || confPassword.isEmpty){
-                self.nombreError = nombre.isEmpty ? 1 : 0
-                self.correoError = correo.isEmpty ? 1 : 0
-                self.passwordError = password.isEmpty ? 1 : 0
-                self.confPassError = confPassword.isEmpty ? 1 : 0
+                DispatchQueue.main.async {
+                    self.nombreError = self.nombre.isEmpty ? 1 : 0
+                    self.correoError = self.correo.isEmpty ? 1 : 0
+                    self.passwordError = self.password.isEmpty ? 1 : 0
+                    self.confPassError = self.confPassword.isEmpty ? 1 : 0
+                }
                 
                 throw ValidationError.error(description: "Debes completar todos los campos")
             }
             
             //checar que la contraseña y confirmación de contraseña coincidan
             if(password != confPassword){
-                self.nombreError = 0
-                self.correoError = 0
-                self.passwordError = 1
-                self.confPassError = 1
+                DispatchQueue.main.async {
+                    self.nombreError = 0
+                    self.correoError = 0
+                    self.passwordError = 1
+                    self.confPassError = 1
+                }
                 
                 throw ValidationError.error(description: "Las contraseñas no coinciden")
             }
             
             //checar que el email sea válido
             if(!isValidEmail(email: correo)){
-                self.nombreError = 0
-                self.correoError = 1
-                self.passwordError = 0
-                self.confPassError = 0
+                DispatchQueue.main.async {
+                    self.nombreError = 0
+                    self.correoError = 1
+                    self.passwordError = 0
+                    self.confPassError = 0
+                }
                 throw ValidationError.error(description: "Correo inválido")
             }
             
             //checar que la contraseña sea válida
             if(!isValidPassword(password: password)){
-                self.nombreError = 0
-                self.correoError = 0
-                self.passwordError = 1
-                self.confPassError = 0
+                DispatchQueue.main.async {
+                    self.nombreError = 0
+                    self.correoError = 0
+                    self.passwordError = 1
+                    self.confPassError = 0
+                }
                 
                 let errores = getMissingValidation(str: password).joined(separator: ", ")
                 
                 throw ValidationError.error(description: "La contraseña debe tener \(errores)")
             }
             
-            self.nombreError = 0
-            self.correoError = 0
-            self.passwordError = 0
-            self.confPassError = 0
-            self.message = ""
+            DispatchQueue.main.async {
+                self.nombreError = 0
+                self.correoError = 0
+                self.passwordError = 0
+                self.confPassError = 0
+                self.message = ""
+            }
             
             //enviar request, anular errores
             let result = await Webservice().register(nombre: nombre, correo: correo, password: password, idTipo: idTipo)

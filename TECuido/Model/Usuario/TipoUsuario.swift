@@ -12,4 +12,3 @@ enum TipoUsuario: Int {
     case personaOyente = 1
     case medico = 2
 }
-

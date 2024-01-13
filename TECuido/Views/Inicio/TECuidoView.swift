@@ -73,6 +73,10 @@ struct TECuidoView: View {
                     TECuidoView()
                 }
             }
+            .navigationDestination(for: TipoUsuario.self){tipo in
+                RegistroView(path: $path,
+                             typeCuenta: tipo)
+            }
               
             
             
