@@ -23,7 +23,7 @@ struct SecondaryButton: View {
         .overlay(
             RoundedRectangle(cornerRadius: 30)
                 .stroke(Color("PrimaryColor"), lineWidth: 2)
-                .shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.25), radius: 5, x: 0, y: 5)
+                .shadow(color: Color("ShadowColor").opacity(0.25), radius: 5, x: 0, y: 5)
         )
         .padding(.top, 30)
         .font(.custom("Lato", size:30))

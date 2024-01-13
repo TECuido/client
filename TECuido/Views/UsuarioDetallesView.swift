@@ -8,7 +8,12 @@
 import SwiftUI
 
  struct UsuarioDetallesView: View {
+     
+     @Binding var path: NavigationPath
      @State private var isEditing = false
+     
+     static var tag = "UsuarioDetallesView"
+     
      var body: some View {
          ScrollView {
              VStack(alignment: .leading, spacing: 10) {
@@ -94,6 +99,6 @@ import SwiftUI
 
  struct UsuarioDetallesView_Previews: PreviewProvider {
      static var previews: some View {
-         UsuarioDetallesView()
+         UsuarioDetallesView(path: .constant(NavigationPath()))
      }
  }
