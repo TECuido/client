@@ -69,6 +69,8 @@ struct TECuidoView: View {
                     TipoCuentaView(path: $path)
                 case HomeView.tag:
                     HomeView(path: $path)
+                case AgregarUsuarioDetallesView.tag:
+                    AgregarUsuarioDetallesView(path: $path)
                 default:
                     TECuidoView()
                 }

@@ -9,6 +9,7 @@ import SwiftUI
 
  struct UsuarioDetallesView: View {
      @State private var isEditing = false
+     @StateObject var viewModel = GetUsuarioDetallesViewModel()
      var body: some View {
          ScrollView {
              VStack(alignment: .leading, spacing: 10) {
@@ -27,7 +28,7 @@ import SwiftUI
                      Spacer()
 
                      Button(action: {
-                         // Aquí puedes agregar la lógica para activar el modo de edición
+                        
                          isEditing.toggle()
                      }) {
                          Image(systemName: isEditing ? "pencil.circle.fill" : "pencil.circle")
@@ -39,15 +40,20 @@ import SwiftUI
                  .padding()
 
                  VStack(alignment: .leading, spacing: 15) {
-                     InfoRow(titulo: "Nombre del paciente", respuesta: "Alejandro Esparza")
-                     InfoRow(titulo: "Numero de poliza", respuesta: "12343")
-                     InfoRow(titulo: "Edad", respuesta: "21 años")
-                     InfoRow(titulo: "Direccion", respuesta: "Calle Floresta, Colonia Altavista C.P. 22322")
-                     InfoRow(titulo: "Contacto de Emergencia", respuesta: "Carlos Rodriguez\ncarlosr@gmail.com")
-                     InfoRow(titulo: "Medico tratante", respuesta: "Kraken Cordova")
-                     InfoRow(titulo: "Tipo de Sangre", respuesta: "O+")
-                     InfoRow(titulo: "Donacion de Organos", respuesta: "Si")
-                     InfoRow(titulo: "Donacion de Sangre", respuesta: "Si")
+                     if let usuario = viewModel.usuarioDetalles.first {
+                                             InfoRow(titulo: "Nombre del paciente", respuesta: usuario.Usuario.nombre)
+                                             InfoRow(titulo: "Numero de poliza", respuesta: usuario.numPoliza ?? "")
+                                             InfoRow(titulo: "Edad", respuesta: usuario.edad )
+                                             InfoRow(titulo: "Direccion", respuesta: usuario.direccion )
+                                             InfoRow(titulo: "Contacto de Emergencia", respuesta: "\(usuario.contactoEmergencia.nombre)\n\(usuario.contactoEmergencia.correo)")
+                                             InfoRow(titulo: "Medico tratante", respuesta: usuario.medicoTratante )
+                                             InfoRow(titulo: "Tipo de Sangre", respuesta: usuario.tipoSangre)
+                                             InfoRow(titulo: "Donacion de Organos", respuesta: usuario.donacionOrganos)
+                                             InfoRow(titulo: "Donacion de Sangre", respuesta: usuario.transfusionSanguinea)
+                                         } else {
+                                             Text("No se encontraron detalles del usuario.")
+                                                 .foregroundColor(.red)
+                                         }
                  }
                  .padding()
 
@@ -70,6 +76,12 @@ import SwiftUI
              .shadow(radius: 5)
              .padding()
          }
+         // Llamada a la función getUsuarioDetalles al aparecer la vista
+                         .onAppear {
+                             Task {
+                                 await viewModel.getUsuarioDetalles()
+                             }
+
      }
  }
 
@@ -90,6 +102,7 @@ import SwiftUI
              Divider().background(Color.gray.opacity(0.2)) // Divider gris
          }
      }
+ }
  }
 
  struct UsuarioDetallesView_Previews: PreviewProvider {

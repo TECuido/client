@@ -62,7 +62,7 @@ struct RegistroView: View {
                                 await viewModel.register(idTipo: typeCuenta.rawValue)
                                 if(viewModel.isAuthenticated){
                                     session.tipoUsuario = viewModel.tipoUsuario
-                                    path.append(HomeView.tag)
+                                    path.append(AgregarUsuarioDetallesView.tag)
                                 }
                             }
                         }
