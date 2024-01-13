@@ -11,7 +11,7 @@ import SwiftUI
 class ListaRecetasViewModel : ObservableObject {
     
     
-    @Published var recetas: [RecetaModel] = []
+    @Published var recetas: [RecetaModel] = [RecetaModel.defaultReceta]
     @Published var failedAuthentication: Bool = false
 
         

@@ -11,10 +11,13 @@ import SwiftUI
 
 struct GruposDetallesView: View {
     
+    @Binding var path: NavigationPath
     @State var grupo: GrupoModel
     @StateObject var viewModel = GrupoDetailViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
+    
+    static var tag = "EditarGrupoView"
    
     
     var body: some View {
@@ -29,8 +32,6 @@ struct GruposDetallesView: View {
                         .frame(width: 280)
                         .padding()
                         .multilineTextAlignment(.center)
-                    
-                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                     
                     // Lista de contactos
                     
@@ -97,7 +98,7 @@ struct GruposDetallesView: View {
     
 struct GruposDetalleView_Previews: PreviewProvider {
     static var previews: some View {
-        GruposDetallesView(grupo: GrupoModel.example)
+        GruposDetallesView(path: .constant(NavigationPath()), grupo: GrupoModel.example)
     }
 }
 

@@ -98,6 +98,9 @@
 		FBB123892B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */; };
 		FBB1238B2B530AF20064DE07 /* UsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */; };
 		FBB1238D2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1238C2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift */; };
+		FBB123942B5334020064DE07 /* OptionsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123932B5334020064DE07 /* OptionsAlert.swift */; };
+		FBB123962B5337AD0064DE07 /* AcceptAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123952B5337AD0064DE07 /* AcceptAlert.swift */; };
+		FBB123992B534FE50064DE07 /* GrupoNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123982B534FE50064DE07 /* GrupoNavigationModel.swift */; };
 		FBB3D0012B4C6551003CEF52 /* UsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBD9AC82B4DFFF80045DF9D /* CondicionMedicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */; };
@@ -238,6 +241,9 @@
 		FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
 		FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
 		FBB1238C2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarUsuarioDetallesView.swift; sourceTree = "<group>"; };
+		FBB123932B5334020064DE07 /* OptionsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsAlert.swift; sourceTree = "<group>"; };
+		FBB123952B5337AD0064DE07 /* AcceptAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptAlert.swift; sourceTree = "<group>"; };
+		FBB123982B534FE50064DE07 /* GrupoNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoNavigationModel.swift; sourceTree = "<group>"; };
 		FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDetallesModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondicionMedicaView.swift; sourceTree = "<group>"; };
@@ -476,6 +482,8 @@
 		FBB1238F2B530C150064DE07 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FBB123972B533DED0064DE07 /* List */,
+				FBB123922B53291E0064DE07 /* Alerts */,
 				FBE094172B5254A500A49DE1 /* TabView */,
 				FBE093F52B51BD0000A49DE1 /* Text */,
 				FBE093F02B5109E500A49DE1 /* Inputs */,
@@ -508,6 +516,22 @@
 				FBBD9AD12B4E32FE0045DF9D /* CondicionMedica.swift */,
 			);
 			path = Perfil;
+			sourceTree = "<group>";
+		};
+		FBB123922B53291E0064DE07 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				FBB123932B5334020064DE07 /* OptionsAlert.swift */,
+				FBB123952B5337AD0064DE07 /* AcceptAlert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		FBB123972B533DED0064DE07 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = List;
 			sourceTree = "<group>";
 		};
 		FBCD14862AFAABA300DF5A8B /* LocationUtils */ = {
@@ -761,6 +785,7 @@
 				FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */,
 				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
 				FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */,
+				FBB123982B534FE50064DE07 /* GrupoNavigationModel.swift */,
 			);
 			path = Contactos;
 			sourceTree = "<group>";
@@ -891,7 +916,9 @@
 				FBAA58652B505ECA00FC6812 /* EditarUsuariosDetallesView.swift in Sources */,
 				FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */,
 				FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */,
+				FBB123992B534FE50064DE07 /* GrupoNavigationModel.swift in Sources */,
 				FBE093FD2B51CD3B00A49DE1 /* CondicionMedicaViewModel.swift in Sources */,
+				FBB123962B5337AD0064DE07 /* AcceptAlert.swift in Sources */,
 				FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */,
 				FBE094192B52551300A49DE1 /* MainTabView.swift in Sources */,
 				FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */,
@@ -1005,6 +1032,7 @@
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,
 				FB5F055E2B06CCD9005D5403 /* MedicamentoDetalleModel.swift in Sources */,
 				FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */,
+				FBB123942B5334020064DE07 /* OptionsAlert.swift in Sources */,
 				C0271A712AF33A5A00024BE5 /* LesionesView.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
 				FBE093E92B50D2B400A49DE1 /* PrimaryButton.swift in Sources */,

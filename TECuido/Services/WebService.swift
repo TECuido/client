@@ -10,6 +10,7 @@ import Foundation
 
 enum NetworkError: Error {
     case invalidURL
+    case badRequest
     case badResponse
     case decodingError
     case badStatus(error: Int, message: String = "Error")
@@ -75,7 +76,9 @@ class Webservice {
             var request = URLRequest(url: url)
         
             
-            let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
+            guard let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) else {
+                throw NetworkError.badRequest
+            }
             request.addValue("Bearer \(tokens.accessToken)", forHTTPHeaderField: "Authorization")
             
             
@@ -112,7 +115,10 @@ class Webservice {
             return .success(result)
         } catch NetworkError.invalidURL {
             return .failure(.invalidURL)
-        } catch NetworkError.badResponse {
+        } catch NetworkError.badRequest {
+            return .failure(.badRequest)
+        }
+        catch NetworkError.badResponse {
             return .failure(.badResponse)
         } catch NetworkError.badStatus(let error, let message) {
             return .failure(.badStatus(error: error, message: message))

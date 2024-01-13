@@ -7,12 +7,16 @@
 import SwiftUI
 
 struct EditarGrupoView: View {
+    
+    @Binding var path: NavigationPath
     @State var grupo: GrupoModel
     @Environment(\.presentationMode) var presentationMode
     @StateObject var EditarGrupoVM = EditarGrupoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
 //    @State private var confirmarEditar = false
     
+    
+    static var tag = "EditarGrupoView"
 
     var body: some View {
 
@@ -198,6 +202,6 @@ struct EditarGrupoView: View {
 
 struct EditarGrupoView_Previews: PreviewProvider {
     static var previews: some View {
-        EditarGrupoView(grupo: GrupoModel.example)
+        EditarGrupoView(path: .constant(NavigationPath()), grupo: GrupoModel.example)
     }
 }

@@ -81,6 +81,10 @@ struct TECuidoView: View {
                     RecetasView(path: $path)
                 case ContactosView.tag:
                     ContactosView(path: $path)
+                case ContactosDetallesView.tag:
+                    ContactosDetallesView(path: $path)
+                case CreaGrupoView.tag:
+                    CreaGrupoView(path: $path)
                 default:
                     TECuidoView()
                 }
@@ -88,6 +92,17 @@ struct TECuidoView: View {
             .navigationDestination(for: TipoUsuario.self){tipo in
                 RegistroView(path: $path,
                              typeCuenta: tipo)
+            }
+            .navigationDestination(for: GrupoModel.self){grupo in
+                GruposDetallesView(path: $path, grupo: grupo)
+            }
+            .navigationDestination(for: GrupoNavigationModel.self){item in
+                switch item.tag {
+                case EditarGrupoView.tag:
+                    EditarGrupoView(path: $path, grupo: item.grupo)
+                default:
+                    TECuidoView()
+                }
             }
               
             

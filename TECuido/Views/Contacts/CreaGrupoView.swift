@@ -10,6 +10,8 @@
 import SwiftUI
 
 struct CreaGrupoView: View {
+    
+    @Binding var path: NavigationPath
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = CrearGrupoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
@@ -204,7 +206,7 @@ struct CreaGrupoView: View {
 
 struct CreaGrupoView_Previews: PreviewProvider {
     static var previews: some View {
-        CreaGrupoView()
+        CreaGrupoView(path: .constant(NavigationPath()))
     }
 }
 

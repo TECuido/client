@@ -13,9 +13,6 @@ struct ListaGruposView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @StateObject var viewModel = ListaGrupoViewModel()
-    @State private var showDetallesView = false
-    @State private var showAgregaView = false
-    @State private var showEditarView = false
     @State private var showEliminarView = false
     
     @Binding var path: NavigationPath
@@ -29,33 +26,43 @@ struct ListaGruposView: View {
                 .ignoresSafeArea()
             
             ScrollView {
+                             
+                Spacer()
+            
+                Title(text: "Grupos")
                 
-                VStack {
+                if viewModel.grupos.isEmpty {
+                    Image(systemName: "person.crop.circle.fill.badge.xmark")
+                        .resizable()
+                        .frame(width: 180,height: 150)
+                        .foregroundColor(Color("Red"))
+                        .padding(20)
                     
-                    Title(text: "Grupos")
-                    
+                    SubTitle(text: "No hay grupos agregados")
+                }
+                else {
                     List {
                         ForEach(viewModel.grupos){ item in
                             
                             ZStack {
                                 
-                                NavigationLink(destination: GruposDetallesView(grupo: item)){
+                                NavigationLink(value: item){
                                     EmptyView()
                                 }
                                 
                                 HStack {
                                     Text(item.nombre)
-                                        .listRowBackground(Color(red: 0.85, green: 0.85, blue: 0.85))
-                                        .padding([.top, .bottom], 10)
-                                        .font(.title2)
+                                        .font(.custom("Lato", size:FontSize.text.rawValue))
                                     
                                     Spacer()
                                     
                                     Menu{
                                         Button(action: {
-                                            viewModel.grupoSeleccionado = item
-                                            showEditarView = true
-
+                                            path.append(GrupoNavigationModel(
+                                                    tag: GruposDetallesView.tag,
+                                                    grupo: item
+                                                )
+                                            )
                                         }){
                                             Label("Editar", systemImage: "pencil")
                                         }
@@ -70,53 +77,45 @@ struct ListaGruposView: View {
                                     }label: {
                                         Image(systemName: "ellipsis.circle")
                                             .frame(width: 30, height: 30)
-                                            .foregroundColor(.blue)
+                                            .foregroundColor(Color("LightBlue"))
                                     }
                                     
                                     Image(systemName: "chevron.right")
-                                        .foregroundColor(.blue)                                    
+                                        .foregroundColor(.blue)
                                     
                                 }
+                                
                             }
+                            .listRowBackground(Color("BackgroundColor"))
+                            .listRowSeparatorTint(Color("PlaceholderColor"))
                         }
                     }
                     .task {
                         await viewModel.getGrupos()
                     }
                     .alert(isPresented: $showEliminarView) {
-                                            Alert(
-                                                title:
-                                                    Text("Confirmación")
-
-                                                    .font(.title)
-                                                ,
-                                                message: Text("¿Está seguro que desea eliminar este grupo?")
-                                                    .font(.title2),
-                                                primaryButton: .destructive(Text("Eliminar")) {
-                                                    Task{
-                                                        await viewModel.deleteGrupo()
-                                                        await viewModel.getGrupos()
-                                                    }
-                                                },
-                                                secondaryButton: .cancel(Text("Cancelar"))
-                                            )
-                                        }
+                        OptionsAlert(
+                            title: "Eliminar grupo",
+                            message: "¿Estás seguro que deseas eliminar este grupo?")
+                        {
+                            Task{
+                                await viewModel.deleteGrupo()
+                                await viewModel.getGrupos()
+                            }
+                        }
+                    }
                     .frame(minHeight: minRowHeight * 10)
                     .scrollContentBackground(.hidden)
-                    
-                    
-                    FloatingActionButton{
-                        path.append(CreaGrupoView.tag)
-                    }
-                    
-                    
+                    .listStyle(InsetListStyle())
                 }
+    
+                FloatingActionButton{
+                    path.append(CreaGrupoView.tag)
+                }
+                    
             }
         }
-        .background(
-                            NavigationLink("", destination:
-                                            EditarGrupoView(grupo: viewModel.grupoSeleccionado), isActive: $showEditarView)
-                )
+        
     }
 }
 
