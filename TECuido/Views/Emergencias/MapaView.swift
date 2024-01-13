@@ -32,10 +32,4 @@ struct MapaView: View {
     }
 }
 
-/*
-struct MapaView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapaView()
-    }
-}
-*/
+

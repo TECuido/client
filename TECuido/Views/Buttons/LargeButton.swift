@@ -26,7 +26,7 @@ struct LargeButton: View {
                         .frame(width: 60, height: 60)
                     Text(title)
                         .foregroundColor(.white)
-                        .font(.custom("Lato", size: 28))
+                        .font(.custom("Lato", size: FontSize.largeButtonText.rawValue))
                         .bold()
                 }
                 .frame(width: 360, height: 170)

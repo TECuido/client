@@ -138,7 +138,7 @@ extension LiveCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
     ) {
         
         guard
-            let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
+            let _ = CMSampleBufferGetImageBuffer(sampleBuffer),
             let model = model else {
                 return
             }

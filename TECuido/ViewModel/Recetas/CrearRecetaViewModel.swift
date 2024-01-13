@@ -254,7 +254,7 @@ class CrearRecetaViewModel : ObservableObject {
             let result : Result<APIResponseModel<MedicamentoModel>, NetworkError> = await Webservice().postRequest("/medicamentos/receta/\(idReceta)", with: medicamento)
             
             switch result {
-                case .success(let data):
+                case .success(_):
                     return
                 case .failure(let error):
                     switch error {
@@ -273,12 +273,6 @@ class CrearRecetaViewModel : ObservableObject {
                 
             }
             
-        } catch ValidationError.error(let description){
-            DispatchQueue.main.async {
-                self.error = description
-            }
-        } catch {
-            print(error.localizedDescription)
         }
     }
      

@@ -14,6 +14,8 @@ struct CreaGrupoView: View {
     @StateObject var viewModel = CrearGrupoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
+    static var tag = "CrearGrupoView"
+    
     
     var body: some View {
         

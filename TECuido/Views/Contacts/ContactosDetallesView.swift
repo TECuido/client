@@ -14,6 +14,8 @@ struct ContactosDetallesView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = ContactoViewModel()
     
+    static var tag = "ContactosDetalles"
+    
     var body: some View {
         
         ZStack{
