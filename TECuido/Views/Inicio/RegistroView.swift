@@ -10,8 +10,10 @@ import SwiftUI
 struct RegistroView: View {
         
     @EnvironmentObject var session: SessionManager
-    @Binding var typeCuenta: TipoUsuario?
     @StateObject var viewModel = RegistroViewModel()
+    @Binding var path: NavigationPath
+    
+    var typeCuenta: TipoUsuario = .personaOyente
     
     static var tag = "Registro"
     
@@ -23,6 +25,7 @@ struct RegistroView: View {
                     // Texto general
                     VStack{
                         Title(text:"Regístrate")
+                            .padding(.bottom, 20)
                         
                         //Input Nombre
                         Input(inputText: $viewModel.nombre,
@@ -52,11 +55,15 @@ struct RegistroView: View {
                         
                         // Mostramos si hay un error
                         ErrorMessage(errorText: viewModel.message)
+                            .padding(.bottom, -10)
                         
                         PrimaryButton(title: "Registrarme"){
                             Task {
-                                await viewModel.register(idTipo: typeCuenta?.rawValue ?? 0)
-                                session.tipoUsuario = viewModel.tipoUsuario
+                                await viewModel.register(idTipo: typeCuenta.rawValue)
+                                if(viewModel.isAuthenticated){
+                                    session.tipoUsuario = viewModel.tipoUsuario
+                                    path.append(HomeView.tag)
+                                }
                             }
                         }
                         
@@ -73,6 +80,6 @@ struct RegistroView: View {
 
 struct RegistroView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistroView(typeCuenta: .constant(.personaSorda))
+        RegistroView(path: .constant(NavigationPath()), typeCuenta: .personaSorda)
     }
 }

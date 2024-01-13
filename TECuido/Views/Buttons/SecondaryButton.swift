@@ -25,9 +25,10 @@ struct SecondaryButton: View {
                 .stroke(Color("PrimaryColor"), lineWidth: 2)
                 .shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.25), radius: 5, x: 0, y: 5)
         )
-        .padding(.top, 50)
+        .padding(.top, 30)
         .font(.custom("Lato", size:30))
-        .bold()    }
+        .bold()
+    }
 }
 
 struct SecondaryButton_Previews: PreviewProvider {

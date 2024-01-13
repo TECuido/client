@@ -27,7 +27,7 @@ struct Input: View {
                       prompt: Text(inputPrompt)
                       .foregroundColor(Color("PlaceholderColor"))
                 )
-            .font(.custom("Lato", size: 25))
+            .font(.custom("Lato", size: 24))
                 .padding(.leading, 5)
                 .autocapitalization(.none)
         }

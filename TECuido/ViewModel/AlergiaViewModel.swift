@@ -17,6 +17,7 @@
      @Published var alergiaCreada: Bool = false
      
      @Published var failedAuthentication: Bool = false
+     
      public func getAlergias() async {
 
          if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
