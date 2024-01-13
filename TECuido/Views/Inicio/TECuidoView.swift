@@ -67,6 +67,8 @@ struct TECuidoView: View {
                     LoginView(path: $path)
                 case TipoCuentaView.tag:
                     TipoCuentaView(path: $path)
+                case AgregarUsuarioDetallesView.tag:
+                    AgregarUsuarioDetallesView(path: $path)
                 case HomeView.tag:
                     HomeView(path: $path)
                 case LesionesView.tag:

@@ -95,6 +95,10 @@
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
 		FBAA58652B505ECA00FC6812 /* EditarUsuariosDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA58642B505ECA00FC6812 /* EditarUsuariosDetallesView.swift */; };
 		FBB123852B5270120064DE07 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123842B5270120064DE07 /* FloatingActionButton.swift */; };
+		FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */; };
+		FBB123892B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */; };
+		FBB1238B2B530AF20064DE07 /* UsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */; };
+		FBB1238D2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1238C2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift */; };
 		FBB3D0012B4C6551003CEF52 /* UsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBD9AC82B4DFFF80045DF9D /* CondicionMedicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */; };
@@ -232,6 +236,10 @@
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
 		FBAA58642B505ECA00FC6812 /* EditarUsuariosDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarUsuariosDetallesView.swift; sourceTree = "<group>"; };
 		FBB123842B5270120064DE07 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesModel.swift; sourceTree = "<group>"; };
+		FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
+		FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
+		FBB1238C2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarUsuarioDetallesView.swift; sourceTree = "<group>"; };
 		FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDetallesModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondicionMedicaView.swift; sourceTree = "<group>"; };
@@ -402,23 +410,14 @@
 		FBA8312E2ADE280A001EAEAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FBE094172B5254A500A49DE1 /* TabView */,
+				FBB1238F2B530C150064DE07 /* Components */,
+				FBB1238E2B530BCB0064DE07 /* Perfil */,
 				FBE0940B2B521F1500A49DE1 /* Llamadas */,
 				FBE0940A2B521C6B00A49DE1 /* Lesiones */,
 				FBE094092B521C5200A49DE1 /* Recetas */,
 				FBE094082B521C3800A49DE1 /* Emergencias */,
 				FBE094072B521C2200A49DE1 /* Contacts */,
-				FBE093F52B51BD0000A49DE1 /* Text */,
-				FBE093F02B5109E500A49DE1 /* Inputs */,
 				FBE093EC2B50FA0D00A49DE1 /* Inicio */,
-				FBE093E72B50D28900A49DE1 /* Buttons */,
-				FB831C8B2B50416500A89167 /* DatosMedicosView.swift */,
-				FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */,
-				FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */,
-				FBBD9AC92B4E0FFF0045DF9D /* AlergiaView.swift */,
-				FBBD9ACB2B4E12450045DF9D /* MedicamentoActualView.swift */,
-				FBAA58642B505ECA00FC6812 /* EditarUsuariosDetallesView.swift */,
-				FBE094002B51D6A000A49DE1 /* UsuarioDetallesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,15 +425,13 @@
 		FBA8312F2ADE286A001EAEAE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FBB123902B530C4D0064DE07 /* Perfil */,
 				FBE094202B52687500A49DE1 /* Emergencias */,
 				FBE0941F2B52685D00A49DE1 /* Notificaciones */,
 				FBE0941E2B52683800A49DE1 /* Recetas */,
 				FBE0941D2B52681E00A49DE1 /* Llamada */,
 				FBE0941C2B52680500A49DE1 /* Contactos */,
 				FBE093ED2B50FAB900A49DE1 /* Inicio */,
-				FBE093FA2B51CCF800A49DE1 /* AlergiaViewModel.swift */,
-				FBE093FC2B51CD3B00A49DE1 /* CondicionMedicaViewModel.swift */,
-				FBE093FE2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -442,6 +439,7 @@
 		FBA831302ADE298A001EAEAE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FBB123912B530C5C0064DE07 /* Perfil */,
 				FBE094272B52692200A49DE1 /* API */,
 				FBE094262B52690B00A49DE1 /* Llamadas */,
 				FBE094252B5268F600A49DE1 /* Notificaciones */,
@@ -449,12 +447,6 @@
 				FBE094232B5268CC00A49DE1 /* Recetas */,
 				FBE094222B5268B700A49DE1 /* Contactos */,
 				FBE094022B52064A00A49DE1 /* Usuario */,
-				FBBD9ACD2B4E16030045DF9D /* AlergiaModel.swift */,
-				FB5F05412B045571005D5403 /* MedicamentoModel.swift */,
-				FB5F055D2B06CCD8005D5403 /* MedicamentoDetalleModel.swift */,
-				FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */,
-				FBBD9ACF2B4E325B0045DF9D /* MedicamentosActualesModel.swift */,
-				FBBD9AD12B4E32FE0045DF9D /* CondicionMedica.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,6 +459,58 @@
 				FBC798852B15D1DA00A3E6B5 /* SessionManager.swift */,
 			);
 			path = AuthUtils;
+			sourceTree = "<group>";
+		};
+		FBB1238E2B530BCB0064DE07 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				FB831C8B2B50416500A89167 /* DatosMedicosView.swift */,
+				FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */,
+				FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */,
+				FBBD9AC92B4E0FFF0045DF9D /* AlergiaView.swift */,
+				FBBD9ACB2B4E12450045DF9D /* MedicamentoActualView.swift */,
+				FBAA58642B505ECA00FC6812 /* EditarUsuariosDetallesView.swift */,
+				FBE094002B51D6A000A49DE1 /* UsuarioDetallesView.swift */,
+				FBB1238C2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		FBB1238F2B530C150064DE07 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FBE094172B5254A500A49DE1 /* TabView */,
+				FBE093F52B51BD0000A49DE1 /* Text */,
+				FBE093F02B5109E500A49DE1 /* Inputs */,
+				FBE093E72B50D28900A49DE1 /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FBB123902B530C4D0064DE07 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				FBE093FA2B51CCF800A49DE1 /* AlergiaViewModel.swift */,
+				FBE093FC2B51CD3B00A49DE1 /* CondicionMedicaViewModel.swift */,
+				FBE093FE2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift */,
+				FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */,
+				FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		FBB123912B530C5C0064DE07 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */,
+				FBBD9ACD2B4E16030045DF9D /* AlergiaModel.swift */,
+				FB5F05412B045571005D5403 /* MedicamentoModel.swift */,
+				FB5F055D2B06CCD8005D5403 /* MedicamentoDetalleModel.swift */,
+				FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */,
+				FBBD9ACF2B4E325B0045DF9D /* MedicamentosActualesModel.swift */,
+				FBBD9AD12B4E32FE0045DF9D /* CondicionMedica.swift */,
+			);
+			path = Perfil;
 			sourceTree = "<group>";
 		};
 		FBCD14862AFAABA300DF5A8B /* LocationUtils */ = {
@@ -857,6 +901,7 @@
 				FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */,
 				FB5F05642B06F251005D5403 /* CrearRecetaViewModel.swift in Sources */,
 				C0271A742AF33A5A00024BE5 /* LiveCameraViewController.swift in Sources */,
+				FBB123892B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift in Sources */,
 				FBCD14882AFAABB400DF5A8B /* LocationManager.swift in Sources */,
 				FB5F05622B06F000005D5403 /* AgregaRecetaView.swift in Sources */,
 				FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */,
@@ -872,6 +917,7 @@
 				FBE094122B5221DB00A49DE1 /* CNNEmotions.mlmodel in Sources */,
 				FB85685C2B3F7D7900E03B65 /* NuevaEmergenciaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
+				FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */,
 				FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
 				FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */,
@@ -923,6 +969,7 @@
 				FBE094162B5235AE00A49DE1 /* LargeButton.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
 				FB732FCC2AFC6AF6003CE102 /* EmergenciaViewModel.swift in Sources */,
+				FBB1238D2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift in Sources */,
 				FB5F054E2B06B73F005D5403 /* PacientesProfileView.swift in Sources */,
 				FB4D55F82AF315B800D1C533 /* TextToSpeechView.swift in Sources */,
 				FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */,
@@ -944,6 +991,7 @@
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
 				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBBD9AD22B4E32FE0045DF9D /* CondicionMedica.swift in Sources */,
+				FBB1238B2B530AF20064DE07 /* UsuarioDetallesViewModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */,
 				FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */,
 				FBE093F72B51BD4400A49DE1 /* Title.swift in Sources */,
