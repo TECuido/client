@@ -34,7 +34,7 @@ class EditarGrupoViewModel: ObservableObject {
                     }
                 case .failure(let error):
                     switch error {
-                        case .badStatus(let error, let message):
+                        case .badStatus(let error, _):
                             if(error == 401){
                                 DispatchQueue.main.async {
                                     self.failedAuthentication = true
@@ -62,11 +62,11 @@ class EditarGrupoViewModel: ObservableObject {
         let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
 
         switch result {
-            case .success(let data):
+            case .success(_):
                 return
             case .failure(let error):
                 switch error {
-                    case .badStatus(let error, let message):
+                    case .badStatus(let error, _):
                         if(error == 401){
                             DispatchQueue.main.async {
                                 self.failedAuthentication = true
@@ -103,7 +103,7 @@ class EditarGrupoViewModel: ObservableObject {
             }
         case .failure(let error):
             switch error {
-                case .badStatus(let error, let message):
+                case .badStatus(let error, _):
                     if(error == 401){
                         DispatchQueue.main.async {
                             self.failedAuthentication = true
@@ -163,7 +163,7 @@ class EditarGrupoViewModel: ObservableObject {
                 //return
             case .failure(let error):
                 switch error {
-                    case .badStatus(let error, let message):
+                    case .badStatus(let error, _):
                         if(error == 401){
                             DispatchQueue.main.async {
                                 self.failedAuthentication = true
@@ -187,7 +187,7 @@ class EditarGrupoViewModel: ObservableObject {
                     //return
                 case .failure(let error):
                     switch error {
-                        case .badStatus(let error, let message):
+                        case .badStatus(let error, _):
                             if(error == 401){
                                 DispatchQueue.main.async {
                                     self.failedAuthentication = true

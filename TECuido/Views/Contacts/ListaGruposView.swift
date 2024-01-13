@@ -15,28 +15,24 @@ struct ListaGruposView: View {
     @StateObject var viewModel = ListaGrupoViewModel()
     @State private var showDetallesView = false
     @State private var showAgregaView = false
-    
     @State private var showEditarView = false
-        @State private var showEliminarView = false
+    @State private var showEliminarView = false
+    
+    @Binding var path: NavigationPath
+
     
     var body: some View {
         
         ZStack {
 
-            Color(red: 0.98, green: 0.98, blue: 0.98)
+            Color("BackgroundColor")
                 .ignoresSafeArea()
             
             ScrollView {
                 
                 VStack {
                     
-                    Text("Grupos")
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .font(.system(size: 45))
-                        .bold()
-                        .frame(width: 280)
-                        .padding()
-                        .multilineTextAlignment(.center)
+                    Title(text: "Grupos")
                     
                     List {
                         ForEach(viewModel.grupos){ item in
@@ -109,22 +105,10 @@ struct ListaGruposView: View {
                     .scrollContentBackground(.hidden)
                     
                     
-                    VStack{
-                        Button(action:{
-                              showAgregaView = true
-                        }){
-                            Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .foregroundColor(.blue)
-                                .frame(width: 50, height: 50)
-                                .padding(.trailing, 20)
-                        }
+                    FloatingActionButton{
+                        path.append(CreaGrupoView.tag)
                     }
-                    .frame(maxWidth: .infinity, alignment: .trailing)
                     
-                     
-                    NavigationLink("", destination: CreaGrupoView(), isActive: $showAgregaView)
-                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                     
                 }
             }
@@ -138,7 +122,7 @@ struct ListaGruposView: View {
 
 struct ListaGruposView_Previews: PreviewProvider {
     static var previews: some View {
-        ListaGruposView()
+        ListaGruposView(path: .constant(NavigationPath()))
     }
 }
 

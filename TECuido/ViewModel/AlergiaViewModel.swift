@@ -60,7 +60,7 @@
                  let result : Result<APIResponseModel<AlergiaModel>, NetworkError> = await Webservice().postRequest("/alergias", with: data)
 
                  switch result {
-                     case .success(let data):
+                     case .success(_):
 
                      DispatchQueue.main.async {
                          self.alergiaCreada = true

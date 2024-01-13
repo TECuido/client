@@ -37,7 +37,6 @@ struct LoginView: View {
                                   inputError: viewModel.passwordError)
                     .padding(.top, 20)
                     
-                    
                     // Se muestra un mensaje si es incorrecto
                     ErrorMessage(errorText: viewModel.message)
                         .padding(.bottom, -10)

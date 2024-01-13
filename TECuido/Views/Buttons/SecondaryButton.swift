@@ -26,7 +26,7 @@ struct SecondaryButton: View {
                 .shadow(color: Color("ShadowColor").opacity(0.25), radius: 5, x: 0, y: 5)
         )
         .padding(.top, 30)
-        .font(.custom("Lato", size:30))
+        .font(.custom("Lato", size: FontSize.buttonText.rawValue))
         .bold()
     }
 }

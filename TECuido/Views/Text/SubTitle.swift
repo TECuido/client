@@ -1,5 +1,5 @@
 //
-//  Title.swift
+//  SubTitle.swift
 //  TECuido
 //
 //  Created by Alumno on 12/01/24.
@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct Title: View {
+struct SubTitle: View {
+    
     var text: String
     
     var body: some View {
         Text(text)
-            .foregroundColor(Color("TitleColor"))
-            .font(.custom("Inter", size: FontSize.title.rawValue))
+            .font(.custom("Inter", size: FontSize.subtitle.rawValue))
             .bold()
-            .padding(10)
+            .frame(width: 280)
+            .padding()
             .multilineTextAlignment(.center)
     }
 }
 
-struct Title_Previews: PreviewProvider {
+struct Subtitle_Previews: PreviewProvider {
     static var previews: some View {
-        Title(text: "Title")
+        SubTitle(text: "Subtitle")
     }
 }
-

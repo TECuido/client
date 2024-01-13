@@ -12,7 +12,7 @@ struct ErrorMessage: View {
     
     var body: some View {
         Text(errorText)
-            .font(.custom("Lato", size: 20))
+            .font(.custom("Lato", size: FontSize.text.rawValue))
             .foregroundColor(Color("Red"))
             .frame(width: 300)
             .padding(.top, 5)

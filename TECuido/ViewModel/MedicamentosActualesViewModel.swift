@@ -57,7 +57,7 @@
                  let result : Result<APIResponseModel<MedicamentosActualesModel>, NetworkError> = await Webservice().postRequest("/medicamentosActuales/", with: data)
 
                  switch result {
-                     case .success(let data):
+                     case .success(_):
 
                      DispatchQueue.main.async {
                          self.medicamentoCreado = true

@@ -10,46 +10,40 @@ import SwiftUI
 struct ListaContactosView: View {
     
     @EnvironmentObject var session: SessionManager
-
-    
     @StateObject var viewModel = ListaContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State private var showDetallesView = false
     @State private var showEditarView = false
     
+    @Binding var path: NavigationPath
+
+    
     var body: some View {
         ZStack{
+            
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            
             VStack{
                 ScrollView{
-                    // Titulo
+                    Spacer()
                     
-                    Text(session.tipoUsuario == 2 ? "Lista de Pacientes" : "Lista de Contactos")
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .font(.system(size: 45))
-                        .bold()
-                        .frame(width: 280)
-                        .padding()
-                        .multilineTextAlignment(.center)
+                    Title(text: session.tipoUsuario == 2 ? "Lista de Pacientes" : "Lista de Contactos")
                     
                     // Lista de contacto
-                    if viewModel.ejemplo.isEmpty {
+                    if viewModel.contactos.isEmpty {
                         Image(systemName: "person.crop.circle.fill.badge.xmark")
                             .resizable()
-                            .frame(width: 170,height: 150)
-                            .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
+                            .frame(width: 180,height: 150)
+                            .foregroundColor(Color("Red"))
                             .padding(20)
                         
-                        Text(session.tipoUsuario == 2 ? "No hay pacientes agregados" : "No hay contactos agregados")
-                            .font(.system(size: 40))
-                            .bold()
-                            .frame(width: 280)
-                            .padding()
-                            .multilineTextAlignment(.center)
+                        SubTitle(text: session.tipoUsuario == 2 ? "No hay pacientes agregados" : "No hay contactos agregados")
+        
                     } else {
                         List {
-                            ForEach(Array(viewModel.ejemplo.enumerated()), id:\.offset) { index, item in
+                            ForEach(Array(viewModel.contactos.enumerated()), id:\.offset) {  index, item in
                                 HStack(alignment: .center) {
-                                    
                                     
                                     ZStack {
                                         Circle()
@@ -142,22 +136,9 @@ struct ListaContactosView: View {
                     )
                 }
                 
-                //El boton de agregar
-                
-                Button(action:{
-                    showDetallesView = true
-                }){
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 65, height: 65)
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
+                FloatingActionButton{
+                    path.append(ContactosDetallesView.tag)
                 }
-                .padding(.bottom,20)
-                .padding(.leading,240)
-                
-                NavigationLink("", destination: ContactosDetallesView(), isActive: $showDetallesView)
-                
-                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                 
                 
             }
@@ -170,6 +151,7 @@ struct ListaContactosView: View {
 
 struct ListaContactosView_Previews: PreviewProvider {
     static var previews: some View {
-        ListaContactosView()
+        ListaContactosView(path: .constant(NavigationPath()))
+            .environmentObject(SessionManager())
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 class ListaContactoViewModel : ObservableObject {
     
     
-    @Published var ejemplo: [ContactoModel] = []
+    @Published var contactos: [ContactoModel] = []
     @Published var idAgregado: Int = -1
     @Published var isShowingConfirmationModel: Bool = false
     @Published var borrado: Bool = false
@@ -27,10 +27,9 @@ class ListaContactoViewModel : ObservableObject {
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    self.ejemplo = data.data!
+                    self.contactos = data.data!
                 }
             case .failure(let error):
-                print(error.self)
                 print(error.localizedDescription)
             }
         } else {
@@ -47,20 +46,19 @@ class ListaContactoViewModel : ObservableObject {
             let result : Result<APIResponseModel<ContactoModel>, NetworkError> = await Webservice().deleteRequest("/contactos/\(tokens.id)/\(idAgregado)")
         
             switch result {
-                case .success(let data):
+                case .success(_):
                     DispatchQueue.main.async {
                         self.borrado = true
                     }
                 case .failure(let error):
                     switch error {
-                        case .badStatus(let error, let message):
+                        case .badStatus(let error, _):
                             if(error == 401){
                                 DispatchQueue.main.async {
                                     self.failedAuthentication = true
                                 }
                             }
                         default:
-                            print(error.self)
                             print(error.localizedDescription)
                     }
             }
