@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct ContactosView: View {
-    init() {
+    
+    @Binding var path: NavigationPath
+
+    static var tag = "ContactosView"
+    
+    init(path: Binding<NavigationPath>) {
+        self._path = path
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1)
     }
     
@@ -44,6 +50,6 @@ struct ContactosView: View {
 
 struct ContactosView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactosView()
+        ContactosView(path: .constant(NavigationPath()))
     }
 }

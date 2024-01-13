@@ -69,6 +69,16 @@ struct TECuidoView: View {
                     TipoCuentaView(path: $path)
                 case HomeView.tag:
                     HomeView(path: $path)
+                case LesionesView.tag:
+                    LesionesView(path: $path)
+                case EmergenciasView.tag:
+                    EmergenciasView(path: $path, selection: 1, hayEmergencia: false)
+                case UsuarioDetallesView.tag:
+                    UsuarioDetallesView(path: $path)
+                case RecetasView.tag:
+                    RecetasView(path: $path)
+                case ContactosView.tag:
+                    ContactosView(path: $path)
                 default:
                     TECuidoView()
                 }

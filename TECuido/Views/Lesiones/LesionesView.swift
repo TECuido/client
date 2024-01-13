@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LesionesView: View {
     
+    @Binding var path: NavigationPath
+
     @State private var showHerida = false
     @State private var showQuemadura = false
     @State private var showPicadura = false
@@ -16,6 +18,8 @@ struct LesionesView: View {
     @State private var showingAlertHerida = false
     @State private var showingAlertQuemadura = false
     @State private var showingAlertPicadura = false
+    
+    static var tag = "LesionesView"
 
     
     var body: some View {
@@ -134,13 +138,6 @@ struct LesionesView: View {
 
 struct LesionesView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            if #available(iOS 15.0, *) {
-                LesionesView()
-                    .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-            } else {
-                // Fallback on earlier versions
-            }
-        }
+        LesionesView(path: .constant(NavigationPath()))
     }
 }

@@ -114,7 +114,9 @@ class RegistroViewModel : ObservableObject {
                 }
             }
         } catch ValidationError.error(let description) {
-            self.message = description
+            DispatchQueue.main.async {
+                self.message = description
+            }
         } catch {
             print(error.localizedDescription)
         }

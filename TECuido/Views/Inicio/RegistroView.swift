@@ -36,12 +36,11 @@ struct RegistroView: View {
                               inputError: viewModel.nombreError)
                         
                         Input(inputText: $viewModel.correo,
-                              inputPrompt: "Correo elctrónico",
+                              inputPrompt: "Correo electrónico",
                               icon: "envelope.fill",
                               iconSize: (30, 20),
                               iconPadding: 15,
                               inputError: viewModel.correoError)
-                        
                         
                         PasswordInput(
                             inputText: $viewModel.password,

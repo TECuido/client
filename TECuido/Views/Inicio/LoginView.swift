@@ -40,6 +40,7 @@ struct LoginView: View {
                     
                     // Se muestra un mensaje si es incorrecto
                     ErrorMessage(errorText: viewModel.message)
+                        .padding(.bottom, -10)
                     
                     //Boton
                     PrimaryButton(title: "Iniciar sesión"){

@@ -7,9 +7,12 @@
 import SwiftUI
 struct RecetasView: View {
     
+    @Binding var path: NavigationPath
     @EnvironmentObject var session: SessionManager
+    static var tag = "RecetasView"
     
-    init() {
+    init(path: Binding<NavigationPath>) {
+        self._path = path
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1)
     }
     
@@ -45,6 +48,6 @@ struct RecetasView: View {
 
 struct RecetasView_Previews: PreviewProvider {
     static var previews: some View {
-        RecetasView()
+        RecetasView(path: .constant(NavigationPath()))
     }
 }

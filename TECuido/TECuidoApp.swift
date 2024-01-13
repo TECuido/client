@@ -22,7 +22,7 @@ struct TECuidoApp: App {
             
             TECuidoView()
             .background(
-                NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
+                //NavigationLink("", destination: EmergenciasView(selection: 2, hayEmergencia: true), isActive: $isNavigatingToEmergenciasView)
             )
             .environmentObject(predictionStatus)
             .environmentObject(session)

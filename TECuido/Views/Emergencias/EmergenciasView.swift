@@ -9,11 +9,14 @@ import SwiftUI
 
 struct EmergenciasView: View {
     
+    @Binding var path: NavigationPath
     @State var selection: Int = 1
     @State var hayEmergencia: Bool = false
     @EnvironmentObject var notificationViewModel: NotificationViewModel
     @StateObject var emergenciaViewModel = EmergenciaViewModel()
     
+    static var tag = "EmergenciasView"
+
     
     var body: some View {
         
@@ -81,7 +84,7 @@ struct EmergenciasView: View {
 
 struct EmergenciasView_Previews: PreviewProvider {
     static var previews: some View {
-        EmergenciasView(selection: 2, hayEmergencia: true)
+        EmergenciasView(path: .constant(NavigationPath()), selection: 2, hayEmergencia: true)
     }
 }
 
