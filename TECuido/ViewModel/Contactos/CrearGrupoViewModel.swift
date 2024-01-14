@@ -57,7 +57,9 @@ class CrearGrupoViewModel: ObservableObject {
         do {
             
             if(nombreGrupo.isEmpty){
-                nombreError = 1
+                DispatchQueue.main.async {
+                    self.nombreError = 1
+                }
                 throw ValidationError.error(description: "Debes ingresar el nombre del grupo")
             }
             
@@ -65,8 +67,10 @@ class CrearGrupoViewModel: ObservableObject {
                 throw ValidationError.error(description: "Debes agregar al menos un contacto")
             }
             
-            nombreError = 0
-            error = ""
+            DispatchQueue.main.async {
+                self.nombreError = 0
+                self.error = ""
+            }
             
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                 

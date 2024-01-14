@@ -9,7 +9,7 @@ import Foundation
 
 class ListaGrupoViewModel: ObservableObject {
     
-    @Published var grupos: [GrupoModel] = []
+    @Published var grupos: [GrupoModel] = [GrupoModel.example]
     @Published var grupoSeleccionado = GrupoModel.example
     @Published var failedAuthentication: Bool = false
 

@@ -47,7 +47,7 @@ struct ListaContactosView: View {
                                     ZStack {
                                         Circle()
                                             .fill(Color("LightBlue"))
-                                            .frame(width: 40, height: 40)
+                                            .frame(width: 35, height: 35)
                                         Text("\(index + 1)")
                                             .foregroundColor(Color("White"))
                                             .font(.custom("Lato", size:FontSize.text.rawValue))
@@ -56,10 +56,13 @@ struct ListaContactosView: View {
                                     VStack(alignment: .leading) {
                                         Text(item.usuarioAgregado.nombre)
                                             .font(.custom("Lato", size:FontSize.text.rawValue))
+                                            .bold()
+                                            .padding(.bottom, 1)
                                         Text(item.usuarioAgregado.correo)
                                             .font(.custom("Lato", size:FontSize.text.rawValue))
-                                    }.frame(maxWidth:.infinity, alignment: .leading)
-                                        .padding(10)
+                                    }
+                                    .frame(maxWidth:.infinity, alignment: .leading)
+                                    .padding(.leading, 10)
                                     
                                     Spacer()
                                     
@@ -72,7 +75,7 @@ struct ListaContactosView: View {
                                         Image(systemName: "minus.circle.fill")
                                             .resizable()
                                             .foregroundColor(Color("LightBlue"))
-                                            .frame(width: 30, height: 30)
+                                            .frame(width: 25, height: 25)
                                     }
                                     // Modal
                                     .alert(isPresented: $viewModel.isShowingConfirmationModel) {
