@@ -25,11 +25,8 @@ struct LesionesView: View {
     var body: some View {
         ZStack {
 
-            //[OPTIONAL] Edit background color here. You can also replace this with a background image.
-            Color(hex: 0xF9F9F9, opacity: 1.0)
+            Color("BackgroundColor")
                 .ignoresSafeArea()
-            
-//
 
             VStack {
                 // header image:

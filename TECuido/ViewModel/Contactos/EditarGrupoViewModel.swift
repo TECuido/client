@@ -15,76 +15,33 @@ class EditarGrupoViewModel: ObservableObject {
     @Published var selectedIndicesOriginal: Set<Int> = []
     @Published var nombreError: Int =  0
     @Published var error: String = ""
-    @Published var editarGrupo: Bool = false
-    @Published var editarGrupoFail: Bool = false
+    @Published var grupoEditado: Bool = false
     
-    @Published var failedAuthentication: Bool = false
-
+    public func setNombreGrupo(nombre: String) {
+        nombreGrupo = nombre
+    }
+    
 
     public func getContactos() async {
 
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
             let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
-
-            switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        self.contactos = data.data!
-                    }
-                case .failure(let error):
-                    switch error {
-                        case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
-            }
             
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.contactos = data.data!
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
-
-        
+            
     }
-
-
-    public func addMiembros(idMiembro: Int, idGrupo: Int) async throws {
-
-        let data = AgregarMiembroModel(idMiembro: idMiembro, idGrupo: idGrupo)
-        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
-
-        switch result {
-            case .success(_):
-                return
-            case .failure(let error):
-                switch error {
-                    case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                }
-        }
-
-
-
-
-    }
-
-
-
+    
+    
+    
     public func getMiembros(idGrupo: Int) async {
 
         let result : Result<APIResponseModel<[MiembroGrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/\(idGrupo)/usuarios/")
@@ -102,105 +59,94 @@ class EditarGrupoViewModel: ObservableObject {
                 }
             }
         case .failure(let error):
-            switch error {
-                case .badStatus(let error, _):
-                    if(error == 401){
-                        DispatchQueue.main.async {
-                            self.failedAuthentication = true
-                        }
-                    }
-                default:
-                    print(error.self)
-                    print(error.localizedDescription)
-            }
+            print(error.localizedDescription)
         }
     }
+    
 
     public func updateMiembros(idGrupo: Int, nombreGrupo: String) async {
-//        print(nombreGrupo)
         
-        if  nombreGrupo != ""{
-            let data = EditarNombreGrupoModel(id: idGrupo, nombre: nombreGrupo)
+        do {
+            
+            if nombreGrupo == "" {
+                DispatchQueue.main.async {
+                    self.nombreError = 1
+                }
+                throw ValidationError.error(description: "Debes ingresar un nombre para el grupo")
+            }
+            
+            if self.selectedIndices.isEmpty{
+                throw ValidationError.error(description: "Debes seleccionar al menos un contacto")
+            }
+            
+            var selectedIndicesFinal: Set<Int> = []
+
+            for index in self.selectedIndices {
+                selectedIndicesFinal.insert(self.contactos[index].usuarioAgregado.id)
+            }
+
+            let OriginalMinFinal: Set<Int> = self.selectedIndicesOriginal.subtracting(selectedIndicesFinal)
+            let FinalMinOriginal: Set<Int> = selectedIndicesFinal.subtracting(self.selectedIndicesOriginal)
+            
+            DispatchQueue.main.async {
+                self.nombreError = 0
+                self.error = ""
+            }
+            
+            let data = EditarNombreGrupoModel(nombre: nombreGrupo)
             let result: Result<APIResponseModel<GrupoModel>, NetworkError> = await Webservice().putRequest("/grupos/\(idGrupo)", with: data)
             switch result {
-            case .success(let data):
-                print(data)
-                //return
-            case .failure(let error):
-                print(error)
-            }
-        }
-
-        var selectedIndicesFinal: Set<Int> = []
-
-
-        for index in self.selectedIndices {
-            selectedIndicesFinal.insert(self.contactos[index].usuarioAgregado.id)
-        }
-
-
-        if selectedIndicesFinal.isEmpty{
-            DispatchQueue.main.async {
-                self.editarGrupoFail = true
-                self.editarGrupo = false
-            }
-            return
-        }
-
-        DispatchQueue.main.async {
-            self.editarGrupo = true
-            self.editarGrupoFail = false
-        }
-
-
-        let OriginalMinFinal: Set<Int> = self.selectedIndicesOriginal.subtracting(selectedIndicesFinal)
-        for idMiembro in OriginalMinFinal {
-            let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().deleteRequest("/grupos/\(idGrupo)/\(idMiembro)")
-            print(idGrupo, idMiembro)
-            switch result {
-            case .success(let data):
-                print(data)
-                //return
-            case .failure(let error):
-                switch error {
-                    case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
+            case .success(_):
+                for idMiembro in OriginalMinFinal {
+                    try await deleteMiembros(idMiembro: idMiembro, idGrupo: idGrupo)
                 }
+
+                for idMiembro in FinalMinOriginal {
+                    try await addMiembros(idMiembro: idMiembro, idGrupo: idGrupo)
+                }
+                    
+                DispatchQueue.main.async {
+                    self.grupoEditado = true
+                }
+            case .failure(let error):
+                    print(error)
+        }
+            
+        } catch ValidationError.error(let description){
+            DispatchQueue.main.async {
+                self.error = description
+            }
+        } catch {
+            print(error.localizedDescription)
+            DispatchQueue.main.async {
+                self.error = "Ocurrió un error"
             }
         }
-
-        let FinalMinOriginal: Set<Int> = selectedIndicesFinal.subtracting(self.selectedIndicesOriginal)
-        for idMiembro in FinalMinOriginal {
-            let data = AgregarMiembroModel(idMiembro: idMiembro, idGrupo: idGrupo)
-            let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
-
-            switch result {
-                case .success(let data):
-                    print(data)
-                    //return
-                case .failure(let error):
-                    switch error {
-                        case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
-            }
-        }
-
         
+    }
+    
+
+    public func addMiembros(idMiembro: Int, idGrupo: Int) async throws {
+        let data = AgregarMiembroModel(idMiembro: idMiembro, idGrupo: idGrupo)
+        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
+
+        switch result {
+            case .success(_):
+                return
+            case .failure(let error):
+                throw error
+        }
+
+    }
+    
+    public func deleteMiembros(idMiembro: Int, idGrupo: Int) async throws {
+        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().deleteRequest("/grupos/\(idGrupo)/\(idMiembro)")
+        switch result {
+        case .success(_):
+            return
+        case .failure(let error):
+            throw error
+        }
     }
 
 

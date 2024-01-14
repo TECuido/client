@@ -22,6 +22,5 @@ extension GrupoModel {
 }
 
 struct EditarNombreGrupoModel : Codable {
-    var id: Int
     var nombre: String
 }

@@ -30,11 +30,7 @@ struct ListaContactosView: View {
                     
                     // Lista de contacto
                     if viewModel.contactos.isEmpty {
-                        Image(systemName: "person.crop.circle.fill.badge.xmark")
-                            .resizable()
-                            .frame(width: 180,height: 150)
-                            .foregroundColor(Color("Red"))
-                            .padding(20)
+                        NoUserIcon()
                         
                         SubTitle(text: session.tipoUsuario == 2 ? "No hay pacientes agregados" : "No hay contactos agregados")
         
@@ -44,25 +40,11 @@ struct ListaContactosView: View {
                                 
                                 HStack(alignment: .center) {
                                     
-                                    ZStack {
-                                        Circle()
-                                            .fill(Color("LightBlue"))
-                                            .frame(width: 35, height: 35)
-                                        Text("\(index + 1)")
-                                            .foregroundColor(Color("White"))
-                                            .font(.custom("Lato", size:FontSize.text.rawValue))
-                                    }
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text(item.usuarioAgregado.nombre)
-                                            .font(.custom("Lato", size:FontSize.text.rawValue))
-                                            .bold()
-                                            .padding(.bottom, 1)
-                                        Text(item.usuarioAgregado.correo)
-                                            .font(.custom("Lato", size:FontSize.text.rawValue))
-                                    }
-                                    .frame(maxWidth:.infinity, alignment: .leading)
-                                    .padding(.leading, 10)
+                                    NumberedItem(
+                                        number: index+1,
+                                        title: item.usuarioAgregado.nombre,
+                                        subtitle: item.usuarioAgregado.correo
+                                    )
                                     
                                     Spacer()
                                     

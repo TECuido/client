@@ -16,8 +16,6 @@ class CrearGrupoViewModel: ObservableObject {
     @Published var error: String = ""
     @Published var grupoCreado: Bool = false
     
-    @Published var failedAuthentication: Bool = false
-
     
     public func getContactos() async {
         
@@ -31,25 +29,9 @@ class CrearGrupoViewModel: ObservableObject {
                         self.contactos = data.data!
                     }
                 case .failure(let error):
-                    switch error {
-                        case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
-            }
-            
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
+                    print(error.localizedDescription)
             }
         }
-        
     }
 
     
@@ -87,29 +69,16 @@ class CrearGrupoViewModel: ObservableObject {
                     }
                     case .failure(let error):
                         switch error {
-                        case .badStatus(let error, let message):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
+                        case .badStatus(_, let message):
                             DispatchQueue.main.async {
                                 self.error = message
                             }
                         default:
-                            print(error.self)
                             print(error.localizedDescription)
                         }
                 }
                 
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
-                }
             }
-            
-            
-            
             
         } catch ValidationError.error(let description){
             DispatchQueue.main.async {
@@ -125,7 +94,6 @@ class CrearGrupoViewModel: ObservableObject {
     
     
     public func addMiembros(idMiembro: Int, idGrupo: Int) async throws {
-            
         let data = AgregarMiembroModel(idMiembro: idMiembro, idGrupo: idGrupo)
         let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
         
@@ -133,24 +101,7 @@ class CrearGrupoViewModel: ObservableObject {
             case .success(_):
                 return
             case .failure(let error):
-                switch error {
-                    case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                }
+                throw error
         }
-            
-            
-            
-        
     }
-    
-    
-    
 }

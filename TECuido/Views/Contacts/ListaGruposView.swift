@@ -34,11 +34,7 @@ struct ListaGruposView: View {
                     Title(text: "Grupos")
                     
                     if viewModel.grupos.isEmpty {
-                        Image(systemName: "person.crop.circle.fill.badge.xmark")
-                            .resizable()
-                            .frame(width: 180,height: 150)
-                            .foregroundColor(Color("Red"))
-                            .padding(20)
+                        NoUserIcon()
                         
                         SubTitle(text: "No hay grupos agregados")
                     } else {
@@ -60,7 +56,7 @@ struct ListaGruposView: View {
                                         Menu{
                                             Button(action: {
                                                 path.append(GrupoNavigationModel(
-                                                        tag: GruposDetallesView.tag,
+                                                        tag: EditarGrupoView.tag,
                                                         grupo: item
                                                     )
                                                 )

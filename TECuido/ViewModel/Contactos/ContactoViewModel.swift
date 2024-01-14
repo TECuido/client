@@ -16,7 +16,6 @@ class ContactoViewModel : ObservableObject {
     @Published var correoError: Int =  0
     @Published var error: String = ""
     @Published var addedContacto: Bool = false
-    @Published var failedAuthentication: Bool = false
     
     public func addContacto() async {
         
@@ -45,12 +44,7 @@ class ContactoViewModel : ObservableObject {
                         }
                     case .failure(let error):
                         switch error {
-                            case .badStatus(let error, let message):
-                                if(error == 401){
-                                    DispatchQueue.main.async {
-                                        self.failedAuthentication = true
-                                    }
-                                }
+                            case .badStatus(_, let message):
                                 DispatchQueue.main.async {
                                     self.error = message
                                 }
@@ -59,10 +53,6 @@ class ContactoViewModel : ObservableObject {
                                 print(error.localizedDescription)
                         }
                     
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
                 }
             }
         } catch ValidationError.error(let description){

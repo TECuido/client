@@ -13,8 +13,8 @@ struct CreaGrupoView: View {
     
     @Binding var path: NavigationPath
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = CrearGrupoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
+    @StateObject var viewModel = CrearGrupoViewModel()
     
     static var tag = "CrearGrupoView"
     
@@ -22,89 +22,58 @@ struct CreaGrupoView: View {
     var body: some View {
         
         ZStack{
+            
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            
             VStack{
-                    // Titulo
-                    Text("Crear grupo")
-                        .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                        .font(.system(size: 45))
-                        .bold()
-                        .frame(width: 280)
-                        .padding()
-                        .multilineTextAlignment(.center)
                 
-                    //Icono
-                    ZStack{
-                        Image(systemName: "person.3.fill")
-                            .resizable()
-                            .frame(width: 150,height:80)
-                            .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                            
-                    }.padding(10)
+                Spacer()
                 
-                    //input nombre
-                    HStack {
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .padding(.leading, 16)
-                        TextField("",
-                                  text: $viewModel.nombreGrupo,
-                                  prompt: Text("Nombre del grupo")
-                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                          )
-                            .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                            .font(.title3)
-                            .padding(.leading, 10)
-                    }
-                    .frame(width: 325, height: 55)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(20)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(.red, lineWidth: CGFloat(viewModel.nombreError)*2)
-                    }
-                    .padding([.top, .bottom], 10)
+                Title(text: "Crear Grupo");
                 
+                //Icono
+                Image(systemName: "person.3.fill")
+                    .resizable()
+                    .frame(width: 150,height:80)
+                    .foregroundColor(Color("LightBlue"))
+                        
+                Input(
+                    inputText: $viewModel.nombreGrupo,
+                    inputPrompt: "Nombre del grupo",
+                    icon: "person.fill", 
+                    iconSize: (24, 24),
+                    iconPadding: 16,
+                    inputError: viewModel.nombreError
+                )
+    
+                //descripcion
+                Text("Selecciona a los contactos que quieras añadir:")
+                    .font(.custom("Lato", size: FontSize.text.rawValue))
+                    .frame(width: 280)
+                    .padding()
+                    .multilineTextAlignment(.center)
                 
-                    
-                    //descripcion
-                    Text(" Selecciona a los contactos que quieras añadir:")
-                        .font(.title2)
-                        .frame(width: 280)
-                        .padding()
-                        .multilineTextAlignment(.center)
-                    
+                if(!viewModel.contactos.isEmpty){
                     // Lista de contactos
-                    
                     List {
                         ForEach(viewModel.contactos.indices, id: \.self) { index in
                             HStack {
                                 if viewModel.selectedIndices.contains(index) {
-                                    ZStack{
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .resizable()
-                                            .frame(width: 40, height: 40)
-                                            .foregroundColor(Color.green)
-                                    }
+                                    CheckedItem(
+                                        title: viewModel.contactos[index].usuarioAgregado.nombre,
+                                        subtitle: viewModel.contactos[index].usuarioAgregado.correo
+                                    )
                                 } else {
-                                    ZStack{
-                                        Circle()
-                                            .fill(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                                            .frame(width: 40, height: 40)
-                                        Text("\(index+1)")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 20))
-                                    }
+                                    NumberedItem(
+                                        number: index+1,
+                                        title: viewModel.contactos[index].usuarioAgregado.nombre,
+                                        subtitle: viewModel.contactos[index].usuarioAgregado.correo
+                                    )
                                 }
-                                
-                                VStack(alignment: .leading){
-                                    Text(viewModel.contactos[index].usuarioAgregado.nombre)
-                                        .font(.title2)
-                                    Text(viewModel.contactos[index].usuarioAgregado.correo)
-                                        .font(.title2)
-                                    
-                                }.padding(15)
                             }
+                            .listRowBackground(Color("BackgroundColor"))
+                            .listRowSeparatorTint(Color("PlaceholderColor"))
                             .onTapGesture {
                                 if viewModel.selectedIndices.contains(index) {
                                     viewModel.selectedIndices.removeAll { $0 == index }
@@ -113,96 +82,39 @@ struct CreaGrupoView: View {
                                 }
                             }
                         }
-                        
-                    }
-                    .task{
-                        await viewModel.getContactos()
                     }
                     .frame(minHeight: minRowHeight * 6)
+                    .background(Color("BackgroundColor"))
                     .scrollContentBackground(.hidden)
                     .listStyle(InsetListStyle())
-                     
-                    
-                    
-                
-                     
-                     
-                
-                // Modal
                     .alert(isPresented: $viewModel.grupoCreado) {
-                    Alert(
-                        title:
-                            Text("Grupo Agregado")
-                               
-                                .font(.title)
-                        ,
-                        message: Text("Se agregó el grupo con éxito")
-                            .font(.title2),
-                        dismissButton: .default(
-                            Text("OK")
-                                .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
-                            action: {
-                                
-                            }
-                        )
-                    )
+                        AcceptAlert(
+                            title: "Grupo agregado",
+                            message: "Se agregó el grupo con éxito"
+                        ){}
+                    }
                 }
                 
-                // Aqui validamos que este incorrecto
-                Text(viewModel.error)
-                    .font(.body)
-                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                    .frame(width: 300)
-                    .padding(.top, 5)
-                    .multilineTextAlignment(.center)
+                ErrorMessage(errorText: viewModel.error)
+                    .padding(.bottom, -10)
                 
-                
-                
-                // Vamos a checar lo del modal aqui
-                Button("Crear Grupo"){
+                PrimaryButton(title: "Crear grupo"){
                     Task {
                         await viewModel.crearGrupo()
                     }
                 }
-                .foregroundColor(.white)
-                .bold()
-                .frame(width: 300, height:55)
-                .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                .cornerRadius(25)
-                .padding(10)
-                .font(.title2)
+                .padding(.bottom, 10)
                 
-                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+                Spacer()
                 
             }
+            .task{
+                await viewModel.getContactos()
+            }
             
-                
-                
         }
     }
 }
-
-
-
-    struct CheckboxToggleStyle: ToggleStyle {
-        func makeBody(configuration: Self.Configuration) -> some View {
-            HStack {
-                configuration.label // Utilizamos la propiedad label para mostrar el contenido del Toggle
-                Spacer()
-                Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .onTapGesture {
-                        withAnimation {
-                            configuration.isOn.toggle()
-                        }
-                    }
-            }
-        }
-    }
-
-
-
 
 struct CreaGrupoView_Previews: PreviewProvider {
     static var previews: some View {

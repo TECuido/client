@@ -21,6 +21,7 @@ struct RegistroView: View {
         
                 ZStack{
                     Color("BackgroundColor")
+                        .ignoresSafeArea()
                     
                     // Texto general
                     VStack{

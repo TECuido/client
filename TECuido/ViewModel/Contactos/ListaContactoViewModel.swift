@@ -10,13 +10,10 @@ import SwiftUI
 
 class ListaContactoViewModel : ObservableObject {
     
-    
     @Published var contactos: [ContactoModel] = []
     @Published var idAgregado: Int = -1
     @Published var isShowingConfirmationModel: Bool = false
     @Published var borrado: Bool = false
-    @Published var failedAuthentication: Bool = false
-
     
     public func getContactos() async {
         
@@ -32,11 +29,8 @@ class ListaContactoViewModel : ObservableObject {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
-            }
         }
+        
     }
     
     public func deleteContactos() async {
@@ -51,23 +45,10 @@ class ListaContactoViewModel : ObservableObject {
                         self.borrado = true
                     }
                 case .failure(let error):
-                    switch error {
-                        case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.localizedDescription)
-                    }
+                    print(error.localizedDescription)
             }
             
         
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
-            }
         }
         
     }
