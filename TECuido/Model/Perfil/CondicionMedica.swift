@@ -8,7 +8,7 @@
 import Foundation
 
  // Modelo debe ir en mayuscula
- struct CondicionMedicaModel : Codable, Hashable {
+ struct AgregaCondicionMedicaModel : Codable, Hashable {
      var nombre: String
      var idUsuario: Int
      enum CodingKeys: String, CodingKey {
@@ -22,7 +22,30 @@ import Foundation
          hasher.combine(idUsuario)
      }
  }
- extension CondicionMedicaModel {
+ extension AgregaCondicionMedicaModel {
      public static var example =
-     CondicionMedicaModel( nombre: "Polvo",idUsuario: 1)
+     AgregaCondicionMedicaModel( nombre: "Polvo",idUsuario: 1)
  }
+
+
+struct CondicionMedicaModel : Identifiable, Decodable, Hashable{
+    var id: Int
+    var nombre : String
+    var idUsuario : Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "idCondicionMedica"
+        case nombre = "nombre"
+        case idUsuario
+    }
+    
+    func hash(into hasher: inout Hasher) {
+         hasher.combine(id)
+         hasher.combine(nombre)
+         hasher.combine(idUsuario)
+     }
+}
+extension CondicionMedicaModel {
+    public static var example =
+    CondicionMedicaModel(id: 1, nombre: "Asma", idUsuario: 2)
+}

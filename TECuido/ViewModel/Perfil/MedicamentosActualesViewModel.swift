@@ -15,7 +15,7 @@
      @Published var nombreError: Int =  0
      @Published var error: String = ""
      @Published var medicamentoCreado: Bool = false
-     
+     @Published var medicamentoSeleccionado = MedicamentosActualesModel.example
      @Published var failedAuthentication: Bool = false
      public func getMedicamentosActuales() async {
 
@@ -53,8 +53,8 @@
 
              if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
 
-                 let data = MedicamentosActualesModel(nombre: nombre, idUsuario: tokens.id)
-                 let result : Result<APIResponseModel<MedicamentosActualesModel>, NetworkError> = await Webservice().postRequest("/medicamentosActuales/", with: data)
+                 let data = AgregaMedicamentosActualesModel(nombre: nombre, idUsuario: tokens.id)
+                 let result : Result<APIResponseModel<AgregaMedicamentosActualesModel>, NetworkError> = await Webservice().postRequest("/medicamentosActuales/", with: data)
 
                  switch result {
                      case .success(_):
@@ -95,6 +95,18 @@
              DispatchQueue.main.async {
                  self.error = "Ocurrió un error"
              }
+         }
+     }
+     
+     public func deleteMedicamentosActuales() async {
+         let idMedicamentoActual = self.medicamentoSeleccionado.id
+         let result : Result<APIResponseModel<MedicamentosActualesModel>, NetworkError> = await Webservice().deleteRequest("/medicamentosActuales/\(idMedicamentoActual )")
+         switch result {
+         case .success(let data):
+             print(data)
+             //return
+         case .failure(let error):
+             print(error)
          }
      }
  }
