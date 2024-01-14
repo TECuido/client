@@ -67,7 +67,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
                 print("Request Data: \(data)")
                 print(tokens.id)
 
-                let result: Result<APIResponseModel<EditarUsuarioDetallesModel>, NetworkError> = await Webservice().putRequest("/usuariodetalles/\(tokens.id)", with: data)
+                let result: Result<APIResponseModel<UsuarioUpdateResponse>, NetworkError> = await Webservice().putRequest("/usuariodetalles/\(tokens.id)", with: data)
                 print("API Response: \(result)")
                 self.addedContacto = true
                 switch result {

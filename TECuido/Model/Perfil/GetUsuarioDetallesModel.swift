@@ -76,5 +76,23 @@ struct EditarUsuarioDetallesModel: Codable{
 }
 
 
+struct UsuarioUpdateResponse: Decodable {
+        let usuario: UsuarioData
+        let usuarioUpdate: UsuarioUpdate
+}
 
 
+struct UsuarioData: Decodable {
+    let count: Int
+}
+
+struct UsuarioUpdate: Decodable {
+    let idUsuario: Int
+    let nombre: String
+    let correo: String
+    let password: String
+    let idTipo: Int
+    let token: String?
+    let createdAt: String
+    let updatedAt: String
+}
