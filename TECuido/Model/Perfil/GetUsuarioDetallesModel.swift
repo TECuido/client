@@ -50,41 +50,31 @@
 
 
 
-struct UsuarioUpdateModel: Codable {
-    let idUsuario: Int
-    let nombre: String
-    let correo: String
-    let password: String
-    let idTipo: Int
-    let token: String?
-    let createdAt: String
-    let updatedAt: String
-}
-
-
-struct EditarUsuarioDetallesModel: Codable {
-    let numPoliza: String
-    let tipoSangre: String
-    let contactoEmergencia: String
-    let transfusionSanguinea: String
-    let donacionOrganos: String
-    let direccion: String
-    let edad: String
-    let medicoTratante: String
-    let nombre: String
-}
-
-
-struct CombinedUsuarioModel: Codable {
-    let usuarioUpdate: UsuarioUpdateModel
-    let editarUsuarioDetalles: EditarUsuarioDetallesModel
-
-
+struct EditarUsuarioDetallesModel: Codable{
+    var numPoliza: String
+       var tipoSangre: String
+       var contactoEmergencia: String
+       var transfusionSanguinea: String
+       var donacionOrganos: String
+       var direccion: String
+       var edad: String
+       var medicoTratante: String
+       var nombre: String
+    
+    
     enum CodingKeys: String, CodingKey {
-        case usuarioUpdate
-        case editarUsuarioDetalles
+        case numPoliza
+        case tipoSangre
+        case contactoEmergencia
+        case transfusionSanguinea
+        case donacionOrganos
+        case direccion
+        case edad
+        case medicoTratante
+        case nombre
     }
 }
+
 
 
 

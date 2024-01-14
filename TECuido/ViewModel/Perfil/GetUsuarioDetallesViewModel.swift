@@ -42,14 +42,11 @@ class GetUsuarioDetallesViewModel: ObservableObject {
                 throw ValidationError.error(description: "Debes ingresar el correo del contacto")
             }
             
-            if nombre.isEmpty {
-                nombreError = 1
-                throw ValidationError.error(description: "Debes ingresar el nombre de usuario")
-            }
+            
 
             DispatchQueue.main.async {
                 self.contactoError = 0
-                self.nombreError = 0
+            
                 self.error = ""
             }
 
@@ -72,7 +69,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
 
                 let result: Result<APIResponseModel<EditarUsuarioDetallesModel>, NetworkError> = await Webservice().putRequest("/usuariodetalles/\(tokens.id)", with: data)
                 print("API Response: \(result)")
-                //self.addedContacto = true
+                self.addedContacto = true
                 switch result {
                 case .success(_):
                     DispatchQueue.main.async {
