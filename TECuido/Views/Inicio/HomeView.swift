@@ -61,7 +61,7 @@ struct HomeView: View {
                         iconName: "exclamationmark.triangle.fill",
                         hint: "Reporta una emergencia a tus compañeros"
                     ){
-                        path.append(EmergenciasView.tag)
+                        path.append(EmergenciaNavModel(selection: 1, hayEmergencia: false))
                     }
                     
                     
@@ -78,7 +78,7 @@ struct HomeView: View {
                         // Botón para la vista de Recetas médicas
                         BigButton(
                             title:  "Recetas médicas",
-                            iconName: "pills.circle£.fill",
+                            iconName: "pills.circle.fill",
                             hint: "Lee un resumen de tus recetsas médicas"
                         ){
                             path.append(RecetasView.tag)

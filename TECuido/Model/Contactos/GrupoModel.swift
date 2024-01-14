@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GrupoModel : Identifiable, Decodable{
+struct GrupoModel : Identifiable, Decodable, Hashable{
     var id: Int
     var nombre : String
     
@@ -22,6 +22,5 @@ extension GrupoModel {
 }
 
 struct EditarNombreGrupoModel : Codable {
-    var id: Int
     var nombre: String
 }

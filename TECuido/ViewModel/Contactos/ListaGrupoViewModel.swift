@@ -11,8 +11,6 @@ class ListaGrupoViewModel: ObservableObject {
     
     @Published var grupos: [GrupoModel] = [GrupoModel.example]
     @Published var grupoSeleccionado = GrupoModel.example
-    @Published var failedAuthentication: Bool = false
-
     
     public func getGrupos() async {
         
@@ -26,25 +24,10 @@ class ListaGrupoViewModel: ObservableObject {
                         self.grupos = data.data!
                     }
                 case .failure(let error):
-                switch error {
-                    case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                }
+                    print(error.localizedDescription)
             }
             
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
-            }
         }
-        
         
     }
     
@@ -54,7 +37,6 @@ class ListaGrupoViewModel: ObservableObject {
         switch result {
         case .success(let data):
             print(data)
-            //return
         case .failure(let error):
             print(error)
         }

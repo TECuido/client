@@ -11,11 +11,7 @@ struct PredictiveLabelView: View {
     var body: some View {
         
         VStack(alignment: .center) {
-            Text(labelData.label.capitalized)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-            
+            Title(text: labelData.label.capitalized)
         }
     }
 }

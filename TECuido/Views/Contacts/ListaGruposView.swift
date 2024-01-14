@@ -13,110 +13,112 @@ struct ListaGruposView: View {
     @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     @StateObject var viewModel = ListaGrupoViewModel()
-    @State private var showDetallesView = false
-    @State private var showAgregaView = false
-    @State private var showEditarView = false
     @State private var showEliminarView = false
     
     @Binding var path: NavigationPath
-
+    
     
     var body: some View {
         
         ZStack {
-
+            
             Color("BackgroundColor")
                 .ignoresSafeArea()
             
-            ScrollView {
+            VStack {
                 
-                VStack {
-                    
+                ScrollView {
+                                 
+                    Spacer()
+                
                     Title(text: "Grupos")
                     
-                    List {
-                        ForEach(viewModel.grupos){ item in
-                            
-                            ZStack {
+                    if viewModel.grupos.isEmpty {
+                        NoUserIcon()
+                        
+                        SubTitle(text: "No hay grupos agregados")
+                    } else {
+                        List {
+                            ForEach(viewModel.grupos){ item in
                                 
-                                NavigationLink(destination: GruposDetallesView(grupo: item)){
-                                    EmptyView()
-                                }
-                                
-                                HStack {
-                                    Text(item.nombre)
-                                        .listRowBackground(Color(red: 0.85, green: 0.85, blue: 0.85))
-                                        .padding([.top, .bottom], 10)
-                                        .font(.title2)
+                                ZStack {
                                     
-                                    Spacer()
-                                    
-                                    Menu{
-                                        Button(action: {
-                                            viewModel.grupoSeleccionado = item
-                                            showEditarView = true
-
-                                        }){
-                                            Label("Editar", systemImage: "pencil")
-                                        }
-
-                                        Button(action: {
-                                            viewModel.grupoSeleccionado = item
-                                            showEliminarView = true
-                                        }){
-                                            Label("Borrar", systemImage: "trash")
-                                        }
-
-                                    }label: {
-                                        Image(systemName: "ellipsis.circle")
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(.blue)
+                                    NavigationLink(value: item){
+                                        EmptyView()
                                     }
                                     
-                                    Image(systemName: "chevron.right")
-                                        .foregroundColor(.blue)                                    
+                                    HStack {
+                                        Text(item.nombre)
+                                            .font(.custom("Lato", size:FontSize.text.rawValue))
+                                        
+                                        Spacer()
+                                        
+                                        Menu{
+                                            Button(action: {
+                                                path.append(GrupoNavigationModel(
+                                                        tag: EditarGrupoView.tag,
+                                                        grupo: item
+                                                    )
+                                                )
+                                            }){
+                                                Label("Editar", systemImage: "pencil")
+                                            }
+
+                                            Button(action: {
+                                                viewModel.grupoSeleccionado = item
+                                                showEliminarView = true
+                                            }){
+                                                Label("Borrar", systemImage: "trash")
+                                            }
+
+                                        } label: {
+                                            Image(systemName: "ellipsis.circle")
+                                                .resizable()
+                                                .frame(width: 25, height: 25)
+                                                .foregroundColor(Color("LightBlue"))
+                                        }
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .resizable()
+                                            .frame(width: 15, height: 20)
+                                            .padding(.leading, 15)
+                                            .foregroundColor(Color("LightBlue"))
+                                        
+                                    }
                                     
                                 }
+                                .padding([.top, .bottom], 10)
+                                .listRowBackground(Color("BackgroundColor"))
+                                .listRowSeparatorTint(Color("PlaceholderColor"))
                             }
                         }
+                        .frame(minHeight: minRowHeight * 10)
+                        .scrollContentBackground(.hidden)
+                        .listStyle(InsetListStyle())
                     }
-                    .task {
-                        await viewModel.getGrupos()
+                }
+                .task {
+                    await viewModel.getGrupos()
+                }
+                .alert(isPresented: $showEliminarView) {
+                    OptionsAlert(
+                        title: "Eliminar grupo",
+                        message: "¿Estás seguro que deseas eliminar este grupo?")
+                    {
+                        Task{
+                            await viewModel.deleteGrupo()
+                            await viewModel.getGrupos()
+                        }
                     }
-                    .alert(isPresented: $showEliminarView) {
-                                            Alert(
-                                                title:
-                                                    Text("Confirmación")
-
-                                                    .font(.title)
-                                                ,
-                                                message: Text("¿Está seguro que desea eliminar este grupo?")
-                                                    .font(.title2),
-                                                primaryButton: .destructive(Text("Eliminar")) {
-                                                    Task{
-                                                        await viewModel.deleteGrupo()
-                                                        await viewModel.getGrupos()
-                                                    }
-                                                },
-                                                secondaryButton: .cancel(Text("Cancelar"))
-                                            )
-                                        }
-                    .frame(minHeight: minRowHeight * 10)
-                    .scrollContentBackground(.hidden)
-                    
-                    
-                    FloatingActionButton{
-                        path.append(CreaGrupoView.tag)
-                    }
-                    
-                    
+                }
+                
+                
+                FloatingActionButton{
+                    path.append(CreaGrupoView.tag)
                 }
             }
+            
         }
-        .background(
-                            NavigationLink("", destination:
-                                            EditarGrupoView(grupo: viewModel.grupoSeleccionado), isActive: $showEditarView)
-                )
     }
 }
 

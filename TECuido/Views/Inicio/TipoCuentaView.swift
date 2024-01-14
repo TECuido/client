@@ -20,6 +20,8 @@ struct TipoCuentaView: View {
         
         ZStack{
             Color("BackgroundColor")
+                .ignoresSafeArea()
+
 
             // Texto general
             VStack{

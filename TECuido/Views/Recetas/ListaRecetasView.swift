@@ -100,5 +100,6 @@ struct ListaRecetasView: View {
 struct ListaRecetasView_Previews: PreviewProvider {
     static var previews: some View {
         ListaRecetasView()
+            .environmentObject(SessionManager())
     }
 }

@@ -15,7 +15,7 @@ struct SubTitle: View {
         Text(text)
             .font(.custom("Inter", size: FontSize.subtitle.rawValue))
             .bold()
-            .frame(width: 280)
+            .frame(width: 320)
             .padding()
             .multilineTextAlignment(.center)
     }

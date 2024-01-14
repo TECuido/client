@@ -21,17 +21,7 @@ class GrupoDetailViewModel: ObservableObject {
                 self.miembros = data.data!
             }
         case .failure(let error):
-            switch error {
-            case .badStatus(let error, _):
-                    if(error == 401){
-                        DispatchQueue.main.async {
-                            self.failedAuthentication = true
-                        }
-                    }
-                default:
-                    print(error.self)
-                    print(error.localizedDescription)
-            }
+            print(error.localizedDescription)
         }
     }
 

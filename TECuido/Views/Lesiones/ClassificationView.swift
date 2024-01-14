@@ -9,15 +9,16 @@ import SwiftUI
 import CoreML
 
 class ModalManager: ObservableObject{
-    @Published var closeModal: Bool = false
+    @Published var goToEmergencias: Bool = false
     @Published var showModal: Bool = false
 }
 
 struct ClassificationView: View {
     
+    @Binding var path: NavigationPath
     @State var data: String = ""
     @State var model: MLModel
-    //@State private var showModal = false
+
     @StateObject var closeModal = ModalManager()
     @State private var LabelVariable: String = ""
     
@@ -28,10 +29,9 @@ struct ClassificationView: View {
         let predictionLabel = predictionStatus.topLabel
         ZStack {
             
-            //[OPTIONAL] Edit background color here.
-            Color(red: 0.1294, green: 0.5882, blue: 0.9529)
-//                .opacity(0.5)
+            Color("BackgroundColor")
                 .ignoresSafeArea()
+            
             VStack{
                 // DO NOT EDIT this section. This displays the classification camera
                 GeometryReader { geo in
@@ -69,8 +69,12 @@ struct ClassificationView: View {
             }
         }
         .environmentObject(closeModal)
-        .background(
-            //NavigationLink("", destination: EmergenciasView(selection: 1), isActive: $closeModal.closeModal)
-        )
+        .onChange(of: closeModal.goToEmergencias){ value in
+            if(value){
+                path.append(EmergenciaNavModel(selection: 1, hayEmergencia: false))
+                closeModal.goToEmergencias = false
+            }
+        }
+        
     }
 }

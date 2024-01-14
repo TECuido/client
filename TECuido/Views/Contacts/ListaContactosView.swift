@@ -12,8 +12,6 @@ struct ListaContactosView: View {
     @EnvironmentObject var session: SessionManager
     @StateObject var viewModel = ListaContactoViewModel()
     @Environment(\.defaultMinListRowHeight) var minRowHeight
-    @State private var showDetallesView = false
-    @State private var showEditarView = false
     
     @Binding var path: NavigationPath
 
@@ -32,34 +30,21 @@ struct ListaContactosView: View {
                     
                     // Lista de contacto
                     if viewModel.contactos.isEmpty {
-                        Image(systemName: "person.crop.circle.fill.badge.xmark")
-                            .resizable()
-                            .frame(width: 180,height: 150)
-                            .foregroundColor(Color("Red"))
-                            .padding(20)
+                        NoUserIcon()
                         
                         SubTitle(text: session.tipoUsuario == 2 ? "No hay pacientes agregados" : "No hay contactos agregados")
         
                     } else {
                         List {
                             ForEach(Array(viewModel.contactos.enumerated()), id:\.offset) {  index, item in
+                                
                                 HStack(alignment: .center) {
                                     
-                                    ZStack {
-                                        Circle()
-                                            .fill(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                            .frame(width: 40, height: 40)
-                                        Text("\(index + 1)")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 20))
-                                    }
-                                    VStack(alignment: .leading) {
-                                        Text(item.usuarioAgregado.nombre)
-                                            .font(.title2)
-                                        Text(item.usuarioAgregado.correo)
-                                            .font(.title2)
-                                    }.frame(width:.infinity)
-                                        .padding(10)
+                                    NumberedItem(
+                                        number: index+1,
+                                        title: item.usuarioAgregado.nombre,
+                                        subtitle: item.usuarioAgregado.correo
+                                    )
                                     
                                     Spacer()
                                     
@@ -71,75 +56,50 @@ struct ListaContactosView: View {
                                     }) {
                                         Image(systemName: "minus.circle.fill")
                                             .resizable()
-                                            .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                            .frame(width: 30, height: 30)
+                                            .foregroundColor(Color("LightBlue"))
+                                            .frame(width: 25, height: 25)
                                     }
                                     // Modal
                                     .alert(isPresented: $viewModel.isShowingConfirmationModel) {
-                                        Alert(
-                                            title: Text(session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto"),
-                                            message: Text("¿Estás seguro de que deseas eliminar el contacto?"),
-                                            primaryButton: .default(
-                                                Text("Aceptar")
-                                                    .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529)),
-                                                action: {
-                                                    Task{
-                                                        await viewModel.deleteContactos()
-                                                    }
-                                                }
-                                            ),
-                                            secondaryButton: .cancel(
-                                                Text("Cancelar")
-                                                    .foregroundColor(.red)
-                                            )
-                                        )
+                                        OptionsAlert(
+                                            title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
+                                            message:" ¿Estás seguro de que deseas eliminar el contacto?"
+                                        ){
+                                            Task {
+                                                await viewModel.deleteContactos()
+                                            }
+                                        }
                                     }
-                                    
-                                    
-                                    
-                                    
                                 } // Acaba el HStack
+                                .listRowBackground(Color("BackgroundColor"))
+                                .listRowSeparatorTint(Color("PlaceholderColor"))
                             }
                         }
-                        
                         .frame(minHeight: minRowHeight * 10)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                     }
                     
-                    
                 }
                 .task {
                     await viewModel.getContactos()
                 }
-                
                 // Modal
                 .alert(isPresented: $viewModel.borrado) {
-                    Alert(
-                        title:
-                            Text(session.tipoUsuario == 2 ? "Paciente eliminado" : "Contacto eliminado")
-                        
-                            .font(.title)
-                        ,
-                        message: Text(session.tipoUsuario == 2 ? "Se eliminó el paciente con éxito" : "Se eliminó el contacto con éxito")
-                            .font(.title2),
-                        dismissButton: .default(
-                            Text("OK")
-                                .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
-                            action: {
-                                Task {
-                                    viewModel.borrado = false
-                                    await viewModel.getContactos()
-                                }
-                            }
-                        )
-                    )
+                    AcceptAlert(
+                        title: session.tipoUsuario == 2 ? "Paciente eliminado" : "Contacto eliminado",
+                        message: session.tipoUsuario == 2 ? "Se eliminó el paciente con éxito" : "Se eliminó el contacto con éxito"
+                    ){
+                        Task {
+                            viewModel.borrado = false
+                            await viewModel.getContactos()
+                        }
+                    }
                 }
                 
                 FloatingActionButton{
                     path.append(ContactosDetallesView.tag)
                 }
-                
                 
             }
         }
