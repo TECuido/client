@@ -61,7 +61,7 @@ struct HomeView: View {
                         iconName: "exclamationmark.triangle.fill",
                         hint: "Reporta una emergencia a tus compañeros"
                     ){
-                        path.append(EmergenciasView.tag)
+                        path.append(EmergenciaNavModel(selection: 1, hayEmergencia: false))
                     }
                     
                     

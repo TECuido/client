@@ -73,8 +73,6 @@ struct TECuidoView: View {
                     HomeView(path: $path)
                 case LesionesView.tag:
                     LesionesView(path: $path)
-                case EmergenciasView.tag:
-                    EmergenciasView(path: $path, selection: 1, hayEmergencia: false)
                 case UsuarioDetallesView.tag:
                     UsuarioDetallesView(path: $path)
                 case RecetasView.tag:
@@ -105,10 +103,11 @@ struct TECuidoView: View {
                 }
             }
             .navigationDestination(for: ClassificationNavModel.self){item in
-                ClassificationView(data: item.data, model: item.model)
+                ClassificationView(path: $path, data: item.data, model: item.model)
             }
-              
-            
+            .navigationDestination(for: EmergenciaNavModel.self){item in
+                EmergenciasView(path: $path, selection: item.selection, hayEmergencia: item.hayEmergencia)
+            }
             
         }//aqui termina navigation view
         .navigationViewStyle(StackNavigationViewStyle())

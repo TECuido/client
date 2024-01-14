@@ -10,6 +10,7 @@ import SwiftUI
 struct ModalView: View {
     
     private(set) var labelData: ClassificationObject
+
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -21,10 +22,14 @@ struct ModalView: View {
 
                 PredictiveLabelView(labelData: labelData)
                 
+                Spacer()
+                
                 Image(labelData.icono)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
+                
+                Spacer()
 
                 DisplayedContentView(labelData: labelData)
             }

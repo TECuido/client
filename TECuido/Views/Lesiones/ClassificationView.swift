@@ -9,15 +9,16 @@ import SwiftUI
 import CoreML
 
 class ModalManager: ObservableObject{
-    @Published var closeModal: Bool = false
+    @Published var goToEmergencias: Bool = false
     @Published var showModal: Bool = false
 }
 
 struct ClassificationView: View {
     
+    @Binding var path: NavigationPath
     @State var data: String = ""
     @State var model: MLModel
-    //@State private var showModal = false
+
     @StateObject var closeModal = ModalManager()
     @State private var LabelVariable: String = ""
     
@@ -68,6 +69,12 @@ struct ClassificationView: View {
             }
         }
         .environmentObject(closeModal)
+        .onChange(of: closeModal.goToEmergencias){ value in
+            if(value){
+                path.append(EmergenciaNavModel(selection: 1, hayEmergencia: false))
+                closeModal.goToEmergencias = false
+            }
+        }
         
     }
 }
