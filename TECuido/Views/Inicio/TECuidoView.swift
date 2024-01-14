@@ -105,6 +105,12 @@ struct TECuidoView: View {
             .navigationDestination(for: ClassificationNavModel.self){item in
                 ClassificationView(path: $path, data: item.data, model: item.model)
             }
+            .navigationDestination(for: RecetaModel.self){receta in
+                MostrarRecetaView(path: $path, receta: receta)
+            }
+            .navigationDestination(for: MedicamentoModel.self){medicamento in
+                MedicamentoDetalleView(path: $path, medicamento: medicamento)
+            }
             .navigationDestination(for: EmergenciaNavModel.self){item in
                 EmergenciasView(path: $path, selection: item.selection, hayEmergencia: item.hayEmergencia)
             }

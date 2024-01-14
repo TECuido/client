@@ -23,7 +23,6 @@ struct RecetasView: View {
                 .tabItem{
                     Image(systemName: "doc.text.fill")
                 }
-                .tint(.blue)
             
             
            AgregaRecetaView()

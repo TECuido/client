@@ -19,7 +19,7 @@ extension MedicamentoRecetaModel  {
     public static var defaultMedicamento1 =  MedicamentoRecetaModel(medicamentoReceta: [])
 }
 
-struct MedicamentoModel: Decodable, Identifiable {
+struct MedicamentoModel: Decodable, Identifiable, Hashable {
     var id: Int
     var nombre: String
     var dosis: String

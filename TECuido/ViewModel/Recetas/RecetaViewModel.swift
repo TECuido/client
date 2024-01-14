@@ -10,8 +10,6 @@ import SwiftUI
 class RecetaViewModel: ObservableObject {
     
     @Published var recetaMedicamentos = MedicamentoRecetaModel.defaultMedicamento1    
-    @Published var failedAuthentication: Bool = false
-
     
     public func getMedicamentos(idReceta: Int) async {
                 
@@ -25,17 +23,8 @@ class RecetaViewModel: ObservableObject {
                 }
             }
             case .failure(let error):
-                switch error {
-                case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                }
+                print(error.localizedDescription)
+
         }
     }
 

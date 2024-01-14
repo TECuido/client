@@ -71,17 +71,11 @@ struct ListaContactosLlamadaView: View {
                     .task {
                         await viewModel.getContactos()
                     }
-                    .background {
-                        NavigationLink(destination: LlamadasTemporalView(), isActive: $viewModel.showLlamadaView){
-                            EmptyView()
-                        }
-                    }
+                    
                     .frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                     
-                    
-                    NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
                     
                 }
             }

@@ -13,12 +13,7 @@ struct CheckedItem: View {
     var subtitle: String = ""
     
     var body: some View {
-        ZStack {
-            Image(systemName: "checkmark.circle.fill")
-                .resizable()
-                .frame(width: 35, height: 35)
-                .foregroundColor(Color.green)
-        }
+        IconCircle(icon: "checkmark.circle.fill")
         
         VStack(alignment: .leading) {
             Text(title)

@@ -102,14 +102,6 @@ struct UnirseLlamadasView: View {
                 .padding(10)
                 .font(.title2)
                 
-                .background {
-                    NavigationLink(destination: LlamadasTemporalView(), isActive: $viewModel.showLlamadaView){
-                        EmptyView()
-                    }
-                }
-                
-                NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
-                
             }
             
         }

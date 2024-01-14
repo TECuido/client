@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MedicamentoDetalleView: View {
-    @State var medicamento: MedicamentoModel
     
+    @Binding var path: NavigationPath
+    
+    @State var medicamento: MedicamentoModel
     @State private var isDictionaryPresented = false
     @State private var isTermValid = false
     @State private var errorMessage = ""
@@ -53,6 +55,9 @@ struct MedicamentoDetalleView: View {
 
 struct MedicamentoDetalleView_Previews: PreviewProvider {
     static var previews: some View {
-        MedicamentoDetalleView(medicamento: MedicamentoModel.defaultMedicamento1)
+        MedicamentoDetalleView(
+            path: .constant(NavigationPath()),
+            medicamento: MedicamentoModel.defaultMedicamento1
+        )
     }
 }

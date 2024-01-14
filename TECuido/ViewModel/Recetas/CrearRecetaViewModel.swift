@@ -34,9 +34,7 @@ class CrearRecetaViewModel : ObservableObject {
     @Published var recetaCreada = false
     
     @Published var error: String = ""
-    
-    @Published var failedAuthentication: Bool = false
-    
+        
     
     public func getPacientes() async {
         
@@ -56,23 +54,9 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                     }
                 case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
+                    print(error.localizedDescription)
             }
             
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
-            }
         }
         
         
@@ -128,26 +112,16 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                     case .failure(let error):
                         switch error {
-                        case .badStatus(let error, let message):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
+                        case .badStatus(_, let message):
                             DispatchQueue.main.async {
                                 self.error = message
                             }
                         default:
-                            print(error.self)
                             print(error.localizedDescription)
                         }
                     
                 }
                 
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
-                }
             }
 
         } catch ValidationError.error(let description){
@@ -217,28 +191,17 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                     case .failure(let error):
                         switch error {
-                        case .badStatus(let error, let message):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
+                        case .badStatus(_, let message):
                             DispatchQueue.main.async {
                                 self.error = message
                             }
                         default:
-                            print(error.self)
                             print(error.localizedDescription)
                         }
                     
                 }
                 
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
-                }
             }
-
         } catch ValidationError.error(let description){
             DispatchQueue.main.async {
                 self.error = description
@@ -258,13 +221,8 @@ class CrearRecetaViewModel : ObservableObject {
                     return
                 case .failure(let error):
                     switch error {
-                    case .badStatus(let error, let message):
+                    case .badStatus(_, let message):
                         DispatchQueue.main.async {
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
                             self.error = message
                         }
                 default:

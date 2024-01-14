@@ -149,6 +149,11 @@
 		FBFA60FD2AE9C7090076EF5D /* AgregarContactoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */; };
 		FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */; };
 		FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */; };
+		FBFE80E12B54826A001C0E15 /* NoPrescriptionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E02B54826A001C0E15 /* NoPrescriptionIcon.swift */; };
+		FBFE80E32B54846D001C0E15 /* NumberCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E22B54846D001C0E15 /* NumberCircle.swift */; };
+		FBFE80E52B548E87001C0E15 /* NumberedBigItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E42B548E87001C0E15 /* NumberedBigItem.swift */; };
+		FBFE80E72B5490AB001C0E15 /* IconBigItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E62B5490AB001C0E15 /* IconBigItem.swift */; };
+		FBFE80E92B549226001C0E15 /* IconCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E82B549226001C0E15 /* IconCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +302,11 @@
 		FBFA60FC2AE9C7090076EF5D /* AgregarContactoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarContactoModel.swift; sourceTree = "<group>"; };
 		FBFA60FE2AE9C7350076EF5D /* ListaContactoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactoViewModel.swift; sourceTree = "<group>"; };
 		FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoCuentaView.swift; sourceTree = "<group>"; };
+		FBFE80E02B54826A001C0E15 /* NoPrescriptionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPrescriptionIcon.swift; sourceTree = "<group>"; };
+		FBFE80E22B54846D001C0E15 /* NumberCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCircle.swift; sourceTree = "<group>"; };
+		FBFE80E42B548E87001C0E15 /* NumberedBigItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberedBigItem.swift; sourceTree = "<group>"; };
+		FBFE80E62B5490AB001C0E15 /* IconBigItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBigItem.swift; sourceTree = "<group>"; };
+		FBFE80E82B549226001C0E15 /* IconCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +552,10 @@
 			children = (
 				FBB1239D2B538CA80064DE07 /* NumberedItem.swift */,
 				FBB1239F2B5390660064DE07 /* CheckedItem.swift */,
+				FBFE80E22B54846D001C0E15 /* NumberCircle.swift */,
+				FBFE80E42B548E87001C0E15 /* NumberedBigItem.swift */,
+				FBFE80E62B5490AB001C0E15 /* IconBigItem.swift */,
+				FBFE80E82B549226001C0E15 /* IconCircle.swift */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -550,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				FBB1239B2B535F8D0064DE07 /* NoUserIcon.swift */,
+				FBFE80E02B54826A001C0E15 /* NoPrescriptionIcon.swift */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -966,6 +981,7 @@
 				FB6A5BB82AE30F6200D6F4C5 /* ListaRecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
 				FBB1239C2B535F8D0064DE07 /* NoUserIcon.swift in Sources */,
+				FBFE80E92B549226001C0E15 /* IconCircle.swift in Sources */,
 				FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
@@ -1051,8 +1067,10 @@
 				FBBD9AD22B4E32FE0045DF9D /* CondicionMedica.swift in Sources */,
 				FBB1238B2B530AF20064DE07 /* UsuarioDetallesViewModel.swift in Sources */,
 				FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */,
+				FBFE80E52B548E87001C0E15 /* NumberedBigItem.swift in Sources */,
 				FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */,
 				FBE093F72B51BD4400A49DE1 /* Title.swift in Sources */,
+				FBFE80E32B54846D001C0E15 /* NumberCircle.swift in Sources */,
 				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */,
@@ -1071,10 +1089,12 @@
 				FBB123942B5334020064DE07 /* OptionsAlert.swift in Sources */,
 				C0271A712AF33A5A00024BE5 /* LesionesView.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FBFE80E72B5490AB001C0E15 /* IconBigItem.swift in Sources */,
 				FBE093E92B50D2B400A49DE1 /* PrimaryButton.swift in Sources */,
 				FBE093FF2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift in Sources */,
 				FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */,
 				FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */,
+				FBFE80E12B54826A001C0E15 /* NoPrescriptionIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
