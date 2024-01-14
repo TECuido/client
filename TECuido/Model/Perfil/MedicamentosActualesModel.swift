@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MedicamentosActualesModel : Codable, Hashable {
+struct AgregaMedicamentosActualesModel : Codable, Hashable {
     var nombre: String
     var idUsuario: Int
     enum CodingKeys: String, CodingKey {
@@ -21,7 +21,29 @@ struct MedicamentosActualesModel : Codable, Hashable {
         hasher.combine(idUsuario)
     }
 }
-extension MedicamentosActualesModel  {
+extension AgregaMedicamentosActualesModel  {
     public static var example =
-    MedicamentosActualesModel ( nombre: "Loratadina"  ,idUsuario: 1)
+    AgregaMedicamentosActualesModel ( nombre: "Loratadina"  ,idUsuario: 1)
+}
+
+struct MedicamentosActualesModel : Identifiable, Decodable, Hashable{
+    var id: Int
+    var nombre : String
+    var idUsuario : Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "idMedicamentoActual"
+        case nombre = "nombre"
+        case idUsuario
+    }
+    
+    func hash(into hasher: inout Hasher) {
+         hasher.combine(id)
+         hasher.combine(nombre)
+         hasher.combine(idUsuario)
+     }
+}
+extension MedicamentosActualesModel {
+    public static var example =
+    MedicamentosActualesModel(id: 1, nombre: "Polvo", idUsuario: 2)
 }

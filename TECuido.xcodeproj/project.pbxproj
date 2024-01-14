@@ -521,8 +521,6 @@
 			children = (
 				FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */,
 				FBBD9ACD2B4E16030045DF9D /* AlergiaModel.swift */,
-				FB5F05412B045571005D5403 /* MedicamentoModel.swift */,
-				FB5F055D2B06CCD8005D5403 /* MedicamentoDetalleModel.swift */,
 				FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */,
 				FBBD9ACF2B4E325B0045DF9D /* MedicamentosActualesModel.swift */,
 				FBBD9AD12B4E32FE0045DF9D /* CondicionMedica.swift */,
@@ -823,6 +821,8 @@
 		FBE094232B5268CC00A49DE1 /* Recetas */ = {
 			isa = PBXGroup;
 			children = (
+				FB5F05412B045571005D5403 /* MedicamentoModel.swift */,
+				FB5F055D2B06CCD8005D5403 /* MedicamentoDetalleModel.swift */,
 				FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */,
 			);
 			path = Recetas;

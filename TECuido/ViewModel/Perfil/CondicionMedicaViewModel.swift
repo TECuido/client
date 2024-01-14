@@ -14,7 +14,7 @@
      @Published var nombreError: Int =  0
      @Published var error: String = ""
      @Published var condicionCreada: Bool = false
-     
+     @Published var condicionSeleccionada = CondicionMedicaModel.example
      @Published var failedAuthentication: Bool = false
      public func getCondicionMedica() async {
 
@@ -46,16 +46,13 @@
                  nombreError = 1
                  throw ValidationError.error(description: "Debes ingresar el nombre de la condicion medica")
              }
-
-
-
              nombreError = 0
              error = ""
 
              if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
 
-                 let data = CondicionMedicaModel(nombre: nombre, idUsuario: tokens.id)
-                 let result : Result<APIResponseModel<CondicionMedicaModel>, NetworkError> = await Webservice().postRequest("/condicionMedica", with: data)
+                 let data = AgregaCondicionMedicaModel(nombre: nombre, idUsuario: tokens.id)
+                 let result : Result<APIResponseModel<AgregaCondicionMedicaModel>, NetworkError> = await Webservice().postRequest("/condicionMedica", with: data)
 
                  switch result {
                      case .success(_):
@@ -96,6 +93,19 @@
              DispatchQueue.main.async {
                  self.error = "Ocurrió un error"
              }
+         }
+     }
+     
+     
+     public func deleteCondicionMedica() async {
+         let idCondicionMedica = self.condicionSeleccionada.id
+         let result : Result<APIResponseModel<CondicionMedicaModel>, NetworkError> = await Webservice().deleteRequest("/condicionMedica/\(idCondicionMedica)")
+         switch result {
+         case .success(let data):
+             print(data)
+             //return
+         case .failure(let error):
+             print(error)
          }
      }
  }

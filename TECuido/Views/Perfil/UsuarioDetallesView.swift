@@ -43,13 +43,78 @@ import SwiftUI
                      .padding()
                  }
                  .padding()
+                 if isEditing {
+                     VStack(alignment: .leading, spacing: 15) {
+                         if let usuario = viewModel.usuarioDetalles.first {
+                             
+                             Input(inputText: $viewModel.usuarioDetalles[0].Usuario.nombre, inputPrompt: "Nombre del paciente", icon: "person.crop.circle.fill", iconSize: (25, 25), iconPadding: 10).overlay {
+                                 RoundedRectangle(cornerRadius: 20)
+                                     .stroke(.red, lineWidth: CGFloat(viewModel.nombreError) * 2)
+                             }
 
+                             Input(inputText: $viewModel.usuarioDetalles[0].numPoliza , inputPrompt: "Número de poliza", icon: "number", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].edad, inputPrompt: "Edad", icon: "calendar", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].direccion, inputPrompt: "Dirección", icon: "location.fill", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].contactoEmergencia.correo, inputPrompt: "Correo de Contacto", icon: "phone.circle.fill", iconSize: (25, 25), iconPadding: 10) .overlay {
+                                 RoundedRectangle(cornerRadius: 20)
+                                     .stroke(.red, lineWidth: CGFloat(viewModel.contactoError)*2)
+                             }
+                             Input(inputText: $viewModel.usuarioDetalles[0].medicoTratante, inputPrompt: "Médico tratante", icon: "person.badge.plus", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].tipoSangre, inputPrompt: "Tipo de Sangre", icon: "drop.fill", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].donacionOrganos, inputPrompt: "Donar órganos (SI/NO)", icon: "heart.text.square.fill", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].transfusionSanguinea, inputPrompt: "Donar Sangre (SI/NO)", icon: "drop.fill", iconSize: (25, 25), iconPadding: 10)
+
+                             
+                             
+                             Button(action: {
+                                 Task {
+                                     await viewModel.updateUsuarioDetalles(numPoliza: usuario.numPoliza , tipoSangre: usuario.tipoSangre, contactoEmergencia: usuario.contactoEmergencia.correo , transfusionSanguinea: usuario.transfusionSanguinea, donacionOrganos: usuario.donacionOrganos, direccion: usuario.direccion, edad: usuario.edad, medicoTratante: usuario.medicoTratante, nombre: usuario.Usuario.nombre)
+                                 }
+                                 if viewModel.addedContacto {
+                                     isEditing = false
+                                 }
+                             }) {
+                                 Text("Editar Datos Médicos")
+                                     .foregroundColor(.white)
+                                     .bold()
+                                     .frame(width: 300, height: 55)
+                                     .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
+                                     .cornerRadius(25)
+                                     .padding(10)
+                                     .font(.title2)
+                             }.alert(isPresented: $viewModel.addedContacto) {
+                                 Alert(
+                                     title:
+                                        Text("Confirmación")
+                                             .font(.title)
+                                     ,
+                                     message: Text( "Se ha editado el perfil médico con éxito")
+                                         .font(.title2),
+                                     dismissButton: .default(
+                                         Text("OK")
+                                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
+                                         action: {
+                                             isEditing = false
+                                             
+                                         }
+                                     )
+                                 )
+                             }
+
+
+                            } else {
+                            Text("No se encontraron detalles del usuario.").foregroundColor(.red)
+                            }
+                     }
+                     .padding()
+                 }else{
+                 // Inicio pantalla normal
                  VStack(alignment: .leading, spacing: 15) {
                      if let usuario = viewModel.usuarioDetalles.first {
                                              InfoRow(titulo: "Nombre del paciente", respuesta: usuario.Usuario.nombre)
-                                             InfoRow(titulo: "Numero de poliza", respuesta: usuario.numPoliza ?? "")
+                                             InfoRow(titulo: "Numero de poliza", respuesta: usuario.numPoliza )
                                              InfoRow(titulo: "Edad", respuesta: usuario.edad )
-                                             InfoRow(titulo: "Direccion", respuesta: usuario.direccion )
+                                             InfoRow(titulo: "Dirección", respuesta: usuario.direccion )
                                              InfoRow(titulo: "Contacto de Emergencia", respuesta: "\(usuario.contactoEmergencia.nombre)\n\(usuario.contactoEmergencia.correo)")
                                              InfoRow(titulo: "Medico tratante", respuesta: usuario.medicoTratante )
                                              InfoRow(titulo: "Tipo de Sangre", respuesta: usuario.tipoSangre)
@@ -75,6 +140,7 @@ import SwiftUI
                          .padding(10)
                          .font(.title2)
                  }
+                 }// Fin pantalla normal
              }
              .background(Color.white)
              .cornerRadius(10)
@@ -88,6 +154,8 @@ import SwiftUI
                              }
 
      }
+         
+       
  }
 
  struct InfoRow: View {
