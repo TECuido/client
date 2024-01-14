@@ -149,70 +149,78 @@ struct DatosMedicosView: View {
                             secondaryButton: .cancel(Text("Cancelar"))
                         )
                     }
-                    // Medicamentos
+                    // Condiciones Médicas
                     DisclosureGroup("Medicamentos", isExpanded: $mostrarMedicamentos) {
                         VStack(alignment: .leading, spacing: 10) {
                             ForEach(viewModel2.medicamento, id: \.self) { medicamento in
-                                HStack {
+                                HStack{
                                     Text(medicamento.nombre)
                                         .font(.headline)
                                         .frame(width: 200)
                                         .font(.system(size: 25))
                                         .padding(10)
                                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                    Menu {
+                                    Menu{
+                                        
                                         Button(action: {
                                             viewModel2.medicamentoSeleccionado.id = medicamento.id
                                             showMedicamentoEliminarView = true
-                                        }) {
+                                        }){
                                             Label("Borrar", systemImage: "trash")
                                         }
-                                    } label: {
+                                    }label: {
                                         Image(systemName: "ellipsis.circle")
                                             .frame(width: 30, height: 30)
                                             .foregroundColor(.blue)
                                     }
-                                }
-                                
-                                NavigationLink(destination: MedicamentoActualView()) {
-                                    HStack {
-                                        Spacer()
-                                        Image(systemName: "plus")
-                                            .foregroundColor(Color.blue)
-                                            .font(.headline)
-                                            .padding()
-                                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                    }
+                                    
                                 }
                             }
-                            .padding()
-                        }
-                        .font(.system(size: 20))
-                        .onAppear {
-                            Task {
-                                await viewModel2.getMedicamentosActuales()
+                            NavigationLink(destination: MedicamentoActualView()) {
+                                HStack {
+                                    Spacer()
+                                    Image(systemName: "plus")
+                                        .foregroundColor(Color.blue)
+                                        .font(.headline)
+                                        .padding()
+                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                                }
                             }
                         }
-                        .alert(isPresented: $showMedicamentoEliminarView) {
-                            Alert(
-                                title: Text("Confirmación").font(.title),
-                                message: Text("¿Está seguro que desea eliminar este medicamento?").font(.title2),
-                                primaryButton: .destructive(Text("Eliminar")) {
-                                    Task {
-                                        await viewModel2.deleteMedicamentosActuales()
-                                        await viewModel2.getMedicamentosActuales()
-                                    }
-                                },
-                                secondaryButton: .cancel(Text("Cancelar"))
-                            )
+                        .padding()
+                    }
+                    .font(.system(size: 20))
+                    .onAppear {
+                        Task {
+                            await viewModel2.getMedicamentosActuales()
                         }
+                    }.alert(isPresented: $showMedicamentoEliminarView) {
+                        Alert(
+                            title:
+                                Text("Confirmación")
+                                .font(.title)
+                            ,
+                            message: Text("¿Está seguro que desea eliminar este medicamento?")
+                                .font(.title2),
+                            primaryButton: .destructive(Text("Eliminar")) {
+                                Task{
+                                    await viewModel2.deleteMedicamentosActuales()
+                                    await viewModel2.getMedicamentosActuales()
+                                }
+                            },
+                            secondaryButton: .cancel(Text("Cancelar"))
+                        )
+                    }
                         
                     }
                 }
-            }
+            }.background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+            .padding()
         }
     }
-}
+
 
     struct DatosMedicosView_Previews: PreviewProvider {
         static var previews: some View {

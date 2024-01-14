@@ -15,7 +15,7 @@
  struct GetUsuarioDetallesModel: Decodable {
      var idUsuariosDetalles: Int
      var idUsuario: Int
-     var numPoliza: String?
+     var numPoliza: String
      var tipoSangre: String
      var idContactoEmergencia: Int
      var transfusionSanguinea: String
@@ -47,3 +47,44 @@
          case nombre
      }
  }
+
+
+
+struct UsuarioUpdateModel: Codable {
+    let idUsuario: Int
+    let nombre: String
+    let correo: String
+    let password: String
+    let idTipo: Int
+    let token: String?
+    let createdAt: String
+    let updatedAt: String
+}
+
+
+struct EditarUsuarioDetallesModel: Codable {
+    let numPoliza: String
+    let tipoSangre: String
+    let contactoEmergencia: String
+    let transfusionSanguinea: String
+    let donacionOrganos: String
+    let direccion: String
+    let edad: String
+    let medicoTratante: String
+    let nombre: String
+}
+
+
+struct CombinedUsuarioModel: Codable {
+    let usuarioUpdate: UsuarioUpdateModel
+    let editarUsuarioDetalles: EditarUsuarioDetallesModel
+
+
+    enum CodingKeys: String, CodingKey {
+        case usuarioUpdate
+        case editarUsuarioDetalles
+    }
+}
+
+
+

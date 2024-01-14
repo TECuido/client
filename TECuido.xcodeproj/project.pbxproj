@@ -51,6 +51,7 @@
 		FB4D561A2AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D56192AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift */; };
 		FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */; };
 		FB4DDF7B2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */; };
+		FB576C832B53646A00CDFC5B /* InputBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB576C822B53646A00CDFC5B /* InputBinding.swift */; };
 		FB5F05422B045572005D5403 /* MedicamentoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05412B045571005D5403 /* MedicamentoModel.swift */; };
 		FB5F054E2B06B73F005D5403 /* PacientesProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */; };
 		FB5F05562B06C279005D5403 /* RecetaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F05552B06C279005D5403 /* RecetaViewModel.swift */; };
@@ -190,6 +191,7 @@
 		FB4D56192AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarEmergenciaViewModel.swift; sourceTree = "<group>"; };
 		FB4DDF782AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaView.swift; sourceTree = "<group>"; };
 		FB4DDF7A2AF0886C00AAAEB5 /* ListaContactosLlamadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosLlamadaViewModel.swift; sourceTree = "<group>"; };
+		FB576C822B53646A00CDFC5B /* InputBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBinding.swift; sourceTree = "<group>"; };
 		FB5F05412B045571005D5403 /* MedicamentoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentoModel.swift; sourceTree = "<group>"; };
 		FB5F054D2B06B73F005D5403 /* PacientesProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientesProfileView.swift; sourceTree = "<group>"; };
 		FB5F05552B06C279005D5403 /* RecetaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 			children = (
 				FBE093F12B510A0E00A49DE1 /* Input.swift */,
 				FBE093F32B51184200A49DE1 /* PasswordInput.swift */,
+				FB576C822B53646A00CDFC5B /* InputBinding.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -924,6 +927,7 @@
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
 				FB5F056D2B0715FE005D5403 /* RecetasView.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
+				FB576C832B53646A00CDFC5B /* InputBinding.swift in Sources */,
 				FBE093EF2B51049500A49DE1 /* FontSize.swift in Sources */,
 				FBE093F42B51184200A49DE1 /* PasswordInput.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,

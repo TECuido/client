@@ -149,6 +149,7 @@ class Webservice {
                 }
                 
                 guard let result = try? JSONDecoder().decode(APIResponseModel<T>.self, from: data) else {
+              
                     throw NetworkError.decodingError
                 }
                             
@@ -204,10 +205,17 @@ class Webservice {
                 guard let response = response as? HTTPURLResponse else {
                     throw NetworkError.badResponse
                 }
+                print(data)
+               
                 
                 guard let result = try? JSONDecoder().decode(APIResponseModel<T>.self, from: data) else {
+                    print("Decoding error occurred:")
+                    if let errorString = String(data: data, encoding: .utf8) {
+                        print(errorString)
+                    }
                     throw NetworkError.decodingError
                 }
+
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
                     if response.statusCode == 401 && allowedRetry {

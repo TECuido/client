@@ -42,11 +42,10 @@
                          ErrorMessage(errorText: viewModel.error)
 
                          Button(action: {
-                             // Call the addUsuarioDetalles function
+                            
                              Task {
                                  await viewModel.addUsuarioDetalles()
                              }
-                             // Navigate to Home after adding UsuarioDetalles
                              if viewModel.addedContacto {
                                  path.append(HomeView.tag)
                              }
