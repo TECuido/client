@@ -14,13 +14,11 @@ struct ModalView: View {
     var body: some View {
         ZStack(alignment: .top) {
 
-        //[OPTIONAL] Edit panel background color here.
-            Color(.white)
-//            .opacity(0.5)
-            .ignoresSafeArea()
+            Color("BackgroundColor")
+                .ignoresSafeArea()
 
             VStack {
-                //This view displays your prediction. Make edits in PredictiveLabelView file.
+
                 PredictiveLabelView(labelData: labelData)
                 
                 Image(labelData.icono)
@@ -28,14 +26,12 @@ struct ModalView: View {
                     .scaledToFit()
                     .frame(width: 150, height: 150)
 
-                //This view displays your prediction. Make edits in DisplayedContentView file.
                 DisplayedContentView(labelData: labelData)
             }
             .padding()
 
 
         }
-        //[OPTIONAL] Change the size of the frame.
         .frame(maxWidth: .infinity)
     }
 }

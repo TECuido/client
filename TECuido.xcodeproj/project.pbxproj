@@ -104,6 +104,7 @@
 		FBB1239C2B535F8D0064DE07 /* NoUserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1239B2B535F8D0064DE07 /* NoUserIcon.swift */; };
 		FBB1239E2B538CA80064DE07 /* NumberedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1239D2B538CA80064DE07 /* NumberedItem.swift */; };
 		FBB123A02B5390660064DE07 /* CheckedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB1239F2B5390660064DE07 /* CheckedItem.swift */; };
+		FBB123A32B53D3830064DE07 /* ClassificationNavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123A22B53D3830064DE07 /* ClassificationNavModel.swift */; };
 		FBB3D0012B4C6551003CEF52 /* UsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */; };
 		FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB8EC632AE1D5E800D8766C /* ContactosView.swift */; };
 		FBBD9AC82B4DFFF80045DF9D /* CondicionMedicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */; };
@@ -250,6 +251,7 @@
 		FBB1239B2B535F8D0064DE07 /* NoUserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUserIcon.swift; sourceTree = "<group>"; };
 		FBB1239D2B538CA80064DE07 /* NumberedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberedItem.swift; sourceTree = "<group>"; };
 		FBB1239F2B5390660064DE07 /* CheckedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedItem.swift; sourceTree = "<group>"; };
+		FBB123A22B53D3830064DE07 /* ClassificationNavModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationNavModel.swift; sourceTree = "<group>"; };
 		FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDetallesModel.swift; sourceTree = "<group>"; };
 		FBB8EC632AE1D5E800D8766C /* ContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosView.swift; sourceTree = "<group>"; };
 		FBBD9AC72B4DFFF80045DF9D /* CondicionMedicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondicionMedicaView.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 		FBA831302ADE298A001EAEAE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FBB123A12B53D3650064DE07 /* Lesiones */,
 				FBB123912B530C5C0064DE07 /* Perfil */,
 				FBE094272B52692200A49DE1 /* API */,
 				FBE094262B52690B00A49DE1 /* Llamadas */,
@@ -549,6 +552,14 @@
 				FBB1239B2B535F8D0064DE07 /* NoUserIcon.swift */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		FBB123A12B53D3650064DE07 /* Lesiones */ = {
+			isa = PBXGroup;
+			children = (
+				FBB123A22B53D3830064DE07 /* ClassificationNavModel.swift */,
+			);
+			path = Lesiones;
 			sourceTree = "<group>";
 		};
 		FBCD14862AFAABA300DF5A8B /* LocationUtils */ = {
@@ -991,6 +1002,7 @@
 				FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */,
 				FB5F05562B06C279005D5403 /* RecetaViewModel.swift in Sources */,
 				FBEAC1832AE3224200934F95 /* ListaRecetasViewModel.swift in Sources */,
+				FBB123A32B53D3830064DE07 /* ClassificationNavModel.swift in Sources */,
 				C0271A7E2AF33A5A00024BE5 /* Wounds.mlmodel in Sources */,
 				FB5F05662B06F552005D5403 /* AgregarMedicamentoView.swift in Sources */,
 				C0271A7A2AF33A5A00024BE5 /* Constants.swift in Sources */,

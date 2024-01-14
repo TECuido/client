@@ -28,10 +28,9 @@ struct ClassificationView: View {
         let predictionLabel = predictionStatus.topLabel
         ZStack {
             
-            //[OPTIONAL] Edit background color here.
-            Color(red: 0.1294, green: 0.5882, blue: 0.9529)
-//                .opacity(0.5)
+            Color("BackgroundColor")
                 .ignoresSafeArea()
+            
             VStack{
                 // DO NOT EDIT this section. This displays the classification camera
                 GeometryReader { geo in
@@ -69,8 +68,6 @@ struct ClassificationView: View {
             }
         }
         .environmentObject(closeModal)
-        .background(
-            //NavigationLink("", destination: EmergenciasView(selection: 1), isActive: $closeModal.closeModal)
-        )
+        
     }
 }

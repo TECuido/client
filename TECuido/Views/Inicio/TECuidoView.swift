@@ -104,6 +104,9 @@ struct TECuidoView: View {
                     TECuidoView()
                 }
             }
+            .navigationDestination(for: ClassificationNavModel.self){item in
+                ClassificationView(data: item.data, model: item.model)
+            }
               
             
             
