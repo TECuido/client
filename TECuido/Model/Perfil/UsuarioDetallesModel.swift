@@ -27,3 +27,20 @@ struct UsuarioDetallesModel: Codable {
         case medicoTratante
     }
 }
+
+
+
+struct PostUsuarioDetallesModel: Codable {
+
+    let idUsuariosDetalles: Int
+    let idUsuario: Int
+    let numPoliza: String
+    let tipoSangre: String
+    let idContactoEmergencia: Int
+    let transfusionSanguinea: String
+    let donacionOrganos: String
+    let direccion: String
+    let edad: String
+    let medicoTratante: String
+
+}
