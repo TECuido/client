@@ -14,6 +14,10 @@ struct DatosMedicosView: View {
     @State private var showAlergiaEliminarView = false
     @State private var showCondicionEliminarView = false
     @State private var showMedicamentoEliminarView = false
+    @Binding var path: NavigationPath
+
+    
+    static var tag = "DatosMedicosView"
     var body: some View {
         VStack {
             ScrollView {
@@ -52,16 +56,16 @@ struct DatosMedicosView: View {
                                     }
                                 }
                             }
-                            NavigationLink(destination: AlergiaView()) {
-                                HStack {
-                                    Spacer()
+                        //    NavigationLink(destination: AlergiaView()) {
+                       //         HStack {
+                                 /*Spacer()
                                     Image(systemName: "plus")
                                         .foregroundColor(Color.blue)
                                         .font(.headline)
                                         .padding()
                                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                }
-                            }
+                                }*/
+                           // }
                         }
                         .padding()
                     }
@@ -224,6 +228,6 @@ struct DatosMedicosView: View {
 
     struct DatosMedicosView_Previews: PreviewProvider {
         static var previews: some View {
-            DatosMedicosView()
+            DatosMedicosView(path: .constant(NavigationPath()))
         }
     }

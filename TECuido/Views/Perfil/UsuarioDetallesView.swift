@@ -17,17 +17,16 @@ import SwiftUI
      
      var body: some View {
          ScrollView {
-             VStack(alignment: .leading, spacing: 10) {
+             Color("BackgroundColor")
+                 .ignoresSafeArea()
+             VStack(alignment: .center) {
                  HStack {
                      // Espaciador a la izquierda para centrar el título
                      Spacer()
 
                      // Titulo centrado
-                     Text("Perfil de Usuario")
-                         .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                         .font(.system(size: 45))
-                         .bold()
-                         .multilineTextAlignment(.center)
+                     Title(text: "Perfil de Usuario")
+                         
 
                      // Espaciador a la derecha para centrar el título
                      Spacer()
@@ -44,7 +43,7 @@ import SwiftUI
                  }
                  .padding()
                  if isEditing {
-                     VStack(alignment: .leading, spacing: 15) {
+                    
                          if let usuario = viewModel.usuarioDetalles.first {
                              
                              Input(inputText: $viewModel.usuarioDetalles[0].Usuario.nombre, inputPrompt: "Nombre del paciente", icon: "person.crop.circle.fill", iconSize: (25, 25), iconPadding: 10).overlay {
@@ -64,52 +63,30 @@ import SwiftUI
                              Input(inputText: $viewModel.usuarioDetalles[0].donacionOrganos, inputPrompt: "Donar órganos (SI/NO)", icon: "heart.text.square.fill", iconSize: (25, 25), iconPadding: 10)
                              Input(inputText: $viewModel.usuarioDetalles[0].transfusionSanguinea, inputPrompt: "Donar Sangre (SI/NO)", icon: "drop.fill", iconSize: (25, 25), iconPadding: 10)
 
-                             
-                             
-                             Button(action: {
+                             PrimaryButton(title:"Editar Datos Médicos") {
                                  Task {
                                      await viewModel.updateUsuarioDetalles(numPoliza: usuario.numPoliza , tipoSangre: usuario.tipoSangre, contactoEmergencia: usuario.contactoEmergencia.correo , transfusionSanguinea: usuario.transfusionSanguinea, donacionOrganos: usuario.donacionOrganos, direccion: usuario.direccion, edad: usuario.edad, medicoTratante: usuario.medicoTratante, nombre: usuario.Usuario.nombre)
                                  }
                                  if viewModel.addedContacto {
                                      isEditing = false
                                  }
-                             }) {
-                                 Text("Editar Datos Médicos")
-                                     .foregroundColor(.white)
-                                     .bold()
-                                     .frame(width: 300, height: 55)
-                                     .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                     .cornerRadius(25)
-                                     .padding(10)
-                                     .font(.title2)
-                             }.alert(isPresented: $viewModel.addedContacto) {
-                                 Alert(
-                                     title:
-                                        Text("Confirmación")
-                                             .font(.title)
-                                     ,
-                                     message: Text( "Se ha editado el perfil médico con éxito")
-                                         .font(.title2),
-                                     dismissButton: .default(
-                                         Text("OK")
-                                             .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529)),
-                                         action: {
-                                             isEditing = false
-                                             
-                                         }
-                                     )
-                                 )
+                             }// Modal
+                             .alert(isPresented: $viewModel.addedContacto) {
+                                 AcceptAlert(
+                                     title: "Confirmación",
+                                     message:"Se ha editado el perfil médico con éxito"
+                                 ) {
+                                     isEditing = false
+                                 }
                              }
-
+                           
 
                             } else {
-                            Text("No se encontraron detalles del usuario.").foregroundColor(.red)
+                                ErrorMessage(errorText: "No se encontraron detalles del usuario.")
                             }
-                     }
-                     .padding()
+                    
                  }else{
                  // Inicio pantalla normal
-                 VStack(alignment: .leading, spacing: 15) {
                      if let usuario = viewModel.usuarioDetalles.first {
                                              InfoRow(titulo: "Nombre del paciente", respuesta: usuario.Usuario.nombre)
                                              InfoRow(titulo: "Numero de poliza", respuesta: usuario.numPoliza )
@@ -121,62 +98,41 @@ import SwiftUI
                                              InfoRow(titulo: "Donacion de Organos", respuesta: usuario.donacionOrganos)
                                              InfoRow(titulo: "Donacion de Sangre", respuesta: usuario.transfusionSanguinea)
                                          } else {
-                                             Text("No se encontraron detalles del usuario.")
-                                                 .foregroundColor(.red)
+                                             ErrorMessage(errorText: "No se encontraron detalles del usuario.")
                                          }
+                     // Botón para ir a Datos Medicos
+                     PrimaryButton(title: "Datos médicos"){
+                         Task {
+                             
+                                 path.append(DatosMedicosView.tag)
+                             
+                         }
+                     }
+                     .padding(.top, 10)
                  }
-                 .padding()
+              
 
 
-
-                 // Botón para ir a Datos Medicos
-                 NavigationLink(destination: DatosMedicosView()) {
-                     Text("Ir a Datos Medicos")
-                         .foregroundColor(.white)
-                         .bold()
-                         .frame(width: 300, height: 55)
-                         .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                         .cornerRadius(25)
-                         .padding(10)
-                         .font(.title2)
-                 }
+                    
+                 
+                
                  }// Fin pantalla normal
-             }
-             .background(Color.white)
-             .cornerRadius(10)
-             .shadow(radius: 5)
-             .padding()
+             }.onAppear {
+                 Task {
+                     await viewModel.getUsuarioDetalles()
+                 }
+             
          }
          // Llamada a la función getUsuarioDetalles al aparecer la vista
-                         .onAppear {
-                             Task {
-                                 await viewModel.getUsuarioDetalles()
-                             }
+                         
 
      }
          
        
  }
 
- struct InfoRow: View {
-     var titulo: String
-     var respuesta: String
-     var body: some View {
-         VStack(alignment: .leading, spacing: 5) {
-             Text(titulo)
-                 .font(.title2)
-                 .foregroundColor(.gray)
-                 .lineLimit(nil)
-             Text(respuesta)
-                 .font(.title)
-
-                 .multilineTextAlignment(.leading)
-                 .lineLimit(nil)
-             Divider().background(Color.gray.opacity(0.2)) // Divider gris
-         }
-     }
- }
- }
+ 
+ 
 
  struct UsuarioDetallesView_Previews: PreviewProvider {
      static var previews: some View {

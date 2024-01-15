@@ -83,6 +83,10 @@ struct TECuidoView: View {
                     ContactosDetallesView(path: $path)
                 case CreaGrupoView.tag:
                     CreaGrupoView(path: $path)
+                case DatosMedicosView.tag:
+                    DatosMedicosView(path: $path)
+                case AlergiaView.tag:
+                    AlergiaView(path: $path)
                 default:
                     TECuidoView()
                 }
