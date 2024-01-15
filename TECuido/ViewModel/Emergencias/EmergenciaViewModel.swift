@@ -12,9 +12,6 @@ class EmergenciaViewModel: ObservableObject {
     @Published var emergencia = DataEmergenciaGrupoModel.defaultEmergencia
     @Published var hayEmergencia = false
     
-    @Published var failedAuthentication: Bool = false
-
-    
     public func getEmergencia() async {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
@@ -32,24 +29,10 @@ class EmergenciaViewModel: ObservableObject {
                     }
                 }
                 case .failure(let error):
-                    switch error {
-                        case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
+                    print(error.localizedDescription)
+
             }
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
-            }
-        }
-        
+        }        
         
     }
 

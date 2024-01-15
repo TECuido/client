@@ -16,12 +16,13 @@ struct LlamadasTemporalView: View {
         
         TabView{
             
-            
+            /*
            TextToSpeechView()
                 .tabItem{
                     Image(systemName: "doc.text.fill")
                 }
                 .tint(.blue)
+             */
             
             
             SpeechToTextView()
