@@ -25,7 +25,7 @@ struct MedicamentoActualView: View {
 
                 // Input de la Alergia
                 Input(inputText: $viewModel.nombre,
-                      inputPrompt: "Nombre del medicamento",
+                      inputPrompt: "Nombre medicamento",
                       icon: "pills.fill",
                       iconSize: (30, 20),
                       iconPadding: 15,
