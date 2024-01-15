@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Title: View {
     var text: String
+    var color: Color = Color("TitleColor")
     
     var body: some View {
         Text(text)
-            .foregroundColor(Color("TitleColor"))
+            .foregroundColor(color)
             .font(.custom("Inter", size: FontSize.title.rawValue))
             .bold()
             .padding(10)

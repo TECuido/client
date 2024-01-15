@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct NotificatioTokenModel : Codable {
+struct NotificationTokenModel : Codable {
     var token: String
 }
 

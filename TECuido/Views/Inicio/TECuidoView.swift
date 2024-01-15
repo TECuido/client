@@ -114,6 +114,12 @@ struct TECuidoView: View {
             .navigationDestination(for: EmergenciaNavModel.self){item in
                 EmergenciasView(path: $path, selection: item.selection, hayEmergencia: item.hayEmergencia)
             }
+            .navigationDestination(for: MapaNavModel.self){item in
+                MapaView(region: item.getRegion(), markers: item.getMarkers())
+            }
+            .navigationDestination(for: DataEmergenciaGrupoModel.self){item in
+                EstatusEmergenciaView(dataEmergencia: item)
+            }
             
         }//aqui termina navigation view
         .navigationViewStyle(StackNavigationViewStyle())

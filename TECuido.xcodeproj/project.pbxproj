@@ -32,6 +32,11 @@
 		FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318B2AD9C6F500965B4B /* LoginView.swift */; };
 		FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318D2AD9C71700965B4B /* RegistroView.swift */; };
 		FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C318F2AD9C73E00965B4B /* HomeView.swift */; };
+		FB26769D2B5517AB000F4AAF /* SelectionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB26769C2B5517AB000F4AAF /* SelectionTabView.swift */; };
+		FB26769F2B55B4DC000F4AAF /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB26769E2B55B4DC000F4AAF /* Heading.swift */; };
+		FB2676A12B55B59F000F4AAF /* MapaNavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2676A02B55B59F000F4AAF /* MapaNavModel.swift */; };
+		FB2676A32B55D26D000F4AAF /* MiddleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2676A22B55D26D000F4AAF /* MiddleButton.swift */; };
+		FB2676A52B55DA9C000F4AAF /* TipoEmergencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2676A42B55DA9C000F4AAF /* TipoEmergencia.swift */; };
 		FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */; };
 		FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F52AFD87CE0015FD36 /* LlamadaModel.swift */; };
 		FB3EB4F82AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */; };
@@ -66,7 +71,7 @@
 		FB60F5032ADA1829001E430D /* UsuarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60F5022ADA1829001E430D /* UsuarioModel.swift */; };
 		FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */; };
 		FB656C562AE05F7100543B12 /* EstatusEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */; };
-		FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */; };
+		FB656C582AE05F9D00543B12 /* EditarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656C572AE05F9D00543B12 /* EditarEmergenciaView.swift */; };
 		FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */; };
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 		FB6A5BB82AE30F6200D6F4C5 /* ListaRecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* ListaRecetasView.swift */; };
@@ -75,7 +80,7 @@
 		FB732FCA2AFC5E11003CE102 /* AlertEmergenciasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */; };
 		FB732FCC2AFC6AF6003CE102 /* EmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */; };
 		FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB831C8B2B50416500A89167 /* DatosMedicosView.swift */; };
-		FB85685C2B3F7D7900E03B65 /* NuevaEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85685B2B3F7D7900E03B65 /* NuevaEmergenciaView.swift */; };
+		FB85685C2B3F7D7900E03B65 /* EnviarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85685B2B3F7D7900E03B65 /* EnviarEmergenciaView.swift */; };
 		FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */; };
 		FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */; };
 		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
@@ -92,6 +97,8 @@
 		FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */; };
 		FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8862AE2191C00A88FDE /* ListaGrupoViewModel.swift */; };
 		FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */; };
+		FBA971B12B55E9E300074B36 /* EmergenciaContactosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971B02B55E9E300074B36 /* EmergenciaContactosModel.swift */; };
+		FBA971B32B55E9EF00074B36 /* EmergenciaGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971B22B55E9EF00074B36 /* EmergenciaGrupoModel.swift */; };
 		FBAA58652B505ECA00FC6812 /* EditarUsuariosDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA58642B505ECA00FC6812 /* EditarUsuariosDetallesView.swift */; };
 		FBB123852B5270120064DE07 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123842B5270120064DE07 /* FloatingActionButton.swift */; };
 		FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */; };
@@ -187,6 +194,11 @@
 		FB1C318B2AD9C6F500965B4B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FB1C318D2AD9C71700965B4B /* RegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroView.swift; sourceTree = "<group>"; };
 		FB1C318F2AD9C73E00965B4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FB26769C2B5517AB000F4AAF /* SelectionTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTabView.swift; sourceTree = "<group>"; };
+		FB26769E2B55B4DC000F4AAF /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
+		FB2676A02B55B59F000F4AAF /* MapaNavModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaNavModel.swift; sourceTree = "<group>"; };
+		FB2676A22B55D26D000F4AAF /* MiddleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleButton.swift; sourceTree = "<group>"; };
+		FB2676A42B55DA9C000F4AAF /* TipoEmergencia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoEmergencia.swift; sourceTree = "<group>"; };
 		FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB3EB4F52AFD87CE0015FD36 /* LlamadaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadaModel.swift; sourceTree = "<group>"; };
 		FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasViewModel.swift; sourceTree = "<group>"; };
@@ -222,7 +234,7 @@
 		FB60F5022ADA1829001E430D /* UsuarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioModel.swift; sourceTree = "<group>"; };
 		FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasView.swift; sourceTree = "<group>"; };
 		FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstatusEmergenciaView.swift; sourceTree = "<group>"; };
-		FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarEmergenciaView.swift; sourceTree = "<group>"; };
+		FB656C572AE05F9D00543B12 /* EditarEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarEmergenciaView.swift; sourceTree = "<group>"; };
 		FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinEmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A5BB72AE30F6200D6F4C5 /* ListaRecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaRecetasView.swift; sourceTree = "<group>"; };
@@ -231,7 +243,7 @@
 		FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasViewModel.swift; sourceTree = "<group>"; };
 		FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaViewModel.swift; sourceTree = "<group>"; };
 		FB831C8B2B50416500A89167 /* DatosMedicosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosMedicosView.swift; sourceTree = "<group>"; };
-		FB85685B2B3F7D7900E03B65 /* NuevaEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevaEmergenciaView.swift; sourceTree = "<group>"; };
+		FB85685B2B3F7D7900E03B65 /* EnviarEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarEmergenciaView.swift; sourceTree = "<group>"; };
 		FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLlamadasView.swift; sourceTree = "<group>"; };
 		FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasView.swift; sourceTree = "<group>"; };
 		FB9034DC2AEC5F5C005E79A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +261,8 @@
 		FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoModel.swift; sourceTree = "<group>"; };
 		FB9CF8862AE2191C00A88FDE /* ListaGrupoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaGrupoViewModel.swift; sourceTree = "<group>"; };
 		FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoModel.swift; sourceTree = "<group>"; };
+		FBA971B02B55E9E300074B36 /* EmergenciaContactosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaContactosModel.swift; sourceTree = "<group>"; };
+		FBA971B22B55E9EF00074B36 /* EmergenciaGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaGrupoModel.swift; sourceTree = "<group>"; };
 		FBAA58642B505ECA00FC6812 /* EditarUsuariosDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarUsuariosDetallesView.swift; sourceTree = "<group>"; };
 		FBB123842B5270120064DE07 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesModel.swift; sourceTree = "<group>"; };
@@ -616,6 +630,7 @@
 				FBE094152B5235AE00A49DE1 /* LargeButton.swift */,
 				FBB123842B5270120064DE07 /* FloatingActionButton.swift */,
 				FBFE80EA2B54BA19001C0E15 /* LinkButton.swift */,
+				FB2676A22B55D26D000F4AAF /* MiddleButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -659,6 +674,7 @@
 				FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */,
 				FBE0941A2B525D4900A49DE1 /* SubTitle.swift */,
 				FBFE80F02B54CFA4001C0E15 /* LabelText.swift */,
+				FB26769E2B55B4DC000F4AAF /* Heading.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -689,13 +705,13 @@
 		FBE094082B521C3800A49DE1 /* Emergencias */ = {
 			isa = PBXGroup;
 			children = (
-				FB85685B2B3F7D7900E03B65 /* NuevaEmergenciaView.swift */,
-				FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */,
-				FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */,
-				FB732FC72AFC59FA003CE102 /* MapaView.swift */,
-				FB656C572AE05F9D00543B12 /* MandarEmergenciaView.swift */,
 				FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */,
+				FB6A2EFE2ADA002C00122000 /* SinEmergenciasView.swift */,
 				FB656C512AE05F0300543B12 /* AlertEmergenciasView.swift */,
+				FB85685B2B3F7D7900E03B65 /* EnviarEmergenciaView.swift */,
+				FB656C552AE05F7100543B12 /* EstatusEmergenciaView.swift */,
+				FB656C572AE05F9D00543B12 /* EditarEmergenciaView.swift */,
+				FB732FC72AFC59FA003CE102 /* MapaView.swift */,
 			);
 			path = Emergencias;
 			sourceTree = "<group>";
@@ -777,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				FBE094182B52551300A49DE1 /* MainTabView.swift */,
+				FB26769C2B5517AB000F4AAF /* SelectionTabView.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -860,6 +877,10 @@
 			children = (
 				FB4D56172AF99C5400D1C533 /* EmergenciaModel.swift */,
 				FBB123A42B546AF20064DE07 /* EmergenciaNavModel.swift */,
+				FB2676A02B55B59F000F4AAF /* MapaNavModel.swift */,
+				FB2676A42B55DA9C000F4AAF /* TipoEmergencia.swift */,
+				FBA971B02B55E9E300074B36 /* EmergenciaContactosModel.swift */,
+				FBA971B22B55E9EF00074B36 /* EmergenciaGrupoModel.swift */,
 			);
 			path = Emergencias;
 			sourceTree = "<group>";
@@ -975,6 +996,7 @@
 				FB9CF8872AE2191C00A88FDE /* ListaGrupoViewModel.swift in Sources */,
 				FBFA60FF2AE9C7350076EF5D /* ListaContactoViewModel.swift in Sources */,
 				FBB123992B534FE50064DE07 /* GrupoNavigationModel.swift in Sources */,
+				FBA971B32B55E9EF00074B36 /* EmergenciaGrupoModel.swift in Sources */,
 				FBE093FD2B51CD3B00A49DE1 /* CondicionMedicaViewModel.swift in Sources */,
 				FBB123962B5337AD0064DE07 /* AcceptAlert.swift in Sources */,
 				FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */,
@@ -999,7 +1021,7 @@
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
 				FBE094122B5221DB00A49DE1 /* CNNEmotions.mlmodel in Sources */,
-				FB85685C2B3F7D7900E03B65 /* NuevaEmergenciaView.swift in Sources */,
+				FB85685C2B3F7D7900E03B65 /* EnviarEmergenciaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */,
 				FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */,
@@ -1011,8 +1033,9 @@
 				C0271A812AF33A5A00024BE5 /* ClassificationObject.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
 				FB5F056D2B0715FE005D5403 /* RecetasView.swift in Sources */,
-				FB656C582AE05F9D00543B12 /* MandarEmergenciaView.swift in Sources */,
+				FB656C582AE05F9D00543B12 /* EditarEmergenciaView.swift in Sources */,
 				FBE093EF2B51049500A49DE1 /* FontSize.swift in Sources */,
+				FB2676A12B55B59F000F4AAF /* MapaNavModel.swift in Sources */,
 				FBE093F42B51184200A49DE1 /* PasswordInput.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FBE093FB2B51CCF800A49DE1 /* AlergiaViewModel.swift in Sources */,
@@ -1026,9 +1049,11 @@
 				FBE093F92B51C25300A49DE1 /* ErrorMessage.swift in Sources */,
 				FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelView.swift in Sources */,
+				FB2676A32B55D26D000F4AAF /* MiddleButton.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
 				FBFE80EF2B54C66F001C0E15 /* SelectInput.swift in Sources */,
 				FBE093F22B510A0E00A49DE1 /* Input.swift in Sources */,
+				FBA971B12B55E9E300074B36 /* EmergenciaContactosModel.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
 				FBBD9AC82B4DFFF80045DF9D /* CondicionMedicaView.swift in Sources */,
 				FB4D55F62AF3157A00D1C533 /* SpeechRecognizer.swift in Sources */,
@@ -1053,6 +1078,7 @@
 				FB4D56042AF8A42A00D1C533 /* AppDelegate.swift in Sources */,
 				FBB3D0012B4C6551003CEF52 /* UsuarioDetallesModel.swift in Sources */,
 				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
+				FB26769D2B5517AB000F4AAF /* SelectionTabView.swift in Sources */,
 				FBE094012B51D6A000A49DE1 /* UsuarioDetallesView.swift in Sources */,
 				FBE094162B5235AE00A49DE1 /* LargeButton.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
@@ -1076,6 +1102,7 @@
 				FBFA60FD2AE9C7090076EF5D /* AgregarContactoModel.swift in Sources */,
 				FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */,
 				FB95EF482AEC422A00ECF38D /* AgregarGrupoModel.swift in Sources */,
+				FB2676A52B55DA9C000F4AAF /* TipoEmergencia.swift in Sources */,
 				FB1C318E2AD9C71700965B4B /* RegistroView.swift in Sources */,
 				FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */,
 				FBBD9AD22B4E32FE0045DF9D /* CondicionMedica.swift in Sources */,
@@ -1104,6 +1131,7 @@
 				FBB123942B5334020064DE07 /* OptionsAlert.swift in Sources */,
 				C0271A712AF33A5A00024BE5 /* LesionesView.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FB26769F2B55B4DC000F4AAF /* Heading.swift in Sources */,
 				FBFE80E72B5490AB001C0E15 /* IconBigItem.swift in Sources */,
 				FBE093E92B50D2B400A49DE1 /* PrimaryButton.swift in Sources */,
 				FBE093FF2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift in Sources */,

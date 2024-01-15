@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 struct MandarEmergenciaView: View {
     
     @State private var otro = ""
@@ -26,7 +27,7 @@ struct MandarEmergenciaView: View {
                 Text("Selecciona el motivo de la alerta")
                     .font(.title2)
                     .multilineTextAlignment(.center)
-                
+                /*
                 Picker("Selecciona un motivo", selection: $viewModel.selectedMotivo){
                     ForEach(viewModel.motivos, id: \.self) { option in
                         HStack {
@@ -48,7 +49,9 @@ struct MandarEmergenciaView: View {
                 )
                 .cornerRadius(25)
                 .padding(10)
+                */
                 
+                /*
                 
                 //Selección de contactos
                 Text("Selecciona los contactos a los que les vas a avisar")
@@ -78,6 +81,7 @@ struct MandarEmergenciaView: View {
                 //descripcion
                 VStack {
                     // Opción para elegir entre nivel de gravedad y texto descriptivo
+                    
                     Picker("Selecciona una opción", selection: $viewModel.isNivelGravedadSelected) {
                         Text("Nivel de gravedad").tag(true).font(.title2)
                         Text("Descripción").tag(false).font(.title2)
@@ -137,8 +141,7 @@ struct MandarEmergenciaView: View {
                 
             }
             NavigationLink("", destination: EstatusEmergenciaView(dataEmergencia: viewModel.dataEmergencia), isActive: $viewModel.showEstatusView)
-            
-            NavigationLink("", destination: TECuidoView(), isActive: $viewModel.failedAuthentication)
+            */
                                     
         }
          
@@ -178,3 +181,4 @@ struct MandarEmergenciaView_Previews: PreviewProvider {
         MandarEmergenciaView()
     }
 }
+*/

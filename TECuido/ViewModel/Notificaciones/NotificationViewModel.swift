@@ -46,7 +46,7 @@ class NotificationViewModel: ObservableObject {
             
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
                 
-                let data = NotificatioTokenModel(token: notificationToken)
+                let data = NotificationTokenModel(token: notificationToken)
                 let result : Result<APIResponseModel<UsuarioTokenModel>, NetworkError> = await Webservice().putRequest("/usuarios/\(tokens.id)/notification/token", with: data)
                 
                 
@@ -56,30 +56,12 @@ class NotificationViewModel: ObservableObject {
                         self.tokenAgregado = true
                     }
                 case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                    }
-                    
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
+                    print(error.localizedDescription)
                 }
             }
             
         } catch {
             print(error.localizedDescription)
-            DispatchQueue.main.async {
-                print(error)
-            }
         }
     }
     
