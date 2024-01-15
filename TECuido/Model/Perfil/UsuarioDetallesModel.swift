@@ -27,3 +27,28 @@ struct UsuarioDetallesModel: Codable {
         case medicoTratante
     }
 }
+
+struct PostUsuarioDetallesModel: Codable {
+    var idUsuariosDetalles: Int
+    var idUsuario: Int
+    var numPoliza: String?
+    var tipoSangre: String?
+    var idContactoEmergencia: Int
+    var transfusionSanguinea: String?
+    var donacionOrganos: String?
+    var direccion: String?
+    var edad: String?
+    var medicoTratante: String?
+    enum CodingKeys: String, CodingKey {
+        case idUsuariosDetalles
+        case idUsuario
+        case numPoliza
+        case tipoSangre
+        case idContactoEmergencia
+        case transfusionSanguinea
+        case donacionOrganos
+        case direccion
+        case edad
+        case medicoTratante
+    }
+}

@@ -19,6 +19,8 @@ struct DatosMedicosView: View {
     
     var body: some View {
         VStack {
+            Color(red: 0.1294,green: 0.5882,blue: 0.9529)
+                .edgesIgnoringSafeArea(.all)
             ScrollView {
                 VStack {
                     // Titulo
