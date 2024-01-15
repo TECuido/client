@@ -12,10 +12,14 @@ struct AgregarUsuarioDetallesView: View {
     
     static var tag = "AgregarUsuarioDetalles"
         var body: some View {
-            ScrollView {
+            ZStack{
+               
                 Color("BackgroundColor")
                     .ignoresSafeArea()
+            ScrollView {
+              
                 VStack(alignment: .center) {
+                   
                     HStack {
                         Spacer()
                         Title(text:"Datos de pérfil médico")
@@ -55,7 +59,7 @@ struct AgregarUsuarioDetallesView: View {
                 
             }
         }
-
+        }
 }
 
 struct AgregarUsuarioDetallesView_Previews: PreviewProvider {

@@ -16,10 +16,13 @@ import SwiftUI
      static var tag = "UsuarioDetallesView"
      
      var body: some View {
-         ScrollView {
+         ZStack{
              Color("BackgroundColor")
                  .ignoresSafeArea()
+         ScrollView {
+          
              VStack(alignment: .center) {
+            
                  HStack {
                      // Espaciador a la izquierda para centrar el título
                      Spacer()
@@ -127,7 +130,7 @@ import SwiftUI
                          
 
      }
-         
+     }
        
  }
 

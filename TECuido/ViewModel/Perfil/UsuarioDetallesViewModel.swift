@@ -63,6 +63,7 @@ class UsuarioDetallesViewModel : ObservableObject {
                 }
 
                 print("Request Data: \(data)")
+                print(tokens.id)
 
                 let result: Result<APIResponseModel<PostUsuarioDetallesModel>, NetworkError> = await Webservice().postRequest("/usuariodetalles/\(tokens.id)", with: data)
                 print("API Response: \(result)")

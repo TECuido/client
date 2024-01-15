@@ -18,11 +18,13 @@ struct DatosMedicosView: View {
     static var tag = "DatosMedicosView"
     
     var body: some View {
-        VStack {
-            Color(red: 0.1294,green: 0.5882,blue: 0.9529)
-                .edgesIgnoringSafeArea(.all)
+        ZStack{
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+      
             ScrollView {
                 VStack {
+                    
                     // Titulo
                     Title(text:"Datos Médicos")
                     // Alergias
@@ -46,8 +48,10 @@ struct DatosMedicosView: View {
                               }
                            }
                         .padding()
+                        .font(.custom("Inter", size: FontSize.text.rawValue))
                     }
-                    .font(.custom("Inter", size: FontSize.text.rawValue))
+                     
+                    
                     .padding([.leading, .trailing], 15)
                     .onAppear {
                         Task {
@@ -90,8 +94,8 @@ struct DatosMedicosView: View {
                             }
                         }
                         .padding()
+                        .font(.custom("Inter", size: FontSize.text.rawValue))
                     }
-                    .font(.custom("Inter", size: FontSize.text.rawValue))
                     .padding([.leading, .trailing], 15)
                     .onAppear {
                         Task {
@@ -134,8 +138,9 @@ struct DatosMedicosView: View {
                             }
                         }
                         .padding()
+                        .font(.custom("Inter", size: FontSize.text.rawValue))
                     }
-                    .font(.custom("Inter", size: FontSize.text.rawValue))
+                  
                     .padding([.leading, .trailing], 15)
                     .onAppear {
                         Task {
@@ -163,7 +168,7 @@ struct DatosMedicosView: View {
                 }
             }
         }
-    }
+}
 
 
 
