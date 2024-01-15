@@ -91,7 +91,9 @@ struct CreaGrupoView: View {
                         AcceptAlert(
                             title: "Grupo agregado",
                             message: "Se agregó el grupo con éxito"
-                        ){}
+                        ){
+                            path.removeLast()
+                        }
                     }
                 }
                 

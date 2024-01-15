@@ -22,6 +22,7 @@ struct NumberedItem: View {
             Text(title)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
                 .bold()
+                .padding(.bottom, 1)
             Text(subtitle)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
         }

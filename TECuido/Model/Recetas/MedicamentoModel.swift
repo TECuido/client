@@ -16,7 +16,7 @@ struct MedicamentoRecetaModel: Decodable {
 }
 
 extension MedicamentoRecetaModel  {
-    public static var defaultMedicamento1 =  MedicamentoRecetaModel(medicamentoReceta: [])
+    public static var defaultMedicamento1 =  MedicamentoRecetaModel(medicamentoReceta: [MedicamentoModel.defaultMedicamento1, MedicamentoModel.defaultMedicamento2])
 }
 
 struct MedicamentoModel: Decodable, Identifiable, Hashable {

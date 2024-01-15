@@ -12,6 +12,8 @@ struct MostrarRecetaView: View {
     @Binding var path: NavigationPath
     @State var receta: RecetaModel
     @StateObject var viewModel = RecetaViewModel()
+    @Environment(\.defaultMinListRowHeight) var minRowHeight
+
     
     var body: some View {
         
@@ -31,40 +33,42 @@ struct MostrarRecetaView: View {
                         NoPrescriptionIcon()
                         SubTitle(text: "Aún no hay medicamentos agregados a la receta")
                     } else {
-                        List(viewModel.recetaMedicamentos.medicamentoReceta){ item in
-                            VStack(alignment: .leading) {
+                        List {
+                            ForEach(viewModel.recetaMedicamentos.medicamentoReceta){ item in
                                 
-                                ZStack{
-                                    
-                                    NavigationLink(value: item){
-                                        EmptyView()
+                                    ZStack{
+                                        
+                                        NavigationLink(value: item){
+                                            EmptyView()
+                                        }
+                                        
+                                        HStack(alignment: .center) {
+                                            
+                                            IconBigItem(
+                                                iconName: "pill.circle.fill",
+                                                color: Color("LightBlue"),
+                                                title: item.nombre,
+                                                text1: "\(item.dosis) \(item.frecuencia.lowercased())",
+                                                text2: "Duración: \(item.duracion)"
+                                            )
+                                            
+                                            Spacer()
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.blue)
+                                            
+                                        }
+                                        .padding(.bottom, 5)
                                     }
-                                    
-                                    HStack(alignment: .center) {
-                                        
-                                        IconBigItem(
-                                            iconName: "pill.circle.fill",
-                                            title: item.nombre,
-                                            text1: "\(item.dosis) \(item.frecuencia.lowercased())",
-                                            text2: "Duración: \(item.duracion)"
-                                        )
-                                        
-                                        Spacer()
-                                        
-                                        Image(systemName: "chevron.right")
-                                            .foregroundColor(.blue)
-                                        
-                                    }
-                                    .padding(.bottom, 5)
-                                }
-                                .listRowBackground(Color("BackgroundColor"))
-                                .listRowSeparatorTint(Color("PlaceholderColor"))
+                                    .listRowBackground(Color("BackgroundColor"))
+                                    .listRowSeparatorTint(Color("PlaceholderColor"))
                                 
                             }
+            
                         }
-                        .background(.white)
+                        .frame(minHeight: minRowHeight * 12)
                         .scrollContentBackground(.hidden)
-                        .font(.body)
+                        .listStyle(InsetListStyle())
                     }
                     
                 }

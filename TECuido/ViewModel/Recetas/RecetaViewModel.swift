@@ -9,9 +9,11 @@ import SwiftUI
 
 class RecetaViewModel: ObservableObject {
     
-    @Published var recetaMedicamentos = MedicamentoRecetaModel.defaultMedicamento1    
+    @Published var recetaMedicamentos = MedicamentoRecetaModel(medicamentoReceta: [])
     
     public func getMedicamentos(idReceta: Int) async {
+        
+        print(recetaMedicamentos)
                 
         let result : Result<APIResponseModel<MedicamentoRecetaModel>, NetworkError> = await Webservice().getRequest("/medicamentos/receta/\(idReceta)")
         
@@ -19,6 +21,7 @@ class RecetaViewModel: ObservableObject {
             case .success(let data):
             if let data = data.data {
                 DispatchQueue.main.async {
+                    print(data)
                     self.recetaMedicamentos = data
                 }
             }

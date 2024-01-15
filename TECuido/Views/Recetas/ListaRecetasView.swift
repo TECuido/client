@@ -46,6 +46,7 @@ struct ListaRecetasView: View {
                             ForEach(Array(viewModel.recetas.enumerated()), id:\.offset) { index,item in
                                 
                                 ZStack {
+                                    
                                     NavigationLink(value: item){
                                         EmptyView()
                                     }

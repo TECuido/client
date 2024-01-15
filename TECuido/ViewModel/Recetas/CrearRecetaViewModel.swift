@@ -58,8 +58,6 @@ class CrearRecetaViewModel : ObservableObject {
             }
             
         }
-        
-        
     }
     
     
@@ -68,23 +66,21 @@ class CrearRecetaViewModel : ObservableObject {
         do {
             
             if(titulo.isEmpty){
-                throw ValidationError.error(description: "Debes ingresar el titulo de la receta")
+                throw ValidationError.error(description: "Debes ingresar el título de la receta")
             } else if(medicamentos.count == 0){
                 throw ValidationError.error(description: "Debes ingresar al menos un medicamento")
             }
             
             for (index, element) in medicamentos.enumerated() {
-                
-                if(element.dosis.isEmpty){
+                if(element.nombre.isEmpty){
+                    throw ValidationError.error(description: "Debes ingresar el nombre del medicamento \(index+1)")
+                } else if(element.dosis.isEmpty){
                     throw ValidationError.error(description: "Debes ingresar la dosis del medicamento \(index+1)")
-                } else if(element.duracion.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del medicamento \(index+1)")
                 } else if(element.frecuencia.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion de la descripción \(index+1)")
-                } else if(element.nombre.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del nombre \(index+1)")
+                    throw ValidationError.error(description: "Debes ingresar la frecuencia del medicamento \(index+1)")
+                } else if(element.duracion.isEmpty){
+                    throw ValidationError.error(description: "Debes ingresar la duración del medicamento \(index+1)")
                 }
-                
             }
             
             
@@ -150,13 +146,13 @@ class CrearRecetaViewModel : ObservableObject {
             for (index, element) in medicamentos.enumerated() {
                 
                 if(element.nombre.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del nombre \(index+1)")
+                    throw ValidationError.error(description: "Debes ingresar el nombre del medicamento \(index+1)")
                 } else if(element.dosis.isEmpty){
                     throw ValidationError.error(description: "Debes ingresar la dosis del medicamento \(index+1)")
-                } else if(element.duracion.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del medicamento \(index+1)")
                 } else if(element.frecuencia.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion de la descripción \(index+1)")
+                    throw ValidationError.error(description: "Debes ingresar la frecuencia del medicamento \(index+1)")
+                } else if(element.duracion.isEmpty){
+                    throw ValidationError.error(description: "Debes ingresar la duración del medicamento \(index+1)")
                 }
                 
             }
@@ -188,6 +184,7 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                         DispatchQueue.main.async {
                             self.recetaCreada = true
+                            self.error = ""
                         }
                     case .failure(let error):
                         switch error {

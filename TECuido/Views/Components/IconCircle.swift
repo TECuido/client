@@ -10,13 +10,14 @@ import SwiftUI
 struct IconCircle: View {
     
     var icon: String
+    var color: Color
     
     var body: some View {
         ZStack {
             Image(systemName: icon)
                 .resizable()
                 .frame(width: 35, height: 35)
-                .foregroundColor(Color.green)
+                .foregroundColor(color)
         }
     }
 }

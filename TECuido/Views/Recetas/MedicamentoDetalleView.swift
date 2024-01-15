@@ -18,35 +18,44 @@ struct MedicamentoDetalleView: View {
 
     
     var body: some View {
-        VStack(alignment: .leading) {
+        
+        ZStack {
             
-            Image("medicamentoBackground")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width)
-                .padding(.bottom, 15)
+            Color("BackgroundColor")
+                .ignoresSafeArea()
             
-            Text(medicamento.nombre)
-                .font(.custom("Lato", size: FontSize.label.rawValue))
-                .foregroundColor(Color("TitleColor"))
-                .padding(.leading, 25)
-                .padding(.bottom, 15)
-                .bold()
             
-            HStack {
+            VStack(alignment: .leading) {
                 
-                Spacer()
+                Image("medicamentoBackground")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.width)
+                    .padding(.bottom, 15)
                 
-                LinkButton(
-                    title: "Ver más",
-                    link: "https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus-spanish&v%3Asources=medlineplus-spanish-bundle&query=\(medicamento.nombre)"
-                )
+                Text(medicamento.nombre)
+                    .font(.custom("Lato", size: FontSize.label.rawValue))
+                    .foregroundColor(Color("TitleColor"))
+                    .padding(.leading, 25)
+                    .padding(.bottom, 15)
+                    .bold()
                 
-                Spacer()
+                HStack {
+                    
+                    Spacer()
+                    
+                    LinkButton(
+                        title: "Ver más",
+                        link: "https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus-spanish&v%3Asources=medlineplus-spanish-bundle&query=\(medicamento.nombre)"
+                    )
+                    
+                    Spacer()
+                }
             }
             
-            
         }
+        
+        
     }
     
 }

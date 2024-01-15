@@ -13,12 +13,16 @@ struct CheckedItem: View {
     var subtitle: String = ""
     
     var body: some View {
-        IconCircle(icon: "checkmark.circle.fill")
+        IconCircle(
+            icon: "checkmark.circle.fill",
+            color: Color.green
+        )
         
         VStack(alignment: .leading) {
             Text(title)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
                 .bold()
+                .padding(.bottom, 1)
             Text(subtitle)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
         }

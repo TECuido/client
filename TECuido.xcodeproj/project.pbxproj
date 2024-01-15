@@ -525,11 +525,11 @@
 		FBB123902B530C4D0064DE07 /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
+				FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */,
 				FBE093FA2B51CCF800A49DE1 /* AlergiaViewModel.swift */,
 				FBE093FC2B51CD3B00A49DE1 /* CondicionMedicaViewModel.swift */,
 				FBE093FE2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift */,
 				FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */,
-				FBB1238A2B530AF20064DE07 /* UsuarioDetallesViewModel.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
