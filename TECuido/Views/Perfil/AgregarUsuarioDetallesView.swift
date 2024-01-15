@@ -12,15 +12,18 @@ struct AgregarUsuarioDetallesView: View {
     
     static var tag = "AgregarUsuarioDetalles"
         var body: some View {
+            ZStack{
+               
+                Color("BackgroundColor")
+                    .ignoresSafeArea()
             ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
+              
+                VStack(alignment: .center) {
+                   
                     HStack {
                         Spacer()
-                        Text("Datos de pérfil médico")
-                            .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                            .font(.system(size: 45))
-                            .bold()
-                            .multilineTextAlignment(.center)
+                        Title(text:"Datos de pérfil médico")
+                           
                         Spacer()
                     }
                     .padding()
@@ -40,35 +43,23 @@ struct AgregarUsuarioDetallesView: View {
 
                         // Se muestra un mensaje si es incorrecto
                         ErrorMessage(errorText: viewModel.error)
-
-                        Button(action: {
-                           
+                        
+                        //Boton
+                        PrimaryButton(title: "Agregar"){
                             Task {
                                 await viewModel.addUsuarioDetalles()
                             }
                             if viewModel.addedContacto {
                                 path.append(HomeView.tag)
                             }
-                        }) {
-                            Text("Agregar Datos Médicos")
-                                .foregroundColor(.white)
-                                .bold()
-                                .frame(width: 300, height: 55)
-                                .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                                .cornerRadius(25)
-                                .padding(10)
-                                .font(.title2)
                         }
+                        .padding(.top, 10)
                     }
-                    .padding()
                 }
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .padding()
+                
             }
         }
-
+        }
 }
 
 struct AgregarUsuarioDetallesView_Previews: PreviewProvider {
