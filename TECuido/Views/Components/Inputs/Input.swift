@@ -22,6 +22,8 @@ struct Input: View {
                 .resizable()
                 .frame(width: iconSize.0, height: iconSize.1)
                 .padding(.leading, iconPadding)
+                .foregroundColor(Color("LightBlue"))
+
             TextField("",
                       text: $inputText,
                       prompt: Text(inputPrompt)
@@ -31,12 +33,12 @@ struct Input: View {
                 .padding(.leading, 5)
                 .autocapitalization(.none)
         }
-        .frame(width: 325, height: 64)
+        .frame(width: 325, height: 60)
         .background(Color("InputBackground"))
         .cornerRadius(20)
         .overlay {
             RoundedRectangle(cornerRadius: 20)
-                .stroke(.red, lineWidth: CGFloat(inputError)*2)
+                .stroke(Color("Red"), lineWidth: CGFloat(inputError)*2)
         }
         .padding([.top, .bottom], 10)
     }

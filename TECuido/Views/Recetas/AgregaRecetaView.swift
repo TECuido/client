@@ -19,99 +19,52 @@ struct AgregaRecetaView: View {
             
             // Texto general
             VStack{
-                Text("Agregar receta médica")
-                    .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                    .font(.largeTitle)
-                    .multilineTextAlignment(.center)
-                    .bold()
-                    .padding(20)
                 
-                //Input Correo
-                HStack {
-                    Image(systemName: "textformat")
-                        .resizable()
-                        .frame(width: 30, height: 20)
-                        .foregroundColor(.blue)
-                        .padding(.leading, 15)
-                    TextField("",
-                              text: $viewModel.titulo,
-                              prompt: Text("Título")
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                    )
-                    .font(.title3)
-                    .padding(.leading, 5)
-                    .autocapitalization(.none)
-                }
-                .frame(width: 325, height: 55)
-                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                .cornerRadius(20)
-                .padding([.top, .bottom], 10)
+                Title(text: "Agregar receta médica")
                 
-                //Input fecha
-                HStack {
-                    Image(systemName: "calendar")
-                        .resizable()
-                        .frame(width: 25, height: 20)
-                        .foregroundColor(.blue)
-                        .padding(.leading, 15)
-                    
-                    DatePicker(selection: $viewModel.fecha,
-                               in: ...Date(),
-                               displayedComponents: .date) {
-                        Text("Fecha")
-                    }
-                    .font(.title3)
-                    .padding(.leading, 5)
-                    .autocapitalization(.none)
-                }
-                .frame(width: 325, height: 55)
-                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                .cornerRadius(20)
-                .padding([.top, .bottom], 10)
+                Input(
+                    inputText: $viewModel.titulo,
+                    inputPrompt: "Título",
+                    icon: "textformat",
+                    iconSize: (28, 19),
+                    iconPadding: 10
+                )
+                
+                DateInput(
+                    date: $viewModel.fecha,
+                    inputPrompt: "Fecha"
+                )
                 
                 if(session.tipoUsuario == 2){
-                    Text("Selecciona a tu paciente")
-                        .font(.title2)
-                        .frame(width:340)
-                        .multilineTextAlignment(.center)
-                    // Picker de grupos
-                    // Seleccionador
-                    Picker("Selecciona un paciente", selection: $viewModel.selectedOptionPaciente){
-                        ForEach(viewModel.pacientesNombres, id: \.self) { paciente in
-                            Text(paciente)
-                                .font(.title)
+                    LabelText(text: "Selecciona a tu paciente")
+                    // Picker de pacientes
+                    SelectInput(
+                        title: "Selecciona a un paciente",
+                        selectedOption: $viewModel.selectedOptionPaciente,
+                        list: viewModel.pacientesNombres
+                    ){
+                        Task {
+                            await viewModel.getPacientes()
                         }
                     }
-                    .task {
-                        await viewModel.getPacientes()
-                    }
-                    .pickerStyle(DefaultPickerStyle())
-                    .frame(width: 325, height: 65)
-                    .background(.white)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
-                    )
-                    .cornerRadius(25)
-                    
                 }
                 
                 // Cards
-                Text("Medicamentos")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.blue)
-                    .padding(.bottom, 15)
+                LabelText(text: "Medicamentos")
                 
                 ForEach(viewModel.medicamentos.indices, id: \.self) { index in
                     
                     VStack(alignment: .leading) {
+                        
                         Text("Medicamento #\(index+1)")
-                            .font(.title3)
+                            .font(.custom("Lato", size: FontSize.text.rawValue))
+                            .foregroundColor(Color("TextColor"))
                             .bold()
+                        
                         AgregarMedicamentoView(medicamento: $viewModel.medicamentos[index])
+                        
                     }
-                    .padding(.bottom, 10)
+                    .padding([.top, .bottom], 10)
                 }
                 
                 HStack {
@@ -121,20 +74,16 @@ struct AgregaRecetaView: View {
                     }) {
                         Text("Agregar medicamento")
                     }
-                    .foregroundColor(.blue)
+                    .font(.custom("Lato", size: FontSize.captions.rawValue))
+                    .foregroundColor(Color("LightBlue"))
+                    .padding(.top, 3)
                     .padding(.trailing, 25)
                 }
                 
-                // Aqui validamos que este incorrecto
-                Text(viewModel.error)
-                    .font(.body)
-                    .foregroundColor(Color(red: 0.8392,green: 0,blue: 0))
-                    .frame(width: 300)
-                    .padding(.top, 5)
-                    .multilineTextAlignment(.center)
+                ErrorMessage(errorText: viewModel.error)
+                    .padding(.bottom, -10)
                 
-                //Boton
-                Button("Crear receta"){
+                PrimaryButton(title: "Crear receta"){
                     Task {
                         if(session.tipoUsuario == 2){
                             await viewModel.createRecetaMedico()
@@ -143,17 +92,6 @@ struct AgregaRecetaView: View {
                         }
                     }
                 }
-                .foregroundColor(.white)
-                .bold()
-                .frame(width: 300, height:55)
-                .background(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                .cornerRadius(25)
-                .padding(10)
-                .font(.title2)
-                
-                
-       
-                
                 
             }
         }
@@ -164,5 +102,6 @@ struct AgregaRecetaView: View {
 struct AgregaRecetaView_Previews: PreviewProvider {
     static var previews: some View {
         AgregaRecetaView()
+            .environmentObject(SessionManager())
     }
 }

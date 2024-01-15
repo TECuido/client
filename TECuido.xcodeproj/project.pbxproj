@@ -154,6 +154,10 @@
 		FBFE80E52B548E87001C0E15 /* NumberedBigItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E42B548E87001C0E15 /* NumberedBigItem.swift */; };
 		FBFE80E72B5490AB001C0E15 /* IconBigItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E62B5490AB001C0E15 /* IconBigItem.swift */; };
 		FBFE80E92B549226001C0E15 /* IconCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80E82B549226001C0E15 /* IconCircle.swift */; };
+		FBFE80EB2B54BA1A001C0E15 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80EA2B54BA19001C0E15 /* LinkButton.swift */; };
+		FBFE80ED2B54C1C2001C0E15 /* DateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80EC2B54C1C2001C0E15 /* DateInput.swift */; };
+		FBFE80EF2B54C66F001C0E15 /* SelectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80EE2B54C66F001C0E15 /* SelectInput.swift */; };
+		FBFE80F12B54CFA4001C0E15 /* LabelText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE80F02B54CFA4001C0E15 /* LabelText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +311,10 @@
 		FBFE80E42B548E87001C0E15 /* NumberedBigItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberedBigItem.swift; sourceTree = "<group>"; };
 		FBFE80E62B5490AB001C0E15 /* IconBigItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBigItem.swift; sourceTree = "<group>"; };
 		FBFE80E82B549226001C0E15 /* IconCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCircle.swift; sourceTree = "<group>"; };
+		FBFE80EA2B54BA19001C0E15 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		FBFE80EC2B54C1C2001C0E15 /* DateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInput.swift; sourceTree = "<group>"; };
+		FBFE80EE2B54C66F001C0E15 /* SelectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInput.swift; sourceTree = "<group>"; };
+		FBFE80F02B54CFA4001C0E15 /* LabelText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +615,7 @@
 				FBE094052B5214A100A49DE1 /* BigButton.swift */,
 				FBE094152B5235AE00A49DE1 /* LargeButton.swift */,
 				FBB123842B5270120064DE07 /* FloatingActionButton.swift */,
+				FBFE80EA2B54BA19001C0E15 /* LinkButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -637,6 +646,8 @@
 			children = (
 				FBE093F12B510A0E00A49DE1 /* Input.swift */,
 				FBE093F32B51184200A49DE1 /* PasswordInput.swift */,
+				FBFE80EC2B54C1C2001C0E15 /* DateInput.swift */,
+				FBFE80EE2B54C66F001C0E15 /* SelectInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -647,6 +658,7 @@
 				FBE093F62B51BD4400A49DE1 /* Title.swift */,
 				FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */,
 				FBE0941A2B525D4900A49DE1 /* SubTitle.swift */,
+				FBFE80F02B54CFA4001C0E15 /* LabelText.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -977,6 +989,7 @@
 				C0271A6E2AF33A5A00024BE5 /* DisplayedContentView.swift in Sources */,
 				FBE094062B5214A100A49DE1 /* BigButton.swift in Sources */,
 				FB5F05582B06C8B5005D5403 /* EditarGrupoViewModel.swift in Sources */,
+				FBFE80EB2B54BA1A001C0E15 /* LinkButton.swift in Sources */,
 				FB3EB4F82AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* ListaRecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
@@ -1014,6 +1027,7 @@
 				FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelView.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
+				FBFE80EF2B54C66F001C0E15 /* SelectInput.swift in Sources */,
 				FBE093F22B510A0E00A49DE1 /* Input.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
 				FBBD9AC82B4DFFF80045DF9D /* CondicionMedicaView.swift in Sources */,
@@ -1080,6 +1094,7 @@
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
 				FB4D561A2AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift in Sources */,
 				FBB123A02B5390660064DE07 /* CheckedItem.swift in Sources */,
+				FBFE80ED2B54C1C2001C0E15 /* DateInput.swift in Sources */,
 				FBBD9AD02B4E325B0045DF9D /* MedicamentosActualesModel.swift in Sources */,
 				C0271A702AF33A5A00024BE5 /* ModalView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
@@ -1094,6 +1109,7 @@
 				FBE093FF2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift in Sources */,
 				FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */,
 				FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */,
+				FBFE80F12B54CFA4001C0E15 /* LabelText.swift in Sources */,
 				FBFE80E12B54826A001C0E15 /* NoPrescriptionIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
