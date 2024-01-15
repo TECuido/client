@@ -9,11 +9,11 @@ import SwiftUI
 
 class RecetaViewModel: ObservableObject {
     
-    @Published var recetaMedicamentos = MedicamentoRecetaModel.defaultMedicamento1    
-    @Published var failedAuthentication: Bool = false
-
+    @Published var recetaMedicamentos = MedicamentoRecetaModel(medicamentoReceta: [])
     
     public func getMedicamentos(idReceta: Int) async {
+        
+        print(recetaMedicamentos)
                 
         let result : Result<APIResponseModel<MedicamentoRecetaModel>, NetworkError> = await Webservice().getRequest("/medicamentos/receta/\(idReceta)")
         
@@ -21,21 +21,13 @@ class RecetaViewModel: ObservableObject {
             case .success(let data):
             if let data = data.data {
                 DispatchQueue.main.async {
+                    print(data)
                     self.recetaMedicamentos = data
                 }
             }
             case .failure(let error):
-                switch error {
-                case .badStatus(let error, _):
-                        if(error == 401){
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                            }
-                        }
-                    default:
-                        print(error.self)
-                        print(error.localizedDescription)
-                }
+                print(error.localizedDescription)
+
         }
     }
 

@@ -236,10 +236,58 @@
             filePath = "TECuido/Views/Contacts/CreaGrupoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "CreaGrupoView"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "CreaGrupoView_Previews"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DDE5835-9522-4241-A3B7-8B51D6B18992"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TECuido/ViewModel/Recetas/RecetaViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "getMedicamentos(idReceta:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0DDE5835-9522-4241-A3B7-8B51D6B18992 - 588f0c891f5ecfb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for TECuido.RecetaViewModel.getMedicamentos(idReceta: Swift.Int) async -&gt; ()"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/client/TECuido/ViewModel/Recetas/RecetaViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "0DDE5835-9522-4241-A3B7-8B51D6B18992 - 588f0c891f5ecfb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for TECuido.RecetaViewModel.getMedicamentos(idReceta: Swift.Int) async -&gt; ()"
+                  moduleName = "TECuido"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alumno/Documents/client/TECuido/ViewModel/Recetas/RecetaViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -34,9 +34,7 @@ class CrearRecetaViewModel : ObservableObject {
     @Published var recetaCreada = false
     
     @Published var error: String = ""
-    
-    @Published var failedAuthentication: Bool = false
-    
+        
     
     public func getPacientes() async {
         
@@ -56,26 +54,10 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                     }
                 case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
+                    print(error.localizedDescription)
             }
             
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
-            }
         }
-        
-        
     }
     
     
@@ -84,23 +66,21 @@ class CrearRecetaViewModel : ObservableObject {
         do {
             
             if(titulo.isEmpty){
-                throw ValidationError.error(description: "Debes ingresar el titulo de la receta")
+                throw ValidationError.error(description: "Debes ingresar el título de la receta")
             } else if(medicamentos.count == 0){
                 throw ValidationError.error(description: "Debes ingresar al menos un medicamento")
             }
             
             for (index, element) in medicamentos.enumerated() {
-                
-                if(element.dosis.isEmpty){
+                if(element.nombre.isEmpty){
+                    throw ValidationError.error(description: "Debes ingresar el nombre del medicamento \(index+1)")
+                } else if(element.dosis.isEmpty){
                     throw ValidationError.error(description: "Debes ingresar la dosis del medicamento \(index+1)")
-                } else if(element.duracion.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del medicamento \(index+1)")
                 } else if(element.frecuencia.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion de la descripción \(index+1)")
-                } else if(element.nombre.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del nombre \(index+1)")
+                    throw ValidationError.error(description: "Debes ingresar la frecuencia del medicamento \(index+1)")
+                } else if(element.duracion.isEmpty){
+                    throw ValidationError.error(description: "Debes ingresar la duración del medicamento \(index+1)")
                 }
-                
             }
             
             
@@ -128,26 +108,16 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                     case .failure(let error):
                         switch error {
-                        case .badStatus(let error, let message):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
+                        case .badStatus(_, let message):
                             DispatchQueue.main.async {
                                 self.error = message
                             }
                         default:
-                            print(error.self)
                             print(error.localizedDescription)
                         }
                     
                 }
                 
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
-                }
             }
 
         } catch ValidationError.error(let description){
@@ -176,13 +146,13 @@ class CrearRecetaViewModel : ObservableObject {
             for (index, element) in medicamentos.enumerated() {
                 
                 if(element.nombre.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del nombre \(index+1)")
+                    throw ValidationError.error(description: "Debes ingresar el nombre del medicamento \(index+1)")
                 } else if(element.dosis.isEmpty){
                     throw ValidationError.error(description: "Debes ingresar la dosis del medicamento \(index+1)")
-                } else if(element.duracion.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion del medicamento \(index+1)")
                 } else if(element.frecuencia.isEmpty){
-                    throw ValidationError.error(description: "Debes ingresar la duracion de la descripción \(index+1)")
+                    throw ValidationError.error(description: "Debes ingresar la frecuencia del medicamento \(index+1)")
+                } else if(element.duracion.isEmpty){
+                    throw ValidationError.error(description: "Debes ingresar la duración del medicamento \(index+1)")
                 }
                 
             }
@@ -214,31 +184,21 @@ class CrearRecetaViewModel : ObservableObject {
                         }
                         DispatchQueue.main.async {
                             self.recetaCreada = true
+                            self.error = ""
                         }
                     case .failure(let error):
                         switch error {
-                        case .badStatus(let error, let message):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
+                        case .badStatus(_, let message):
                             DispatchQueue.main.async {
                                 self.error = message
                             }
                         default:
-                            print(error.self)
                             print(error.localizedDescription)
                         }
                     
                 }
                 
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
-                }
             }
-
         } catch ValidationError.error(let description){
             DispatchQueue.main.async {
                 self.error = description
@@ -258,13 +218,8 @@ class CrearRecetaViewModel : ObservableObject {
                     return
                 case .failure(let error):
                     switch error {
-                    case .badStatus(let error, let message):
+                    case .badStatus(_, let message):
                         DispatchQueue.main.async {
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
                             self.error = message
                         }
                 default:

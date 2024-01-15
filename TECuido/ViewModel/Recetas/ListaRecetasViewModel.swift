@@ -11,8 +11,7 @@ import SwiftUI
 class ListaRecetasViewModel : ObservableObject {
     
     
-    @Published var recetas: [RecetaModel] = [RecetaModel.defaultReceta]
-    @Published var failedAuthentication: Bool = false
+    @Published var recetas: [RecetaModel] = []
 
         
     public func getRecetasPaciente() async {
@@ -26,21 +25,7 @@ class ListaRecetasViewModel : ObservableObject {
                         self.recetas = data.data!
                     }
                 case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
+                    print(error.localizedDescription)
             }
         }
         
@@ -57,25 +42,10 @@ class ListaRecetasViewModel : ObservableObject {
                         self.recetas = data.data!
                     }
                 case .failure(let error):
-                    switch error {
-                    case .badStatus(let error, _):
-                            if(error == 401){
-                                DispatchQueue.main.async {
-                                    self.failedAuthentication = true
-                                }
-                            }
-                        default:
-                            print(error.self)
-                            print(error.localizedDescription)
-                    }
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
+                    print(error.localizedDescription)
+
             }
         }
-        
     }
-    
 }
 

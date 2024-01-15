@@ -16,19 +16,13 @@ struct NumberedItem: View {
     
     
     var body: some View {
-        ZStack {
-            Circle()
-                .fill(Color("LightBlue"))
-                .frame(width: 35, height: 35)
-            Text("\(number)")
-                .foregroundColor(Color("White"))
-                .font(.custom("Lato", size:FontSize.text.rawValue))
-        }
+        NumberCircle(number: number)
         
         VStack(alignment: .leading) {
             Text(title)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
                 .bold()
+                .padding(.bottom, 1)
             Text(subtitle)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
         }

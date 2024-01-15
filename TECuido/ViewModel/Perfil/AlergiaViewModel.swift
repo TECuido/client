@@ -49,7 +49,7 @@
                  let data = AgregaAlergiaModel(nombre: nombre, idUsuario: tokens.id)
                  let result : Result<APIResponseModel<AgregaAlergiaModel>, NetworkError> = await Webservice().postRequest("/alergias", with: data)
                  switch result {
-                     case .success(let data):
+                     case .success(_):
                      DispatchQueue.main.async {
                          self.alergiaCreada = true
                      }

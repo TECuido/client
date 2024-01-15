@@ -19,6 +19,8 @@ struct PasswordInput: View {
                 .resizable()
                 .frame(width: 17, height: 25)
                 .padding(.leading, 25)
+                .foregroundColor(Color("LightBlue"))
+
             SecureField("",
                       text: $inputText,
                       prompt: Text(inputPrompt)
@@ -28,12 +30,12 @@ struct PasswordInput: View {
                 .padding(.leading, 5)
                 .autocapitalization(.none)
         }
-        .frame(width: 325, height: 64)
+        .frame(width: 325, height: 60)
         .background(Color("InputBackground"))
         .cornerRadius(20)
         .overlay {
             RoundedRectangle(cornerRadius: 20)
-                .stroke(.red, lineWidth: CGFloat(inputError)*2)
+                .stroke(Color("Red"), lineWidth: CGFloat(inputError)*2)
         }
         .padding([.top, .bottom], 10)
     }

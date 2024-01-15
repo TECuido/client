@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecetaModel : Identifiable, Decodable{
+struct RecetaModel : Identifiable, Decodable, Hashable {
     var id: Int
     var nombre: String
     var fecha: String

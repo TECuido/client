@@ -10,13 +10,14 @@ import SwiftUI
 func OptionsAlert(
     title: String,
     message: String,
+    primaryText: String = "Aceptar",
     action: @escaping () -> Void) -> Alert {
     
     return Alert(
         title: Text(title),
         message: Text(message),
         primaryButton: .default(
-            Text("Aceptar"),
+            Text(primaryText),
             action: action
         ),
         secondaryButton: .cancel(
