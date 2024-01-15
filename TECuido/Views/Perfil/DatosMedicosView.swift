@@ -56,17 +56,22 @@ struct DatosMedicosView: View {
                                     }
                                 }
                             }
-                        //    NavigationLink(destination: AlergiaView()) {
-                       //         HStack {
-                                 /*Spacer()
-                                    Image(systemName: "plus")
-                                        .foregroundColor(Color.blue)
-                                        .font(.headline)
-                                        .padding()
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                }*/
-                           // }
-                        }
+                           
+                              HStack {
+                                 Spacer()
+                                  Button {
+                                      path.append(AlergiaView.tag)
+                                  } label: {
+                                      Image(systemName: "plus")
+                                          .foregroundColor(Color.blue)
+                                          .font(.headline)
+                                          .padding()
+                                          .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                                  }
+
+                              }
+                           }
+                        
                         .padding()
                     }
                     .font(.system(size: 20))
@@ -118,15 +123,14 @@ struct DatosMedicosView: View {
                                     
                                 }
                             }
-                            NavigationLink(destination: CondicionMedicaView()) {
-                                HStack {
-                                    Spacer()
-                                    Image(systemName: "plus")
-                                        .foregroundColor(Color.blue)
-                                        .font(.headline)
-                                        .padding()
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                }
+                            Button {
+                                path.append(CondicionMedicaView.tag)
+                            } label: {
+                                Image(systemName: "plus")
+                                    .foregroundColor(Color.blue)
+                                    .font(.headline)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
                             }
                         }
                         .padding()
@@ -180,15 +184,14 @@ struct DatosMedicosView: View {
                                     
                                 }
                             }
-                            NavigationLink(destination: MedicamentoActualView()) {
-                                HStack {
-                                    Spacer()
-                                    Image(systemName: "plus")
-                                        .foregroundColor(Color.blue)
-                                        .font(.headline)
-                                        .padding()
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                }
+                            Button {
+                                path.append(MedicamentoActualView.tag)
+                            } label: {
+                                Image(systemName: "plus")
+                                    .foregroundColor(Color.blue)
+                                    .font(.headline)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
                             }
                         }
                         .padding()

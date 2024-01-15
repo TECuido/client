@@ -87,6 +87,10 @@ struct TECuidoView: View {
                     DatosMedicosView(path: $path)
                 case AlergiaView.tag:
                     AlergiaView(path: $path)
+                case CondicionMedicaView.tag:
+                    CondicionMedicaView(path: $path)
+                case MedicamentoActualView.tag:
+                    MedicamentoActualView(path: $path)
                 default:
                     TECuidoView()
                 }
