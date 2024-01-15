@@ -31,7 +31,7 @@ struct CondicionMedicaView: View {
 
                 // Input de la Alergia
                 Input(inputText: $viewModel.nombre,
-                      inputPrompt: "Nombre de la condición médica",
+                      inputPrompt: "Nombre de la condición",
                       icon: "heart.fill",
                       iconSize: (30, 20),
                       iconPadding: 15,

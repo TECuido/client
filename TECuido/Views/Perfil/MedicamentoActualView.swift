@@ -25,7 +25,7 @@ struct MedicamentoActualView: View {
 
                 // Input de la Alergia
                 Input(inputText: $viewModel.nombre,
-                      inputPrompt: "Nombre de la condición médica",
+                      inputPrompt: "Nombre del medicamento",
                       icon: "pills.fill",
                       iconSize: (30, 20),
                       iconPadding: 15,
@@ -44,8 +44,8 @@ struct MedicamentoActualView: View {
                 // Modal
                 .alert(isPresented: $viewModel.medicamentoCreado) {
                     AcceptAlert(
-                        title: "Condición Médica Agregada",
-                        message: "Se agregó la condición médica con éxito"
+                        title: "Medicamento Agregado",
+                        message: "Se agregó el medicamento con éxito"
                     ) {
                         viewModel.nombre = ""
                         path.removeLast()

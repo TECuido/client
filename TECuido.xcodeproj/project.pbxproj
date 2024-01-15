@@ -37,6 +37,9 @@
 		FB3EB4F82AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */; };
 		FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */; };
 		FB4094E82B54AAE100DE776B /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4094E72B54AAE100DE776B /* InfoRow.swift */; };
+		FB4094EA2B54D81100DE776B /* AgregarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4094E92B54D81100DE776B /* AgregarButton.swift */; };
+		FB4094ED2B54D8BD00DE776B /* MenuEliminar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4094EC2B54D8BD00DE776B /* MenuEliminar.swift */; };
+		FB4094EF2B54D8F100DE776B /* DisclosureGroupText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4094EE2B54D8F100DE776B /* DisclosureGroupText.swift */; };
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
 		FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */; };
 		FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */; };
@@ -183,6 +186,9 @@
 		FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasViewModel.swift; sourceTree = "<group>"; };
 		FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamTView.swift; sourceTree = "<group>"; };
 		FB4094E72B54AAE100DE776B /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		FB4094E92B54D81100DE776B /* AgregarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarButton.swift; sourceTree = "<group>"; };
+		FB4094EC2B54D8BD00DE776B /* MenuEliminar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEliminar.swift; sourceTree = "<group>"; };
+		FB4094EE2B54D8F100DE776B /* DisclosureGroupText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupText.swift; sourceTree = "<group>"; };
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
 		FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasTemporalView.swift; sourceTree = "<group>"; };
 		FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextView.swift; sourceTree = "<group>"; };
@@ -389,6 +395,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		FB4094EB2B54D89400DE776B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FB4094EC2B54D8BD00DE776B /* MenuEliminar.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		FB4D56052AF8A50D00D1C533 /* MLUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +506,7 @@
 		FBB1238F2B530C150064DE07 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FB4094EB2B54D89400DE776B /* Menu */,
 				FBB1239A2B535F690064DE07 /* Icons */,
 				FBB123972B533DED0064DE07 /* List */,
 				FBB123922B53291E0064DE07 /* Alerts */,
@@ -591,6 +606,7 @@
 				FBE094052B5214A100A49DE1 /* BigButton.swift */,
 				FBE094152B5235AE00A49DE1 /* LargeButton.swift */,
 				FBB123842B5270120064DE07 /* FloatingActionButton.swift */,
+				FB4094E92B54D81100DE776B /* AgregarButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -632,6 +648,7 @@
 				FBE093F82B51C25300A49DE1 /* ErrorMessage.swift */,
 				FBE0941A2B525D4900A49DE1 /* SubTitle.swift */,
 				FB4094E72B54AAE100DE776B /* InfoRow.swift */,
+				FB4094EE2B54D8F100DE776B /* DisclosureGroupText.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -976,6 +993,7 @@
 				FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
 				FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */,
+				FB4094ED2B54D8BD00DE776B /* MenuEliminar.swift in Sources */,
 				FB5F05422B045572005D5403 /* MedicamentoModel.swift in Sources */,
 				FBBD9ACA2B4E0FFF0045DF9D /* AlergiaView.swift in Sources */,
 				FBD9C6F92ADF75B100A436FA /* RegistroViewModel.swift in Sources */,
@@ -1015,6 +1033,7 @@
 				C0271A722AF33A5A00024BE5 /* ClassificationView.swift in Sources */,
 				FBE093EB2B50D6E600A49DE1 /* SecondaryButton.swift in Sources */,
 				C0271A772AF33A5A00024BE5 /* RoundedRectButtonStyle.swift in Sources */,
+				FB4094EA2B54D81100DE776B /* AgregarButton.swift in Sources */,
 				FB1C317E2AD9C6E300965B4B /* TECuidoApp.swift in Sources */,
 				C0271A762AF33A5A00024BE5 /* ClassifierViewModel.swift in Sources */,
 				FBB8EC642AE1D5E800D8766C /* ContactosView.swift in Sources */,
@@ -1033,6 +1052,7 @@
 				FB4DDF792AF087EA00AAAEB5 /* ListaContactosLlamadaView.swift in Sources */,
 				FB1C31902AD9C73E00965B4B /* HomeView.swift in Sources */,
 				FBC798862B15D1DA00A3E6B5 /* SessionManager.swift in Sources */,
+				FB4094EF2B54D8F100DE776B /* DisclosureGroupText.swift in Sources */,
 				FB5F055A2B06C8EF005D5403 /* EditarGrupoView.swift in Sources */,
 				C0271A7B2AF33A5A00024BE5 /* Helpers.swift in Sources */,
 				FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */,

@@ -15,66 +15,38 @@ struct DatosMedicosView: View {
     @State private var showCondicionEliminarView = false
     @State private var showMedicamentoEliminarView = false
     @Binding var path: NavigationPath
-
-    
     static var tag = "DatosMedicosView"
+    
     var body: some View {
         VStack {
             ScrollView {
                 VStack {
                     // Titulo
-                    Text("Datos Médicos")
-                        .foregroundColor(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                        .font(.system(size: 50))
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 30)
-                        .multilineTextAlignment(.center)
+                    Title(text:"Datos Médicos")
                     // Alergias
                     DisclosureGroup("Alergias", isExpanded: $mostrarAlergias) {
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 15) {
                             ForEach(viewModel.alergiasModel, id: \.self) { alergia in
                                 HStack{
-                                    Text(alergia.nombre)
-                                        .font(.headline)
-                                        .frame(width: 200)
-                                        .font(.system(size: 25))
-                                        .padding(10)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                    Menu{
-                                        
-                                        Button(action: {
-                                            viewModel.alergiaSeleccionada.id = alergia.id
-                                            showAlergiaEliminarView = true
-                                        }){
-                                            Label("Borrar", systemImage: "trash")
-                                        }
-                                    }label: {
-                                        Image(systemName: "ellipsis.circle")
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(.blue)
-                                    }
+                                    DisclosureGroupText(labelText: alergia.nombre)
+                                    MenuEliminar {
+                                                viewModel.alergiaSeleccionada.id = alergia.id
+                                                showAlergiaEliminarView = true
+                                            }
                                 }
                             }
                            
                               HStack {
                                  Spacer()
-                                  Button {
+                                  AgregarButton {
                                       path.append(AlergiaView.tag)
-                                  } label: {
-                                      Image(systemName: "plus")
-                                          .foregroundColor(Color.blue)
-                                          .font(.headline)
-                                          .padding()
-                                          .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
                                   }
-
                               }
                            }
-                        
                         .padding()
                     }
-                    .font(.system(size: 20))
+                    .font(.custom("Inter", size: FontSize.text.rawValue))
+                    .padding([.leading, .trailing], 15)
                     .onAppear {
                         Task {
                             await viewModel.getAlergias()
@@ -98,44 +70,27 @@ struct DatosMedicosView: View {
                     }
                     // Condiciones Médicas
                     DisclosureGroup("Condiciones Médicas", isExpanded: $mostrarCondiciones) {
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 15) {
                             ForEach(viewModel1.condicion, id: \.self) { condiciones in
                                 HStack{
-                                    Text(condiciones.nombre)
-                                        .font(.headline)
-                                        .frame(width: 200)
-                                        .font(.system(size: 25))
-                                        .padding(10)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                    Menu{
-                                        
-                                        Button(action: {
-                                            viewModel1.condicionSeleccionada.id = condiciones.id
-                                            showCondicionEliminarView = true
-                                        }){
-                                            Label("Borrar", systemImage: "trash")
-                                        }
-                                    }label: {
-                                        Image(systemName: "ellipsis.circle")
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(.blue)
-                                    }
-                                    
+                                    DisclosureGroupText(labelText: condiciones.nombre)
+                                    MenuEliminar {
+                                        viewModel1.condicionSeleccionada.id = condiciones.id
+                                        showCondicionEliminarView = true
+                                            }
                                 }
                             }
-                            Button {
-                                path.append(CondicionMedicaView.tag)
-                            } label: {
-                                Image(systemName: "plus")
-                                    .foregroundColor(Color.blue)
-                                    .font(.headline)
-                                    .padding()
-                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                            HStack {
+                               Spacer()
+                                AgregarButton {
+                                    path.append(CondicionMedicaView.tag)
+                                }
                             }
                         }
                         .padding()
                     }
-                    .font(.system(size: 20))
+                    .font(.custom("Inter", size: FontSize.text.rawValue))
+                    .padding([.leading, .trailing], 15)
                     .onAppear {
                         Task {
                             await viewModel1.getCondicionMedica()
@@ -159,44 +114,27 @@ struct DatosMedicosView: View {
                     }
                     // Condiciones Médicas
                     DisclosureGroup("Medicamentos", isExpanded: $mostrarMedicamentos) {
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 15) {
                             ForEach(viewModel2.medicamento, id: \.self) { medicamento in
                                 HStack{
-                                    Text(medicamento.nombre)
-                                        .font(.headline)
-                                        .frame(width: 200)
-                                        .font(.system(size: 25))
-                                        .padding(10)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
-                                    Menu{
-                                        
-                                        Button(action: {
-                                            viewModel2.medicamentoSeleccionado.id = medicamento.id
-                                            showMedicamentoEliminarView = true
-                                        }){
-                                            Label("Borrar", systemImage: "trash")
-                                        }
-                                    }label: {
-                                        Image(systemName: "ellipsis.circle")
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(.blue)
-                                    }
-                                    
+                                    DisclosureGroupText(labelText: medicamento.nombre)
+                                    MenuEliminar {
+                                        viewModel2.medicamentoSeleccionado.id = medicamento.id
+                                        showMedicamentoEliminarView = true
+                                            }
                                 }
                             }
-                            Button {
-                                path.append(MedicamentoActualView.tag)
-                            } label: {
-                                Image(systemName: "plus")
-                                    .foregroundColor(Color.blue)
-                                    .font(.headline)
-                                    .padding()
-                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.2)))
+                            HStack {
+                               Spacer()
+                                AgregarButton {
+                                    path.append(MedicamentoActualView.tag)
+                                }
                             }
                         }
                         .padding()
                     }
-                    .font(.system(size: 20))
+                    .font(.custom("Inter", size: FontSize.text.rawValue))
+                    .padding([.leading, .trailing], 15)
                     .onAppear {
                         Task {
                             await viewModel2.getMedicamentosActuales()
@@ -221,12 +159,10 @@ struct DatosMedicosView: View {
                         
                     }
                 }
-            }.background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
-            .padding()
+            }
         }
     }
+
 
 
     struct DatosMedicosView_Previews: PreviewProvider {
