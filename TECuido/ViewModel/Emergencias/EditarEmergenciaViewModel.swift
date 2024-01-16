@@ -1,31 +1,45 @@
 //
-//  MandarEmergenciaViewModel.swift
+//  EditarEmergenciaViewModel.swift
 //  TECuido
 //
-//  Created by Julio on 06/11/23.
+//  Created by Alumno on 15/01/24.
 //
 
 import Foundation
 
-class MandarEmergenciaViewModel: ObservableObject {
-    
+class EditarEmergenciaViewModel: ObservableObject {
     
     @Published var selectedMotivo = "Médica"
+    @Published var selectedIcon: String = "questionmark.circle.fill"
+    
+    @Published var motivos = [
+        "Médica",
+        "Acoso",
+        "Incendio",
+        "Accidente de tráfico",
+        "Desastre natural",
+        "Secuestro",
+        "Extorsión",
+        "Emergencia tecnológica"
+    ]
+
+    @Published var motivoIconMapping: [String: String] = [
+        "Médica": "heart.circle.fill",
+        "Acoso": "exclamationmark.triangle.fill",
+        "Secuestro": "bolt.horizontal.circle.fill",
+        "Desastre natural": "tornado",
+        "Incendio":"flame.fill",
+        "Accidente de tráfico":"car.fill",
+        "Extorsión":"hand.raised.fill",
+        "Emergencia tecnológica":"antenna.radiowaves.left.and.right"
+    ]
     
     @Published var selectedOptionContacto: String = "Todos mis contactos"
     @Published var grupos: [GrupoModel] = [GrupoModel.example]
     @Published var gruposNombres: [String] = ["Todos mis contactos"]
     
-    //  Seleccion de boton
-    @Published var isMedicaSelected = false
-    @Published var isAcosoSelected = false
-    @Published var isSecuestroSelected = false
-    @Published var isDesastreSelected = false
-    @Published var isIncendioSelected = false
-    @Published var isTraficoSelected = false
-    @Published var isExtorsionSelected = false
-    @Published var isTecnologicaSelected = false
-    
+    @Published var isNivelGravedadSelected = false
+    @Published var nivel: String = "1"
     @Published var descripcion: String = ""
     
     @Published var dataEmergencia = DataEmergenciaModel.defaultEmergencia
@@ -42,28 +56,26 @@ class MandarEmergenciaViewModel: ObservableObject {
             let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
             
             switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        self.grupos = data.data!
-                        if(self.grupos.count > 0){
-                            self.gruposNombres = ["Todos mis contactos"] + self.grupos.map{
-                                $0.nombre
-                            }
-                            self.selectedOptionContacto = self.gruposNombres[0]
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.grupos = data.data!
+                    if(self.grupos.count > 0){
+                        self.gruposNombres = ["Todos mis contactos"] + self.grupos.map{
+                            $0.nombre
                         }
+                        self.selectedOptionContacto = self.gruposNombres[0]
                     }
-                case .failure(let error):
+                }
+            case .failure(let error):
                 print(error.localizedDescription)
-
+                
             }
-            
         }
-        
         
     }
     
     public func addEmergencia() async {
-                
+        
         //agregar los datos de ubicación
         let longitud = locationManager.lastLocation?.longitude
         let latitud = locationManager.lastLocation?.latitude
@@ -117,55 +129,4 @@ class MandarEmergenciaViewModel: ObservableObject {
         }
         
     }
-    
-    public func updateSelectedMotivo(motivo: TipoEmergencia) {
-        // Restablecer todas las selecciones
-        resetSelectedMotivos()
-        
-        // Actualizar motivo y descripción según el motivo seleccionado
-        selectedMotivo = motivo.rawValue
-        
-        switch motivo {
-        case .Medica:
-            isMedicaSelected = true
-            descripcion = "He tenido una emergencia médica, por favor ven a ayudarme"
-        case .Acoso:
-            isAcosoSelected = true
-            descripcion = "Ayúdame, me están acosando, ven pronto"
-        case .Secuestro:
-            isSecuestroSelected = true
-            descripcion = "Estoy teniendo un intento de secuestro"
-        case .Desastre:
-            isDesastreSelected = true
-            descripcion = "Ha sucedido un desastre natural"
-        case .Incendio:
-            isIncendioSelected = true
-            descripcion = "Está sucediendo un incendio"
-        case .Trafico:
-            isTraficoSelected = true
-            descripcion = "He tenido un accidente de tráfico, ven a ayudarme"
-        case .Extorsion:
-            isExtorsionSelected = true
-            descripcion = "Estoy siendo víctima de una extorsión"
-        case .Tecnologica:
-            isTecnologicaSelected = true
-            descripcion = "He tenido una emergencia tecnológica, por favor ven a ayudarme"
-        }
-    }
-        
-    // Restablecer todas las selecciones
-    public func resetSelectedMotivos() {
-        isMedicaSelected = false
-        isAcosoSelected = false
-        isSecuestroSelected = false
-        isDesastreSelected = false
-        isIncendioSelected = false
-        isTraficoSelected = false
-        isExtorsionSelected = false
-        isTecnologicaSelected = false
-    }
-
-
 }
-
-

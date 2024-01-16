@@ -103,6 +103,11 @@
 		FBA971B82B55F73C00074B36 /* MenuEliminar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971B72B55F73C00074B36 /* MenuEliminar.swift */; };
 		FBA971BA2B55F76100074B36 /* DisclosureGroupText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971B92B55F76100074B36 /* DisclosureGroupText.swift */; };
 		FBA971BC2B55F77E00074B36 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971BB2B55F77E00074B36 /* InfoRow.swift */; };
+		FBA971C02B56195600074B36 /* DataEmergenciaNavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971BF2B56195600074B36 /* DataEmergenciaNavModel.swift */; };
+		FBA971C22B561FBA00074B36 /* EditarEmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C12B561FBA00074B36 /* EditarEmergenciaViewModel.swift */; };
+		FBA971C42B56205500074B36 /* BigText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C32B56205500074B36 /* BigText.swift */; };
+		FBA971C62B56483E00074B36 /* PlaceholderTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C52B56483E00074B36 /* PlaceholderTextEditor.swift */; };
+		FBA971C82B564B8700074B36 /* SelectLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C72B564B8700074B36 /* SelectLabelInput.swift */; };
 		FBB123852B5270120064DE07 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123842B5270120064DE07 /* FloatingActionButton.swift */; };
 		FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */; };
 		FBB123892B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */; };
@@ -270,6 +275,11 @@
 		FBA971B72B55F73C00074B36 /* MenuEliminar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEliminar.swift; sourceTree = "<group>"; };
 		FBA971B92B55F76100074B36 /* DisclosureGroupText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupText.swift; sourceTree = "<group>"; };
 		FBA971BB2B55F77E00074B36 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		FBA971BF2B56195600074B36 /* DataEmergenciaNavModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEmergenciaNavModel.swift; sourceTree = "<group>"; };
+		FBA971C12B561FBA00074B36 /* EditarEmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarEmergenciaViewModel.swift; sourceTree = "<group>"; };
+		FBA971C32B56205500074B36 /* BigText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigText.swift; sourceTree = "<group>"; };
+		FBA971C52B56483E00074B36 /* PlaceholderTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextEditor.swift; sourceTree = "<group>"; };
+		FBA971C72B564B8700074B36 /* SelectLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLabelInput.swift; sourceTree = "<group>"; };
 		FBB123842B5270120064DE07 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesModel.swift; sourceTree = "<group>"; };
 		FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
@@ -678,6 +688,8 @@
 				FBE093F32B51184200A49DE1 /* PasswordInput.swift */,
 				FBFE80EC2B54C1C2001C0E15 /* DateInput.swift */,
 				FBFE80EE2B54C66F001C0E15 /* SelectInput.swift */,
+				FBA971C52B56483E00074B36 /* PlaceholderTextEditor.swift */,
+				FBA971C72B564B8700074B36 /* SelectLabelInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -692,6 +704,7 @@
 				FB26769E2B55B4DC000F4AAF /* Heading.swift */,
 				FBA971B92B55F76100074B36 /* DisclosureGroupText.swift */,
 				FBA971BB2B55F77E00074B36 /* InfoRow.swift */,
+				FBA971C32B56205500074B36 /* BigText.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -861,6 +874,7 @@
 				FB4D56192AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift */,
 				FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */,
 				FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */,
+				FBA971C12B561FBA00074B36 /* EditarEmergenciaViewModel.swift */,
 			);
 			path = Emergencias;
 			sourceTree = "<group>";
@@ -898,6 +912,7 @@
 				FB2676A42B55DA9C000F4AAF /* TipoEmergencia.swift */,
 				FBA971B02B55E9E300074B36 /* EmergenciaContactosModel.swift */,
 				FBA971B22B55E9EF00074B36 /* EmergenciaGrupoModel.swift */,
+				FBA971BF2B56195600074B36 /* DataEmergenciaNavModel.swift */,
 			);
 			path = Emergencias;
 			sourceTree = "<group>";
@@ -1062,6 +1077,7 @@
 				FB4D55FE2AF3169C00D1C533 /* CameraView.swift in Sources */,
 				FB732FC82AFC59FA003CE102 /* MapaView.swift in Sources */,
 				FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */,
+				FBA971C02B56195600074B36 /* DataEmergenciaNavModel.swift in Sources */,
 				FBE093F92B51C25300A49DE1 /* ErrorMessage.swift in Sources */,
 				FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelView.swift in Sources */,
@@ -1079,6 +1095,7 @@
 				FBEAC1832AE3224200934F95 /* ListaRecetasViewModel.swift in Sources */,
 				FBA971BA2B55F76100074B36 /* DisclosureGroupText.swift in Sources */,
 				FBB123A52B546AF20064DE07 /* EmergenciaNavModel.swift in Sources */,
+				FBA971C22B561FBA00074B36 /* EditarEmergenciaViewModel.swift in Sources */,
 				FBB123A32B53D3830064DE07 /* ClassificationNavModel.swift in Sources */,
 				C0271A7E2AF33A5A00024BE5 /* Wounds.mlmodel in Sources */,
 				FB5F05662B06F552005D5403 /* AgregarMedicamentoView.swift in Sources */,
@@ -1138,6 +1155,7 @@
 				C0271A802AF33A5A00024BE5 /* Burns.mlmodel in Sources */,
 				FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */,
 				FBA971BC2B55F77E00074B36 /* InfoRow.swift in Sources */,
+				FBA971C42B56205500074B36 /* BigText.swift in Sources */,
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
 				FB4D561A2AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift in Sources */,
 				FBB123A02B5390660064DE07 /* CheckedItem.swift in Sources */,
@@ -1151,8 +1169,10 @@
 				FBB123942B5334020064DE07 /* OptionsAlert.swift in Sources */,
 				C0271A712AF33A5A00024BE5 /* LesionesView.swift in Sources */,
 				FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */,
+				FBA971C62B56483E00074B36 /* PlaceholderTextEditor.swift in Sources */,
 				FB26769F2B55B4DC000F4AAF /* Heading.swift in Sources */,
 				FBFE80E72B5490AB001C0E15 /* IconBigItem.swift in Sources */,
+				FBA971C82B564B8700074B36 /* SelectLabelInput.swift in Sources */,
 				FBE093E92B50D2B400A49DE1 /* PrimaryButton.swift in Sources */,
 				FBE093FF2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift in Sources */,
 				FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */,

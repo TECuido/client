@@ -7,178 +7,98 @@
 
 import SwiftUI
 
-/*
-struct MandarEmergenciaView: View {
+
+struct EditarEmergenciaView: View {
     
-    @State private var otro = ""
+    @Binding var path: NavigationPath
+    @StateObject private var viewModel = EditarEmergenciaViewModel()
+    var dataEmergencia: DataEmergenciaModel
     
-    @StateObject private var viewModel = MandarEmergenciaViewModel()
+    static var tag = "EditarEmergenciaView"
     
     var body: some View {
         ZStack{
+            
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            
             VStack{
-                Text("Emergencias")
-                    .foregroundColor(Color(red: 0.1294,green: 0.5882,blue: 0.9529))
-                    .font(.system(size: 45))
-                    .bold()
-                    .padding()
+                Title(text: "Editar emergencia")
+                    .padding(.bottom, 15)
                 
                 // Selección de motivo
-                Text("Selecciona el motivo de la alerta")
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                /*
-                Picker("Selecciona un motivo", selection: $viewModel.selectedMotivo){
-                    ForEach(viewModel.motivos, id: \.self) { option in
-                        HStack {
-                            Image(systemName: viewModel.motivoIconMapping[option] ?? "questionmark.circle.fill")
-                                 .resizable()
-                                 .frame(width: 40, height: 40)
-                                 .padding(80)
-                             Text(option)
-                                 .font(.title)
-                        }
-                    }
-                }
-                .pickerStyle(DefaultPickerStyle())
-                .frame(width: 325, height: 65)
-                .background(.white)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
-                )
-                .cornerRadius(25)
-                .padding(10)
-                */
+                BigText(text: "Selecciona el motivo de la alerta")
                 
-                /*
+                SelectLabelInput(
+                    title: "Selecciona un motivo",
+                    selectedOption: $viewModel.selectedMotivo,
+                    list: viewModel.motivos,
+                    iconMap: viewModel.motivoIconMapping
+                ){}
+                    .padding(.bottom, 15)
                 
                 //Selección de contactos
-                Text("Selecciona los contactos a los que les vas a avisar")
-                    .font(.title2)
-                    .frame(width:340)
-                    .multilineTextAlignment(.center)
-                // Picker de grupos
-                // Seleccionador
-                Picker("Selecciona un contacto", selection: $viewModel.selectedOptionContacto){
-                    ForEach(viewModel.gruposNombres, id: \.self) { grupo in
-                        Text(grupo)
-                            .font(.title)
+                BigText(text: "Selecciona el grupo a avisar")
+
+                SelectInput(
+                    title: "Selecciona un grupo",
+                    selectedOption: $viewModel.selectedOptionContacto,
+                    list: viewModel.gruposNombres
+                ){
+                    Task {
+                        await viewModel.getGrupos()
                     }
                 }
-                .task {
-                    await viewModel.getGrupos()
-                }
-                .pickerStyle(DefaultPickerStyle())
-                .frame(width: 325, height: 65)
-                .background(.white)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529),   lineWidth: 4)
-                )
-                .cornerRadius(25)
+                .padding(.bottom, 15)
                 
                 //descripcion
                 VStack {
+                    BigText(text: "Agrega una descripción")
+                    
                     // Opción para elegir entre nivel de gravedad y texto descriptivo
-                    
                     Picker("Selecciona una opción", selection: $viewModel.isNivelGravedadSelected) {
-                        Text("Nivel de gravedad").tag(true).font(.title2)
-                        Text("Descripción").tag(false).font(.title2)
+                        Text("Nivel de gravedad")
+                            .tag(true)
+                        Text("Descripción")
+                            .tag(false)
                     }
+                    .font(.custom("Lato", size: FontSize.text.rawValue))
                     .pickerStyle(SegmentedPickerStyle())
-                    .padding(10)
+                    .padding(.bottom, 10)
                     
-                    // Mostrar el campo de nivel de gravedad si se selecciona
+                    // Mostrar el campo de nivel de gravedad o el editor para la descripción
                     if viewModel.isNivelGravedadSelected {
-                        
-                        Picker("Selecciona el nivel de gravedad", selection: $viewModel.nivel) {
-                            ForEach(1 ..< 11, id: \.self) { level in
-                                Text("\(level)")
-                                    .font(.title)
-                            }
-                        }
-                        .pickerStyle(DefaultPickerStyle())
-                        .frame(width: 325, height: 65)
-                        .background(.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color(red: 0.1294, green: 0.5882, blue: 0.9529), lineWidth: 4)
-                        )
-                        .cornerRadius(25)
-                        
-                    
+                        SelectInput(
+                            title: "Nivel de gravedad",
+                            selectedOption:
+                                $viewModel.nivel,
+                            list: (1...10).map{"\($0)"}
+                        ){}
                     } else {
-                        
-                        VStack {
-                            PlaceholderTextEditor(text: $viewModel.descripcion, placeholder: "Escribe aquí la descripción")
-                                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                                .font(.body)
-                                .frame(width: 325, height: 100)
-                                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                                .cornerRadius(20)
-                        }
-                        
-                        .frame(width: 325, height: 100)
-                        
+                        PlaceholderTextEditor(
+                            text: $viewModel.descripcion,
+                            placeholder: "Escribe una descripción")
                     }
-                    
-                    // Inicio boton
-                        Button("Continuar") {
-                            Task {
-                                
-                                await viewModel.addEmergencia()
-                            }
-                        }
-                        .foregroundColor(.white)
-                        .bold()
-                        .frame(width: 300, height: 65)
-                        .background(Color(red: 0.1294, green: 0.5882, blue: 0.9529))
-                        .cornerRadius(25)
-                        .padding(30)
-                        .font(.title2)
+                }
+               
+                PrimaryButton(title: "Guardar cambios"){
+                    Task {
+                        await viewModel.addEmergencia()
+                    }
                 }
                 
             }
-            NavigationLink("", destination: EstatusEmergenciaView(dataEmergencia: viewModel.dataEmergencia), isActive: $viewModel.showEstatusView)
-            */
-                                    
-        }
-         
-    }
-}
-
-struct PlaceholderTextEditor: View {
-    @Binding var text: String
-    var placeholder: String
-
-    var body: some View {
-        ZStack(alignment: .topLeading) {
-            TextEditor(text: $text)
-                .opacity(1)
-                .scrollContentBackground(.hidden)
-                .padding(.top, 10)
-                .padding(.leading, 10)
-                .lineSpacing(0.8)
-            if text.isEmpty {
-                Text(placeholder)
-                    .opacity(0.75)
-                    .padding(.top, 15)
-                    .padding(.leading, 10)
-                    .padding(.horizontal, 4)
-                    .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-
-            }
+            
         }
     }
 }
 
-
-
-
-struct MandarEmergenciaView_Previews: PreviewProvider {
+struct EditarEmergenciaView_Previews: PreviewProvider {
     static var previews: some View {
-        MandarEmergenciaView()
+        EditarEmergenciaView(
+            path: .constant(NavigationPath()),
+            dataEmergencia: DataEmergenciaModel.defaultEmergencia
+        )
     }
 }
-*/
+
