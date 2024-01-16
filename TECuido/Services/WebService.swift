@@ -30,6 +30,7 @@ struct LoginRequestBody: Codable {
 struct RegisterRequestBody: Codable {
     let nombre: String
     let correo: String
+    let telefono: String
     let password: String
     let idTipo: Int
 }
@@ -358,14 +359,21 @@ class Webservice {
     }
     
     
-    func register(nombre: String, correo:String, password: String, idTipo: Int) async -> Result<AuthResponse, NetworkError>{
+    func register(nombre: String, correo:String, password: String, telefono: String, idTipo: Int) async -> Result<AuthResponse, NetworkError>{
         
         do {
             guard let url = URL(string: "\(baseURL)/registro") else {
                 throw NetworkError.invalidURL
             }
             
-            let body = RegisterRequestBody(nombre: nombre, correo:correo, password: password, idTipo: idTipo)
+            let body = RegisterRequestBody(
+                nombre: nombre,
+                correo:correo,
+                telefono: telefono,
+                password: password,
+                idTipo: idTipo
+            )
+            
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
