@@ -12,14 +12,20 @@ struct ContactoModel : Decodable, Identifiable {
     var nombre: String
     var telefono: String
     var correo: String?
+    var usuarioAgregado: UsuarioAgregado?
     
     enum CodingKeys: String, CodingKey {
         case id = "idContacto"
         case nombre = "nombre"
         case telefono = "telefono"
         case correo = "correo"
+        case usuarioAgregado = "usuarioAgregado"
     }
     
+}
+
+struct UsuarioAgregado: Decodable {
+    var idUsuario: Int
 }
 
 extension ContactoModel {
