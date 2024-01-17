@@ -13,11 +13,8 @@ class NotificationViewModel: ObservableObject {
     @Published var notificationToken: String = ""
     @Published var tokenAgregado: Bool = false
     
-    @Published var navigateToNotificationView: Bool = false
     @Published var emergencia: DataEmergenciaModel = DataEmergenciaModel.defaultEmergencia
     
-    @Published var failedAuthentication: Bool = false
-
 
     func setEmergencia(notification: [AnyHashable: Any]){
         

@@ -110,7 +110,7 @@ class EditarEmergenciaViewModel: ObservableObject {
             } else {
                 let data = EmergenciaContactosModel(
                     tipo: selectedMotivo,
-                    descripcion: descripcion.count > 0 ? descripcion : nil,
+                    descripcion: descripcionRequest,
                     idEmisor: tokens.id,
                     longitud: (longitud != nil) ? Float(longitud!) : nil,
                     latitud: (latitud != nil) ? Float(latitud!) : nil

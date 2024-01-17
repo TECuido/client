@@ -86,6 +86,14 @@ struct EditarEmergenciaView: View {
                         await viewModel.editEmergencia()
                     }
                 }
+                .alert(isPresented: $viewModel.emergenciaEditada) {
+                    AcceptAlert(
+                        title: "Emergencia actualizada",
+                        message: "Se han actualizado los datos de la emergencia"
+                    ){
+                        path.removeLast()
+                    }
+                }
                 
             }
             

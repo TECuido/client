@@ -19,6 +19,7 @@ struct EstatusEmergenciaView: View {
         
         ZStack {
             Color("BackgroundColor")
+                .ignoresSafeArea()
             
             VStack {
                 
@@ -57,7 +58,7 @@ struct EstatusEmergenciaView: View {
                 }
                 
                 
-                PrimaryButton(title: "Ubicación"){
+                PrimaryButton(title: "Editar emergencia"){
                     path.append(
                         DataEmergenciaNavModel(
                             destination: EditarEmergenciaView.tag,
