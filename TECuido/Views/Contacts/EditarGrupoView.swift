@@ -63,18 +63,18 @@ struct EditarGrupoView: View {
                 if(!EditarGrupoVM.contactos.isEmpty){
                     // Lista de contactos
                     List {
-                        ForEach(EditarGrupoVM.contactos.indices, id: \.self) { index in
+                        ForEach(Array(EditarGrupoVM.contactos.enumerated()), id: \.offset) { index, contacto in
                             HStack {
                                 if EditarGrupoVM.selectedIndices.contains(index) {
                                     CheckedItem(
-                                        title: EditarGrupoVM.contactos[index].usuarioAgregado.nombre,
-                                        subtitle: EditarGrupoVM.contactos[index].usuarioAgregado.correo
+                                        title: contacto.nombre,
+                                        subtitle: contacto.telefono
                                     )
                                 } else {
                                     NumberedItem(
                                         number: index+1,
-                                        title: EditarGrupoVM.contactos[index].usuarioAgregado.nombre,
-                                        subtitle: EditarGrupoVM.contactos[index].usuarioAgregado.correo
+                                        title: contacto.nombre,
+                                        subtitle: contacto.telefono
                                     )
                                 }
                             }

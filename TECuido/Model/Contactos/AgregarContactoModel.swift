@@ -5,13 +5,14 @@
 //  Created by Julio on 25/10/23.
 //
 
-    import Foundation
+import Foundation
 
-    struct AgregarContactoModel : Codable {
-        var correo: String
-    }
+struct AgregarContactoModel : Codable {
+    var nombre: String
+    var telefono: String
+    var correo: String?
+}
 
-    struct ContactoAgregadoModel: Decodable {
-        var idAgrega: Int
-        var idAgregado: Int
-    }
+struct ContactoAgregadoModel: Decodable {
+    var idContacto: Int
+}

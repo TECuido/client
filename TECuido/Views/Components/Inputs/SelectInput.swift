@@ -12,7 +12,6 @@ struct SelectInput: View {
     var title: String
     @Binding var selectedOption: String
     var list: [String]
-    var inputError: Int = 0
     var action: () -> Void
     
     var body: some View {
@@ -22,18 +21,21 @@ struct SelectInput: View {
                     .font(.custom("Lato", size: FontSize.text.rawValue))
             }
         }
-        .tint(Color("PlaceholderColor"))
+        .tint(Color("LightBlue"))
         .task {
             action()
         }
         .pickerStyle(DefaultPickerStyle())
         .frame(width: 325, height: 60)
-        .background(Color("InputBackground"))
+        .background(Color("BackgroundColor"))
         .overlay(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color("Red"), lineWidth: CGFloat(inputError)*2)
+                .stroke(Color("LightBlue"), lineWidth: 4)
         )
-        .cornerRadius(25)    }
+        .cornerRadius(25)
+        
+        
+    }
 }
 
 struct

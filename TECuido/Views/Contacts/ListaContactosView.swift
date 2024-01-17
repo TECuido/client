@@ -40,10 +40,11 @@ struct ListaContactosView: View {
                                 
                                 HStack(alignment: .center) {
                                     
-                                    NumberedItem(
+                                    NumberedBigItem(
                                         number: index+1,
-                                        title: item.usuarioAgregado.nombre,
-                                        subtitle: item.usuarioAgregado.correo
+                                        title: item.nombre,
+                                        text1: item.telefono,
+                                        text2: item.correo ?? ""
                                     )
                                     
                                     Spacer()
@@ -51,7 +52,7 @@ struct ListaContactosView: View {
                                     Button(action: {
                                         // Acción para borrar
                                         viewModel.isShowingConfirmationModel = true
-                                        viewModel.idAgregado = item.usuarioAgregado.id
+                                        viewModel.idContacto = item.id
                                         
                                     }) {
                                         Image(systemName: "minus.circle.fill")
@@ -98,7 +99,7 @@ struct ListaContactosView: View {
                 }
                 
                 FloatingActionButton{
-                    path.append(ContactosDetallesView.tag)
+                    path.append(CrearContactoView.tag)
                 }
                 
             }

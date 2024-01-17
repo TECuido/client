@@ -52,7 +52,7 @@ class EditarGrupoViewModel: ObservableObject {
                 self.miembros = data.data!
                 for miembro in self.miembros {
                     let idx = self.contactos.firstIndex  {
-                        $0.usuarioAgregado.id == miembro.miembroGrupo.id
+                        $0.id == miembro.miembroGrupo.id
                     }
                     self.selectedIndices.append(idx!)
                     self.selectedIndicesOriginal.insert(miembro.miembroGrupo.id)
@@ -82,7 +82,7 @@ class EditarGrupoViewModel: ObservableObject {
             var selectedIndicesFinal: Set<Int> = []
 
             for index in self.selectedIndices {
-                selectedIndicesFinal.insert(self.contactos[index].usuarioAgregado.id)
+                selectedIndicesFinal.insert(self.contactos[index].id)
             }
 
             let OriginalMinFinal: Set<Int> = self.selectedIndicesOriginal.subtracting(selectedIndicesFinal)

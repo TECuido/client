@@ -9,7 +9,6 @@ class GetUsuarioDetallesViewModel: ObservableObject {
     @Published var usuarioDetalles: [GetUsuarioDetallesModel] = []
     @Published var error: String = ""
 
-    @Published var failedAuthentication: Bool = false
     @Published var contactoError: Int =  0
     @Published var nombreError: Int =  0
     @Published var addedContacto: Bool = false
@@ -25,10 +24,6 @@ class GetUsuarioDetallesViewModel: ObservableObject {
             case .failure(let error):
                 print(error.self)
                 print(error.localizedDescription)
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.failedAuthentication = true
             }
         }
     }
@@ -79,13 +74,6 @@ class GetUsuarioDetallesViewModel: ObservableObject {
                     switch error {
                         
                     case .badStatus(let error, let message):
-                        if error == 401 {
-                            DispatchQueue.main.async {
-                                self.failedAuthentication = true
-                                print(error)
-                            }
-                            
-                        }
                         DispatchQueue.main.async {
                             self.error = message
                             print(error)
@@ -94,10 +82,6 @@ class GetUsuarioDetallesViewModel: ObservableObject {
                         print(error.self)
                         print(error.localizedDescription)
                     }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.failedAuthentication = true
                 }
             }
         } catch ValidationError.error(let description) {
@@ -109,5 +93,5 @@ class GetUsuarioDetallesViewModel: ObservableObject {
         }
     }
 
-    }
+}
     

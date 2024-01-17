@@ -15,7 +15,7 @@ struct TECuidoApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
     @State private var isNavigatingToEmergenciasView = false
-    @State var emergencia: DataEmergenciaGrupoModel = DataEmergenciaGrupoModel.defaultEmergencia
+    @State var emergencia: DataEmergenciaModel = DataEmergenciaModel.defaultEmergencia
     
     var body: some Scene {
         WindowGroup {

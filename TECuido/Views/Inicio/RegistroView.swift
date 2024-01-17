@@ -33,7 +33,7 @@ struct RegistroView: View {
                               inputPrompt: "Nombre",
                               icon: "person.fill",
                               iconSize: (24, 24),
-                              iconPadding: 16,
+                              iconPadding: 20,
                               inputError: viewModel.nombreError)
                         
                         Input(inputText: $viewModel.correo,
@@ -42,6 +42,13 @@ struct RegistroView: View {
                               iconSize: (30, 20),
                               iconPadding: 15,
                               inputError: viewModel.correoError)
+                        
+                        Input(inputText: $viewModel.telefono,
+                              inputPrompt: "Número de teléfono",
+                              icon: "phone.fill",
+                              iconSize: (25, 25),
+                              iconPadding: 15,
+                              inputError: viewModel.telefonoError)
                         
                         PasswordInput(
                             inputText: $viewModel.password,
@@ -62,7 +69,7 @@ struct RegistroView: View {
                                 await viewModel.register(idTipo: typeCuenta.rawValue)
                                 if(viewModel.isAuthenticated){
                                     session.tipoUsuario = viewModel.tipoUsuario
-                                    path.append(AgregarUsuarioDetallesView.tag)
+                                    path.append(HomeView.tag)
                                 }
                             }
                         }

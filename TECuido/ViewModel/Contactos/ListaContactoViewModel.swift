@@ -11,7 +11,7 @@ import SwiftUI
 class ListaContactoViewModel : ObservableObject {
     
     @Published var contactos: [ContactoModel] = []
-    @Published var idAgregado: Int = -1
+    @Published var idContacto: Int = -1
     @Published var isShowingConfirmationModel: Bool = false
     @Published var borrado: Bool = false
     
@@ -34,23 +34,20 @@ class ListaContactoViewModel : ObservableObject {
     }
     
     public func deleteContactos() async {
-        
-        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
-            
-            let result : Result<APIResponseModel<ContactoModel>, NetworkError> = await Webservice().deleteRequest("/contactos/\(tokens.id)/\(idAgregado)")
-        
-            switch result {
-                case .success(_):
-                    DispatchQueue.main.async {
-                        self.borrado = true
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-            }
-            
-        
+                    
+        let result : Result<APIResponseModel<ContactoModel>, NetworkError> = await Webservice().deleteRequest("/contactos/\(idContacto)")
+    
+        switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.borrado = true
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
         }
+            
         
     }
+        
 }
     

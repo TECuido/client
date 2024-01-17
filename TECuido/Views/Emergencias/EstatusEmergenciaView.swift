@@ -9,66 +9,75 @@ import SwiftUI
 
 struct EstatusEmergenciaView: View {
     
-    @State var dataEmergencia: DataEmergenciaGrupoModel
+    @Binding var path: NavigationPath
+    @State var dataEmergencia: DataEmergenciaModel
     @State private var rotation: Double = 0.0
+    
+    static var tag = "EstatusEmergenciaView"
 
     var body: some View {
         
-        VStack() {
-                        
-            Text("Se ha enviado una emergencia")
-                .foregroundColor(Color(red: 0.8392, green: 0, blue: 0))
-                .font(.system(size: 35))
-                .bold()
-                .frame(width: 280)
-                .padding(.top, 50)
-                .multilineTextAlignment(.center)
+        ZStack {
+            Color("BackgroundColor")
+            
+            VStack {
+                
+                Title(
+                    text: "Se ha enviado una emergencia",
+                    color: Color("Red")
+                )
 
-            Image("Mal")
-                .padding()
-                .rotationEffect(.degrees(rotation))
-                .onAppear {
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(200)){
-                        withAnimation(Animation.easeInOut(duration: 0.5).repeatForever()) {
-                            rotation = 30
+                Image("Mal")
+                    .padding()
+                    .rotationEffect(.degrees(rotation))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.milliseconds(200)){
+                            withAnimation(Animation.easeInOut(duration: 0.5).repeatForever()) {
+                                rotation = 30
+                            }
                         }
                     }
+
+                Text("Alerta de tipo \(dataEmergencia.tipo)")
+                    .font(.custom("Lato", size: FontSize.heading.rawValue))
+                    .bold()
+                    .foregroundColor(Color("FullScale"))
+                    .padding()
+                
+                
+                if((dataEmergencia.descripcion) != nil){
+                    Heading(text: "Descripción de la alerta")
+                    
+                    Text(dataEmergencia.descripcion!)
+                        .font(.custom("Lato", size: FontSize.text.rawValue))
+                        .foregroundColor(Color("TextColor"))
+                        .padding(.bottom, 20)
+                } else {
+                    Heading(text: "No se agregó la descripción")
+                }
+                
+                
+                PrimaryButton(title: "Ubicación"){
+                    path.append(
+                        DataEmergenciaNavModel(
+                            destination: EditarEmergenciaView.tag,
+                            data: dataEmergencia
+                        )
+                    )
                 }
 
-            Text("Alerta de tipo \(dataEmergencia.tipo)")
-                .font(.title)
-                .bold()
-                .padding()
-            
-            
-            if((dataEmergencia.descripcion) != nil){
                 
-                Text("Descripción de la alerta:")
-                    .font(.title2)
-                    .bold()
-                    .padding(.bottom, 20)
-                
-                Text(dataEmergencia.descripcion!)
-                    .padding()
-            } else {
-                Text("No se agregó descripción")
             }
-
-            Spacer()
-
-            Rectangle()
-                .fill(Color(red: 0.83, green: 0, blue: 0))
-                .ignoresSafeArea()
-                .frame(width:.infinity, height: 50)
-                .padding(.bottom, 0)
+            
         }
+        
     }
-
 }
 
 struct EstatusEmergenciaView_Previews: PreviewProvider {
     static var previews: some View {
-        EstatusEmergenciaView(dataEmergencia: DataEmergenciaGrupoModel.defaultEmergencia)
+        EstatusEmergenciaView(
+            path: .constant(NavigationPath()),
+            dataEmergencia: DataEmergenciaModel.defaultEmergencia)
     }
 }

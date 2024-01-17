@@ -14,7 +14,7 @@ class NotificationViewModel: ObservableObject {
     @Published var tokenAgregado: Bool = false
     
     @Published var navigateToNotificationView: Bool = false
-    @Published var emergencia: DataEmergenciaGrupoModel = DataEmergenciaGrupoModel.defaultEmergencia
+    @Published var emergencia: DataEmergenciaModel = DataEmergenciaModel.defaultEmergencia
     
     @Published var failedAuthentication: Bool = false
 
@@ -25,7 +25,7 @@ class NotificationViewModel: ObservableObject {
         let latitud = notification["latitud"] as? Double
         
         
-        self.emergencia = DataEmergenciaGrupoModel(
+        self.emergencia = DataEmergenciaModel(
             idEmergencia: notification["idEmergencia"] as! Int,
             tipo: notification["tipo"] as! String,
             descripcion: notification["descripcion"] as? String,

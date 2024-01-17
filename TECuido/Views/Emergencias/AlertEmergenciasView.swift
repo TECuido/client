@@ -12,7 +12,7 @@ struct AlertEmergenciasView: View {
     @Binding var path: NavigationPath
     @State private var rotation: Double = 0.0
     @State private var viewModel = AlertEmergenciasViewModel()
-    @Binding var dataEmergencia: DataEmergenciaGrupoModel
+    @Binding var dataEmergencia: DataEmergenciaModel
     
     
     var body: some View {
@@ -55,7 +55,6 @@ struct AlertEmergenciasView: View {
                         .padding(.bottom, 20)
                 } else {
                     Heading(text: "No se agregó la descripción")
-
                 }
             
             
@@ -69,7 +68,6 @@ struct AlertEmergenciasView: View {
                 }
                 
                 if(dataEmergencia.longitud != nil){
-                    
                     PrimaryButton(title: "Ubicación"){
                         viewModel.updateCoordinates(
                             latitude: dataEmergencia.latitud ?? 0,
@@ -79,21 +77,15 @@ struct AlertEmergenciasView: View {
                             markers: $viewModel.markers
                         ))
                     }
-                    
                 }
                 
-                
-                
             }
-            
-                
-            
         }
     }
 }
 
 struct AlertEmergenciasView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertEmergenciasView(path: .constant(NavigationPath()), dataEmergencia: .constant( DataEmergenciaGrupoModel.defaultEmergencia))
+        AlertEmergenciasView(path: .constant(NavigationPath()), dataEmergencia: .constant( DataEmergenciaModel.defaultEmergencia))
     }
 }

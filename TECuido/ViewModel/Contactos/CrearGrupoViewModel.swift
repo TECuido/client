@@ -62,7 +62,7 @@ class CrearGrupoViewModel: ObservableObject {
                 switch result {
                     case .success(let data):
                     for index in selectedIndices {
-                        try await addMiembros(idMiembro: contactos[index].usuarioAgregado.id, idGrupo: data.data!.idGrupo)
+                        try await addMiembros(idMiembro: contactos[index].id, idGrupo: data.data!.idGrupo)
                     }
                     DispatchQueue.main.async {
                         self.grupoCreado = true

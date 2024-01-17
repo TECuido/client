@@ -15,7 +15,7 @@
      @Published var error: String = ""
      @Published var condicionCreada: Bool = false
      @Published var condicionSeleccionada = CondicionMedicaModel.example
-     @Published var failedAuthentication: Bool = false
+
      public func getCondicionMedica() async {
 
          if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
@@ -28,14 +28,9 @@
                      self.condicion = data.data!
                  }
              case .failure(let error):
-                 print(error.self)
                  print(error.localizedDescription)
              }
-         } else {
-             DispatchQueue.main.async {
-                 self.failedAuthentication = true
-             }
-         }
+         } 
      }
 
 
@@ -62,12 +57,7 @@
                      }
                      case .failure(let error):
                          switch error {
-                         case .badStatus(let error, let message):
-                             if(error == 401){
-                                 DispatchQueue.main.async {
-                                     self.failedAuthentication = true
-                                 }
-                             }
+                         case .badStatus(_, let message):
                              DispatchQueue.main.async {
                                  self.error = message
                              }
@@ -77,10 +67,6 @@
                          }
                  }
 
-             } else {
-                 DispatchQueue.main.async {
-                     self.failedAuthentication = true
-                 }
              }
 
 

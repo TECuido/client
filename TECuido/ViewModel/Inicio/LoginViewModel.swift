@@ -9,8 +9,9 @@ import SwiftUI
 
 class UsuarioViewModel : ObservableObject {
     
-    var correo:String = ""
-    var password:String = ""
+    @Published var correo:String = ""
+    @Published var password:String = ""
+    
     @Published var message: String = ""
     @Published var correoError: Int =  0
     @Published var passwordError: Int =  0

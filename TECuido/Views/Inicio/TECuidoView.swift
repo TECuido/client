@@ -79,8 +79,8 @@ struct TECuidoView: View {
                     RecetasView(path: $path)
                 case ContactosView.tag:
                     ContactosView(path: $path)
-                case ContactosDetallesView.tag:
-                    ContactosDetallesView(path: $path)
+                case CrearContactoView.tag:
+                    CrearContactoView(path: $path)
                 case CreaGrupoView.tag:
                     CreaGrupoView(path: $path)
                 case DatosMedicosView.tag:
@@ -125,8 +125,20 @@ struct TECuidoView: View {
             .navigationDestination(for: MapaNavModel.self){item in
                 MapaView(region: item.getRegion(), markers: item.getMarkers())
             }
-            .navigationDestination(for: DataEmergenciaGrupoModel.self){item in
-                EstatusEmergenciaView(dataEmergencia: item)
+            .navigationDestination(for: DataEmergenciaNavModel.self){item in
+                switch item.destination{
+                case EstatusEmergenciaView.tag:
+                    EstatusEmergenciaView(
+                        path: $path,
+                        dataEmergencia: item.data)
+                case EditarEmergenciaView.tag:
+                    EditarEmergenciaView(
+                        path: $path,
+                        dataEmergencia: item.data
+                    )
+                default:
+                    TECuidoView()
+                }
             }
             
         }//aqui termina navigation view

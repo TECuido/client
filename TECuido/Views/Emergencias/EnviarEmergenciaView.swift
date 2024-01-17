@@ -25,13 +25,7 @@ struct EnviarEmergenciaView: View {
                 
                 Title(text: "Emergencias")
                 
-                Text("Selecciona el motivo")
-                    .font(.custom("Lato", size: FontSize.bigText.rawValue))
-                    .frame(width:340)
-                    .padding(.bottom, 10)
-                    .bold()
-                    .foregroundColor(Color("TextColor"))
-                    .multilineTextAlignment(.center)
+                BigText(text: "Selecciona el motivo")
                 
                 HStack{
                     
@@ -123,13 +117,9 @@ struct EnviarEmergenciaView: View {
                 }
                 
                 //Selección de contactos
-                Text("Selecciona el grupo a avisar")
-                    .font(.custom("Lato", size: FontSize.bigText.rawValue))
-                    .frame(width:340)
-                    .padding(.top, 10)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                
+                BigText(text: "Selecciona el grupo a avisar")
+                    .padding(.top, 5)
+
                 SelectInput(
                     title: "Selecciona un grupo",
                     selectedOption: $viewModel.selectedOptionContacto,
@@ -139,19 +129,25 @@ struct EnviarEmergenciaView: View {
                         await viewModel.getGrupos()
                     }
                 }
+                .padding(.bottom, -8)
                 
                 PrimaryButton(title: "Continuar"){
                     Task {
                         await viewModel.addEmergencia()
                         viewModel.resetSelectedMotivos()
                         if(viewModel.showEstatusView){
-                            path.append(viewModel.dataEmergencia)
+                            path.append(
+                                DataEmergenciaNavModel(
+                                    destination: EstatusEmergenciaView.tag,
+                                    data: viewModel.dataEmergencia
+                                )
+                            )
                         }
                     }
                 }
                 
+                
             }
-            
         }
     }
 }
