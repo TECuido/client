@@ -29,7 +29,7 @@ class CrearRecetaViewModel : ObservableObject {
     
     @Published var selectedOptionPaciente: String = ""
     @Published var pacientes: [ContactoModel] = [ContactoModel.defaultContacto]
-    @Published var pacientesNombres: [String] = [ContactoModel.defaultContacto.usuarioAgregado.nombre]
+    @Published var pacientesNombres: [String] = [ContactoModel.defaultContacto.nombre]
     
     @Published var recetaCreada = false
     
@@ -48,7 +48,7 @@ class CrearRecetaViewModel : ObservableObject {
                         self.pacientes = data.data!
                         if(self.pacientes.count > 0){
                             self.pacientesNombres = self.pacientes.map{
-                                $0.usuarioAgregado.nombre
+                                $0.nombre
                             }
                             self.selectedOptionPaciente = self.pacientesNombres[0]
                         }
@@ -171,11 +171,11 @@ class CrearRecetaViewModel : ObservableObject {
                 )
                 
                 let i = pacientes.firstIndex {
-                    $0.usuarioAgregado.nombre == selectedOptionPaciente
+                    $0.nombre == selectedOptionPaciente
                 }
                 let selectedPaciente = pacientes[i!]
                 
-                let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(selectedPaciente.usuarioAgregado.id)", with: data)
+                let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(selectedPaciente.id)", with: data)
                 
                 switch result {
                     case .success(let data):

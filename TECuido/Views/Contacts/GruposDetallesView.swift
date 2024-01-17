@@ -44,10 +44,11 @@ struct GruposDetallesView: View {
                             
                             ForEach(Array(viewModel.miembros.enumerated()), id:\.offset) { index,item in
                                 HStack{
-                                    NumberedItem(
+                                    NumberedBigItem(
                                         number: index+1,
                                         title: item.miembroGrupo.nombre,
-                                        subtitle: item.miembroGrupo.correo
+                                        text1: item.miembroGrupo.telefono,
+                                        text2: item.miembroGrupo.correo ?? ""
                                     )
                                 }
                                 .listRowBackground(Color("BackgroundColor"))

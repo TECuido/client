@@ -79,8 +79,8 @@ struct TECuidoView: View {
                     RecetasView(path: $path)
                 case ContactosView.tag:
                     ContactosView(path: $path)
-                case ContactosDetallesView.tag:
-                    ContactosDetallesView(path: $path)
+                case CrearContactoView.tag:
+                    CrearContactoView(path: $path)
                 case CreaGrupoView.tag:
                     CreaGrupoView(path: $path)
                 case DatosMedicosView.tag:

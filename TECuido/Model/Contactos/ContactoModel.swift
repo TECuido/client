@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct ContactoModel : Decodable, Identifiable{
-    var id = UUID()
-    var usuarioAgregado: UsuarioModel
+struct ContactoModel : Decodable, Identifiable {
+    var id: Int
+    var nombre: String
+    var telefono: String
+    var correo: String?
     
     enum CodingKeys: String, CodingKey {
-        case usuarioAgregado
+        case id = "idContacto"
+        case nombre = "nombre"
+        case telefono = "telefono"
+        case correo = "correo"
     }
     
 }
@@ -20,7 +25,7 @@ struct ContactoModel : Decodable, Identifiable{
 extension ContactoModel {
     // Asi se agrega un usuario default
     public static var defaultContacto : ContactoModel{
-        return ContactoModel(usuarioAgregado: UsuarioModel(id: 1, nombre: "Panfila Lopez", correo: "pan@gmail.com"));
+        return ContactoModel(id: 1, nombre: "Panfila Lopez", telefono: "4445740322");
     }
    
 }

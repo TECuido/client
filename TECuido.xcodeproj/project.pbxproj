@@ -89,7 +89,7 @@
 		FB95EF482AEC422A00ECF38D /* AgregarGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */; };
 		FB95EF4A2AEC45F200ECF38D /* AgregarMiembroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */; };
 		FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */; };
-		FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */; };
+		FB999B612AE1D9590018C268 /* CrearContactoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B602AE1D9590018C268 /* CrearContactoView.swift */; };
 		FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B622AE1D96B0018C268 /* ListaGruposView.swift */; };
 		FB999B652AE1D9830018C268 /* GruposDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B642AE1D9830018C268 /* GruposDetallesView.swift */; };
 		FB999B692AE1E4AC0018C268 /* ContactoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */; };
@@ -108,6 +108,7 @@
 		FBA971C42B56205500074B36 /* BigText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C32B56205500074B36 /* BigText.swift */; };
 		FBA971C62B56483E00074B36 /* PlaceholderTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C52B56483E00074B36 /* PlaceholderTextEditor.swift */; };
 		FBA971C82B564B8700074B36 /* SelectLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C72B564B8700074B36 /* SelectLabelInput.swift */; };
+		FBA971CA2B57348D00074B36 /* ValidationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971C92B57348D00074B36 /* ValidationUtils.swift */; };
 		FBB123852B5270120064DE07 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123842B5270120064DE07 /* FloatingActionButton.swift */; };
 		FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */; };
 		FBB123892B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */; };
@@ -261,7 +262,7 @@
 		FB95EF472AEC422A00ECF38D /* AgregarGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarGrupoModel.swift; sourceTree = "<group>"; };
 		FB95EF492AEC45F200ECF38D /* AgregarMiembroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarMiembroModel.swift; sourceTree = "<group>"; };
 		FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaContactosView.swift; sourceTree = "<group>"; };
-		FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactosDetallesView.swift; sourceTree = "<group>"; };
+		FB999B602AE1D9590018C268 /* CrearContactoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearContactoView.swift; sourceTree = "<group>"; };
 		FB999B622AE1D96B0018C268 /* ListaGruposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaGruposView.swift; sourceTree = "<group>"; };
 		FB999B642AE1D9830018C268 /* GruposDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GruposDetallesView.swift; sourceTree = "<group>"; };
 		FB999B682AE1E4AC0018C268 /* ContactoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewModel.swift; sourceTree = "<group>"; };
@@ -280,6 +281,7 @@
 		FBA971C32B56205500074B36 /* BigText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigText.swift; sourceTree = "<group>"; };
 		FBA971C52B56483E00074B36 /* PlaceholderTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextEditor.swift; sourceTree = "<group>"; };
 		FBA971C72B564B8700074B36 /* SelectLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLabelInput.swift; sourceTree = "<group>"; };
+		FBA971C92B57348D00074B36 /* ValidationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationUtils.swift; sourceTree = "<group>"; };
 		FBB123842B5270120064DE07 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesModel.swift; sourceTree = "<group>"; };
 		FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				FBA831312ADE29A4001EAEAE /* AuthUtils */,
 				FB4D56052AF8A50D00D1C533 /* MLUtils */,
 				FBE094132B522B4600A49DE1 /* NotificationsUtils.swift */,
+				FBA971C92B57348D00074B36 /* ValidationUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -724,7 +727,7 @@
 				FB999B642AE1D9830018C268 /* GruposDetallesView.swift */,
 				FB5F05592B06C8EF005D5403 /* EditarGrupoView.swift */,
 				FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */,
-				FB999B602AE1D9590018C268 /* ContactosDetallesView.swift */,
+				FB999B602AE1D9590018C268 /* CrearContactoView.swift */,
 				FB999B622AE1D96B0018C268 /* ListaGruposView.swift */,
 				FBB8EC632AE1D5E800D8766C /* ContactosView.swift */,
 				FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */,
@@ -1064,6 +1067,7 @@
 				C0271A812AF33A5A00024BE5 /* ClassificationObject.swift in Sources */,
 				FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */,
 				FB5F056D2B0715FE005D5403 /* RecetasView.swift in Sources */,
+				FBA971CA2B57348D00074B36 /* ValidationUtils.swift in Sources */,
 				FB656C582AE05F9D00543B12 /* EditarEmergenciaView.swift in Sources */,
 				FBE093EF2B51049500A49DE1 /* FontSize.swift in Sources */,
 				FB2676A12B55B59F000F4AAF /* MapaNavModel.swift in Sources */,
@@ -1148,7 +1152,7 @@
 				FB831C8C2B50416500A89167 /* DatosMedicosView.swift in Sources */,
 				FBE093F72B51BD4400A49DE1 /* Title.swift in Sources */,
 				FBFE80E32B54846D001C0E15 /* NumberCircle.swift in Sources */,
-				FB999B612AE1D9590018C268 /* ContactosDetallesView.swift in Sources */,
+				FB999B612AE1D9590018C268 /* CrearContactoView.swift in Sources */,
 				FB4D56002AF316C900D1C533 /* EmotionRecognitionView.swift in Sources */,
 				FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */,
 				FB732FCA2AFC5E11003CE102 /* AlertEmergenciasViewModel.swift in Sources */,

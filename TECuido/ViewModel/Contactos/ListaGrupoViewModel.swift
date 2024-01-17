@@ -9,7 +9,7 @@ import Foundation
 
 class ListaGrupoViewModel: ObservableObject {
     
-    @Published var grupos: [GrupoModel] = [GrupoModel.example]
+    @Published var grupos: [GrupoModel] = []
     @Published var grupoSeleccionado = GrupoModel.example
     
     public func getGrupos() async {

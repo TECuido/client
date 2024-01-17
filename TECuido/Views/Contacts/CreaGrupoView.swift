@@ -57,18 +57,18 @@ struct CreaGrupoView: View {
                 if(!viewModel.contactos.isEmpty){
                     // Lista de contactos
                     List {
-                        ForEach(viewModel.contactos.indices, id: \.self) { index in
+                        ForEach(Array(viewModel.contactos.enumerated()), id: \.offset) { index, contacto in
                             HStack {
                                 if viewModel.selectedIndices.contains(index) {
                                     CheckedItem(
-                                        title: viewModel.contactos[index].usuarioAgregado.nombre,
-                                        subtitle: viewModel.contactos[index].usuarioAgregado.correo
+                                        title: contacto.nombre,
+                                        subtitle: contacto.telefono
                                     )
                                 } else {
                                     NumberedItem(
                                         number: index+1,
-                                        title: viewModel.contactos[index].usuarioAgregado.nombre,
-                                        subtitle: viewModel.contactos[index].usuarioAgregado.correo
+                                        title: contacto.nombre,
+                                        subtitle: contacto.telefono
                                     )
                                 }
                             }

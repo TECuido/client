@@ -44,9 +44,9 @@ struct ListaContactosLlamadaView: View {
                                     
                                     HStack {
                                         VStack(alignment: .leading){
-                                            Text(item.usuarioAgregado.nombre)
+                                            Text(item.nombre)
                                                 .font(.title2)
-                                            Text(item.usuarioAgregado.correo)
+                                            Text(item.correo ?? " ")
                                                 .font(.title2)
                                         }.padding(15)
                                         

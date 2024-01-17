@@ -56,7 +56,7 @@ class ListaContactosLlamadaViewModel: ObservableObject {
         let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
         let selectedUsuario = contactos[selected]
         print(selectedUsuario)
-        let data = CrearLlamadaModel(idUsuarioReceptor: selectedUsuario.usuarioAgregado.id)
+        let data = CrearLlamadaModel(idUsuarioReceptor: selectedUsuario.id)
         let result : Result<APIResponseModel<DataLlamadaModel>, NetworkError> = await Webservice().postRequest("/llamadas/usuario/\(tokens.id)", with: data)
                     
         switch result {

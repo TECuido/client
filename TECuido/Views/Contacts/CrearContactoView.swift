@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContactosDetallesView: View {
+struct CrearContactoView: View {
     
     @EnvironmentObject var session: SessionManager
     @Environment(\.presentationMode) var presentationMode
@@ -34,14 +34,27 @@ struct ContactosDetallesView: View {
                     .foregroundColor(Color("LightBlue"))
                     .padding(.top, 20)
                 
-                //Input Correo
+                Input(inputText: $viewModel.nombre,
+                      inputPrompt: "Nombre del contacto",
+                      icon: "person.fill",
+                      iconSize: (24, 24),
+                      iconPadding: 20,
+                      inputError: viewModel.nombreError)
+                .padding(.top, 20)
+                
+                Input(inputText: $viewModel.telefono,
+                      inputPrompt: "Número de teléfono",
+                      icon: "phone.fill",
+                      iconSize: (25, 25),
+                      iconPadding: 15,
+                      inputError: viewModel.telefonoError)
+                
                 Input(inputText: $viewModel.correo,
-                      inputPrompt: "Correo electrónico",
+                      inputPrompt: "Correo (opcional)",
                       icon: "envelope.fill",
                       iconSize: (30, 20),
-                      iconPadding: 15,
+                      iconPadding: 12,
                       inputError: viewModel.correoError)
-                .padding(.top, 20)
                 
                 ErrorMessage(errorText: viewModel.error)
                     .padding(.bottom, -10)
@@ -72,9 +85,9 @@ struct ContactosDetallesView: View {
 
 }
 
-struct ContactosDetallesView_Previews: PreviewProvider {
+struct CrearContactoView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactosDetallesView(path: .constant(NavigationPath()))
+        CrearContactoView(path: .constant(NavigationPath()))
             .environmentObject(SessionManager())
     }
 }

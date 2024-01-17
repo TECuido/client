@@ -25,8 +25,10 @@ struct NumberedBigItem: View {
             Text(text1)
                 .font(.custom("Lato", size:FontSize.text.rawValue))
                 .padding(.bottom, 1)
-            Text(text2)
-                .font(.custom("Lato", size:FontSize.text.rawValue))
+            if(!text2.isEmpty){
+                Text(text2)
+                    .font(.custom("Lato", size:FontSize.text.rawValue))
+            }
         }.padding(15)
     }
 }
