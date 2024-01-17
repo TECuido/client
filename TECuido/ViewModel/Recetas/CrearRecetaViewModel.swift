@@ -44,13 +44,17 @@ class CrearRecetaViewModel : ObservableObject {
             
             switch result {
                 case .success(let data):
-                    DispatchQueue.main.async {
-                        self.pacientes = data.data!
-                        if(self.pacientes.count > 0){
-                            self.pacientesNombres = self.pacientes.map{
-                                $0.nombre
+                    if let data = data.data {
+                        DispatchQueue.main.async {
+                            self.pacientes = data.filter {
+                                $0.usuarioAgregado != nil
                             }
-                            self.selectedOptionPaciente = self.pacientesNombres[0]
+                            if(self.pacientes.count > 0){
+                                self.pacientesNombres = self.pacientes.map{
+                                    $0.nombre
+                                }
+                                self.selectedOptionPaciente = self.pacientesNombres[0]
+                            }
                         }
                     }
                 case .failure(let error):
@@ -172,32 +176,38 @@ class CrearRecetaViewModel : ObservableObject {
                 
                 let i = pacientes.firstIndex {
                     $0.nombre == selectedOptionPaciente
+                } ?? -1
+                
+                if(i == -1){
+                    throw ValidationError.error(description: "Ocurrió un problema con el paciente seleccionado")
                 }
-                let selectedPaciente = pacientes[i!]
                 
-                let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(selectedPaciente.id)", with: data)
+                let selectedPaciente = pacientes[i]
                 
-                switch result {
-                    case .success(let data):
-                        for (index, element) in medicamentos.enumerated() {
-                            await createMedicamento(medicamento: element, index: index, idReceta: data.data!.id)
-                        }
-                        DispatchQueue.main.async {
-                            self.recetaCreada = true
-                            self.error = ""
-                        }
-                    case .failure(let error):
-                        switch error {
-                        case .badStatus(_, let message):
-                            DispatchQueue.main.async {
-                                self.error = message
-                            }
-                        default:
-                            print(error.localizedDescription)
-                        }
+                if let idPaciente = selectedPaciente.usuarioAgregado?.idUsuario {
                     
+                    let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(idPaciente)", with: data)
+                    
+                    switch result {
+                        case .success(let data):
+                            for (index, element) in medicamentos.enumerated() {
+                                await createMedicamento(medicamento: element, index: index, idReceta: data.data!.id)
+                            }
+                            DispatchQueue.main.async {
+                                self.recetaCreada = true
+                                self.error = ""
+                            }
+                        case .failure(let error):
+                            switch error {
+                            case .badStatus(_, let message):
+                                DispatchQueue.main.async {
+                                    self.error = message
+                                }
+                            default:
+                                print(error.localizedDescription)
+                            }
+                    }
                 }
-                
             }
         } catch ValidationError.error(let description){
             DispatchQueue.main.async {
