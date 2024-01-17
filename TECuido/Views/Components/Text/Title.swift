@@ -18,6 +18,7 @@ struct Title: View {
             .bold()
             .padding(10)
             .multilineTextAlignment(.center)
+        
     }
 }
 

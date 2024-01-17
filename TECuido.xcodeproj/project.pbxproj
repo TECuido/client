@@ -76,6 +76,10 @@
 		FB6A2F032ADA0C9700122000 /* EmergenciasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */; };
 		FB6A5BB82AE30F6200D6F4C5 /* ListaRecetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BB72AE30F6200D6F4C5 /* ListaRecetasView.swift */; };
 		FB6A5BBE2AE3212A00D6F4C5 /* RecetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */; };
+		FB710EBA2B57599B001B2FCC /* ContactoEmergenciaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB710EB92B57599B001B2FCC /* ContactoEmergenciaModel.swift */; };
+		FB710EBC2B575E2B001B2FCC /* ContactoEmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB710EBB2B575E2B001B2FCC /* ContactoEmergenciaViewModel.swift */; };
+		FB710EBE2B576055001B2FCC /* ContactoEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB710EBD2B576055001B2FCC /* ContactoEmergenciaView.swift */; };
+		FB710EC02B57721D001B2FCC /* TitleLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB710EBF2B57721D001B2FCC /* TitleLarge.swift */; };
 		FB732FC82AFC59FA003CE102 /* MapaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FC72AFC59FA003CE102 /* MapaView.swift */; };
 		FB732FCA2AFC5E11003CE102 /* AlertEmergenciasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */; };
 		FB732FCC2AFC6AF6003CE102 /* EmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */; };
@@ -248,6 +252,10 @@
 		FB6A2F022ADA0C9700122000 /* EmergenciasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciasView.swift; sourceTree = "<group>"; };
 		FB6A5BB72AE30F6200D6F4C5 /* ListaRecetasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaRecetasView.swift; sourceTree = "<group>"; };
 		FB6A5BBD2AE3212A00D6F4C5 /* RecetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaModel.swift; sourceTree = "<group>"; };
+		FB710EB92B57599B001B2FCC /* ContactoEmergenciaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoEmergenciaModel.swift; sourceTree = "<group>"; };
+		FB710EBB2B575E2B001B2FCC /* ContactoEmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoEmergenciaViewModel.swift; sourceTree = "<group>"; };
+		FB710EBD2B576055001B2FCC /* ContactoEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoEmergenciaView.swift; sourceTree = "<group>"; };
+		FB710EBF2B57721D001B2FCC /* TitleLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLarge.swift; sourceTree = "<group>"; };
 		FB732FC72AFC59FA003CE102 /* MapaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaView.swift; sourceTree = "<group>"; };
 		FB732FC92AFC5E11003CE102 /* AlertEmergenciasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEmergenciasViewModel.swift; sourceTree = "<group>"; };
 		FB732FCB2AFC6AF6003CE102 /* EmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenciaViewModel.swift; sourceTree = "<group>"; };
@@ -544,6 +552,7 @@
 				FBBD9ACB2B4E12450045DF9D /* MedicamentoActualView.swift */,
 				FBE094002B51D6A000A49DE1 /* UsuarioDetallesView.swift */,
 				FBB1238C2B530B2A0064DE07 /* AgregarUsuarioDetallesView.swift */,
+				FB710EBD2B576055001B2FCC /* ContactoEmergenciaView.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -571,6 +580,7 @@
 				FBE093FC2B51CD3B00A49DE1 /* CondicionMedicaViewModel.swift */,
 				FBE093FE2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift */,
 				FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */,
+				FB710EBB2B575E2B001B2FCC /* ContactoEmergenciaViewModel.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -583,6 +593,7 @@
 				FBB3D0002B4C6551003CEF52 /* UsuarioDetallesModel.swift */,
 				FBBD9ACF2B4E325B0045DF9D /* MedicamentosActualesModel.swift */,
 				FBBD9AD12B4E32FE0045DF9D /* CondicionMedica.swift */,
+				FB710EB92B57599B001B2FCC /* ContactoEmergenciaModel.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -708,6 +719,7 @@
 				FBA971B92B55F76100074B36 /* DisclosureGroupText.swift */,
 				FBA971BB2B55F77E00074B36 /* InfoRow.swift */,
 				FBA971C32B56205500074B36 /* BigText.swift */,
+				FB710EBF2B57721D001B2FCC /* TitleLarge.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -1083,6 +1095,7 @@
 				FB4D560F2AF8A75100D1C533 /* NotificationViewModel.swift in Sources */,
 				FBA971C02B56195600074B36 /* DataEmergenciaNavModel.swift in Sources */,
 				FBE093F92B51C25300A49DE1 /* ErrorMessage.swift in Sources */,
+				FB710EC02B57721D001B2FCC /* TitleLarge.swift in Sources */,
 				FB4D56132AF8A95400D1C533 /* NotificationTokenModel.swift in Sources */,
 				C0271A6F2AF33A5A00024BE5 /* PredictiveLabelView.swift in Sources */,
 				FB2676A32B55D26D000F4AAF /* MiddleButton.swift in Sources */,
@@ -1092,6 +1105,7 @@
 				FBA971B12B55E9E300074B36 /* EmergenciaContactosModel.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,
 				FBBD9AC82B4DFFF80045DF9D /* CondicionMedicaView.swift in Sources */,
+				FB710EBC2B575E2B001B2FCC /* ContactoEmergenciaViewModel.swift in Sources */,
 				FB4D55F62AF3157A00D1C533 /* SpeechRecognizer.swift in Sources */,
 				FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */,
 				FB5F05562B06C279005D5403 /* RecetaViewModel.swift in Sources */,
@@ -1115,6 +1129,7 @@
 				FBB123852B5270120064DE07 /* FloatingActionButton.swift in Sources */,
 				FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */,
 				FB4D56042AF8A42A00D1C533 /* AppDelegate.swift in Sources */,
+				FB710EBA2B57599B001B2FCC /* ContactoEmergenciaModel.swift in Sources */,
 				FBB3D0012B4C6551003CEF52 /* UsuarioDetallesModel.swift in Sources */,
 				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
 				FB26769D2B5517AB000F4AAF /* SelectionTabView.swift in Sources */,
@@ -1162,6 +1177,7 @@
 				FBA971C42B56205500074B36 /* BigText.swift in Sources */,
 				C0271A7F2AF33A5A00024BE5 /* Bites.mlmodel in Sources */,
 				FB4D561A2AF9D4D900D1C533 /* MandarEmergenciaViewModel.swift in Sources */,
+				FB710EBE2B576055001B2FCC /* ContactoEmergenciaView.swift in Sources */,
 				FBB123A02B5390660064DE07 /* CheckedItem.swift in Sources */,
 				FBFE80ED2B54C1C2001C0E15 /* DateInput.swift in Sources */,
 				FBBD9AD02B4E325B0045DF9D /* MedicamentosActualesModel.swift in Sources */,

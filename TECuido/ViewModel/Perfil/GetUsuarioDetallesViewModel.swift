@@ -6,7 +6,7 @@
 import Foundation
 class GetUsuarioDetallesViewModel: ObservableObject {
     var nombre: String = ""
-    @Published var usuarioDetalles: [GetUsuarioDetallesModel] = []
+    @Published var usuarioDetalles: [UsuarioDetallesGetModel] = []
     @Published var error: String = ""
 
     @Published var contactoError: Int =  0
@@ -15,7 +15,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
    
     public func getUsuarioDetalles() async {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
-            let result : Result<APIResponseModel<[GetUsuarioDetallesModel]>, NetworkError> = await Webservice().getRequest("/usuariodetalles/\(tokens.id)")
+            let result : Result<APIResponseModel<[UsuarioDetallesGetModel]>, NetworkError> = await Webservice().getRequest("/usuariodetalles/\(tokens.id)")
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {

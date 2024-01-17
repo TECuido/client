@@ -91,6 +91,8 @@ struct TECuidoView: View {
                     CondicionMedicaView(path: $path)
                 case MedicamentoActualView.tag:
                      MedicamentoActualView(path: $path)
+                case ContactoEmergenciaView.tag:
+                    ContactoEmergenciaView(path: $path)
                 default:
                     TECuidoView()
                 }
