@@ -43,9 +43,11 @@ class EditarEmergenciaViewModel: ObservableObject {
     @Published var descripcion: String = ""
     
     @Published var dataEmergencia = DataEmergenciaModel.defaultEmergencia
-    @Published var showEstatusView = false
+    @Published var emergenciaEditada = false
     
     @Published var locationManager = LocationManager()
+    
+    @Published var idEmergencia = -1
     
     
     public func getGrupos() async {
@@ -74,11 +76,13 @@ class EditarEmergenciaViewModel: ObservableObject {
         
     }
     
-    public func addEmergencia() async {
+    public func editEmergencia() async {
         
         //agregar los datos de ubicación
         let longitud = locationManager.lastLocation?.longitude
         let latitud = locationManager.lastLocation?.latitude
+    
+        let descripcionRequest = isNivelGravedadSelected ? "Nivel de emergencia \(nivel)" : descripcion
         
         let result : Result<APIResponseModel<DataEmergenciaModel>, NetworkError>
         
@@ -95,15 +99,14 @@ class EditarEmergenciaViewModel: ObservableObject {
                 
                 let data = EmergenciaGrupoModel(
                     tipo: selectedMotivo,
-                    descripcion: descripcion.count > 0 ? descripcion : nil,
+                    descripcion: descripcionRequest,
                     idEmisor: tokens.id,
                     idGrupo: selectedGrupo.id,
                     longitud: (longitud != nil) ? Float(longitud!) : nil,
                     latitud: (latitud != nil) ? Float(latitud!) : nil
                 )
                 
-                
-                result = await Webservice().postRequest("/emergencias/grupo", with: data)
+                result = await Webservice().putRequest("/emergencias/\(idEmergencia)/grupo", with: data)
             } else {
                 let data = EmergenciaContactosModel(
                     tipo: selectedMotivo,
@@ -113,7 +116,7 @@ class EditarEmergenciaViewModel: ObservableObject {
                     latitud: (latitud != nil) ? Float(latitud!) : nil
                 )
                 
-                result = await Webservice().postRequest("/emergencias/allgrupo", with: data)
+                result = await Webservice().putRequest("/emergencias/\(idEmergencia)/allgrupo", with: data)
             }
             
             
@@ -121,7 +124,7 @@ class EditarEmergenciaViewModel: ObservableObject {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.dataEmergencia = data.data!
-                    self.showEstatusView = true
+                    self.emergenciaEditada = true
                 }
             case .failure(let error):
                 print(error.localizedDescription)
