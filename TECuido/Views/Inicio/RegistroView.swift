@@ -79,9 +79,8 @@ struct RegistroView: View {
                     
                     
                 }
+                
             }
-            
-            
             
     }
 

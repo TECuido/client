@@ -54,6 +54,7 @@ struct TipoCuentaView: View {
                 Spacer()
             }
         }
+           
     }
 }
 

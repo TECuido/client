@@ -108,6 +108,13 @@ struct HomeView: View {
                     
                 }
             }
+            .toolbar {
+                Button("Cerrar sesión"){
+                    while(!path.isEmpty){
+                        path.removeLast()
+                    }
+                }
+            }
             .task {
                 Task {
                     // request push notification authorization
