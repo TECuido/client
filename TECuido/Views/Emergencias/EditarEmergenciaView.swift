@@ -83,12 +83,17 @@ struct EditarEmergenciaView: View {
                
                 PrimaryButton(title: "Guardar cambios"){
                     Task {
-                        await viewModel.addEmergencia()
+                        await viewModel.editEmergencia()
                     }
                 }
                 
             }
             
+        }
+        .onAppear(){
+            viewModel.idEmergencia = dataEmergencia.idEmergencia
+            viewModel.descripcion = dataEmergencia.descripcion ?? ""
+            viewModel.selectedMotivo = dataEmergencia.tipo            
         }
     }
 }
