@@ -12,6 +12,9 @@ class ListaRecetasViewModel : ObservableObject {
     
     
     @Published var recetas: [RecetaModel] = []
+    @Published var isShowingConfirmationModel = false
+    @Published var recetaEliminada = false
+    @Published var idRecetaSeleccionada = -1
 
         
     public func getRecetasPaciente() async {
@@ -47,5 +50,21 @@ class ListaRecetasViewModel : ObservableObject {
             }
         }
     }
+    
+    public func deleteRecetas() async {
+        let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().deleteRequest("/recetas/\(idRecetaSeleccionada)")
+        
+        switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.recetaEliminada = true
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+
+        }
+    }
+    
+    
 }
 

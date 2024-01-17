@@ -61,6 +61,20 @@ struct ListaRecetasView: View {
                                         )
                                         
                                         Spacer()
+                                                                        
+                                        Button(action: {
+                                            // Acción para borrar
+                                            viewModel.isShowingConfirmationModel = true
+                                            viewModel.idRecetaSeleccionada = item.id
+                                            
+                                        }) {
+                                            Image(systemName: "minus.circle.fill")
+                                                .resizable()
+                                                .foregroundColor(Color("LightBlue"))
+                                                .frame(width: 25, height: 25)
+                                        }
+                                        .padding(.trailing, 10)
+                                       
                                         
                                         Button(action:{
                                         }){
@@ -72,6 +86,17 @@ struct ListaRecetasView: View {
                                         
                                     }
                                     
+                                }
+                                // Modal
+                                .alert(isPresented: $viewModel.isShowingConfirmationModel) {
+                                    OptionsAlert(
+                                        title: "Eliminar receta",
+                                        message:"¿Estás seguro de que deseas eliminar la receta?"
+                                    ){
+                                        Task {
+                                            await viewModel.deleteRecetas()
+                                        }
+                                    }
                                 }
                                 .listRowBackground(Color("BackgroundColor"))
                                 .listRowSeparatorTint(Color("PlaceholderColor"))
@@ -92,6 +117,21 @@ struct ListaRecetasView: View {
                         await viewModel.getRecetasMedico()
                     } else {
                         await viewModel.getRecetasPaciente()
+                    }
+                }
+                .alert(isPresented: $viewModel.recetaEliminada) {
+                    AcceptAlert(
+                        title: "Receta eliminada",
+                        message: "Se eliminó la receta con éxito"
+                    ){
+                        Task {
+                            viewModel.recetaEliminada = false
+                            if(session.tipoUsuario == 2){
+                                await viewModel.getRecetasMedico()
+                            } else {
+                                await viewModel.getRecetasPaciente()
+                            }
+                        }
                     }
                 }
             }
