@@ -30,5 +30,6 @@ class RecetaViewModel: ObservableObject {
 
         }
     }
+    
 
 }
