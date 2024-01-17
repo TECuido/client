@@ -12,6 +12,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
     @Published var contactoError: Int =  0
     @Published var nombreError: Int =  0
     @Published var addedContacto: Bool = false
+    @Published var contactoEmergencia: String = ""
    
     public func getUsuarioDetalles() async {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
