@@ -44,7 +44,7 @@ class NotificationViewModel: ObservableObject {
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
                 
                 let data = NotificationTokenModel(token: notificationToken)
-                let result : Result<APIResponseModel<UsuarioTokenModel>, NetworkError> = await Webservice().putRequest("/usuarios/\(tokens.id)/notification/token", with: data)
+                let result : Result<APIResponseModel<UsuarioTokenModel>, NetworkError> = await Webservice.instance.putRequest("/usuarios/\(tokens.id)/notification/token", with: data)
                 
                 
                 switch result {

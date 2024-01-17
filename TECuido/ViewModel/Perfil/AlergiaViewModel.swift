@@ -17,7 +17,7 @@
           
      public func getAlergias() async {
          if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
-             let result : Result<APIResponseModel<[AlergiaModel]>, NetworkError> = await Webservice().getRequest("/alergias/\(tokens.id)")
+             let result : Result<APIResponseModel<[AlergiaModel]>, NetworkError> = await Webservice.instance.getRequest("/alergias/\(tokens.id)")
              switch result {
              case .success(let data):
                  DispatchQueue.main.async {
@@ -40,7 +40,7 @@
              error = ""
              if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                  let data = AgregaAlergiaModel(nombre: nombre, idUsuario: tokens.id)
-                 let result : Result<APIResponseModel<AgregaAlergiaModel>, NetworkError> = await Webservice().postRequest("/alergias", with: data)
+                 let result : Result<APIResponseModel<AgregaAlergiaModel>, NetworkError> = await Webservice.instance.postRequest("/alergias", with: data)
                  switch result {
                      case .success(_):
                      DispatchQueue.main.async {
@@ -72,7 +72,7 @@
      
      public func deleteAlergia() async {
          let idAlergia = self.alergiaSeleccionada.id
-         let result : Result<APIResponseModel<AlergiaModel>, NetworkError> = await Webservice().deleteRequest("/alergias/\(idAlergia)")
+         let result : Result<APIResponseModel<AlergiaModel>, NetworkError> = await Webservice.instance.deleteRequest("/alergias/\(idAlergia)")
          switch result {
          case .success(let data):
              print(data)

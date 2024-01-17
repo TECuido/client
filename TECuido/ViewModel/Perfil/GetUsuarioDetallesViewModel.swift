@@ -15,7 +15,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
    
     public func getUsuarioDetalles() async {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
-            let result : Result<APIResponseModel<[GetUsuarioDetallesModel]>, NetworkError> = await Webservice().getRequest("/usuariodetalles/\(tokens.id)")
+            let result : Result<APIResponseModel<[GetUsuarioDetallesModel]>, NetworkError> = await Webservice.instance.getRequest("/usuariodetalles/\(tokens.id)")
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -62,7 +62,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
                 print("Request Data: \(data)")
                 print(tokens.id)
 
-                let result: Result<APIResponseModel<UsuarioUpdateResponse>, NetworkError> = await Webservice().putRequest("/usuariodetalles/\(tokens.id)", with: data)
+                let result: Result<APIResponseModel<UsuarioUpdateResponse>, NetworkError> = await Webservice.instance.putRequest("/usuariodetalles/\(tokens.id)", with: data)
                 print("API Response: \(result)")
                 self.addedContacto = true
                 switch result {

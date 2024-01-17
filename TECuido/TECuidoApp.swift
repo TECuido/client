@@ -16,11 +16,16 @@ struct TECuidoApp: App {
     @State var emergencia: DataEmergenciaModel = DataEmergenciaModel.defaultEmergencia
     @State private var path: NavigationPath = .init()
     
+    
     var body: some Scene {
         WindowGroup {
             
             NavigationStack(path: $path){
-                TECuidoView(path: $path)
+                Group {
+                    
+                    
+                    TECuidoView(path: $path)
+                }
                     .navigationDestination(for: String.self){ tag in
                         switch tag {
                         case LoginView.tag:
@@ -31,6 +36,7 @@ struct TECuidoApp: App {
                             AgregarUsuarioDetallesView(path: $path)
                         case HomeView.tag:
                             HomeView(path: $path)
+                                .navigationBarBackButtonHidden(true)
                         case LesionesView.tag:
                             LesionesView(path: $path)
                         case UsuarioDetallesView.tag:

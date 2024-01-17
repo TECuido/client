@@ -62,7 +62,13 @@ class Webservice {
     
     let baseURL = "https://tecuido-server-v6og.onrender.com"
     let authManager = AuthManager.shared
+        
+    static var instance: Webservice = {
+        let instance = Webservice()
+        return instance
+    }()
     
+    private init(){}
     
     func getRequest<T: Decodable>(_ link: String, allowedRetry: Bool = true) async -> Result<APIResponseModel<T>, NetworkError>{
         

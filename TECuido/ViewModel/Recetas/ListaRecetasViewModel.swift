@@ -20,7 +20,7 @@ class ListaRecetasViewModel : ObservableObject {
     public func getRecetasPaciente() async {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
-            let result : Result<APIResponseModel<[RecetaModel]>, NetworkError> = await Webservice().getRequest("/recetas/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[RecetaModel]>, NetworkError> = await Webservice.instance.getRequest("/recetas/usuario/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -37,7 +37,7 @@ class ListaRecetasViewModel : ObservableObject {
     public func getRecetasMedico() async {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
-            let result : Result<APIResponseModel<[RecetaModel]>, NetworkError> = await Webservice().getRequest("/recetas/medico/\(tokens.id)")
+            let result : Result<APIResponseModel<[RecetaModel]>, NetworkError> = await Webservice.instance.getRequest("/recetas/medico/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -52,7 +52,7 @@ class ListaRecetasViewModel : ObservableObject {
     }
     
     public func deleteRecetas() async {
-        let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().deleteRequest("/recetas/\(idRecetaSeleccionada)")
+        let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice.instance.deleteRequest("/recetas/\(idRecetaSeleccionada)")
         
         switch result {
             case .success(_):

@@ -103,7 +103,7 @@ class RegistroViewModel : ObservableObject {
             }
             
             //enviar request, anular errores
-            let result = await Webservice().register(
+            let result = await Webservice.instance.register(
                 nombre: nombre,
                 correo: correo,
                 password: password,

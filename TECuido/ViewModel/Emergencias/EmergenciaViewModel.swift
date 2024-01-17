@@ -15,7 +15,7 @@ class EmergenciaViewModel: ObservableObject {
     public func getEmergencia() async {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
-            let result : Result<APIResponseModel<DataEmergenciaModel>, NetworkError> = await Webservice().getRequest("/emergencias/receptor/\(tokens.id)")
+            let result : Result<APIResponseModel<DataEmergenciaModel>, NetworkError> = await Webservice.instance.getRequest("/emergencias/receptor/\(tokens.id)")
             switch result {
                 case .success(let data):
                 if let data = data.data {
