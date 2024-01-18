@@ -26,7 +26,7 @@ class EditarGrupoViewModel: ObservableObject {
 
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
-            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice.instance.getRequest("/contactos/usuario/\(tokens.id)")
             
             switch result {
             case .success(let data):
@@ -44,7 +44,7 @@ class EditarGrupoViewModel: ObservableObject {
     
     public func getMiembros(idGrupo: Int) async {
 
-        let result : Result<APIResponseModel<[MiembroGrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/\(idGrupo)/usuarios/")
+        let result : Result<APIResponseModel<[MiembroGrupoModel]>, NetworkError> = await Webservice.instance.getRequest("/grupos/\(idGrupo)/usuarios/")
 
         switch result {
         case .success(let data):
@@ -94,7 +94,7 @@ class EditarGrupoViewModel: ObservableObject {
             }
             
             let data = EditarNombreGrupoModel(nombre: nombreGrupo)
-            let result: Result<APIResponseModel<GrupoModel>, NetworkError> = await Webservice().putRequest("/grupos/\(idGrupo)", with: data)
+            let result: Result<APIResponseModel<GrupoModel>, NetworkError> = await Webservice.instance.putRequest("/grupos/\(idGrupo)", with: data)
             switch result {
             case .success(_):
                 for idMiembro in OriginalMinFinal {
@@ -128,7 +128,7 @@ class EditarGrupoViewModel: ObservableObject {
 
     public func addMiembros(idMiembro: Int, idGrupo: Int) async throws {
         let data = AgregarMiembroModel(idMiembro: idMiembro, idGrupo: idGrupo)
-        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
+        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice.instance.postRequest("/grupos/usuario", with: data)
 
         switch result {
             case .success(_):
@@ -140,7 +140,7 @@ class EditarGrupoViewModel: ObservableObject {
     }
     
     public func deleteMiembros(idMiembro: Int, idGrupo: Int) async throws {
-        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().deleteRequest("/grupos/\(idGrupo)/\(idMiembro)")
+        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice.instance.deleteRequest("/grupos/\(idGrupo)/\(idMiembro)")
         switch result {
         case .success(_):
             return

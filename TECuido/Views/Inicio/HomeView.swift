@@ -113,6 +113,7 @@ struct HomeView: View {
                     while(!path.isEmpty){
                         path.removeLast()
                     }
+                    KeychainHelper.standard.delete(service: "token", account: "tecuido.com")
                 }
             }
             .task {

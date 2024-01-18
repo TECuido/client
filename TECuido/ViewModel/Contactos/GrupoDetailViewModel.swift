@@ -13,7 +13,7 @@ class GrupoDetailViewModel: ObservableObject {
     
     public func getMiembros(idGrupo: Int) async {
                 
-        let result : Result<APIResponseModel<[MiembroGrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/\(idGrupo)/usuarios/")
+        let result : Result<APIResponseModel<[MiembroGrupoModel]>, NetworkError> = await Webservice.instance.getRequest("/grupos/\(idGrupo)/usuarios/")
         
         switch result {
         case .success(let data):

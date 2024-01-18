@@ -16,7 +16,7 @@ class ListaGrupoViewModel: ObservableObject {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
-            let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice.instance.getRequest("/grupos/usuario/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -33,7 +33,7 @@ class ListaGrupoViewModel: ObservableObject {
     
     public func deleteGrupo() async {
         let idGrupo = self.grupoSeleccionado.id
-        let result : Result<APIResponseModel<GrupoModel>, NetworkError> = await Webservice().deleteRequest("/grupos/\(idGrupo)")
+        let result : Result<APIResponseModel<GrupoModel>, NetworkError> = await Webservice.instance.deleteRequest("/grupos/\(idGrupo)")
         switch result {
         case .success(let data):
             print(data)

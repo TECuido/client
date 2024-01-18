@@ -39,7 +39,7 @@ class MandarEmergenciaViewModel: ObservableObject {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
             
-            let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice().getRequest("/grupos/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[GrupoModel]>, NetworkError> = await Webservice.instance.getRequest("/grupos/usuario/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -91,7 +91,7 @@ class MandarEmergenciaViewModel: ObservableObject {
                 )
                 
                 
-                result = await Webservice().postRequest("/emergencias/grupo", with: data)
+                result = await Webservice.instance.postRequest("/emergencias/grupo", with: data)
             } else {
                 let data = EmergenciaContactosModel(
                     tipo: selectedMotivo,
@@ -101,7 +101,7 @@ class MandarEmergenciaViewModel: ObservableObject {
                     latitud: (latitud != nil) ? Float(latitud!) : nil
                 )
                 
-                result = await Webservice().postRequest("/emergencias/allgrupo", with: data)
+                result = await Webservice.instance.postRequest("/emergencias/allgrupo", with: data)
             }
             
             

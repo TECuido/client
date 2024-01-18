@@ -15,7 +15,7 @@ class RecetaViewModel: ObservableObject {
         
         print(recetaMedicamentos)
                 
-        let result : Result<APIResponseModel<MedicamentoRecetaModel>, NetworkError> = await Webservice().getRequest("/medicamentos/receta/\(idReceta)")
+        let result : Result<APIResponseModel<MedicamentoRecetaModel>, NetworkError> = await Webservice.instance.getRequest("/medicamentos/receta/\(idReceta)")
         
         switch result {
             case .success(let data):

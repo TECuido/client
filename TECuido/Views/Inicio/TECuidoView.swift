@@ -14,6 +14,8 @@ struct TECuidoView: View {
     
     @Binding var path: NavigationPath
     
+    static var tag = "HomeView"
+    
     
     var body: some View {
         //nav view

@@ -21,7 +21,7 @@ class CrearGrupoViewModel: ObservableObject {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
-            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice.instance.getRequest("/contactos/usuario/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -57,7 +57,7 @@ class CrearGrupoViewModel: ObservableObject {
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                 
                 let data = AgregarGrupoModel(nombre: nombreGrupo, idCreador: tokens.id)
-                let result : Result<APIResponseModel<GrupoAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos", with: data)
+                let result : Result<APIResponseModel<GrupoAgregadoModel>, NetworkError> = await Webservice.instance.postRequest("/grupos", with: data)
                             
                 switch result {
                     case .success(let data):
@@ -95,7 +95,7 @@ class CrearGrupoViewModel: ObservableObject {
     
     public func addMiembros(idMiembro: Int, idGrupo: Int) async throws {
         let data = AgregarMiembroModel(idMiembro: idMiembro, idGrupo: idGrupo)
-        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice().postRequest("/grupos/usuario", with: data)
+        let result : Result<APIResponseModel<MiembroAgregadoModel>, NetworkError> = await Webservice.instance.postRequest("/grupos/usuario", with: data)
         
         switch result {
             case .success(_):

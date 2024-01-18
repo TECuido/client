@@ -21,7 +21,7 @@
 
          if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
 
-             let result : Result<APIResponseModel<[MedicamentosActualesModel]>, NetworkError> = await Webservice().getRequest("/medicamentosActuales/\(tokens.id)")
+             let result : Result<APIResponseModel<[MedicamentosActualesModel]>, NetworkError> = await Webservice.instance.getRequest("/medicamentosActuales/\(tokens.id)")
 
              switch result {
              case .success(let data):
@@ -50,7 +50,7 @@
              if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
 
                  let data = AgregaMedicamentosActualesModel(nombre: nombre, idUsuario: tokens.id)
-                 let result : Result<APIResponseModel<AgregaMedicamentosActualesModel>, NetworkError> = await Webservice().postRequest("/medicamentosActuales/", with: data)
+                 let result : Result<APIResponseModel<AgregaMedicamentosActualesModel>, NetworkError> = await Webservice.instance.postRequest("/medicamentosActuales/", with: data)
 
                  switch result {
                      case .success(_):
@@ -86,7 +86,7 @@
      
      public func deleteMedicamentosActuales() async {
          let idMedicamentoActual = self.medicamentoSeleccionado.id
-         let result : Result<APIResponseModel<MedicamentosActualesModel>, NetworkError> = await Webservice().deleteRequest("/medicamentosActuales/\(idMedicamentoActual )")
+         let result : Result<APIResponseModel<MedicamentosActualesModel>, NetworkError> = await Webservice.instance.deleteRequest("/medicamentosActuales/\(idMedicamentoActual )")
          switch result {
          case .success(let data):
              print(data)

@@ -34,7 +34,7 @@ class UnirseLlamadasViewModel: ObservableObject {
                       
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                 
-                let result : Result<APIResponseModel<DataLlamadaModel>, NetworkError> = await Webservice().getRequest("/llamadas/\(codigo)")
+                let result : Result<APIResponseModel<DataLlamadaModel>, NetworkError> = await Webservice.instance.getRequest("/llamadas/\(codigo)")
                 
                 switch result {
                     case .success(let data):
@@ -85,7 +85,7 @@ class UnirseLlamadasViewModel: ObservableObject {
     
     public func getToken() async {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
-            let result : Result<APIResponseModel<LlamadaTokenModel>, NetworkError> = await Webservice().getRequest("/llamadas/usuario/\(tokens.id)/token")
+            let result : Result<APIResponseModel<LlamadaTokenModel>, NetworkError> = await Webservice.instance.getRequest("/llamadas/usuario/\(tokens.id)/token")
                         
             switch result {
                 case .success(let data):

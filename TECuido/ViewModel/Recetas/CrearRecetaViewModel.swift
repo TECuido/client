@@ -40,7 +40,7 @@ class CrearRecetaViewModel : ObservableObject {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
-            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice.instance.getRequest("/contactos/usuario/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -99,7 +99,7 @@ class CrearRecetaViewModel : ObservableObject {
             
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                 
-                let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(tokens.id)", with: data)
+                let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice.instance.postRequest("/recetas/usuario/\(tokens.id)", with: data)
                 
                 
                 switch result {
@@ -186,7 +186,7 @@ class CrearRecetaViewModel : ObservableObject {
                 
                 if let idPaciente = selectedPaciente.usuarioAgregado?.idUsuario {
                     
-                    let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice().postRequest("/recetas/usuario/\(idPaciente)", with: data)
+                    let result : Result<APIResponseModel<RecetaModel>, NetworkError> = await Webservice.instance.postRequest("/recetas/usuario/\(idPaciente)", with: data)
                     
                     switch result {
                         case .success(let data):
@@ -221,7 +221,7 @@ class CrearRecetaViewModel : ObservableObject {
     public func createMedicamento(medicamento: CrearMedicamentoModel, index: Int, idReceta: Int) async {
         do {
             
-            let result : Result<APIResponseModel<MedicamentoModel>, NetworkError> = await Webservice().postRequest("/medicamentos/receta/\(idReceta)", with: medicamento)
+            let result : Result<APIResponseModel<MedicamentoModel>, NetworkError> = await Webservice.instance.postRequest("/medicamentos/receta/\(idReceta)", with: medicamento)
             
             switch result {
                 case .success(_):

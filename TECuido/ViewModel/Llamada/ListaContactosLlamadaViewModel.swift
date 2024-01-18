@@ -22,7 +22,7 @@ class ListaContactosLlamadaViewModel: ObservableObject {
         
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
             
-            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice().getRequest("/contactos/usuario/\(tokens.id)")
+            let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice.instance.getRequest("/contactos/usuario/\(tokens.id)")
             
             switch result {
                 case .success(let data):
@@ -57,7 +57,7 @@ class ListaContactosLlamadaViewModel: ObservableObject {
         let selectedUsuario = contactos[selected]
         print(selectedUsuario)
         let data = CrearLlamadaModel(idUsuarioReceptor: selectedUsuario.id)
-        let result : Result<APIResponseModel<DataLlamadaModel>, NetworkError> = await Webservice().postRequest("/llamadas/usuario/\(tokens.id)", with: data)
+        let result : Result<APIResponseModel<DataLlamadaModel>, NetworkError> = await Webservice.instance.postRequest("/llamadas/usuario/\(tokens.id)", with: data)
                     
         switch result {
             case .success(let data):
@@ -83,7 +83,7 @@ class ListaContactosLlamadaViewModel: ObservableObject {
     
     public func getToken() async {
         let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self)!
-        let result : Result<APIResponseModel<LlamadaTokenModel>, NetworkError> = await Webservice().getRequest("/llamadas/usuario/\(tokens.id)/token")
+        let result : Result<APIResponseModel<LlamadaTokenModel>, NetworkError> = await Webservice.instance.getRequest("/llamadas/usuario/\(tokens.id)/token")
                     
         switch result {
             case .success(let data):

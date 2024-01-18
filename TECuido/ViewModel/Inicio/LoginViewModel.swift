@@ -35,7 +35,7 @@ class UsuarioViewModel : ObservableObject {
                 self.message = ""
             }
             
-            let result = await Webservice().login(correo: correo, password: password)
+            let result = await Webservice.instance.login(correo: correo, password: password)
             
             switch result {
                 case .success(let token):

@@ -83,7 +83,7 @@ class ContactoViewModel : ObservableObject {
                     data.correo = correo
                 }
                 
-                let result : Result<APIResponseModel<[ContactoAgregadoModel]>, NetworkError> = await Webservice().postRequest("/contactos/usuario/\(tokens.id)", with: data)
+                let result : Result<APIResponseModel<[ContactoAgregadoModel]>, NetworkError> = await Webservice.instance.postRequest("/contactos/usuario/\(tokens.id)", with: data)
                 
                 switch result {
                     case .success(_):

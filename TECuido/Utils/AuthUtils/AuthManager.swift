@@ -35,7 +35,7 @@ actor AuthManager {
             defer { refreshTask = nil }
             
             
-            let response = await Webservice().refreshToken(rToken: rToken)
+            let response = await Webservice.instance.refreshToken(rToken: rToken)
             
             switch(response){
                 case .success(let token):
