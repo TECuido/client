@@ -4,7 +4,7 @@
         "icono": "primer_grado",
         "recommendations": "-Enjuaga la quemadura con agua fría durante al menos 10 minutos.\n-Cubre la quemadura con un apósito estéril o una gasa limpia.\n-Evita aplicar hielo directamente sobre la quemadura y no uses cremas ni ungüentos.",
         "disclaimer": "🔥",
-        "video": "https://youtu.be/hTwpFgjMUMo",
+        "video": "https://youtu.be/ouqkQVn2XTM?si=AqNNBpsTbogiQk7K",
         "llamar": "tel:911"
     },
     {
@@ -12,7 +12,7 @@
         "icono": "segundo_grado",
         "recommendations": "-Enjuaga la quemadura con agua fría durante al menos 10 minutos.\n-Cubre la quemadura con un apósito limpio o una gasa estéril.\n-Consulta un médico, ya que las quemaduras de segundo grado requieren atención especializada.",
         "disclaimer": "🔥🔥",
-        "video": "https://youtu.be/hTwpFgjMUMo",
+        "video": "https://youtu.be/2N5-pgiDapE?si=4BbRRNpMY3UFUUWJ",
         "llamar": "tel:911"
     },
     {
@@ -20,7 +20,7 @@
         "icono": "tercer_grado",
         "recommendations": "-No enjuagues la quemadura con agua, ya que podría empereorla.\n-Cubre la quemadura con un paño limpio y húmedo.\n-Busca atención médica de inmediato, ya que las quemaduras de tercer grado son graves y requieren tratamiento profesional.",
         "disclaimer": "🔥🔥🔥",
-        "video": "https://youtu.be/hTwpFgjMUMo",
+        "video": "https://youtu.be/B51t0IlcMFM?si=KrYsveuNhqqKS7l-",
         "llamar": "tel:911"
     },
     {
@@ -28,7 +28,7 @@
         "icono": "saludable",
         "recommendations": "💪",
         "disclaimer": "",
-        "video": "https://www.youtube.com/watch?v=YicJPLT1dWU",
+        "video": "https://youtu.be/mqh62u4RrxI?si=qhVZbVJ0zlM2xTPs",
         "llamar": "tel:911"
     }
 ]
