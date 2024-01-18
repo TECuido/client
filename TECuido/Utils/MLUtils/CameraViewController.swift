@@ -22,7 +22,7 @@ class Coordinator: NSObject {
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     var delegate: Coordinator?
-    var emotionModel: VNCoreMLModel!
+    //var emotionModel: VNCoreMLModel!
 
     
     private var captureSession: AVCaptureSession!
@@ -30,7 +30,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        emotionModel = try? VNCoreMLModel(for: CNNEmotions().model)
+        //emotionModel = try? VNCoreMLModel(for: CNNEmotions().model)
     }
     
     required init?(coder: NSCoder) {
@@ -72,6 +72,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         // Perform emotion recognition on each video frame
         // Process the `sampleBuffer` and pass it to the CoreML model
         // Update the recognized emotion and display it
+        /*/
         if let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
             do {
                 let emotionRecognitionRequest = VNCoreMLRequest(model: emotionModel)
@@ -89,5 +90,6 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 print(error)
             }
         }
+         */
     }
 }
