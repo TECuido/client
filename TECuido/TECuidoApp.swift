@@ -53,7 +53,9 @@ struct TECuidoApp: App {
                         case CondicionMedicaView.tag:
                             CondicionMedicaView(path: $path)
                         case MedicamentoActualView.tag:
-                             MedicamentoActualView(path: $path)
+                            MedicamentoActualView(path: $path)
+                        case ContactoEmergenciaView.tag:
+                            ContactoEmergenciaView(path: $path)
                         case TECuidoView.tag:
                             TECuidoView(path: $path)
                         default:
