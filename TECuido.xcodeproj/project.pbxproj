@@ -157,7 +157,6 @@
 		FBE093FF2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE093FE2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift */; };
 		FBE094012B51D6A000A49DE1 /* UsuarioDetallesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE094002B51D6A000A49DE1 /* UsuarioDetallesView.swift */; };
 		FBE094062B5214A100A49DE1 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE094052B5214A100A49DE1 /* BigButton.swift */; };
-		FBE094122B5221DB00A49DE1 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FBE094112B5221DB00A49DE1 /* CNNEmotions.mlmodel */; };
 		FBE094142B522B4600A49DE1 /* NotificationsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE094132B522B4600A49DE1 /* NotificationsUtils.swift */; };
 		FBE094162B5235AE00A49DE1 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE094152B5235AE00A49DE1 /* LargeButton.swift */; };
 		FBE094192B52551300A49DE1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE094182B52551300A49DE1 /* MainTabView.swift */; };
@@ -336,7 +335,6 @@
 		FBE093FE2B51CDAC00A49DE1 /* MedicamentosActualesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicamentosActualesViewModel.swift; sourceTree = "<group>"; };
 		FBE094002B51D6A000A49DE1 /* UsuarioDetallesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioDetallesView.swift; sourceTree = "<group>"; };
 		FBE094052B5214A100A49DE1 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
-		FBE094112B5221DB00A49DE1 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FBE094132B522B4600A49DE1 /* NotificationsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUtils.swift; sourceTree = "<group>"; };
 		FBE094152B5235AE00A49DE1 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		FBE094182B52551300A49DE1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -812,7 +810,6 @@
 			children = (
 				C0271A642AF33A5A00024BE5 /* Wounds.mlmodel */,
 				C0271A662AF33A5A00024BE5 /* Burns.mlmodel */,
-				FBE094112B5221DB00A49DE1 /* CNNEmotions.mlmodel */,
 				C0271A632AF33A5A00024BE5 /* PredictionStatus.swift */,
 				C0271A652AF33A5A00024BE5 /* Bites.mlmodel */,
 			);
@@ -1072,7 +1069,6 @@
 				FB4D56182AF99C5400D1C533 /* EmergenciaModel.swift in Sources */,
 				FB656C522AE05F0300543B12 /* AlertEmergenciasView.swift in Sources */,
 				FBFA61012AE9C8730076EF5D /* TipoCuentaView.swift in Sources */,
-				FBE094122B5221DB00A49DE1 /* CNNEmotions.mlmodel in Sources */,
 				FB85685C2B3F7D7900E03B65 /* EnviarEmergenciaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */,
