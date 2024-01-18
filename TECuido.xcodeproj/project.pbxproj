@@ -114,6 +114,7 @@
 		FBA971D02B58AF9C00074B36 /* EditarContactoEmergenciaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971CF2B58AF9C00074B36 /* EditarContactoEmergenciaViewModel.swift */; };
 		FBA971D22B58B07000074B36 /* TitleLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971D12B58B07000074B36 /* TitleLarge.swift */; };
 		FBA971D42B58B0E800074B36 /* ContactoEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971D32B58B0E800074B36 /* ContactoEmergenciaView.swift */; };
+		FBA971DA2B58B7FD00074B36 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA971D92B58B7FD00074B36 /* SplashView.swift */; };
 		FBB123852B5270120064DE07 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123842B5270120064DE07 /* FloatingActionButton.swift */; };
 		FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */; };
 		FBB123892B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */; };
@@ -292,6 +293,7 @@
 		FBA971CF2B58AF9C00074B36 /* EditarContactoEmergenciaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarContactoEmergenciaViewModel.swift; sourceTree = "<group>"; };
 		FBA971D12B58B07000074B36 /* TitleLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLarge.swift; sourceTree = "<group>"; };
 		FBA971D32B58B0E800074B36 /* ContactoEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoEmergenciaView.swift; sourceTree = "<group>"; };
+		FBA971D92B58B7FD00074B36 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		FBB123842B5270120064DE07 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		FBB123862B530A740064DE07 /* GetUsuarioDetallesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesModel.swift; sourceTree = "<group>"; };
 		FBB123882B530ACD0064DE07 /* GetUsuarioDetallesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsuarioDetallesViewModel.swift; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 				FB1C318D2AD9C71700965B4B /* RegistroView.swift */,
 				FB1C318F2AD9C73E00965B4B /* HomeView.swift */,
+				FBA971D92B58B7FD00074B36 /* SplashView.swift */,
 			);
 			path = Inicio;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				FBB123A02B5390660064DE07 /* CheckedItem.swift in Sources */,
 				FBFE80ED2B54C1C2001C0E15 /* DateInput.swift in Sources */,
 				FBBD9AD02B4E325B0045DF9D /* MedicamentosActualesModel.swift in Sources */,
+				FBA971DA2B58B7FD00074B36 /* SplashView.swift in Sources */,
 				C0271A702AF33A5A00024BE5 /* ModalView.swift in Sources */,
 				FB999B5F2AE1D93E0018C268 /* ListaContactosView.swift in Sources */,
 				FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */,

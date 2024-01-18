@@ -17,12 +17,20 @@ struct TECuidoApp: App {
     @State private var path: NavigationPath = .init()
     @State var isAuthenticated = false
     
+    @State var isLoading = true
+    
     var body: some Scene {
         WindowGroup {
             
             NavigationStack(path: $path){
                 
-                    TECuidoView(path: $path)
+                Group {
+                    if(isLoading){
+                        SplashView()
+                    } else {
+                        TECuidoView(path: $path)
+                    }
+                }
                     .navigationDestination(for: String.self){ tag in
                         switch tag {
                         case LoginView.tag:
@@ -134,6 +142,13 @@ struct TECuidoApp: App {
             }
             .onAppear(){ //si el refresh token se encuentra activo, se piden nuevos tokens y se autentica
                 Task {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                        withAnimation {
+                            isLoading = false
+                        }
+                    }
+                    
                     if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
                         
                         //obtener nuevos tokens y guardarlos
