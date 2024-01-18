@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 enum NetworkError: Error {
@@ -58,10 +59,11 @@ struct AccessKeys: Codable {
     let refreshToken: String
 }
 
-class Webservice {
+class Webservice: ObservableObject {
     
     let baseURL = "https://tecuido-server-v6og.onrender.com"
     let authManager = AuthManager.shared
+    @Published var isAuthenticated = false
         
     static var instance: Webservice = {
         let instance = Webservice()
@@ -102,14 +104,16 @@ class Webservice {
             
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
-                if response.statusCode == 401 && allowedRetry {
-                    
-                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken )
-                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
-                    KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
-                    
-                    return await getRequest(link, allowedRetry: false)
-                    
+                if response.statusCode == 401 {
+                    if allowedRetry {
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken )
+                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
+                        KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                        
+                        return await getRequest(link, allowedRetry: false)
+                    } else {
+                        isAuthenticated = false
+                    }
                 }
                 
                 
@@ -117,8 +121,6 @@ class Webservice {
                 
             }
         
-            
-            
             return .success(result)
         } catch NetworkError.invalidURL {
             return .failure(.invalidURL)
@@ -166,13 +168,17 @@ class Webservice {
                 }
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
-                    if response.statusCode == 401 && allowedRetry {
-                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
-                         
-                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
-                        KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
-                        
-                        return await getRequest(link, allowedRetry: false)
+                    if response.statusCode == 401 {
+                        if allowedRetry {
+                            let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
+                            
+                            let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
+                            KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                            
+                            return await getRequest(link, allowedRetry: false)
+                        } else {
+                            isAuthenticated = false
+                        }
                     }
                     throw NetworkError.badStatus(error: response.statusCode, message: result.message ?? "Error")
 
@@ -223,13 +229,17 @@ class Webservice {
                 }
                             
                 guard response.statusCode >= 200 && response.statusCode < 300 else {
-                    if response.statusCode == 401 && allowedRetry {
-                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
-                         
-                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
-                        KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
-                        
-                        return await getRequest(link, allowedRetry: false)
+                    if response.statusCode == 401 {
+                        if allowedRetry {
+                            let token =  try await authManager.refreshToken(rToken: tokens.refreshToken)
+                            
+                            let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
+                            KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                            
+                            return await getRequest(link, allowedRetry: false)
+                        } else {
+                            isAuthenticated = false
+                        }
                     }
                     throw NetworkError.badStatus(error: response.statusCode, message: result.message ?? "Error")
 
@@ -279,15 +289,19 @@ class Webservice {
             }
                         
             guard response.statusCode >= 200 && response.statusCode < 300 else {
-                if response.statusCode == 401 && allowedRetry {
+                if response.statusCode == 401 {
                     
-                    let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as String)
-                     
-                    let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
-                    KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
-                    
-                    return await getRequest(link, allowedRetry: false)
-                     
+                    if allowedRetry {
+                        
+                        let token =  try await authManager.refreshToken(rToken: tokens.refreshToken as String)
+                        
+                        let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
+                        KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                        
+                        return await getRequest(link, allowedRetry: false)
+                    } else {
+                        isAuthenticated = false
+                    }
                     
                 }
                 
@@ -349,6 +363,8 @@ class Webservice {
                 throw NetworkError.invalidCredentials
             }
             
+            
+            isAuthenticated = true
             return .success(result)
         } catch NetworkError.invalidURL {
             return .failure(.invalidURL)
@@ -408,6 +424,7 @@ class Webservice {
                 throw NetworkError.invalidCredentials
             }
             
+            isAuthenticated = true
             return .success(result)
         } catch NetworkError.invalidURL {
             return .failure(.invalidURL)
@@ -457,6 +474,7 @@ class Webservice {
                 throw NetworkError.invalidCredentials
             }
             
+            isAuthenticated = true
             return .success(result)
         } catch NetworkError.invalidURL {
             return .failure(.invalidURL)

@@ -15,17 +15,14 @@ struct TECuidoApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     @State var emergencia: DataEmergenciaModel = DataEmergenciaModel.defaultEmergencia
     @State private var path: NavigationPath = .init()
-    
+    @State var isAuthenticated = false
     
     var body: some Scene {
         WindowGroup {
             
             NavigationStack(path: $path){
-                Group {
-                    
-                    
+                
                     TECuidoView(path: $path)
-                }
                     .navigationDestination(for: String.self){ tag in
                         switch tag {
                         case LoginView.tag:
@@ -57,6 +54,8 @@ struct TECuidoApp: App {
                             CondicionMedicaView(path: $path)
                         case MedicamentoActualView.tag:
                              MedicamentoActualView(path: $path)
+                        case TECuidoView.tag:
+                            TECuidoView(path: $path)
                         default:
                             TECuidoView(path: $path)
                         }
@@ -112,6 +111,7 @@ struct TECuidoApp: App {
             .environmentObject(session)
             .environmentObject(appDelegate.notificationViewModel)
             .onReceive(appDelegate.notificationViewModel.$notificationToken){token in
+                //si se recibe el token de notificaciones enviarlo al servidor
                 Task {
                     if(!appDelegate.notificationViewModel.tokenAgregado){
                         await appDelegate.notificationViewModel.sendNotificationToken()
@@ -119,6 +119,7 @@ struct TECuidoApp: App {
                 }
             }
             .onReceive(appDelegate.notificationViewModel.$emergencia) { em in
+                //si se recibe una notificacion de emergencia llevar a la pantalla de emergencias
                 if em.idEmergencia > -1 {
                     emergencia = em
                     path.append(
@@ -127,6 +128,41 @@ struct TECuidoApp: App {
                             hayEmergencia: true
                         )
                     )
+                }
+            }
+            .onAppear(){ //si el refresh token se encuentra activo, se piden nuevos tokens y se autentica
+                Task {
+                    if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self){
+                        
+                        //obtener nuevos tokens y guardarlos
+                        do {
+                            let token =  try await Webservice.instance.authManager.refreshToken(rToken: tokens.refreshToken)
+                            let accessKeys = AccessKeys(id: tokens.id, accessToken: token.accessToken, refreshToken: token.refreshToken)
+                            KeychainHelper.standard.save(accessKeys, service: "token", account: "tecuido.com")
+                            isAuthenticated = true
+                        } catch {
+                            print(error.localizedDescription)
+                            isAuthenticated = false
+                        }
+                            
+                    } else {
+                        isAuthenticated = false
+                    }
+                }
+            }
+            .onChange(of: isAuthenticated){value in
+                //si esta autenticado llevar a Home, si no llevar a pantalla de inicio
+                if(!value){
+                    while(!path.isEmpty){
+                        path.removeLast()
+                    }
+                } else {
+                    path.append(HomeView.tag)
+                }
+            }
+            .onChange(of: Webservice.instance.isAuthenticated){value in
+                if(!value){
+                    isAuthenticated = false
                 }
             }
             
