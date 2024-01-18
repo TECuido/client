@@ -38,6 +38,8 @@ struct UsuarioDetallesGetModel: Decodable {
 
 
 
+
+
 struct EditarUsuarioDetallesModel: Codable{
     var numPoliza: String
        var tipoSangre: String

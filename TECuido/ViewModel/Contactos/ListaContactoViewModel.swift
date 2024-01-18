@@ -20,11 +20,12 @@ class ListaContactoViewModel : ObservableObject {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
             
             let result : Result<APIResponseModel<[ContactoModel]>, NetworkError> = await Webservice.instance.getRequest("/contactos/usuario/\(tokens.id)")
-            
+          
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.contactos = data.data!
+                    
                 }
             case .failure(let error):
                 print(error.localizedDescription)

@@ -61,11 +61,8 @@ class GetUsuarioDetallesViewModel: ObservableObject {
                     nombre: nombre
                 )
 
-                print("Request Data: \(data)")
-                print(tokens.id)
-
                 let result: Result<APIResponseModel<UsuarioUpdateResponse>, NetworkError> = await Webservice.instance.putRequest("/usuariodetalles/\(tokens.id)", with: data)
-                print("API Response: \(result)")
+               
                 self.addedContacto = true
                 switch result {
                 case .success(_):
@@ -94,6 +91,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
             print(error.localizedDescription)
         }
     }
+    
 
 }
     

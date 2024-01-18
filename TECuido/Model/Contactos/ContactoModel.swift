@@ -13,6 +13,7 @@ struct ContactoModel : Decodable, Identifiable {
     var telefono: String
     var correo: String?
     var usuarioAgregado: UsuarioAgregado?
+
     
     enum CodingKeys: String, CodingKey {
         case id = "idContacto"
