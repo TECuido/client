@@ -87,17 +87,6 @@ import SwiftUI
                                      await viewModel.getUsuarioDetalles()
                                  }
                              }
-                            
-// Modal
-                             .alert(isPresented: $viewModel.addedContacto) {
-                                 AcceptAlert(
-                                     title: "Confirmación",
-                                     message:"Se ha editado el perfil médico con éxito"
-                                 ) {
-                                     
-                                     isEditing = false
-                                 }
-                             }
                            
 
                             } else {
@@ -109,24 +98,24 @@ import SwiftUI
                      if let usuario = viewModel.usuarioDetalles.first {
                          
                          InfoRow(titulo: "Nombre del paciente", respuesta: usuario.Usuario.nombre)
-                         InfoRow(titulo: "Numero de poliza", respuesta: usuario.numPoliza)
-                         InfoRow(titulo: "Edad", respuesta: usuario.edad)
-                         InfoRow(titulo: "Dirección", respuesta: usuario.direccion)
+                         InfoRow(titulo: "Numero de poliza", respuesta: viewModel.formatResult(usuario.numPoliza))
+                         InfoRow(titulo: "Edad", respuesta: viewModel.formatResult(usuario.edad))
+                         InfoRow(titulo: "Dirección", respuesta: viewModel.formatResult(usuario.direccion))
 
                          let infoContacto = " \(usuario.contactoEmergencia.nombre)  \( usuario.contactoEmergencia.correo.map { "\n\($0)" } ?? "")  \(usuario.contactoEmergencia.telefono.map { "\n\($0)" } ?? "")"
                          InfoRow(titulo: "Contacto de Emergencia", respuesta: infoContacto)
 
-                         InfoRow(titulo: "Medico tratante", respuesta: usuario.medicoTratante)
-                         InfoRow(titulo: "Tipo de Sangre", respuesta: usuario.tipoSangre)
-                         InfoRow(titulo: "Donacion de Organos", respuesta: usuario.donacionOrganos)
-                         InfoRow(titulo: "Donacion de Sangre", respuesta: usuario.transfusionSanguinea)
-                                         } else {
-                                             ErrorMessage(errorText: "No se encontraron detalles del usuario.")
-                                         }
+                         InfoRow(titulo: "Medico tratante", respuesta: viewModel.formatResult(usuario.medicoTratante))
+                         InfoRow(titulo: "Tipo de Sangre", respuesta: viewModel.formatResult(usuario.tipoSangre))
+                         InfoRow(titulo: "Donacion de Organos", respuesta: viewModel.formatResult(usuario.donacionOrganos))
+                         InfoRow(titulo: "Donacion de Sangre", respuesta: viewModel.formatResult(usuario.transfusionSanguinea))
+                    } else {
+                         ErrorMessage(errorText: "No se encontraron detalles del usuario.")
+                    }
                      // Botón para ir a Datos Medicos
                      PrimaryButton(title: "Datos médicos"){
                          Task {
-                                 path.append(DatosMedicosView.tag)
+                            path.append(DatosMedicosView.tag)
                          }
                      }
                      .padding(.top, 10)
@@ -137,6 +126,7 @@ import SwiftUI
                              await viewModel.enviarCorreo()
                          }
                      }
+                     .padding(.bottom, 10)
                      
                  }
                    
@@ -159,6 +149,15 @@ import SwiftUI
              }
                          
          }
+         .alert(isPresented: $viewModel.perfilEditado) {
+              AcceptAlert(
+                  title: "Confirmación",
+                  message:"Se ha editado el perfil médico con éxito"
+              ) {
+                  viewModel.perfilEditado = false
+                  isEditing = false
+              }
+          }
      }
        
  }

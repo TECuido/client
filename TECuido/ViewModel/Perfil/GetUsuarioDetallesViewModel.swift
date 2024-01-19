@@ -10,20 +10,52 @@ class GetUsuarioDetallesViewModel: ObservableObject {
 
     @Published var contactoError: Int =  0
     @Published var nombreError: Int =  0
-    @Published var addedContacto: Bool = false
     
     @Published var usuarioDetalles: [UsuarioDetallesGetModel] = []
     @Published var contactoEmergencia: String = ""
     
     @Published var correoEnviado = false
+    @Published var perfilEditado = false
+    
+    private func formatData(_ data: String) -> String{
+        if(data == "Sin información"){
+            return ""
+        } else {
+            return data
+        }
+    }
    
+    func formatResult(_ data: String) -> String{
+        if(data == ""){
+            return "Sin información"
+        } else {
+            return data
+        }
+    }
+    
     public func getUsuarioDetalles() async {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
             let result : Result<APIResponseModel<[UsuarioDetallesGetModel]>, NetworkError> = await Webservice.instance.getRequest("/usuariodetalles/\(tokens.id)")
             switch result {
             case .success(let data):
-                DispatchQueue.main.async {
-                    self.usuarioDetalles = data.data!
+                if let data = data.data {
+                    DispatchQueue.main.async {
+                        let detalle = data[0]
+                        self.usuarioDetalles = [UsuarioDetallesGetModel(
+                            idUsuariosDetalles: detalle.idUsuariosDetalles,
+                            idUsuario: detalle.idUsuario,
+                            Usuario: detalle.Usuario,
+                            numPoliza: self.formatData(detalle.numPoliza),
+                            tipoSangre: self.formatData(detalle.tipoSangre),
+                            idContactoEmergencia: detalle.idContactoEmergencia,
+                            contactoEmergencia: detalle.contactoEmergencia,
+                            transfusionSanguinea: self.formatData(detalle.transfusionSanguinea),
+                            donacionOrganos: self.formatData(detalle.donacionOrganos),
+                            direccion: self.formatData(detalle.direccion),
+                            edad: self.formatData(detalle.edad),
+                            medicoTratante: self.formatData(detalle.medicoTratante)
+                        )]
+                    }
                 }
             case .failure(let error):
                 print(error.self)
@@ -37,46 +69,44 @@ class GetUsuarioDetallesViewModel: ObservableObject {
         do {
          
             if contactoEmergencia.isEmpty {
-                contactoError = 1
+                DispatchQueue.main.async {
+                    self.contactoError = 1
+                }
                 throw ValidationError.error(description: "Debes ingresar el correo del contacto")
             }
             
-            
-
+        
             DispatchQueue.main.async {
                 self.contactoError = 0
-            
                 self.error = ""
             }
 
             if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
                 
                 let data = EditarUsuarioDetallesModel(
-                    numPoliza: numPoliza,
-                    tipoSangre: tipoSangre,
+                    numPoliza: formatResult(numPoliza),
+                    tipoSangre: formatResult(tipoSangre),
                     contactoEmergencia: contactoEmergencia,
-                    transfusionSanguinea: transfusionSanguinea,
-                    donacionOrganos: donacionOrganos,
-                    direccion: direccion,
-                    edad: edad,
-                    medicoTratante: medicoTratante,
+                    transfusionSanguinea: formatResult(transfusionSanguinea),
+                    donacionOrganos: formatResult(donacionOrganos),
+                    direccion: formatResult(direccion),
+                    edad: formatResult(edad),
+                    medicoTratante: formatResult(medicoTratante),
                     nombre: nombre
                 )
 
                 let result: Result<APIResponseModel<UsuarioUpdateResponse>, NetworkError> = await Webservice.instance.putRequest("/usuariodetalles/\(tokens.id)", with: data)
-                self.addedContacto = true
                 switch result {
                 case .success(_):
                     DispatchQueue.main.async {
-                        self.addedContacto = true
+                        self.perfilEditado = true
                     }
                 case .failure(let error):
                     switch error {
                         
-                    case .badStatus(let error, let message):
+                    case .badStatus(_, let message):
                         DispatchQueue.main.async {
                             self.error = message
-                            print(error)
                         }
                     default:
                         print(error.self)
