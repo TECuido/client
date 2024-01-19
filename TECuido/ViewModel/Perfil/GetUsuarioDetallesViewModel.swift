@@ -14,6 +14,8 @@ class GetUsuarioDetallesViewModel: ObservableObject {
     
     @Published var usuarioDetalles: [UsuarioDetallesGetModel] = []
     @Published var contactoEmergencia: String = ""
+    
+    @Published var correoEnviado = false
    
     public func getUsuarioDetalles() async {
         if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
@@ -92,6 +94,21 @@ class GetUsuarioDetallesViewModel: ObservableObject {
             }
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    public func enviarCorreo() async {
+        if let tokens = KeychainHelper.standard.read(service: "token", account: "tecuido.com", type: AccessKeys.self) {
+            let result : Result<APIResponseModel<UsuarioDetallesModel>, NetworkError> = await Webservice.instance.postRequest("/usuariodetalles/usuarios/\(tokens.id)/correo", with: EnviarCorreoModel(id: tokens.id))
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.correoEnviado = true
+                }
+            case .failure(let error):
+                print(error.self)
+                print(error.localizedDescription)
+            }
         }
     }
 

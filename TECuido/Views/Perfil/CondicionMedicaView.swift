@@ -33,7 +33,7 @@ struct CondicionMedicaView: View {
                 Input(inputText: $viewModel.nombre,
                       inputPrompt: "Nombre de la condición",
                       icon: "heart.fill",
-                      iconSize: (30, 20),
+                      iconSize: (30, 30),
                       iconPadding: 15,
                       inputError: viewModel.nombreError)
                     .padding(.top, 20)

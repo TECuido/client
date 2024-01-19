@@ -126,26 +126,39 @@ import SwiftUI
                      // Botón para ir a Datos Medicos
                      PrimaryButton(title: "Datos médicos"){
                          Task {
-                             
                                  path.append(DatosMedicosView.tag)
-                             
                          }
                      }
                      .padding(.top, 10)
+                     
+                     // Botón para enviar Datos Medicos al contacto de emergencia
+                     SecondaryButton(title: "Enviar a contacto de emergencia"){
+                         Task {
+                             await viewModel.enviarCorreo()
+                         }
+                     }
+                     
                  }
                    
                 
                  }// Fin pantalla normal
-             }.onAppear {
+             }
+             .onAppear {
+                 // Llamada a la función getUsuarioDetalles al aparecer la vista
                  Task {
                      await viewModel.getUsuarioDetalles()
                  }
-             
-         }
-         // Llamada a la función getUsuarioDetalles al aparecer la vista
+             }
+             .alert(isPresented: $viewModel.correoEnviado) {
+                 AcceptAlert(
+                     title: "Correo enviado",
+                     message: "Se ha enviado un correo a tu contacto de emergencia con los datos de tu perfil médico"
+                 ){
+                     path.removeLast()
+                 }
+             }
                          
-
-     }
+         }
      }
        
  }
