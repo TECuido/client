@@ -3,6 +3,7 @@
 //  coreML-starter
 //
 
+import AVKit
 import SwiftUI
 
 struct DisplayedContentView: View {
@@ -29,16 +30,12 @@ struct DisplayedContentView: View {
                     .font(.custom("Lato", size: FontSize.text.rawValue))
                     .padding(.bottom, 15)
                 
+                VideoPlayer(player: AVPlayer(url:  URL(string: labelData.video)!))
+                    .frame(width: 300, height: 200)
+                
                 if labelData.label != "Saludable"{
                     Spacer()
                     HStack(spacing: 30) {
-                        Link(destination: URL(string: labelData.video)!, label: {
-                            Image(systemName: "play.rectangle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50)
-                                .foregroundColor(.red)
-                        })
                         Button{
                             closeModal.goToEmergencias = true
                             closeModal.showModal = false
@@ -46,14 +43,14 @@ struct DisplayedContentView: View {
                             Image(systemName: "exclamationmark.bubble.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 50)
+                                .frame(width: 55)
                                 .foregroundColor(.blue)
                         }
                         Link(destination: URL(string: labelData.llamar)!, label: {
                             Image(systemName: "phone.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 50)
+                                .frame(width: 55)
                                 .foregroundColor(.green)
                         })
                     }
