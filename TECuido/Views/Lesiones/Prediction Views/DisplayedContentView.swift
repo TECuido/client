@@ -7,8 +7,17 @@ import SwiftUI
 
 struct DisplayedContentView: View {
     
+    
     private(set) var labelData: ClassificationObject
     @EnvironmentObject var closeModal: ModalManager
+    
+    private func getVideoId(videoUrl: String) -> String {
+        if let i = videoUrl.lastIndex(of: "/") {
+            return String(videoUrl[i...])
+        } else {
+            return videoUrl
+        }
+    }
     
     var body: some View {
         
@@ -29,16 +38,12 @@ struct DisplayedContentView: View {
                     .font(.custom("Lato", size: FontSize.text.rawValue))
                     .padding(.bottom, 15)
                 
+                YouTubeView(videoId: getVideoId(videoUrl: labelData.video))
+                    .padding(.bottom, 15)
+                
                 if labelData.label != "Saludable"{
                     Spacer()
                     HStack(spacing: 30) {
-                        Link(destination: URL(string: labelData.video)!, label: {
-                            Image(systemName: "play.rectangle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50)
-                                .foregroundColor(.red)
-                        })
                         Button{
                             closeModal.goToEmergencias = true
                             closeModal.showModal = false
@@ -46,14 +51,14 @@ struct DisplayedContentView: View {
                             Image(systemName: "exclamationmark.bubble.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 50)
+                                .frame(width: 55)
                                 .foregroundColor(.blue)
                         }
                         Link(destination: URL(string: labelData.llamar)!, label: {
                             Image(systemName: "phone.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 50)
+                                .frame(width: 55)
                                 .foregroundColor(.green)
                         })
                     }

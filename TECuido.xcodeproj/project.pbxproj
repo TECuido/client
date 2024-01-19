@@ -38,6 +38,7 @@
 		FB2676A32B55D26D000F4AAF /* MiddleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2676A22B55D26D000F4AAF /* MiddleButton.swift */; };
 		FB2676A52B55DA9C000F4AAF /* TipoEmergencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2676A42B55DA9C000F4AAF /* TipoEmergencia.swift */; };
 		FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */; };
+		FB3690842B5B0ABF00877095 /* YoutubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3690832B5B0ABF00877095 /* YoutubeView.swift */; };
 		FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F52AFD87CE0015FD36 /* LlamadaModel.swift */; };
 		FB3EB4F82AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */; };
 		FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */; };
@@ -215,6 +216,7 @@
 		FB2676A22B55D26D000F4AAF /* MiddleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleButton.swift; sourceTree = "<group>"; };
 		FB2676A42B55DA9C000F4AAF /* TipoEmergencia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoEmergencia.swift; sourceTree = "<group>"; };
 		FB2B44BB2ADE2A2F00D2CD9E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FB3690832B5B0ABF00877095 /* YoutubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeView.swift; sourceTree = "<group>"; };
 		FB3EB4F52AFD87CE0015FD36 /* LlamadaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadaModel.swift; sourceTree = "<group>"; };
 		FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasViewModel.swift; sourceTree = "<group>"; };
 		FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamTView.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			children = (
 				C0271A4E2AF33A5900024BE5 /* DisplayedContentView.swift */,
 				C0271A4F2AF33A5900024BE5 /* PredictiveLabelView.swift */,
+				FB3690832B5B0ABF00877095 /* YoutubeView.swift */,
 			);
 			path = "Prediction Views";
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				FB2676A32B55D26D000F4AAF /* MiddleButton.swift in Sources */,
 				FB999B632AE1D96B0018C268 /* ListaGruposView.swift in Sources */,
 				FBFE80EF2B54C66F001C0E15 /* SelectInput.swift in Sources */,
+				FB3690842B5B0ABF00877095 /* YoutubeView.swift in Sources */,
 				FBE093F22B510A0E00A49DE1 /* Input.swift in Sources */,
 				FBA971B12B55E9E300074B36 /* EmergenciaContactosModel.swift in Sources */,
 				FB9CF8892AE2196B00A88FDE /* GrupoModel.swift in Sources */,

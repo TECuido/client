@@ -61,27 +61,30 @@ struct ListaRecetasView: View {
                                         )
                                         
                                         Spacer()
-                                                                        
-                                        Button(action: {
-                                            // Acción para borrar
-                                            viewModel.isShowingConfirmationModel = true
-                                            viewModel.idRecetaSeleccionada = item.id
-                                            
-                                        }) {
-                                            Image(systemName: "minus.circle.fill")
-                                                .resizable()
-                                                .foregroundColor(Color("LightBlue"))
-                                                .frame(width: 25, height: 25)
-                                        }
-                                        .padding(.trailing, 10)
-                                       
                                         
-                                        Button(action:{
-                                        }){
-                                            Image(systemName: "chevron.right")
-                                                .foregroundColor(Color("BackgroundColor"))
-                                                .padding(.leading, 60)
+                                        Menu {
+                                            Button(action: {
+                                                // Acción para borrar
+                                                viewModel.isShowingConfirmationModel = true
+                                                viewModel.idRecetaSeleccionada = item.id
+                                                
+                                            }) {
+                                                Label("Eliminar", systemImage: "trash")
+                                            }
+                                        } label: {
+                                            Image(systemName: "ellipsis.circle")
+                                                .resizable()
+                                                .frame(width: 25, height: 25)
+                                                .foregroundColor(Color("LightBlue"))
+                                                .padding(.trailing, 10)
                                         }
+                                                                        
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .resizable()
+                                            .frame(width: 15, height: 20)
+                                            .padding(.leading, 15)
+                                            .foregroundColor(Color("LightBlue"))
                                         
                                         
                                     }
@@ -98,6 +101,7 @@ struct ListaRecetasView: View {
                                         }
                                     }
                                 }
+                                .padding([.top, .bottom], 10)
                                 .listRowBackground(Color("BackgroundColor"))
                                 .listRowSeparatorTint(Color("PlaceholderColor"))
                             
