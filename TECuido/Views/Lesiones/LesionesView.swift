@@ -2,7 +2,7 @@
 //  LaunchScreenView.swift
 //  coreML-starter
 //
-//  
+//
 //
 
 import SwiftUI
@@ -39,7 +39,7 @@ struct LesionesView: View {
                     }
                     .alert(isPresented: $showingAlertHerida){
                         AcceptAlert(
-                            title: "Disclaimer",
+                            title: "Aviso",
                             message: "⚠️\n\nSolo son recomendaciones, no es consejo médico. Si te sientes mal, mejor consulta a tu médico."
                         ){
                             path.append(ClassificationNavModel(
@@ -58,7 +58,7 @@ struct LesionesView: View {
                     }
                     .alert(isPresented: $showingAlertQuemadura){
                         AcceptAlert(
-                            title: "Disclaimer",
+                            title: "Aviso",
                             message: "⚠️\n\nSolo son recomendaciones, no es consejo médico. Si te sientes mal, mejor consulta a tu médico."
                         ){
                             path.append(ClassificationNavModel(
@@ -78,7 +78,7 @@ struct LesionesView: View {
                 }
                 .alert(isPresented: $showingAlertPicadura){
                     AcceptAlert(
-                        title: "Disclaimer",
+                        title: "Aviso",
                         message: "⚠️\n\nSolo son recomendaciones, no es consejo médico. Si te sientes mal, mejor consulta a tu médico."
                     ){
                         path.append(ClassificationNavModel(

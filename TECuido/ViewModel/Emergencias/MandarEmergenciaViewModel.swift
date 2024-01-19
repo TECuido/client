@@ -128,28 +128,29 @@ class MandarEmergenciaViewModel: ObservableObject {
         switch motivo {
         case .Medica:
             isMedicaSelected = true
-            descripcion = "He tenido una emergencia médica, por favor ven a ayudarme"
+            descripcion = "¡Emergencia médica! Necesito ayuda. Por favor, llama a los servicios de emergencia y dirígete a mi ubicación."
         case .Acoso:
             isAcosoSelected = true
-            descripcion = "Ayúdame, me están acosando, ven pronto"
+            descripcion =
+            "¡Peligro! Necesito ayuda inmediata. Llama a la policía y ven a donde estoy."
         case .Secuestro:
             isSecuestroSelected = true
-            descripcion = "Estoy teniendo un intento de secuestro"
+            descripcion = "¡Secuestro! Necesito ayuda inmediata. Llama a la policía y comparte mi ubicación. Esta es una emergencia, por favor, actúa rápidamente."
         case .Desastre:
             isDesastreSelected = true
-            descripcion = "Ha sucedido un desastre natural"
+            descripcion = "¡Desastre natural! Necesito asistencia urgente. Comunica a las autoridades y a mis contactos sobre la situación y mi ubicación. Por favor, actúa rápidamente."
         case .Incendio:
             isIncendioSelected = true
-            descripcion = "Está sucediendo un incendio"
+            descripcion = "¡Incendio! Necesito ayuda urgente. Llama a los servicios de emergencia. Proporcionaré mi ubicación. Actúa con rapidez, por favor."
         case .Trafico:
             isTraficoSelected = true
-            descripcion = "He tenido un accidente de tráfico, ven a ayudarme"
+            descripcion = "¡Accidente de tráfico! He tenido un accidente. Llama a emergencias y ven a mi ubicación lo más pronto posible."
         case .Extorsion:
             isExtorsionSelected = true
-            descripcion = "Estoy siendo víctima de una extorsión"
+            descripcion = "¡Extorsión en curso! Necesito ayuda inmediata. Por favor, contacta a la policía para informarles sobre la situación. Actúa con urgencia."
         case .Tecnologica:
             isTecnologicaSelected = true
-            descripcion = "He tenido una emergencia tecnológica, por favor ven a ayudarme"
+            descripcion = "¡Emergencia tecnológica! Se ha producido un fallo grave o ciberataque. Necesito ayuda especializada. Por favor, contacta a los servicios de tecnología de emergencia y notifica a mis contactos sobre la situación."
         }
     }
         
@@ -167,5 +168,4 @@ class MandarEmergenciaViewModel: ObservableObject {
 
 
 }
-
 
