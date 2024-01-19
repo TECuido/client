@@ -3,13 +3,21 @@
 //  coreML-starter
 //
 
-import AVKit
 import SwiftUI
 
 struct DisplayedContentView: View {
     
+    
     private(set) var labelData: ClassificationObject
     @EnvironmentObject var closeModal: ModalManager
+    
+    private func getVideoId(videoUrl: String) -> String {
+        if let i = videoUrl.lastIndex(of: "/") {
+            return String(videoUrl[i...])
+        } else {
+            return videoUrl
+        }
+    }
     
     var body: some View {
         
@@ -30,8 +38,8 @@ struct DisplayedContentView: View {
                     .font(.custom("Lato", size: FontSize.text.rawValue))
                     .padding(.bottom, 15)
                 
-                VideoPlayer(player: AVPlayer(url:  URL(string: labelData.video)!))
-                    .frame(width: 300, height: 200)
+                YouTubeView(videoId: getVideoId(videoUrl: labelData.video))
+                    .padding(.bottom, 15)
                 
                 if labelData.label != "Saludable"{
                     Spacer()
