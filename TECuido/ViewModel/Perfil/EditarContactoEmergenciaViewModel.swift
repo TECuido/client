@@ -23,8 +23,11 @@
                  DispatchQueue.main.async {
                      self.contactos = data.data!
                      if(self.contactos.count > 0){
-                         self.contactosNombres = [contacto] + self.contactos.map{
-                             $0.nombre
+                         let contactosConCorreo = self.contactos.filter {
+                             $0.correo != nil
+                         }
+                         self.contactosNombres = [contacto] + contactosConCorreo.map{
+                                 $0.nombre
                          }
                          self.selectedOptionContacto = self.contactosNombres[0]
                      }
