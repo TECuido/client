@@ -50,7 +50,7 @@ struct ContactoEmergenciaView: View {
                       inputError: viewModel.telefonoError)
                 
                 Input(inputText: $viewModel.correo,
-                      inputPrompt: "Correo (opcional)",
+                      inputPrompt: "Correo",
                       icon: "envelope.fill",
                       iconSize: (30, 20),
                       iconPadding: 12,

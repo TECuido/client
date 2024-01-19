@@ -83,6 +83,7 @@
 		FB85685C2B3F7D7900E03B65 /* EnviarEmergenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB85685B2B3F7D7900E03B65 /* EnviarEmergenciaView.swift */; };
 		FB8811962AF5B5EE00387A63 /* TabLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */; };
 		FB8811982AF5B62100387A63 /* UnirseLlamadasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */; };
+		FB893FC62B5A168500B576E1 /* EnviarCorreoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB893FC52B5A168500B576E1 /* EnviarCorreoModel.swift */; };
 		FB95EF422AEB131800ECF38D /* GrupoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */; };
 		FB95EF442AEB1E2D00ECF38D /* MiembroGrupoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */; };
 		FB95EF462AEB20C300ECF38D /* CrearGrupoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95EF452AEB20C300ECF38D /* CrearGrupoViewModel.swift */; };
@@ -260,6 +261,7 @@
 		FB85685B2B3F7D7900E03B65 /* EnviarEmergenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarEmergenciaView.swift; sourceTree = "<group>"; };
 		FB8811952AF5B5EE00387A63 /* TabLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLlamadasView.swift; sourceTree = "<group>"; };
 		FB8811972AF5B62100387A63 /* UnirseLlamadasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasView.swift; sourceTree = "<group>"; };
+		FB893FC52B5A168500B576E1 /* EnviarCorreoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviarCorreoModel.swift; sourceTree = "<group>"; };
 		FB9034DC2AEC5F5C005E79A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FB95EF412AEB131800ECF38D /* GrupoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoDetailViewModel.swift; sourceTree = "<group>"; };
 		FB95EF432AEB1E2D00ECF38D /* MiembroGrupoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembroGrupoModel.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				FBBD9ACF2B4E325B0045DF9D /* MedicamentosActualesModel.swift */,
 				FBBD9AD12B4E32FE0045DF9D /* CondicionMedica.swift */,
 				FBA971CB2B58AB9900074B36 /* ContactoEmergenciaModel.swift */,
+				FB893FC52B5A168500B576E1 /* EnviarCorreoModel.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -1086,6 +1089,7 @@
 				FBE093EF2B51049500A49DE1 /* FontSize.swift in Sources */,
 				FB2676A12B55B59F000F4AAF /* MapaNavModel.swift in Sources */,
 				FBE093F42B51184200A49DE1 /* PasswordInput.swift in Sources */,
+				FB893FC62B5A168500B576E1 /* EnviarCorreoModel.swift in Sources */,
 				FB9CF8832AE20F2600A88FDE /* ContactoModel.swift in Sources */,
 				FBE093FB2B51CCF800A49DE1 /* AlergiaViewModel.swift in Sources */,
 				C0271A7D2AF33A5A00024BE5 /* PredictionStatus.swift in Sources */,

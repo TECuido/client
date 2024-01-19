@@ -27,7 +27,7 @@ struct AlergiaView: View {
                 Input(inputText: $viewModel.nombre,
                       inputPrompt: "Nombre de la alergia",
                       icon: "nose",
-                      iconSize: (30, 20),
+                      iconSize: (30, 30),
                       iconPadding: 15,
                       inputError: viewModel.nombreError)
                     .padding(.top, 20)

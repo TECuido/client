@@ -12,9 +12,6 @@ struct ContactoEmergenciaInicioModel : Codable {
  var correo: String?
  var telefono: String
  var esContactoEmergencia: Bool?
-
-
-
 }
 
 extension ContactoEmergenciaInicioModel {

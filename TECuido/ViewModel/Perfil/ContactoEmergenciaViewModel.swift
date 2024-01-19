@@ -45,8 +45,17 @@ class ContactoEmergenciaViewModel : ObservableObject {
                 throw ValidationError.error(description: "Debes ingresar el teléfono del contacto")
             }
             
+            if(correo.isEmpty){
+                DispatchQueue.main.async {
+                    self.telefonoError = 0
+                    self.correoError = 1
+                    self.nombreError = 0
+                }
+                throw ValidationError.error(description: "Debes ingresar el correo")
+            }
+            
             //checar que el email sea válido en caso de agregarlo
-            if(!correo.isEmpty && !isValidEmail(email: correo)){
+            if(!isValidEmail(email: correo)){
                 DispatchQueue.main.async {
                     self.telefonoError = 0
                     self.correoError = 1
@@ -85,7 +94,6 @@ class ContactoEmergenciaViewModel : ObservableObject {
                 }
                 
                 let result : Result<APIResponseModel<[ContactoEmergeciaDetallesResponseModel]>, NetworkError> = await Webservice.instance.postRequest("/contactos/usuario/\(tokens.id)", with: data)
-                print(result)
                 switch result {
                     case .success(_):
                         DispatchQueue.main.async {
