@@ -55,17 +55,19 @@ import SwiftUI
                                      .stroke(.red, lineWidth: CGFloat(viewModel.nombreError) * 2)
                              }
 
-                             Input(inputText: $viewModel.usuarioDetalles[0].numPoliza , inputPrompt: "Número de poliza", icon: "number", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].numPoliza , inputPrompt: "Número de póliza", icon: "number", iconSize: (25, 25), iconPadding: 10)
                              Input(inputText: $viewModel.usuarioDetalles[0].edad, inputPrompt: "Edad", icon: "calendar", iconSize: (25, 25), iconPadding: 10)
                              Input(inputText: $viewModel.usuarioDetalles[0].direccion, inputPrompt: "Dirección", icon: "location.fill", iconSize: (25, 25), iconPadding: 10)
                            
                              Input(inputText: $viewModel.usuarioDetalles[0].medicoTratante, inputPrompt: "Médico tratante", icon: "person.badge.plus", iconSize: (25, 25), iconPadding: 10)
                              Input(inputText: $viewModel.usuarioDetalles[0].tipoSangre, inputPrompt: "Tipo de Sangre", icon: "drop.fill", iconSize: (25, 25), iconPadding: 10)
-                             Input(inputText: $viewModel.usuarioDetalles[0].donacionOrganos, inputPrompt: "Donar órganos (SI/NO)", icon: "heart.text.square.fill", iconSize: (25, 25), iconPadding: 10)
-                             Input(inputText: $viewModel.usuarioDetalles[0].transfusionSanguinea, inputPrompt: "Donar Sangre (SI/NO)", icon: "drop.fill", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].donacionOrganos, inputPrompt: "Dontante de órganos (sí/no)", icon: "heart.text.square.fill", iconSize: (25, 25), iconPadding: 10)
+                             Input(inputText: $viewModel.usuarioDetalles[0].transfusionSanguinea, inputPrompt: "Apto a transfusión de sangre (sí/no)", icon: "drop.fill", iconSize: (25, 25), iconPadding: 10)
                              }
                              //Selección de editar contactos
                              BigText(text: "Selecciona el nuevo contacto")
+                             Text("Debe tener un correo registrado")
+                                 .font(.custom("Lato", size: FontSize.captions.rawValue))
 
                              let contactoEmergenciaNombre = viewModel.usuarioDetalles[0].contactoEmergencia.nombre
 
@@ -75,8 +77,8 @@ import SwiftUI
                               list: Array(Set(viewModelContacto.contactosNombres))
                              ) {
                               Task {
-                              // Use the local variable instead of accessing the property directly
-                              await viewModelContacto.getContactos(contacto: contactoEmergenciaNombre)
+                                  // Use the local variable instead of accessing the property directly
+                                  await viewModelContacto.getContactos(contacto: contactoEmergenciaNombre)
                               }
                              }
 
@@ -87,6 +89,15 @@ import SwiftUI
                                      await viewModel.getUsuarioDetalles()
                                  }
                              }
+                             .alert(isPresented: $viewModel.perfilEditado) {
+                                  AcceptAlert(
+                                      title: "Confirmación",
+                                      message:"Se ha editado el perfil médico con éxito"
+                                  ) {
+                                      viewModel.perfilEditado = false
+                                      isEditing = false
+                                  }
+                              }
                            
 
                             } else {
@@ -98,17 +109,17 @@ import SwiftUI
                      if let usuario = viewModel.usuarioDetalles.first {
                          
                          InfoRow(titulo: "Nombre del paciente", respuesta: usuario.Usuario.nombre)
-                         InfoRow(titulo: "Numero de poliza", respuesta: viewModel.formatResult(usuario.numPoliza))
+                         InfoRow(titulo: "Número de póliza", respuesta: viewModel.formatResult(usuario.numPoliza))
                          InfoRow(titulo: "Edad", respuesta: viewModel.formatResult(usuario.edad))
                          InfoRow(titulo: "Dirección", respuesta: viewModel.formatResult(usuario.direccion))
 
                          let infoContacto = " \(usuario.contactoEmergencia.nombre)  \( usuario.contactoEmergencia.correo.map { "\n\($0)" } ?? "")  \(usuario.contactoEmergencia.telefono.map { "\n\($0)" } ?? "")"
-                         InfoRow(titulo: "Contacto de Emergencia", respuesta: infoContacto)
+                         InfoRow(titulo: "Contacto de emergencia", respuesta: infoContacto)
 
-                         InfoRow(titulo: "Medico tratante", respuesta: viewModel.formatResult(usuario.medicoTratante))
-                         InfoRow(titulo: "Tipo de Sangre", respuesta: viewModel.formatResult(usuario.tipoSangre))
-                         InfoRow(titulo: "Donacion de Organos", respuesta: viewModel.formatResult(usuario.donacionOrganos))
-                         InfoRow(titulo: "Donacion de Sangre", respuesta: viewModel.formatResult(usuario.transfusionSanguinea))
+                         InfoRow(titulo: "Médico tratante", respuesta: viewModel.formatResult(usuario.medicoTratante))
+                         InfoRow(titulo: "Tipo de sangre", respuesta: viewModel.formatResult(usuario.tipoSangre))
+                         InfoRow(titulo: "Donante de órganos", respuesta: viewModel.formatResult(usuario.donacionOrganos))
+                         InfoRow(titulo: "Apto a transfusión de sangre", respuesta: viewModel.formatResult(usuario.transfusionSanguinea))
                     } else {
                          ErrorMessage(errorText: "No se encontraron detalles del usuario.")
                     }
@@ -127,38 +138,31 @@ import SwiftUI
                          }
                      }
                      .padding(.bottom, 10)
+                     .alert(isPresented: $viewModel.correoEnviado) {
+                         AcceptAlert(
+                             title: "Correo enviado",
+                             message: "Se ha enviado un correo a tu contacto de emergencia con los datos de tu perfil médico"
+                         ){
+                             viewModel.correoEnviado = false
+                         }
+                     }
+
                      
                  }
                    
                 
                  }// Fin pantalla normal
              }
+            
              .onAppear {
                  // Llamada a la función getUsuarioDetalles al aparecer la vista
                  Task {
                      await viewModel.getUsuarioDetalles()
                  }
              }
-             .alert(isPresented: $viewModel.correoEnviado) {
-                 AcceptAlert(
-                     title: "Correo enviado",
-                     message: "Se ha enviado un correo a tu contacto de emergencia con los datos de tu perfil médico"
-                 ){
-                     path.removeLast()
-                 }
-             }
-                         
+             
          }
-         .alert(isPresented: $viewModel.perfilEditado) {
-              AcceptAlert(
-                  title: "Confirmación",
-                  message:"Se ha editado el perfil médico con éxito"
-              ) {
-                  viewModel.perfilEditado = false
-                  isEditing = false
-              }
-          }
-     }
+    }
        
  }
 

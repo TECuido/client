@@ -18,7 +18,7 @@ class GetUsuarioDetallesViewModel: ObservableObject {
     @Published var perfilEditado = false
     
     private func formatData(_ data: String) -> String{
-        if(data == "Sin información"){
+        if(data == "Sin información" || data == "Sin informacion"){
             return ""
         } else {
             return data
