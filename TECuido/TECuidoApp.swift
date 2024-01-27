@@ -66,6 +66,8 @@ struct TECuidoApp: App {
                             ContactoEmergenciaView(path: $path)
                         case TECuidoView.tag:
                             TECuidoView(path: $path)
+                        case CreditosView.tag:
+                            CreditosView(path: $path)
                         default:
                             TECuidoView(path: $path)
                         }

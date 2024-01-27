@@ -25,6 +25,17 @@ struct TECuidoView: View {
                     .ignoresSafeArea()
                 
                 VStack{
+                    HStack {
+                        Spacer()
+                                      
+                        Image(systemName: "exclamationmark.circle")
+                        .font(.system(size: 30))
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            path.append("Creditos")
+                        }
+                        .padding()
+                    }
                     
                     Text("TECuido")
                         .font(.custom("Inter", size: FontSize.largeTitle.rawValue))
