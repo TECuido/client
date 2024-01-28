@@ -29,20 +29,22 @@ struct CreditosView: View {
                         Spacer()
                         LabelText(text:"Julio Emmanuel Meza Rangel julio2510@outlook.com")
                         Spacer()
+                        LabelText(text:"Rúben Kumar Tandon Ramírez ruben.tandon@live.com")
+                        Spacer()
                     }
                     Group{
                         SubTitle(text: "Socios de Dilo en Señas:")
                         Spacer()
-                        LabelText(text:"Rocio Garza Gutiérrez rociogarzagutierrez@gmail.com")
+                        LabelText(text:"Rocio Garza Gutiérrez ")
                         Spacer()
-                        LabelText(text:"Paulo Samuel Manzano Pérez paulo.samuel.mp@gmail.com")
+                        LabelText(text:"Paulo Samuel Manzano Pérez ")
                         Spacer()
-                        LabelText(text:"José Gerardo Monsivais González josegmonsivais@gmail.com")
+                        LabelText(text:"José Gerardo Monsivais González ")
                     }
                     Group{
                         SubTitle(text: "Asesorado por:")
                         Spacer()
-                        LabelText(text:"Elvia Rosas rociogarzagutierrez@gmail.com")
+                        LabelText(text:"Elvia Rosas ")
                      
                     }
                 }
