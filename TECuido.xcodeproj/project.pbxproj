@@ -998,7 +998,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					FB1C31792AD9C6E200965B4B = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -1257,6 +1257,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1317,6 +1318,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1349,6 +1351,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TECuido/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "TECuido App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to location";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
@@ -1385,6 +1389,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TECuido/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "TECuido App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "TECuido requires camera access in order to capture and transmit video";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow access to location";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TECuido requires access to the microphone in order to capture and transmit audio";
