@@ -21,30 +21,30 @@ struct CreditosView: View {
                 ScrollView{
                     Title(text:"Créditos")
                     Group{
-                        SubTitle(text: "Desarrolladores:")
+                        Heading(text: "Desarrolladores:")
                         Spacer()
-                        LabelText(text:"Bernardo de la Sierra Rábago bdelasierrar@gmail.com")
+                        BigText(text:"Bernardo de la Sierra Rábago bdelasierrar@gmail.com")
                         Spacer()
-                        LabelText(text:"kraken Alejandro Domínguez Ramírez kraken209254@gmail.com")
+                        BigText(text:"kraken Alejandro Domínguez Ramírez kraken209254@gmail.com")
                         Spacer()
-                        LabelText(text:"Julio Emmanuel Meza Rangel julio2510@outlook.com")
+                        BigText(text:"Julio Emmanuel Meza Rangel julio2510@outlook.com")
                         Spacer()
-                        LabelText(text:"Rúben Kumar Tandon Ramírez ruben.tandon@live.com")
+                        BigText(text:"Rúben Kumar Tandon Ramírez ruben.tandon@live.com")
                         Spacer()
                     }
                     Group{
-                        SubTitle(text: "Socios de Dilo en Señas:")
+                        Heading(text: "Socios de Dilo en Señas:")
                         Spacer()
-                        LabelText(text:"Rocio Garza Gutiérrez ")
+                        BigText(text:"Rocio Garza Gutiérrez ")
                         Spacer()
-                        LabelText(text:"Paulo Samuel Manzano Pérez ")
+                        BigText(text:"Paulo Samuel Manzano Pérez ")
                         Spacer()
-                        LabelText(text:"José Gerardo Monsivais González ")
+                        BigText(text:"José Gerardo Monsivais González ")
                     }
                     Group{
-                        SubTitle(text: "Asesorado por:")
+                        Heading(text: "Asesorado por:")
                         Spacer()
-                        LabelText(text:"Elvia Rosas ")
+                        BigText(text:"Elvia Rosas ")
                      
                     }
                 }

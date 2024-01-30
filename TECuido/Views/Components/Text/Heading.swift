@@ -12,7 +12,7 @@ struct Heading: View {
     var text: String
     
     var body: some View {
-        Text("Descripción de la alerta:")
+        Text(text)
             .font(.custom("Lato", size: FontSize.label.rawValue))
             .bold()
             .foregroundColor(Color("HeadingColor"))
