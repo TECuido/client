@@ -43,6 +43,8 @@
 		FB3EB4F62AFD87CE0015FD36 /* LlamadaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F52AFD87CE0015FD36 /* LlamadaModel.swift */; };
 		FB3EB4F82AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */; };
 		FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */; };
+		FB446F692B6EB0840041E471 /* EditarContactosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB446F682B6EB0840041E471 /* EditarContactosView.swift */; };
+		FB446F6B2B6EB4040041E471 /* ContactoNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB446F6A2B6EB4040041E471 /* ContactoNavigationModel.swift */; };
 		FB48C0502ADDEB53000FF522 /* TECuidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */; };
 		FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */; };
 		FB4D55F42AF3154600D1C533 /* SpeechToTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */; };
@@ -222,6 +224,8 @@
 		FB3EB4F52AFD87CE0015FD36 /* LlamadaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadaModel.swift; sourceTree = "<group>"; };
 		FB3EB4F72AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnirseLlamadasViewModel.swift; sourceTree = "<group>"; };
 		FB3EB4F92AFDD0320015FD36 /* LlamTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamTView.swift; sourceTree = "<group>"; };
+		FB446F682B6EB0840041E471 /* EditarContactosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarContactosView.swift; sourceTree = "<group>"; };
+		FB446F6A2B6EB4040041E471 /* ContactoNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoNavigationModel.swift; sourceTree = "<group>"; };
 		FB48C04F2ADDEB53000FF522 /* TECuidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TECuidoView.swift; sourceTree = "<group>"; };
 		FB4D55F12AF3148B00D1C533 /* LlamadasTemporalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LlamadasTemporalView.swift; sourceTree = "<group>"; };
 		FB4D55F32AF3154600D1C533 /* SpeechToTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextView.swift; sourceTree = "<group>"; };
@@ -756,6 +760,7 @@
 				FB999B622AE1D96B0018C268 /* ListaGruposView.swift */,
 				FBB8EC632AE1D5E800D8766C /* ContactosView.swift */,
 				FB999B5E2AE1D93E0018C268 /* ListaContactosView.swift */,
+				FB446F682B6EB0840041E471 /* EditarContactosView.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -916,6 +921,7 @@
 				FB9CF8822AE20F2600A88FDE /* ContactoModel.swift */,
 				FB9CF8882AE2196B00A88FDE /* GrupoModel.swift */,
 				FBB123982B534FE50064DE07 /* GrupoNavigationModel.swift */,
+				FB446F6A2B6EB4040041E471 /* ContactoNavigationModel.swift */,
 			);
 			path = Contactos;
 			sourceTree = "<group>";
@@ -1081,6 +1087,7 @@
 				FB85685C2B3F7D7900E03B65 /* EnviarEmergenciaView.swift in Sources */,
 				FB2B44BC2ADE2A2F00D2CD9E /* AuthManager.swift in Sources */,
 				FBB123872B530A740064DE07 /* GetUsuarioDetallesModel.swift in Sources */,
+				FB446F6B2B6EB4040041E471 /* ContactoNavigationModel.swift in Sources */,
 				FB3EB4FA2AFDD0320015FD36 /* LlamTView.swift in Sources */,
 				FB9A48022ADEFE2B00BC4AC6 /* WebService.swift in Sources */,
 				FB4D55F22AF3148B00D1C533 /* LlamadasTemporalView.swift in Sources */,
@@ -1148,6 +1155,7 @@
 				FBB3D0012B4C6551003CEF52 /* UsuarioDetallesModel.swift in Sources */,
 				FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */,
 				FB26769D2B5517AB000F4AAF /* SelectionTabView.swift in Sources */,
+				FB446F692B6EB0840041E471 /* EditarContactosView.swift in Sources */,
 				FBE094012B51D6A000A49DE1 /* UsuarioDetallesView.swift in Sources */,
 				FBE094162B5235AE00A49DE1 /* LargeButton.swift in Sources */,
 				FB6A2EFF2ADA002C00122000 /* SinEmergenciasView.swift in Sources */,
