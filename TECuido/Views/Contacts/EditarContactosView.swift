@@ -14,6 +14,8 @@ struct EditarContactosView: View {
        @StateObject var viewModel = ContactoViewModel()
 
        @Binding var path: NavigationPath
+    
+    @StateObject var viewModel2 = EditContactViewModel()
    
        var  contacto: ContactoModel
        static var tag = "EditarContactos"
@@ -77,22 +79,23 @@ struct EditarContactosView: View {
                 
                 PrimaryButton(title: "Enviar"){
                     Task {
-                        await viewModel.addContacto()
+                        await viewModel2.updateContact(idContacto:contacto.id,nombre:viewModel.nombre,correo:viewModel.correo,telefono:viewModel.telefono)
+                    }
+                }
+                // Modal
+                .alert(isPresented: $viewModel2.perfilEditado) {
+                    AcceptAlert(
+                        title: "Contacto Editado",
+                        message:  "Se agregó el contacto con éxito"
+                    ){
+                        viewModel.correo = ""
+                        path.removeLast()
                     }
                 }
                 
             }
             
-            // Modal
-            /*.alert(isPresented: $viewModel.addedContacto) {
-                AcceptAlert(
-                    title: session.tipoUsuario == 2 ? "Paciente Agregado" : "Contacto Agregado",
-                    message: session.tipoUsuario == 2 ? "Se agregó al paciente con éxito" : "Se agregó el contacto con éxito"
-                ){
-                    viewModel.correo = ""
-                    path.removeLast()
-                }
-            }*/
+            
             
         }
     }

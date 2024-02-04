@@ -66,35 +66,20 @@ struct ListaContactosView: View {
                                             Button(action: {
                                                 // Acción para mostar el aviso
                                                 showAviso = true
+                                                viewModel.isShowingConfirmationModel = true
                                             }) {
                                                 Label("Advertencia", systemImage: "exclamationmark.triangle.fill")
                                             }
-                                            .alert(isPresented: $showAviso) {
-                                                AcceptAlert(
-                                                    title: "Contacto de Emergencia",
-                                                    message:"No se puede eliminar el contacto de emergencia"
-                                                ) {
-                                                    // Handle alert action
-                                                }
-                                            }
-                                        } else {
+                                                                                    } else {
                                             Button(action: {
                                                 // Acción para borrar
+                                                showAviso = false
                                                 viewModel.isShowingConfirmationModel = true
                                                 viewModel.idContacto = item.id
                                             }) {
                                                 Label("Borrar", systemImage: "trash")
                                             }
-                                            .alert(isPresented: $viewModel.isShowingConfirmationModel) {
-                                                OptionsAlert(
-                                                    title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
-                                                    message:" ¿Estás seguro de que deseas eliminar el contacto?"
-                                                ) {
-                                                    Task {
-                                                        await viewModel.deleteContactos()
-                                                    }
-                                                }
-                                            }
+                                            
                                         }
                                     } label: {
                                         Image(systemName: "ellipsis.circle")
@@ -102,8 +87,42 @@ struct ListaContactosView: View {
                                             .frame(width: 25, height: 25)
                                             .foregroundColor(Color("LightBlue"))
                                     }
+                                    
 
-                                    } // Acaba el HStack
+                                    }
+                                
+                                .alert(isPresented: $viewModel.isShowingConfirmationModel) {
+                                    print(showAviso)
+                                    if(showAviso){
+                                        return AcceptAlert(
+                                            title: "Contacto de Emergencia",
+                                            message:"No se puede eliminar el contacto de emergencia"
+                                        ) {
+                                            // Handle alert action
+                                        }
+                                    }else if(viewModel.isShowingConfirmationModel && !showAviso){
+                                       return  OptionsAlert(
+                                            title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
+                                            message:" ¿Estás seguro de que deseas eliminar el contacto?"
+                                        ) {
+                                            Task {
+                                                await viewModel.deleteContactos()
+                                            }
+                                        }
+                                        
+                                    } else{
+                                        return  OptionsAlert(
+                                             title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
+                                             message:" ¿Estás seguro de que deseas eliminar el contacto?"
+                                         ) {
+                                             Task {
+                                                 await viewModel.deleteContactos()
+                                             }
+                                         }
+
+                                    }
+                                       
+                                    }// Acaba el HStack
                                     .listRowBackground(Color("BackgroundColor"))
                                     .listRowSeparatorTint(Color("PlaceholderColor"))
                                

@@ -22,10 +22,6 @@ extension ContactoEmergenciaInicioModel {
 
 }
 
-
-
-
-
 struct ContactoDetallesModel: Codable {
  var idContacto: Int
  var nombre: String

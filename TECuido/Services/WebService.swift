@@ -61,7 +61,7 @@ struct AccessKeys: Codable {
 
 class Webservice: ObservableObject {
     
-    let baseURL = "https://tecuido-api.diloensenas.org"
+    let baseURL = "https://tecuido-server-v6og.onrender.com"
     let authManager = AuthManager.shared
     @Published var isAuthenticated = false
         
