@@ -15,7 +15,6 @@ struct ListaContactosView: View {
     @StateObject var viewModelContacto = GetUsuarioDetallesViewModel()
     @State var showAviso: Bool = false
     @Binding var path: NavigationPath
-
     
     var body: some View {
         ZStack{
@@ -51,56 +50,79 @@ struct ListaContactosView: View {
                                     )
                                     
                                     Spacer()
+                                    Menu {
+                                        Button(action: {
+                                            path.append(ContactoNavigationModel(
+                                                    tag: EditarContactosView.tag,
+                                                    contacto: item
+                                                )
+                                            )
+                                        }){
+                                            Label("Editar", systemImage: "pencil")
+                                        }
+                                        
+                                        if let contactoEmergencia = viewModelContacto.usuarioDetalles.first?.contactoEmergencia,
+                                           contactoEmergencia.telefono == item.telefono {
+                                            Button(action: {
+                                                // Acción para mostar el aviso
+                                                showAviso = true
+                                                viewModel.isShowingConfirmationModel = true
+                                            }) {
+                                                Label("Advertencia", systemImage: "exclamationmark.triangle.fill")
+                                            }
+                                                                                    } else {
+                                            Button(action: {
+                                                // Acción para borrar
+                                                showAviso = false
+                                                viewModel.isShowingConfirmationModel = true
+                                                viewModel.idContacto = item.id
+                                            }) {
+                                                Label("Borrar", systemImage: "trash")
+                                            }
+                                            
+                                        }
+                                    } label: {
+                                        Image(systemName: "ellipsis.circle")
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                            .foregroundColor(Color("LightBlue"))
+                                    }
                                     
-                                    if let contactoEmergencia = viewModelContacto.usuarioDetalles.first?.contactoEmergencia,
-                                               contactoEmergencia.telefono == item.telefono {
-                                        Button(action: {
-                                            // Acción para mostar el aviso
-                                            showAviso = true
-                                            
-                                            
-                                        }) {
-                                            Image(systemName: "exclamationmark.triangle.fill")
-                                                .resizable()
-                                                .foregroundColor(Color("LightBlue"))
-                                                .frame(width: 25, height: 25)
+
+                                    }
+                                
+                                .alert(isPresented: $viewModel.isShowingConfirmationModel) {
+                                    print(showAviso)
+                                    if(showAviso){
+                                        return AcceptAlert(
+                                            title: "Contacto de Emergencia",
+                                            message:"No se puede eliminar el contacto de emergencia"
+                                        ) {
+                                            // Handle alert action
                                         }
-                                        // Modal
-                                        .alert(isPresented: $showAviso) {
-                                            AcceptAlert(
-                                                title: "Contacto de Emergencia",
-                                                message:"No se puede eliminar el contacto de emergencia"
-                                            ){
-                                               
+                                    }else if(viewModel.isShowingConfirmationModel && !showAviso){
+                                       return  OptionsAlert(
+                                            title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
+                                            message:" ¿Estás seguro de que deseas eliminar el contacto?"
+                                        ) {
+                                            Task {
+                                                await viewModel.deleteContactos()
                                             }
                                         }
-                                    }else{
+                                        
+                                    } else{
+                                        return  OptionsAlert(
+                                             title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
+                                             message:" ¿Estás seguro de que deseas eliminar el contacto?"
+                                         ) {
+                                             Task {
+                                                 await viewModel.deleteContactos()
+                                             }
+                                         }
 
-
-                                        Button(action: {
-                                            // Acción para borrar
-                                            viewModel.isShowingConfirmationModel = true
-                                            viewModel.idContacto = item.id
-                                            
-                                        }) {
-                                            Image(systemName: "minus.circle.fill")
-                                                .resizable()
-                                                .foregroundColor(Color("LightBlue"))
-                                                .frame(width: 25, height: 25)
-                                        }
-                                        // Modal
-                                        .alert(isPresented: $viewModel.isShowingConfirmationModel) {
-                                            OptionsAlert(
-                                                title: session.tipoUsuario == 2 ? "Eliminar paciente" : "Eliminar contacto",
-                                                message:" ¿Estás seguro de que deseas eliminar el contacto?"
-                                            ){
-                                                Task {
-                                                    await viewModel.deleteContactos()
-                                                }
-                                            }
-                                        }
-                                    } // Acaba el boton eliminar
-                                    } // Acaba el HStack
+                                    }
+                                       
+                                    }// Acaba el HStack
                                     .listRowBackground(Color("BackgroundColor"))
                                     .listRowSeparatorTint(Color("PlaceholderColor"))
                                

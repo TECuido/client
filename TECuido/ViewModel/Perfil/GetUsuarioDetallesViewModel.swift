@@ -4,6 +4,7 @@
 //  Created by Alumno on 13/01/24.
 //
 import Foundation
+
 class GetUsuarioDetallesViewModel: ObservableObject {
     var nombre: String = ""
     @Published var error: String = ""

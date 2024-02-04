@@ -31,7 +31,7 @@ struct MiddleButton: View {
             }
             .frame(width: 145, height: 100)
             .background(
-                isSelected ? Color("DarkBlue") : Color("LightBlue")
+                isSelected ? Color.red : Color("LightBlue")
             )
             .cornerRadius(16)
             .padding(2)

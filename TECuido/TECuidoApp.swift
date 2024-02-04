@@ -68,6 +68,7 @@ struct TECuidoApp: App {
                             TECuidoView(path: $path)
                         case CreditosView.tag:
                             CreditosView(path: $path)
+                        
                         default:
                             TECuidoView(path: $path)
                         }
@@ -83,6 +84,14 @@ struct TECuidoApp: App {
                         switch item.tag {
                         case EditarGrupoView.tag:
                             EditarGrupoView(path: $path, grupo: item.grupo)
+                        default:
+                            TECuidoView(path: $path)
+                        }
+                    }
+                    .navigationDestination(for: ContactoNavigationModel.self){item in
+                        switch item.tag {
+                        case EditarContactosView.tag:
+                            EditarContactosView(path: $path, contacto: item.contacto)
                         default:
                             TECuidoView(path: $path)
                         }

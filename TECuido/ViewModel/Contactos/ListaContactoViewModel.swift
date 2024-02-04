@@ -13,6 +13,7 @@ class ListaContactoViewModel : ObservableObject {
     @Published var contactos: [ContactoModel] = []
     @Published var idContacto: Int = -1
     @Published var isShowingConfirmationModel: Bool = false
+    
     @Published var borrado: Bool = false
     
     public func getContactos() async {
