@@ -18,11 +18,13 @@ struct MiddleButton: View {
     var body: some View {
         Button(action: action) {
             VStack {
+                
                 Text(title)
                     .foregroundColor(Color("White"))
                     .font(.custom("Lato", size: FontSize.text.rawValue))
                     .bold()
                     .padding(.bottom, 3)
+                
                 Image(systemName: iconName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

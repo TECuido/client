@@ -22,15 +22,16 @@ struct EnviarEmergenciaView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack{
+                
+                VStack(alignment: .center){
                     
                     Title(text: "Emergencias")
                     
                     BigText(text: "Selecciona el motivo")
                     
-                    HStack{
+                    HStack(alignment: .top){
                         
-                        MiddleButton(
+                        IconButton(
                             title: "Médica",
                             iconName: "heart.circle.fill",
                             hint: "Manda una emergencia médica",
@@ -39,7 +40,7 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Medica)
                         }
                         
-                        MiddleButton(
+                        IconButton(
                             title: "Acoso",
                             iconName: "exclamationmark.triangle.fill",
                             hint: "Manda una emergencia de que estás recibiendo acoso",
@@ -48,12 +49,7 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Acoso)
                         }
                         
-                    }
-                    
-                    
-                    HStack{
-                        
-                        MiddleButton(
+                        IconButton(
                             title: "Secuestro",
                             iconName: "bolt.horizontal.circle.fill",
                             hint: "Manda una emergencia de secuestro",
@@ -62,7 +58,13 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Secuestro)
                         }
                         
-                        MiddleButton(
+                    }
+                    
+                    
+                    HStack(alignment: .top){
+                        
+                        
+                        IconButton(
                             title: "Desastre natural",
                             iconName: "tornado",
                             hint: "Manda una emergencia de desastre natural",
@@ -71,20 +73,16 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Desastre)
                         }
                         
-                    }
-                    
-                    HStack{
-                        
-                        MiddleButton(
-                            title: "Incendio",
-                            iconName: "flame.fill",
-                            hint: "Manda una emergencia de incendio",
-                            isSelected: viewModel.isIncendioSelected
+                        IconButton(
+                            title: "Emergencia tecnológica",
+                            iconName: "antenna.radiowaves.left.and.right",
+                            hint: "Manda una emergencia tecnológica",
+                            isSelected: viewModel.isTecnologicaSelected
                         ){
-                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Incendio)
+                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Tecnologica)
                         }
                         
-                        MiddleButton(
+                        IconButton(
                             title: "Accidente de tráfico",
                             iconName: "car.fill",
                             hint: "Manda una emergencia de tipo tráfico",
@@ -93,11 +91,13 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Trafico)
                         }
                         
-                    }
-                    
-                    HStack{
                         
-                        MiddleButton(
+                    }
+
+                    
+                    HStack(alignment: .top){
+                        
+                        IconButton(
                             title: "Extorsión",
                             iconName: "hand.raised.fill",
                             hint: "Manda una emergencia de extorsión",
@@ -106,14 +106,16 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Extorsion)
                         }
                         
-                        MiddleButton(
-                            title: "Emergencia tecnológica",
-                            iconName: "antenna.radiowaves.left.and.right",
-                            hint: "Manda una emergencia tecnológica",
-                            isSelected: viewModel.isTecnologicaSelected
+                        IconButton(
+                            title: "Incendio",
+                            iconName: "flame.fill",
+                            hint: "Manda una emergencia de incendio",
+                            isSelected: viewModel.isIncendioSelected
                         ){
-                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Tecnologica)
+                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Incendio)
                         }
+                        
+                        
                         
                     }
                     
@@ -147,11 +149,10 @@ struct EnviarEmergenciaView: View {
                         }
                     }
                 }
-                
             }
-            
         }
     }
+    
 }
 
 
