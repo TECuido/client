@@ -29,10 +29,7 @@ struct ContactosView: View {
                 .tabItem{
                     Image(systemName: "person.3.fill")
                 }
-            
         }
-        
-        
     }
 }
 
