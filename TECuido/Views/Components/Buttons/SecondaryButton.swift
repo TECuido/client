@@ -13,7 +13,6 @@ struct SecondaryButton: View {
     var action: () -> Void
     
     var body: some View {
-        // Boton Registrarse
         Button(title){
             action()
         }
