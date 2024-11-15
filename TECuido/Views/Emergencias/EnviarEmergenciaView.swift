@@ -22,16 +22,15 @@ struct EnviarEmergenciaView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                
-                VStack(alignment: .center){
+                VStack{
                     
                     Title(text: "Emergencias")
                     
                     BigText(text: "Selecciona el motivo")
                     
-                    HStack(alignment: .top){
+                    HStack{
                         
-                        IconButton(
+                        MiddleButton(
                             title: "Médica",
                             iconName: "heart.circle.fill",
                             hint: "Manda una emergencia médica",
@@ -40,7 +39,7 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Medica)
                         }
                         
-                        IconButton(
+                        MiddleButton(
                             title: "Acoso",
                             iconName: "exclamationmark.triangle.fill",
                             hint: "Manda una emergencia de que estás recibiendo acoso",
@@ -49,7 +48,12 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Acoso)
                         }
                         
-                        IconButton(
+                    }
+                    
+                    
+                    HStack{
+                        
+                        MiddleButton(
                             title: "Secuestro",
                             iconName: "bolt.horizontal.circle.fill",
                             hint: "Manda una emergencia de secuestro",
@@ -58,13 +62,7 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Secuestro)
                         }
                         
-                    }
-                    
-                    
-                    HStack(alignment: .top){
-                        
-                        
-                        IconButton(
+                        MiddleButton(
                             title: "Desastre natural",
                             iconName: "tornado",
                             hint: "Manda una emergencia de desastre natural",
@@ -73,40 +71,11 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Desastre)
                         }
                         
-                        IconButton(
-                            title: "Emergencia tecnológica",
-                            iconName: "antenna.radiowaves.left.and.right",
-                            hint: "Manda una emergencia tecnológica",
-                            isSelected: viewModel.isTecnologicaSelected
-                        ){
-                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Tecnologica)
-                        }
-                        
-                        IconButton(
-                            title: "Accidente de tráfico",
-                            iconName: "car.fill",
-                            hint: "Manda una emergencia de tipo tráfico",
-                            isSelected: viewModel.isTraficoSelected
-                        ){
-                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Trafico)
-                        }
-                        
-                        
                     }
-
                     
-                    HStack(alignment: .top){
+                    HStack{
                         
-                        IconButton(
-                            title: "Extorsión",
-                            iconName: "hand.raised.fill",
-                            hint: "Manda una emergencia de extorsión",
-                            isSelected: viewModel.isExtorsionSelected
-                        ){
-                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Extorsion)
-                        }
-                        
-                        IconButton(
+                        MiddleButton(
                             title: "Incendio",
                             iconName: "flame.fill",
                             hint: "Manda una emergencia de incendio",
@@ -115,7 +84,36 @@ struct EnviarEmergenciaView: View {
                             viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Incendio)
                         }
                         
+                        MiddleButton(
+                            title: "Accidente de tráfico",
+                            iconName: "car.fill",
+                            hint: "Manda una emergencia de tipo tráfico",
+                            isSelected: viewModel.isTraficoSelected
+                        ){
+                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Trafico)
+                        }
                         
+                    }
+                    
+                    HStack{
+                        
+                        MiddleButton(
+                            title: "Extorsión",
+                            iconName: "hand.raised.fill",
+                            hint: "Manda una emergencia de extorsión",
+                            isSelected: viewModel.isExtorsionSelected
+                        ){
+                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Extorsion)
+                        }
+                        
+                        MiddleButton(
+                            title: "Emergencia tecnológica",
+                            iconName: "antenna.radiowaves.left.and.right",
+                            hint: "Manda una emergencia tecnológica",
+                            isSelected: viewModel.isTecnologicaSelected
+                        ){
+                            viewModel.updateSelectedMotivo(motivo: TipoEmergencia.Tecnologica)
+                        }
                         
                     }
                     
@@ -149,10 +147,11 @@ struct EnviarEmergenciaView: View {
                         }
                     }
                 }
+                
             }
+            
         }
     }
-    
 }
 
 

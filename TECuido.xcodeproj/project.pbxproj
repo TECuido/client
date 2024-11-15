@@ -171,7 +171,6 @@
 		FBE5881A2AE32C19009A48B6 /* MostrarRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */; };
 		FBE5881E2AE33F73009A48B6 /* CreaGrupoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */; };
 		FBEAC1832AE3224200934F95 /* ListaRecetasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEAC1822AE3224100934F95 /* ListaRecetasViewModel.swift */; };
-		FBF725DA2B7F07C200276568 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF725D92B7F07C200276568 /* IconButton.swift */; };
 		FBFA60F72AE9C6850076EF5D /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */; };
 		FBFA60F92AE9C6E60076EF5D /* APIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */; };
 		FBFA60FB2AE9C6F80076EF5D /* TipoUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */; };
@@ -357,7 +356,6 @@
 		FBE588192AE32C19009A48B6 /* MostrarRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostrarRecetaView.swift; sourceTree = "<group>"; };
 		FBE5881D2AE33F73009A48B6 /* CreaGrupoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaGrupoView.swift; sourceTree = "<group>"; };
 		FBEAC1822AE3224100934F95 /* ListaRecetasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaRecetasViewModel.swift; sourceTree = "<group>"; };
-		FBF725D92B7F07C200276568 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		FBFA60F62AE9C6850076EF5D /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		FBFA60F82AE9C6E60076EF5D /* APIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseModel.swift; sourceTree = "<group>"; };
 		FBFA60FA2AE9C6F80076EF5D /* TipoUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoUsuario.swift; sourceTree = "<group>"; };
@@ -507,7 +505,6 @@
 				FBE094092B521C5200A49DE1 /* Recetas */,
 				FBE094082B521C3800A49DE1 /* Emergencias */,
 				FBE094072B521C2200A49DE1 /* Contacts */,
-				FBE0940A2B521C6B00A49DE1 /* Lesiones */,
 				FBE093EC2B50FA0D00A49DE1 /* Inicio */,
 			);
 			path = Views;
@@ -691,7 +688,6 @@
 				FBFE80EA2B54BA19001C0E15 /* LinkButton.swift */,
 				FB2676A22B55D26D000F4AAF /* MiddleButton.swift */,
 				FBA971B42B55F71500074B36 /* AgregarButton.swift */,
-				FBF725D92B7F07C200276568 /* IconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -704,6 +700,7 @@
 				FB1C318B2AD9C6F500965B4B /* LoginView.swift */,
 				FBFA61002AE9C8730076EF5D /* TipoCuentaView.swift */,
 				FB1C318D2AD9C71700965B4B /* RegistroView.swift */,
+				FBE0940A2B521C6B00A49DE1 /* Lesiones */,
 				FB1C318F2AD9C73E00965B4B /* HomeView.swift */,
 				FBA971D92B58B7FD00074B36 /* SplashView.swift */,
 			);
@@ -1085,7 +1082,6 @@
 				FBE094062B5214A100A49DE1 /* BigButton.swift in Sources */,
 				FB5F05582B06C8B5005D5403 /* EditarGrupoViewModel.swift in Sources */,
 				FBFE80EB2B54BA1A001C0E15 /* LinkButton.swift in Sources */,
-				FBF725DA2B7F07C200276568 /* IconButton.swift in Sources */,
 				FB3EB4F82AFDB51C0015FD36 /* UnirseLlamadasViewModel.swift in Sources */,
 				FB6A5BB82AE30F6200D6F4C5 /* ListaRecetasView.swift in Sources */,
 				FB1C318C2AD9C6F500965B4B /* LoginView.swift in Sources */,
